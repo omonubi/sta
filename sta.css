@@ -586,6 +586,7 @@ Author: Don Davis, aka omonubi
 .sheet-focuses-row input[type="text"] {
 	flex: 1;
 	width: 0; /* flex will override; prevents overflow */
+	border-bottom: 1px solid #333333;
 }
 
 /* Rows 2+ hidden by default */
@@ -623,6 +624,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-values-row input[type="text"] {
 	width: 100%;
+	border-bottom: 1px solid #333333;
 }
 
 /* Rows 2+ hidden by default */
@@ -799,6 +801,14 @@ Author: Don Davis, aka omonubi
 .sheet-rolltemplate-task .sheet-lcars-result-header {
 	background-color: #FF7700;
 	padding: 6px 12px 5px;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-pink {
+	background-color: #FF6699;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-tan {
+	background-color: #FFCC99;
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-title {

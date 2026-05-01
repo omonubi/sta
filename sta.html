@@ -7,7 +7,7 @@ Author: Don Davis, aka omonubi
 <rolltemplate class="sheet-rolltemplate-task">
 	<div class="sheet-lcars-result">
 
-		<div class="sheet-lcars-result-header">
+		<div class="sheet-lcars-result-header{{#header_pink}} sheet-header-pink{{/header_pink}}{{#header_tan}} sheet-header-tan{{/header_tan}}">
 			<div class="sheet-lcars-result-title">{{title}}</div>
 			<div class="sheet-lcars-result-subtitle">{{subtitle}}</div>
 		</div>
@@ -135,6 +135,7 @@ Author: Don Davis, aka omonubi
 				</div>
 				<div class="sheet-field sheet-field-determination">
 					<label>Determination</label>
+					<input type="hidden" name="attr_determination_points" value="1" />
 					<div class="sheet-determination-pips">
 						<input type="checkbox" name="attr_determination_1" value="1" checked="checked" />
 						<input type="checkbox" name="attr_determination_2" value="1" />
@@ -389,7 +390,7 @@ function escapeTemplateValue(value) {
 		.replace(/\|/g, '&#124;');
 }
 
-function sendPartyCounterUpdate(title, subtitle, oldValue, newValue) {
+function sendPartyCounterUpdate(title, subtitle, oldValue, newValue, headerTan) {
 	var tpl = '&{template:task}'
 		+ ' {{title=' + escapeTemplateValue(title) + '}}'
 		+ ' {{subtitle=' + escapeTemplateValue(subtitle) + '}}'
@@ -397,12 +398,86 @@ function sendPartyCounterUpdate(title, subtitle, oldValue, newValue) {
 		+ ' {{old_value=' + oldValue + '}}'
 		+ ' {{show_new_value=1}}'
 		+ ' {{new_value=' + newValue + '}}'
+		+ (headerTan ? ' {{header_tan=1}}' : '')
 		+ ' {{_r=[[0]]}}';
 
 	startRoll(tpl, function(results) {
 		finishRoll(results.rollId, {});
 	});
 }
+
+function clampDetermination(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 3));
+}
+
+function syncDeterminationPips(total, callback) {
+	var clamped = clampDetermination(total);
+	setAttrs({
+		determination_points: clamped,
+		determination_1: clamped >= 1 ? '1' : '0',
+		determination_2: clamped >= 2 ? '1' : '0',
+		determination_3: clamped >= 3 ? '1' : '0'
+	}, { silent: true }, callback);
+}
+
+on('sheet:opened', function() {
+	getAttrs(['determination_points', 'determination_1', 'determination_2', 'determination_3'], function(v) {
+		var total = parseInt(v.determination_points, 10);
+		if (isNaN(total)) {
+			total = (v.determination_1 === '1' ? 1 : 0)
+				+ (v.determination_2 === '1' ? 1 : 0)
+				+ (v.determination_3 === '1' ? 1 : 0);
+			if (total === 0) {
+				total = 1;
+			}
+		}
+		syncDeterminationPips(total);
+	});
+});
+
+on('change:determination_points', function(eventInfo) {
+	if (eventInfo && eventInfo.sourceType === 'sheetworker') {
+		return;
+	}
+	syncDeterminationPips(eventInfo && eventInfo.newValue);
+});
+
+on('change:determination_1 change:determination_2 change:determination_3', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	getAttrs(['determination_points', 'character_name'], function(v) {
+		var oldTotal = clampDetermination(v.determination_points);
+		var total = oldTotal;
+		var checked = eventInfo.newValue === '1' || eventInfo.newValue === 'on';
+
+		if (checked) {
+			if (total >= 3) {
+				syncDeterminationPips(3);
+				return;
+			}
+			total += 1;
+		} else {
+			if (total <= 0) {
+				syncDeterminationPips(0);
+				return;
+			}
+			total -= 1;
+		}
+
+		syncDeterminationPips(total, function() {
+			if (total !== oldTotal) {
+				var charName = v.character_name || 'Character';
+				sendPartyCounterUpdate(charName, 'Determination', oldTotal, total);
+			}
+		});
+	});
+});
 
 // Auto-switch the active tab when Sheet Type changes.
 on('change:sheet_type', function() {
@@ -450,7 +525,7 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 			if (oldValue === newValue) {
 				return;
 			}
-			sendPartyCounterUpdate(title, counterLabel, oldValue, newValue);
+			sendPartyCounterUpdate(title, counterLabel, oldValue, newValue, true);
 		});
 	});
 });
@@ -492,6 +567,7 @@ on('clicked:roll_task', function() {
 		var tpl = '&{template:task}'
 			+ ' {{title='      + charName   + '}}'
 			+ ' {{subtitle=Task Check}}'
+			+ ' {{header_pink=1}}'
 			+ ' {{attribute='  + attr       + '}}'
 			+ ' {{department=' + dept       + '}}'
 			+ ' {{target='     + target     + '}}'
