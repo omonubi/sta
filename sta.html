@@ -25,6 +25,18 @@ Author: Don Davis, aka omonubi
 				<span class="sheet-lcars-row-value">{{department}}</span>
 			</div>
 			{{/department}}
+			{{#show_old_value}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Old Value</span>
+				<span class="sheet-lcars-row-value">{{old_value}}</span>
+			</div>
+			{{/show_old_value}}
+			{{#show_new_value}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">New Value</span>
+				<span class="sheet-lcars-row-value">{{new_value}}</span>
+			</div>
+			{{/show_new_value}}
 			{{#target}}
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Target</span>
@@ -92,6 +104,10 @@ Author: Don Davis, aka omonubi
 			Character
 		</label>
 		<label class="sheet-tab-label">
+			<input type="radio" name="attr_sheet_tab" value="party" />
+			Party
+		</label>
+		<label class="sheet-tab-label">
 			<input type="radio" name="attr_sheet_tab" value="settings" />
 			Settings
 		</label>
@@ -104,7 +120,6 @@ Author: Don Davis, aka omonubi
 
 		<!-- Basic Character Information -->
 		<div class="sheet-section sheet-bio">
-			<div class="sheet-section-header">Character Information</div>
 			<div class="sheet-bio-fields">
 				<div class="sheet-field sheet-field-name">
 					<label>Name</label>
@@ -232,6 +247,50 @@ Author: Don Davis, aka omonubi
 			</div>
 		</div>
 
+		<!-- Focuses -->
+		<div class="sheet-section sheet-focuses">
+			<div class="sheet-section-header">Focuses</div>
+			<div class="sheet-focuses-rows">
+				<div class="sheet-focuses-row">
+					<input type="text" name="attr_focus_1" placeholder=" " />
+					<input type="text" name="attr_focus_2" placeholder=" " />
+					<input type="text" name="attr_focus_3" placeholder=" " />
+				</div>
+				<div class="sheet-focuses-row">
+					<input type="text" name="attr_focus_4" placeholder=" " />
+					<input type="text" name="attr_focus_5" placeholder=" " />
+					<input type="text" name="attr_focus_6" placeholder=" " />
+				</div>
+				<div class="sheet-focuses-row">
+					<input type="text" name="attr_focus_7" placeholder=" " />
+					<input type="text" name="attr_focus_8" placeholder=" " />
+					<input type="text" name="attr_focus_9" placeholder=" " />
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="sheet-tab-page sheet-tab-page-party">
+		<div class="sheet-section sheet-party-sheet">
+			<div class="sheet-section-header">Party</div>
+			<div class="sheet-party-shell">
+				<div class="sheet-party-stats">
+					<div class="sheet-field">
+						<label>Momentum</label>
+						<input type="number" name="attr_party_momentum" min="0" max="99" value="0" />
+					</div>
+					<div class="sheet-field">
+						<label>Threat</label>
+						<input type="number" name="attr_party_threat" min="0" max="99" value="0" />
+					</div>
+				</div>
+				<div class="sheet-party-intro">
+					<h2>Party Sheet</h2>
+					<p>Select this tab to manage away teams, bridge crew, or other shared party details.</p>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="sheet-tab-page sheet-tab-page-settings">
@@ -241,6 +300,36 @@ Author: Don Davis, aka omonubi
 </div>
 
 <script type="text/worker">
+function clampCounter(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 99));
+}
+
+function escapeTemplateValue(value) {
+	return String(value)
+		.replace(/\{/g, '&#123;')
+		.replace(/\}/g, '&#125;')
+		.replace(/\|/g, '&#124;');
+}
+
+function sendPartyCounterUpdate(title, subtitle, oldValue, newValue) {
+	var tpl = '&{template:task}'
+		+ ' {{title=' + escapeTemplateValue(title) + '}}'
+		+ ' {{subtitle=' + escapeTemplateValue(subtitle) + '}}'
+		+ ' {{show_old_value=1}}'
+		+ ' {{old_value=' + oldValue + '}}'
+		+ ' {{show_new_value=1}}'
+		+ ' {{new_value=' + newValue + '}}'
+		+ ' {{_r=[[0]]}}';
+
+	startRoll(tpl, function(results) {
+		finishRoll(results.rollId, {});
+	});
+}
+
 // Recalculate target whenever any stat or selection changes.
 on('change:selected_attribute change:selected_department change:control change:daring change:fitness change:insight change:presence change:reason change:command change:conn change:engineering change:security change:medicine change:science', function() {
 	getAttrs(['selected_attribute', 'selected_department', 'control', 'daring', 'fitness', 'insight', 'presence', 'reason', 'command', 'conn', 'engineering', 'security', 'medicine', 'science'], function(v) {
@@ -251,6 +340,35 @@ on('change:selected_attribute change:selected_department change:control change:d
 			task_department: deptVal,
 			target_number: attrVal + deptVal,
 			roll_task_disabled: (attrVal === 0 || deptVal === 0) ? 'on' : '0'
+		});
+	});
+});
+
+on('change:party_momentum change:party_threat', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var attributeName = eventInfo.sourceAttribute || '';
+	var counterLabel = attributeName === 'party_threat' ? 'Threat' : 'Momentum';
+	var oldValue = clampCounter(eventInfo.previousValue);
+	var newValue = clampCounter(eventInfo.newValue);
+
+	getAttrs(['character_name'], function(v) {
+		var title = v.character_name || 'Character';
+		var attrsToSet = {};
+
+		if (attributeName === 'party_threat') {
+			attrsToSet.party_threat = newValue;
+		} else {
+			attrsToSet.party_momentum = newValue;
+		}
+
+		setAttrs(attrsToSet, { silent: true }, function() {
+			if (oldValue === newValue) {
+				return;
+			}
+			sendPartyCounterUpdate(title, counterLabel, oldValue, newValue);
 		});
 	});
 });

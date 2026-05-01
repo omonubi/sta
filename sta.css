@@ -120,6 +120,10 @@ Author: Don Davis, aka omonubi
 	display: block;
 }
 
+.sheet-content:has(input[value="party"]:checked) .sheet-tab-page-party {
+	display: block;
+}
+
 .sheet-content:has(input[value="settings"]:checked) .sheet-tab-page-settings {
 	display: block;
 }
@@ -429,6 +433,96 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"]:hover,
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"]:hover {
 	background-color: #7a5a3d;
+}
+
+/* ============================================================
+   FOCUSES SECTION
+   ============================================================ */
+.sheet-focuses .sheet-section-header { background-color: var(--lcars-purple); }
+
+.sheet-focuses {
+	margin: 0 8px 16px;
+}
+
+.sheet-focuses-rows {
+	padding: 0 8px;
+}
+
+.sheet-focuses-row {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.sheet-focuses-row input[type="text"] {
+	flex: 1;
+	width: 0; /* flex will override; prevents overflow */
+}
+
+/* Rows 2+ hidden by default */
+.sheet-focuses-row:nth-child(n+2) {
+	display: none;
+}
+
+/* Show row 2 when row 1's third input has content */
+.sheet-focuses-row:nth-child(1):has(input:last-child:not(:placeholder-shown)) ~ .sheet-focuses-row:nth-child(2) {
+	display: flex;
+}
+
+/* Show row 3 when row 2's third input has content */
+.sheet-focuses-row:nth-child(2):has(input:last-child:not(:placeholder-shown)) ~ .sheet-focuses-row:nth-child(3) {
+	display: flex;
+}
+
+/* ============================================================
+   PARTY SHEET
+   ============================================================ */
+.sheet-party-sheet {
+	margin: 0 8px 16px;
+}
+
+.sheet-party-sheet .sheet-section-header {
+	background-color: var(--lcars-tan);
+}
+
+.sheet-party-shell {
+	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	border: 1px solid #2a2a2a;
+	border-left: 4px solid var(--lcars-tan);
+	padding: 18px 20px;
+	min-height: 160px;
+}
+
+.sheet-party-stats {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 18px;
+	flex-wrap: wrap;
+}
+
+.sheet-party-stats .sheet-field {
+	min-width: 120px;
+}
+
+.sheet-party-stats input[type="number"] {
+	width: 72px;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.sheet-party-intro {
+	max-width: 520px;
+}
+
+.sheet-party-intro p {
+	margin: 0;
+	font-size: 14px;
+	letter-spacing: 0.04em;
+	line-height: 1.5;
+	color: var(--lcars-on-dark);
+	opacity: 0.82;
 }
 
 /* ============================================================
