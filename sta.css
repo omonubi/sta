@@ -83,6 +83,7 @@ Author: Don Davis, aka omonubi
 .sheet-tab-nav .sheet-tab-label {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	background-color: var(--lcars-purple);
 	color: var(--lcars-on-color);
 	font-size: 15px;
@@ -95,9 +96,34 @@ Author: Don Davis, aka omonubi
 	user-select: none;
 }
 
+/* Content tabs grow equally; specificity (0,3,0) beats the base rule */
+.sheet-tab-nav .sheet-tab-label:not(.sheet-tab-label-settings) {
+	flex: 1;
+}
+
+/* Settings tab: fixed 100px, never grows or shrinks */
+.sheet-tab-nav .sheet-tab-label-settings {
+	flex: 0 0 100px;
+	width: 100px;
+}
+
 /* Active tab: label whose child radio is checked */
 .sheet-tab-nav .sheet-tab-label:has(input:checked) {
 	background-color: var(--lcars-orange);
+}
+
+/* Settings tab is always visible; content tabs are gated by Sheet Type.
+   Default (character): show Character, hide Party.
+   Each new sheet type only needs one hide + one show rule here. */
+.sheet-tab-nav .sheet-tab-label-party {
+	display: none;
+}
+
+.sheet-content:has(input[name="attr_sheet_type"][value="party"]:checked) .sheet-tab-label-character {
+	display: none;
+}
+.sheet-content:has(input[name="attr_sheet_type"][value="party"]:checked) .sheet-tab-label-party {
+	display: inline-flex;
 }
 
 /* Horizontal rule below the tab row */
@@ -116,15 +142,15 @@ Author: Don Davis, aka omonubi
 	padding: 16px 8px 8px;
 }
 
-.sheet-content:has(input[value="character"]:checked) .sheet-tab-page-character {
+.sheet-content:has(input[name="attr_sheet_tab"][value="character"]:checked) .sheet-tab-page-character {
 	display: block;
 }
 
-.sheet-content:has(input[value="party"]:checked) .sheet-tab-page-party {
+.sheet-content:has(input[name="attr_sheet_tab"][value="party"]:checked) .sheet-tab-page-party {
 	display: block;
 }
 
-.sheet-content:has(input[value="settings"]:checked) .sheet-tab-page-settings {
+.sheet-content:has(input[name="attr_sheet_tab"][value="settings"]:checked) .sheet-tab-page-settings {
 	display: block;
 }
 
@@ -202,9 +228,52 @@ Author: Don Davis, aka omonubi
 .sheet-field-name       { flex: 3; }
 .sheet-field-rank       { flex: 2; }
 .sheet-field-assignment { flex: 3; }
+.sheet-field-determination {
+	flex: 1.3;
+	min-width: 112px;
+}
 
 .sheet-field input[type="text"] {
 	width: 100%;
+}
+
+/* ============================================================
+   DETERMINATION TRACKER
+   ============================================================ */
+.sheet-determination-pips {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 3px 6px;
+	box-sizing: border-box;
+	background-color: #111111;
+	border: 1px solid #333333;
+	border-radius: 3px;
+}
+
+/* Hide the real checkbox; use ::before as the visible pip */
+.sheet-determination-pips input[type="checkbox"] {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 2px solid var(--lcars-orange);
+	background-color: #111111;
+	cursor: pointer;
+	flex-shrink: 0;
+	transition: background-color 0.1s, box-shadow 0.1s;
+}
+
+.sheet-determination-pips input[type="checkbox"]:checked {
+	background-color: var(--lcars-orange);
+	box-shadow: 0 0 6px var(--lcars-orange);
+}
+
+.sheet-determination-pips input[type="checkbox"]:hover:not(:checked) {
+	background-color: #2a1a00;
 }
 
 /* ============================================================
@@ -253,6 +322,23 @@ Author: Don Davis, aka omonubi
 .sheet-attributes  .sheet-section-header { background-color: var(--lcars-orange); }
 .sheet-departments .sheet-section-header { background-color: var(--lcars-blue);   }
 .sheet-roll-panel  .sheet-section-header { background-color: var(--lcars-pink);   }
+
+/* Character tab section shells */
+.sheet-attributes-shell,
+.sheet-departments-shell,
+.sheet-roll-panel-shell,
+.sheet-focuses-shell,
+.sheet-values-shell {
+	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	border: 1px solid #2a2a2a;
+	padding: 8px 12px;
+}
+
+.sheet-attributes-shell  { border-left: 4px solid var(--lcars-orange); }
+.sheet-departments-shell { border-left: 4px solid var(--lcars-blue);   }
+.sheet-roll-panel-shell  { border-left: 4px solid var(--lcars-pink);   }
+.sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
+.sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
 
 /* Stat grid */
 .sheet-stat-grid {
@@ -473,6 +559,134 @@ Author: Don Davis, aka omonubi
 /* Show row 3 when row 2's third input has content */
 .sheet-focuses-row:nth-child(2):has(input:last-child:not(:placeholder-shown)) ~ .sheet-focuses-row:nth-child(3) {
 	display: flex;
+}
+
+/* ============================================================
+   VALUES SECTION
+   ============================================================ */
+.sheet-values .sheet-section-header { background-color: var(--lcars-peach); }
+
+.sheet-values {
+	margin: 0 8px 16px;
+}
+
+.sheet-values-rows {
+	padding: 0 8px;
+}
+
+.sheet-values-row {
+	display: flex;
+	margin-bottom: 6px;
+}
+
+.sheet-values-row input[type="text"] {
+	width: 100%;
+}
+
+/* Rows 2+ hidden by default */
+.sheet-values-row:nth-child(n+2) {
+	display: none;
+}
+
+/* Show row n+1 when row n has content */
+.sheet-values-row:nth-child(1):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(2) {
+	display: flex;
+}
+
+.sheet-values-row:nth-child(2):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(3) {
+	display: flex;
+}
+
+.sheet-values-row:nth-child(3):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(4) {
+	display: flex;
+}
+
+.sheet-values-row:nth-child(4):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(5) {
+	display: flex;
+}
+
+.sheet-values-row:nth-child(5):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(6) {
+	display: flex;
+}
+
+.sheet-values-row:nth-child(6):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(7) {
+	display: flex;
+}
+
+.sheet-values-row:nth-child(7):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(8) {
+	display: flex;
+}
+
+/* ============================================================
+   SETTINGS TAB
+   ============================================================ */
+.sheet-settings {
+	margin: 0 8px 16px;
+}
+
+.sheet-settings .sheet-section-header {
+	background-color: var(--lcars-purple);
+}
+
+.sheet-settings-shell {
+	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	border: 1px solid #2a2a2a;
+	border-left: 4px solid var(--lcars-purple);
+	padding: 10px 16px;
+}
+
+.sheet-settings-row {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 4px 8px;
+	border-bottom: 1px solid #1a1a1a;
+}
+
+.sheet-settings-label {
+	font-family: var(--lcars-font);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 12px;
+	color: var(--lcars-tan);
+	min-width: 100px;
+	flex-shrink: 0;
+}
+
+.sheet-settings-options {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+/* Settings radio option — styled as a selectable lozenge */
+.sheet-settings-option {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background-color: #1e1e1e;
+	border: 1px solid #333333;
+	border-radius: 20px 4px 4px 20px;
+	padding: 5px 16px 4px 12px;
+	cursor: pointer;
+	user-select: none;
+	font-family: var(--lcars-font);
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--lcars-on-dark);
+	transition: background-color 0.1s;
+}
+
+.sheet-settings-option input[type="radio"] {
+	display: none;
+}
+
+.sheet-settings-option:has(input:checked) {
+	background-color: var(--lcars-purple);
+	border-color: var(--lcars-purple);
+	color: var(--lcars-on-color);
 }
 
 /* ============================================================

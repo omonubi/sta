@@ -99,15 +99,15 @@ Author: Don Davis, aka omonubi
 
 	<!-- Tab navigation: radio wrapped inside label - no IDs needed, click always works -->
 	<div class="sheet-tab-nav">
-		<label class="sheet-tab-label">
+		<label class="sheet-tab-label sheet-tab-label-character">
 			<input type="radio" name="attr_sheet_tab" value="character" checked="checked" />
 			Character
 		</label>
-		<label class="sheet-tab-label">
+		<label class="sheet-tab-label sheet-tab-label-party">
 			<input type="radio" name="attr_sheet_tab" value="party" />
 			Party
 		</label>
-		<label class="sheet-tab-label">
+		<label class="sheet-tab-label sheet-tab-label-settings">
 			<input type="radio" name="attr_sheet_tab" value="settings" />
 			Settings
 		</label>
@@ -133,6 +133,14 @@ Author: Don Davis, aka omonubi
 					<label>Assignment</label>
 					<input type="text" name="attr_assignment" />
 				</div>
+				<div class="sheet-field sheet-field-determination">
+					<label>Determination</label>
+					<div class="sheet-determination-pips">
+						<input type="checkbox" name="attr_determination_1" value="1" checked="checked" />
+						<input type="checkbox" name="attr_determination_2" value="1" />
+						<input type="checkbox" name="attr_determination_3" value="1" />
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -142,6 +150,7 @@ Author: Don Davis, aka omonubi
 			<!-- Attributes -->
 			<div class="sheet-section sheet-attributes">
 				<div class="sheet-section-header">Attributes</div>
+				<div class="sheet-attributes-shell">
 				<div class="sheet-stat-grid">
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="control" /><span></span></label>
@@ -174,11 +183,13 @@ Author: Don Davis, aka omonubi
 						<input type="number" name="attr_reason" min="7" max="12" value="7" />
 					</div>
 				</div>
+				</div><!-- /.sheet-attributes-shell -->
 			</div>
 
 			<!-- Departments -->
 			<div class="sheet-section sheet-departments">
 				<div class="sheet-section-header">Departments</div>
+				<div class="sheet-departments-shell">
 				<div class="sheet-stat-grid">
 					<div class="sheet-dept-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="command" /><span></span></label>
@@ -211,6 +222,7 @@ Author: Don Davis, aka omonubi
 						<input type="number" name="attr_science" min="0" max="5" value="1" />
 					</div>
 				</div>
+				</div><!-- /.sheet-departments-shell -->
 			</div>
 
 		</div><!-- /.sheet-attr-dept-row -->
@@ -218,6 +230,7 @@ Author: Don Davis, aka omonubi
 		<!-- Task Check / Roll Panel -->
 		<div class="sheet-section sheet-roll-panel">
 			<div class="sheet-section-header">Task Check</div>
+			<div class="sheet-roll-panel-shell">
 			<div class="sheet-roll-bar">
 				<input type="checkbox" name="attr_roll_task_disabled" class="sheet-roll-disabled-flag" checked="checked" />
 				<div class="sheet-field">
@@ -245,11 +258,13 @@ Author: Don Davis, aka omonubi
 				</div>
 			<button type="action" name="act_roll_task">Roll Task</button>
 			</div>
+			</div><!-- /.sheet-roll-panel-shell -->
 		</div>
 
 		<!-- Focuses -->
 		<div class="sheet-section sheet-focuses">
 			<div class="sheet-section-header">Focuses</div>
+			<div class="sheet-focuses-shell">
 			<div class="sheet-focuses-rows">
 				<div class="sheet-focuses-row">
 					<input type="text" name="attr_focus_1" placeholder=" " />
@@ -267,6 +282,40 @@ Author: Don Davis, aka omonubi
 					<input type="text" name="attr_focus_9" placeholder=" " />
 				</div>
 			</div>
+			</div><!-- /.sheet-focuses-shell -->
+		</div>
+
+		<!-- Values -->
+		<div class="sheet-section sheet-values">
+			<div class="sheet-section-header">Values</div>
+			<div class="sheet-values-shell">
+			<div class="sheet-values-rows">
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_1" placeholder=" " />
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_2" placeholder=" " />
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_3" placeholder=" " />
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_4" placeholder=" " />
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_5" placeholder=" " />
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_6" placeholder=" " />
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_7" placeholder=" " />
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_8" placeholder=" " />
+				</div>
+			</div>
+			</div><!-- /.sheet-values-shell -->
 		</div>
 
 	</div>
@@ -294,7 +343,24 @@ Author: Don Davis, aka omonubi
 	</div>
 
 	<div class="sheet-tab-page sheet-tab-page-settings">
-		<h2>Settings</h2>
+		<div class="sheet-section sheet-settings">
+			<div class="sheet-section-header">Settings</div>
+			<div class="sheet-settings-shell">
+			<div class="sheet-settings-row">
+				<span class="sheet-settings-label">Sheet Type</span>
+				<div class="sheet-settings-options">
+					<label class="sheet-settings-option">
+						<input type="radio" name="attr_sheet_type" value="character" checked="checked" />
+						<span>Character</span>
+					</label>
+					<label class="sheet-settings-option">
+						<input type="radio" name="attr_sheet_type" value="party" />
+						<span>Party</span>
+					</label>
+				</div>
+			</div>
+			</div><!-- /.sheet-settings-shell -->
+		</div>
 	</div>
 
 </div>
@@ -329,6 +395,14 @@ function sendPartyCounterUpdate(title, subtitle, oldValue, newValue) {
 		finishRoll(results.rollId, {});
 	});
 }
+
+// Auto-switch the active tab when Sheet Type changes.
+on('change:sheet_type', function() {
+	getAttrs(['sheet_type'], function(v) {
+		var type = v.sheet_type || 'character';
+		setAttrs({ sheet_tab: type });
+	});
+});
 
 // Recalculate target whenever any stat or selection changes.
 on('change:selected_attribute change:selected_department change:control change:daring change:fitness change:insight change:presence change:reason change:command change:conn change:engineering change:security change:medicine change:science', function() {
