@@ -351,6 +351,11 @@ Author: Don Davis, aka omonubi
 	flex-wrap: wrap;
 }
 
+/* Worker-controlled state flag for disabling the roll button */
+.sheet-roll-bar .sheet-roll-disabled-flag {
+	display: none;
+}
+
 /* +  =  operators */
 .sheet-roll-op {
 	font-family: var(--lcars-font);
@@ -389,7 +394,8 @@ Author: Don Davis, aka omonubi
 }
 
 /* Roll button — right-rounded LCARS lozenge */
-.sheet-roll-bar button[type="roll"] {
+.sheet-roll-bar button[type="roll"],
+.sheet-roll-bar button[type="action"] {
 	background-color: var(--lcars-orange);
 	color: var(--lcars-on-color);
 	font-family: var(--lcars-font);
@@ -399,14 +405,30 @@ Author: Don Davis, aka omonubi
 	letter-spacing: 0.12em;
 	border: none;
 	border-radius: 4px 20px 20px 4px;
-	padding: 8px 22px 6px 16px;
+	padding: 3px 22px 3px 16px;
 	cursor: pointer;
 	align-self: flex-end;
 	margin-left: 6px;
 }
 
-.sheet-roll-bar button[type="roll"]:hover {
+.sheet-roll-bar button[type="roll"]:hover,
+.sheet-roll-bar button[type="action"]:hover {
 	background-color: var(--lcars-tan);
+}
+
+/* Disable Roll Task when task Attribute or Department is 0 */
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"],
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"] {
+	background-color: #7a5a3d;
+	color: #24170c;
+	cursor: not-allowed;
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"]:hover,
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"]:hover {
+	background-color: #7a5a3d;
 }
 
 /* ============================================================

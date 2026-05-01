@@ -204,6 +204,7 @@ Author: Don Davis, aka omonubi
 		<div class="sheet-section sheet-roll-panel">
 			<div class="sheet-section-header">Task Check</div>
 			<div class="sheet-roll-bar">
+				<input type="checkbox" name="attr_roll_task_disabled" class="sheet-roll-disabled-flag" checked="checked" />
 				<div class="sheet-field">
 					<label>Attribute</label>
 					<input type="number" name="attr_task_attribute" min="0" max="12" readonly />
@@ -248,7 +249,8 @@ on('change:selected_attribute change:selected_department change:control change:d
 		setAttrs({
 			task_attribute: attrVal,
 			task_department: deptVal,
-			target_number: attrVal + deptVal
+			target_number: attrVal + deptVal,
+			roll_task_disabled: (attrVal === 0 || deptVal === 0) ? 'on' : '0'
 		});
 	});
 });
@@ -256,7 +258,14 @@ on('change:selected_attribute change:selected_department change:control change:d
 // Task Check roll: all dice generated in JavaScript, results sent to template.
 on('clicked:roll_task', function() {
 	getAttrs(['dice_count', 'target_number', 'difficulty', 'character_name',
-	          'selected_attribute', 'selected_department'], function(v) {
+	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department'], function(v) {
+
+		var taskAttr = parseInt(v.task_attribute) || 0;
+		var taskDept = parseInt(v.task_department) || 0;
+		if (taskAttr === 0 || taskDept === 0) {
+			setAttrs({ roll_task_disabled: 'on' });
+			return;
+		}
 
 		var diceCount  = Math.min(Math.max(parseInt(v.dice_count)  || 2, 1), 5);
 		var target     = parseInt(v.target_number) || 0;
@@ -301,6 +310,16 @@ on('clicked:roll_task', function() {
 
 		startRoll(tpl, function(results) {
 			finishRoll(results.rollId, {});
+			setAttrs({
+				selected_attribute: '',
+				selected_department: '',
+				task_attribute: '',
+				task_department: '',
+				target_number: '',
+				difficulty: 1,
+				dice_count: 2,
+				roll_task_disabled: 'on'
+			});
 		});
 	});
 });
