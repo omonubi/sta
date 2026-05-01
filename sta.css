@@ -441,6 +441,46 @@ Author: Don Davis, aka omonubi
 	flex-wrap: wrap;
 }
 
+/* Keep Task Check labels/controls aligned and sized consistently */
+.sheet-roll-bar .sheet-field {
+	width: 84px;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.sheet-roll-bar .sheet-field label {
+	width: 100%;
+	text-align: center;
+}
+
+.sheet-roll-bar .sheet-field input[type="number"],
+.sheet-roll-bar .sheet-field select {
+	text-align: center;
+	box-sizing: border-box;
+	height: 30px;
+}
+
+.sheet-roll-bar .sheet-field input[type="number"] {
+	width: calc(100% - 10px);
+	margin: 0 auto;
+}
+
+.sheet-roll-bar .sheet-field select {
+	width: 100%;
+}
+
+.sheet-roll-bar .sheet-field:has(select[name="attr_determination_spend"]) {
+	width: 88px;
+}
+
+/* Determination selector can be narrower while keeping column alignment */
+.sheet-roll-bar select[name="attr_determination_spend"] {
+	width: 88px;
+	margin: 0 auto;
+}
+
 /* Worker-controlled state flag for disabling the roll button */
 .sheet-roll-bar .sheet-roll-disabled-flag {
 	display: none;
@@ -473,12 +513,10 @@ Author: Don Davis, aka omonubi
 	font-size: 18px;
 	font-weight: 700;
 	text-align: center;
-	width: 56px;
 }
 
 /* Editable control fields (Difficulty, Dice) */
 .sheet-roll-bar .sheet-field input[type="number"]:not([readonly]) {
-	width: 52px;
 	text-align: center;
 	font-size: 16px;
 }
@@ -488,6 +526,9 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar button[type="action"] {
 	background-color: var(--lcars-orange);
 	color: var(--lcars-on-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	font-family: var(--lcars-font);
 	font-size: 15px;
 	font-weight: 700;
@@ -495,7 +536,8 @@ Author: Don Davis, aka omonubi
 	letter-spacing: 0.12em;
 	border: none;
 	border-radius: 4px 20px 20px 4px;
-	padding: 3px 22px 3px 16px;
+	padding: 0 22px 0 16px;
+	height: 30px;
 	cursor: pointer;
 	align-self: flex-end;
 	margin-left: 6px;

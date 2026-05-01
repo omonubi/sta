@@ -256,6 +256,14 @@ Author: Don Davis, aka omonubi
 					<label>Dice</label>
 					<input type="number" name="attr_dice_count" min="1" max="5" value="2" />
 				</div>
+				<div class="sheet-field">
+					<label>Determination</label>
+					<select name="attr_determination_spend">
+						<option value="none" selected="selected">None</option>
+						<option value="inspired">Inspired</option>
+						<option value="opportunity">Opportunity</option>
+					</select>
+				</div>
 			<button type="action" name="act_roll_task">Roll Task</button>
 			</div>
 			</div><!-- /.sheet-roll-panel-shell -->
@@ -510,6 +518,7 @@ on('clicked:roll_task', function() {
 				target_number: '',
 				difficulty: 1,
 				dice_count: 2,
+				determination_spend: 'none',
 				roll_task_disabled: 'on'
 			});
 		});
