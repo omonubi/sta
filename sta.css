@@ -156,6 +156,55 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    FORM INPUTS (foundation styles)
    ============================================================ */
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.sheet-section {
+	margin-bottom: 16px;
+}
+
+.sheet-section-header {
+	background-color: var(--lcars-peach);
+	color: var(--lcars-on-color);
+	font-family: var(--lcars-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	padding: 4px 14px;
+	border-radius: 0 20px 20px 0;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+/* ============================================================
+   BIO SECTION
+   ============================================================ */
+.sheet-bio-fields {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+	align-items: flex-end;
+	padding: 0 8px;
+}
+
+.sheet-field {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.sheet-field-name       { flex: 3; }
+.sheet-field-rank       { flex: 2; }
+.sheet-field-assignment { flex: 3; }
+
+.sheet-field input[type="text"] {
+	width: 100%;
+}
+
+/* ============================================================
+   FORM INPUTS (foundation styles, continued)
 .sheet-content input[type="text"],
 .sheet-content input[type="number"],
 .sheet-content textarea,
