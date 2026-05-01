@@ -204,7 +204,8 @@ Author: Don Davis, aka omonubi
 }
 
 /* ============================================================
-   FORM INPUTS (foundation styles, continued)
+   FORM INPUTS
+   ============================================================ */
 .sheet-content input[type="text"],
 .sheet-content input[type="number"],
 .sheet-content textarea,
@@ -406,4 +407,153 @@ Author: Don Davis, aka omonubi
 
 .sheet-roll-bar button[type="roll"]:hover {
 	background-color: var(--lcars-tan);
+}
+
+/* ============================================================
+   ROLL TEMPLATE — Task Check
+   Hardcoded colors: CSS variables unavailable in chat pane.
+   ============================================================ */
+
+.sheet-rolltemplate-task {
+	font-family: 'Antonio', sans-serif;
+	background-color: #000000;
+	border: 2px solid #FF7700;
+	border-radius: 4px;
+	overflow: hidden;
+	min-width: 220px;
+}
+
+/* Header banner */
+.sheet-rolltemplate-task .sheet-lcars-result-header {
+	background-color: #FF7700;
+	padding: 6px 12px 5px;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result-title {
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: #000000;
+	line-height: 1.2;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result-title a,
+.sheet-rolltemplate-task .sheet-lcars-result-title a:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+
+
+.sheet-rolltemplate-task .sheet-lcars-result-subtitle {
+	font-size: 11px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.28em;
+	color: #000000;
+	opacity: 0.75;
+}
+
+/* Row container */
+.sheet-rolltemplate-task .sheet-lcars-result-rows {
+	padding: 2px 0 4px;
+}
+
+/* Individual data rows */
+.sheet-rolltemplate-task .sheet-lcars-row {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	padding: 3px 12px;
+	border-bottom: 1px solid #1a1a1a;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-row:last-child {
+	border-bottom: none;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-row-label {
+	font-size: 11px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #FFCC99;
+	flex: 1;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-row-value {
+	font-size: 14px;
+	font-weight: 700;
+	color: #FFFFFF;
+	text-align: right;
+}
+
+/* Capitalize single-word attribute/department names */
+.sheet-rolltemplate-task .sheet-capitalize {
+	text-transform: capitalize;
+}
+
+/* Roll20 inline roll result chips — black text on their default yellow background */
+.sheet-rolltemplate-task .inlinerollresult {
+	color: #000000 !important;
+}
+
+/* Result row — separated by a stronger border */
+.sheet-rolltemplate-task .sheet-lcars-row-result {
+	border-top: 2px solid #333333;
+	margin-top: 2px;
+	padding-top: 5px;
+}
+
+/* PASS state */
+.sheet-rolltemplate-task .sheet-lcars-row-result.sheet-pass .sheet-lcars-row-label {
+	color: #66FF99;
+}
+.sheet-rolltemplate-task .sheet-lcars-row-result.sheet-pass .sheet-lcars-row-value {
+	color: #66FF99;
+	font-size: 16px;
+	letter-spacing: 0.1em;
+}
+
+/* FAIL state (no .sheet-pass class present) */
+.sheet-rolltemplate-task .sheet-lcars-row-result:not(.sheet-pass) .sheet-lcars-row-label {
+	color: #FF6666;
+}
+.sheet-rolltemplate-task .sheet-lcars-row-result:not(.sheet-pass) .sheet-lcars-row-value {
+	color: #FF6666;
+	font-size: 16px;
+	letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   ROLL TEMPLATE — Individual die chips
+   ============================================================ */
+
+/* Die results container */
+.sheet-rolltemplate-task .sheet-dice-results {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	justify-content: flex-end;
+}
+
+/* Base die chip */
+.sheet-rolltemplate-task .sheet-die {
+	display: inline-block;
+	background-color: #222222;
+	color: #FFCC99;
+	border: 1px solid #555555;
+	border-radius: 3px;
+	padding: 2px 8px;
+	font-size: 14px;
+	font-weight: 700;
+	min-width: 26px;
+	text-align: center;
+}
+
+/* Successful die (result <= target) */
+.sheet-rolltemplate-task .sheet-die.sheet-die-success {
+	background-color: #002200;
+	color: #66FF99;
+	border-color: #66FF99;
 }

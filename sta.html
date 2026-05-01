@@ -2,6 +2,81 @@
 Description: HTML for a Roll20 character sheet for Star Trek Adventures, 2nd Edition, published by Modiphius.
 Author: Don Davis, aka omonubi
  -->
+<!-- Roll Template: Task Check
+     Renders in Roll20 chat with LCARS styling. -->
+<rolltemplate class="sheet-rolltemplate-task">
+	<div class="sheet-lcars-result">
+
+		<div class="sheet-lcars-result-header">
+			<div class="sheet-lcars-result-title">{{title}}</div>
+			<div class="sheet-lcars-result-subtitle">{{subtitle}}</div>
+		</div>
+
+		<div class="sheet-lcars-result-rows">
+			{{#attribute}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Attribute</span>
+				<span class="sheet-lcars-row-value">{{attribute}}</span>
+			</div>
+			{{/attribute}}
+			{{#department}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Department</span>
+				<span class="sheet-lcars-row-value">{{department}}</span>
+			</div>
+			{{/department}}
+			{{#target}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Target</span>
+				<span class="sheet-lcars-row-value">{{target}}</span>
+			</div>
+			{{/target}}
+			{{#difficulty}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Difficulty</span>
+				<span class="sheet-lcars-row-value">{{difficulty}}</span>
+			</div>
+			{{/difficulty}}
+			{{#dice_count}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Dice</span>
+				<span class="sheet-lcars-row-value">{{dice_count}}</span>
+			</div>
+			{{/dice_count}}
+			{{#d1}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Rolls</span>
+				<span class="sheet-lcars-row-value sheet-dice-results">
+					{{#d1_hit}}<span class="sheet-die sheet-die-success">{{d1}}</span>{{/d1_hit}}{{^d1_hit}}<span class="sheet-die">{{d1}}</span>{{/d1_hit}}
+					{{#d2}}{{#d2_hit}}<span class="sheet-die sheet-die-success">{{d2}}</span>{{/d2_hit}}{{^d2_hit}}<span class="sheet-die">{{d2}}</span>{{/d2_hit}}{{/d2}}
+					{{#d3}}{{#d3_hit}}<span class="sheet-die sheet-die-success">{{d3}}</span>{{/d3_hit}}{{^d3_hit}}<span class="sheet-die">{{d3}}</span>{{/d3_hit}}{{/d3}}
+					{{#d4}}{{#d4_hit}}<span class="sheet-die sheet-die-success">{{d4}}</span>{{/d4_hit}}{{^d4_hit}}<span class="sheet-die">{{d4}}</span>{{/d4_hit}}{{/d4}}
+					{{#d5}}{{#d5_hit}}<span class="sheet-die sheet-die-success">{{d5}}</span>{{/d5_hit}}{{^d5_hit}}<span class="sheet-die">{{d5}}</span>{{/d5_hit}}{{/d5}}
+				</span>
+			</div>
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Successes</span>
+				<span class="sheet-lcars-row-value">{{successes}}</span>
+			</div>
+			{{/d1}}
+			{{#result}}
+			{{#is_pass}}
+			<div class="sheet-lcars-row sheet-lcars-row-result sheet-pass">
+				<span class="sheet-lcars-row-label">Result</span>
+				<span class="sheet-lcars-row-value">{{result}}</span>
+			</div>
+			{{/is_pass}}{{^is_pass}}
+			<div class="sheet-lcars-row sheet-lcars-row-result">
+				<span class="sheet-lcars-row-label">Result</span>
+				<span class="sheet-lcars-row-value">{{result}}</span>
+			</div>
+			{{/is_pass}}
+			{{/result}}
+		</div>
+
+	</div>
+</rolltemplate>
+
 <div class="sheet-content">
 
 	<!-- Sheet masthead: always visible -->
@@ -56,32 +131,32 @@ Author: Don Davis, aka omonubi
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="control" /><span></span></label>
 						<span class="sheet-stat-name">Control</span>
-						<input type="number" name="attr_control" min="7" max="12" value="8" />
+						<input type="number" name="attr_control" min="7" max="12" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="daring" /><span></span></label>
 						<span class="sheet-stat-name">Daring</span>
-						<input type="number" name="attr_daring" min="7" max="12" value="8" />
+						<input type="number" name="attr_daring" min="7" max="12" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="fitness" /><span></span></label>
 						<span class="sheet-stat-name">Fitness</span>
-						<input type="number" name="attr_fitness" min="7" max="12" value="8" />
+						<input type="number" name="attr_fitness" min="7" max="12" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="insight" /><span></span></label>
 						<span class="sheet-stat-name">Insight</span>
-						<input type="number" name="attr_insight" min="7" max="12" value="8" />
+						<input type="number" name="attr_insight" min="7" max="12" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="presence" /><span></span></label>
 						<span class="sheet-stat-name">Presence</span>
-						<input type="number" name="attr_presence" min="7" max="12" value="8" />
+						<input type="number" name="attr_presence" min="7" max="12" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="reason" /><span></span></label>
 						<span class="sheet-stat-name">Reason</span>
-						<input type="number" name="attr_reason" min="7" max="12" value="8" />
+						<input type="number" name="attr_reason" min="7" max="12" value="7" />
 					</div>
 				</div>
 			</div>
@@ -152,7 +227,7 @@ Author: Don Davis, aka omonubi
 					<label>Dice</label>
 					<input type="number" name="attr_dice_count" min="1" max="5" value="2" />
 				</div>
-				<button type="roll" name="roll_task" value="@{dice_count}d20cs<=@{target_number}">Roll Task</button>
+			<button type="action" name="act_roll_task">Roll Task</button>
 			</div>
 		</div>
 
@@ -165,8 +240,7 @@ Author: Don Davis, aka omonubi
 </div>
 
 <script type="text/worker">
-// When the selected attribute, selected department, or any stat value changes,
-// auto-populate the Task Check panel and recalculate the target number.
+// Recalculate target whenever any stat or selection changes.
 on('change:selected_attribute change:selected_department change:control change:daring change:fitness change:insight change:presence change:reason change:command change:conn change:engineering change:security change:medicine change:science', function() {
 	getAttrs(['selected_attribute', 'selected_department', 'control', 'daring', 'fitness', 'insight', 'presence', 'reason', 'command', 'conn', 'engineering', 'security', 'medicine', 'science'], function(v) {
 		var attrVal = parseInt(v[v.selected_attribute]) || 0;
@@ -175,6 +249,58 @@ on('change:selected_attribute change:selected_department change:control change:d
 			task_attribute: attrVal,
 			task_department: deptVal,
 			target_number: attrVal + deptVal
+		});
+	});
+});
+
+// Task Check roll: all dice generated in JavaScript, results sent to template.
+on('clicked:roll_task', function() {
+	getAttrs(['dice_count', 'target_number', 'difficulty', 'character_name',
+	          'selected_attribute', 'selected_department'], function(v) {
+
+		var diceCount  = Math.min(Math.max(parseInt(v.dice_count)  || 2, 1), 5);
+		var target     = parseInt(v.target_number) || 0;
+		var difficulty = parseInt(v.difficulty)    || 1;
+		var charName   = v.character_name          || 'Character';
+
+		function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+		var attr = cap(v.selected_attribute  || '');
+		var dept = cap(v.selected_department || '');
+
+		// Roll each die individually using JavaScript.
+		var rolls = [];
+		for (var i = 0; i < diceCount; i++) {
+			rolls.push(Math.floor(Math.random() * 20) + 1);
+		}
+
+		// Count successes: any die <= target.
+		var successes = rolls.reduce(function(acc, r) { return acc + (r <= target ? 1 : 0); }, 0);
+		var pass      = successes >= difficulty;
+
+		// Build the template call. Each die is passed as a plain value;
+		// dx_hit=1 is included only when that die succeeded (truthy in template).
+		// _r=[[0]] is a required dummy inline roll for startRoll to process.
+		var tpl = '&{template:task}'
+			+ ' {{title='      + charName   + '}}'
+			+ ' {{subtitle=Task Check}}'
+			+ ' {{attribute='  + attr       + '}}'
+			+ ' {{department=' + dept       + '}}'
+			+ ' {{target='     + target     + '}}'
+			+ ' {{difficulty=' + difficulty + '}}'
+			+ ' {{dice_count=' + diceCount  + '}}'
+			+ ' {{d1='         + rolls[0]   + '}}'
+			+ (rolls[0] <= target ? ' {{d1_hit=1}}' : '')
+			+ (diceCount >= 2 ? ' {{d2=' + rolls[1] + '}}' + (rolls[1] <= target ? ' {{d2_hit=1}}' : '') : '')
+			+ (diceCount >= 3 ? ' {{d3=' + rolls[2] + '}}' + (rolls[2] <= target ? ' {{d3_hit=1}}' : '') : '')
+			+ (diceCount >= 4 ? ' {{d4=' + rolls[3] + '}}' + (rolls[3] <= target ? ' {{d4_hit=1}}' : '') : '')
+			+ (diceCount >= 5 ? ' {{d5=' + rolls[4] + '}}' + (rolls[4] <= target ? ' {{d5_hit=1}}' : '') : '')
+			+ ' {{successes='  + successes  + '}}'
+			+ ' {{result='     + (pass ? 'PASS' : 'FAIL') + '}}'
+			+ (pass ? ' {{is_pass=1}}' : '')
+			+ ' {{_r=[[0]]}}';
+
+		startRoll(tpl, function(results) {
+			finishRoll(results.rollId, {});
 		});
 	});
 });
