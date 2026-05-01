@@ -1,0 +1,180 @@
+/*
+Description: CSS for a Roll20 character sheet for Star Trek Adventures, 2nd Edition, published by Modiphius.
+Author: Don Davis, aka omonubi
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap');
+
+/* ============================================================
+   LCARS VARIABLES
+   ============================================================ */
+.sheet-content {
+	--lcars-black:    #000000;
+	--lcars-orange:   #FF7700;
+	--lcars-tan:      #FFCC99;
+	--lcars-peach:    #FF9966;
+	--lcars-pink:     #FF6699;
+	--lcars-blue:     #6699FF;
+	--lcars-purple:   #9999CC;
+	--lcars-on-dark:  #FFFFFF;
+	--lcars-on-color: #000000;
+	--lcars-font:     'Antonio', sans-serif;
+}
+
+/* ============================================================
+   BASE SHEET
+   ============================================================ */
+.sheet-content {
+	background-color: var(--lcars-black);
+	color: var(--lcars-on-dark);
+	font-family: var(--lcars-font);
+	font-size: 14px;
+	min-width: 680px;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* ============================================================
+   MASTHEAD
+   ============================================================ */
+.sheet-masthead {
+	background-color: var(--lcars-orange);
+	padding: 10px 20px;
+	margin-bottom: 10px;
+}
+
+.sheet-masthead-title {
+	font-size: 28px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: var(--lcars-on-color);
+	line-height: 1.1;
+}
+
+.sheet-masthead-subtitle {
+	font-size: 13px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	color: var(--lcars-on-color);
+	opacity: 0.8;
+}
+
+/* ============================================================
+   TAB NAVIGATION
+   ============================================================ */
+
+/* Hide the radio inputs inside tab labels */
+.sheet-tab-label input[type="radio"] {
+	display: none;
+}
+
+/* Flex nav bar container */
+.sheet-tab-nav {
+	display: flex;
+	flex-direction: row;
+	gap: 6px;
+	padding: 0 8px;
+	background-color: #111111;
+}
+
+/* Lozenge tab button */
+.sheet-tab-nav .sheet-tab-label {
+	display: inline-flex;
+	align-items: center;
+	background-color: var(--lcars-purple);
+	color: var(--lcars-on-color);
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	padding: 7px 20px 5px 16px;
+	border-radius: 20px 4px 4px 20px;
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Active tab: label whose child radio is checked */
+.sheet-tab-nav .sheet-tab-label:has(input:checked) {
+	background-color: var(--lcars-orange);
+}
+
+/* Horizontal rule below the tab row */
+.sheet-tab-divider {
+	display: block;
+	height: 4px;
+	background-color: var(--lcars-orange);
+	margin: 8px 0 0 0;
+}
+
+/* ============================================================
+   TAB PAGES
+   ============================================================ */
+.sheet-tab-page {
+	display: none;
+	padding: 16px 8px 8px;
+}
+
+.sheet-content:has(input[value="character"]:checked) .sheet-tab-page-character {
+	display: block;
+}
+
+.sheet-content:has(input[value="settings"]:checked) .sheet-tab-page-settings {
+	display: block;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.sheet-content h1,
+.sheet-content h2,
+.sheet-content h3,
+.sheet-content h4 {
+	font-family: var(--lcars-font);
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	margin: 0 0 8px 0;
+	line-height: 1.2;
+	padding: 0;
+}
+
+.sheet-content h1 { font-size: 26px; color: var(--lcars-orange); }
+.sheet-content h2 { font-size: 20px; color: var(--lcars-tan);    }
+.sheet-content h3 { font-size: 16px; color: var(--lcars-peach);  }
+.sheet-content h4 { font-size: 14px; color: var(--lcars-blue);   }
+
+/* General field labels — exclude tab labels to prevent style bleed */
+.sheet-content label:not(.sheet-tab-label) {
+	font-family: var(--lcars-font);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 12px;
+	color: var(--lcars-tan);
+}
+
+/* ============================================================
+   FORM INPUTS (foundation styles)
+   ============================================================ */
+.sheet-content input[type="text"],
+.sheet-content input[type="number"],
+.sheet-content textarea,
+.sheet-content select {
+	background-color: #111111;
+	color: var(--lcars-tan);
+	border: 1px solid #333333;
+	border-bottom: 2px solid var(--lcars-orange);
+	border-radius: 3px 3px 0 0;
+	font-family: var(--lcars-font);
+	font-size: 14px;
+	padding: 3px 6px;
+	box-sizing: border-box;
+}
+
+.sheet-content input[type="text"]:focus,
+.sheet-content input[type="number"]:focus,
+.sheet-content textarea:focus,
+.sheet-content select:focus {
+	outline: none;
+	border-bottom-color: var(--lcars-tan);
+}

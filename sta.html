@@ -1,0 +1,36 @@
+<!-- 
+Description: HTML for a Roll20 character sheet for Star Trek Adventures, 2nd Edition, published by Modiphius.
+Author: Don Davis, aka omonubi
+ -->
+<div class="sheet-content">
+
+	<!-- Sheet masthead: always visible -->
+	<div class="sheet-masthead">
+		<div class="sheet-masthead-title">Star Trek Adventures</div>
+		<div class="sheet-masthead-subtitle">2nd Edition &middot; Character Sheet</div>
+	</div>
+
+	<!-- Tab navigation: radio wrapped inside label - no IDs needed, click always works -->
+	<div class="sheet-tab-nav">
+		<label class="sheet-tab-label">
+			<input type="radio" name="attr_sheet_tab" value="character" checked="checked" />
+			Character
+		</label>
+		<label class="sheet-tab-label">
+			<input type="radio" name="attr_sheet_tab" value="settings" />
+			Settings
+		</label>
+	</div>
+
+	<div class="sheet-tab-divider"></div>
+
+	<!-- Tab pages -->
+	<div class="sheet-tab-page sheet-tab-page-character">
+		<h2>Character</h2>
+	</div>
+
+	<div class="sheet-tab-page sheet-tab-page-settings">
+		<h2>Settings</h2>
+	</div>
+
+</div>
