@@ -227,3 +227,183 @@ Author: Don Davis, aka omonubi
 	outline: none;
 	border-bottom-color: var(--lcars-tan);
 }
+
+/* ============================================================
+   ATTRIBUTES & DEPARTMENTS — two-column layout
+   ============================================================ */
+.sheet-attr-dept-row {
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
+	padding: 0 8px;
+	margin-bottom: 4px;
+}
+
+.sheet-attributes,
+.sheet-departments {
+	flex: 1;
+}
+
+/* Section header color overrides — each section gets its own LCARS accent */
+.sheet-attributes  .sheet-section-header { background-color: var(--lcars-orange); }
+.sheet-departments .sheet-section-header { background-color: var(--lcars-blue);   }
+.sheet-roll-panel  .sheet-section-header { background-color: var(--lcars-pink);   }
+
+/* Stat grid */
+.sheet-stat-grid {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Individual stat rows */
+.sheet-attr-row,
+.sheet-dept-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	padding: 5px 6px;
+	border-bottom: 1px solid #1a1a1a;
+	border-radius: 3px;
+}
+
+.sheet-attr-row:last-child,
+.sheet-dept-row:last-child {
+	border-bottom: none;
+}
+
+/* Highlight the selected row */
+.sheet-attr-row:has(input:checked),
+.sheet-dept-row:has(input:checked) {
+	background-color: #181818;
+}
+
+/* Radio dot — hidden input, visible span */
+.sheet-stat-select input[type="radio"] {
+	display: none;
+}
+
+.sheet-stat-select span {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #333333;
+	border: 1.5px solid #555555;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.sheet-attr-row:has(input:checked) .sheet-stat-select span {
+	background-color: var(--lcars-orange);
+	border-color: var(--lcars-orange);
+}
+
+.sheet-dept-row:has(input:checked) .sheet-stat-select span {
+	background-color: var(--lcars-blue);
+	border-color: var(--lcars-blue);
+}
+
+/* Stat name */
+.sheet-stat-name {
+	flex: 1;
+	font-family: var(--lcars-font);
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--lcars-on-dark);
+}
+
+.sheet-attr-row:has(input:checked) .sheet-stat-name {
+	color: var(--lcars-orange);
+	font-weight: 700;
+}
+
+.sheet-dept-row:has(input:checked) .sheet-stat-name {
+	color: var(--lcars-blue);
+	font-weight: 700;
+}
+
+/* Stat number inputs */
+.sheet-attr-row input[type="number"],
+.sheet-dept-row input[type="number"] {
+	width: 46px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 2px 4px;
+}
+
+/* ============================================================
+   ROLL PANEL (Task Check)
+   ============================================================ */
+.sheet-roll-panel {
+	margin: 0 8px 16px;
+}
+
+.sheet-roll-bar {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 6px;
+	padding: 4px 8px 8px;
+	flex-wrap: wrap;
+}
+
+/* +  =  operators */
+.sheet-roll-op {
+	font-family: var(--lcars-font);
+	font-size: 22px;
+	font-weight: 700;
+	color: var(--lcars-orange);
+	line-height: 1;
+	padding-bottom: 6px;
+}
+
+/* Vertical separator between equation block and controls */
+.sheet-roll-divider {
+	width: 1px;
+	height: 44px;
+	background-color: #333333;
+	align-self: center;
+	margin: 0 6px;
+}
+
+/* Auto-calculated readonly fields */
+.sheet-roll-bar input[readonly] {
+	color: var(--lcars-orange);
+	background-color: #0a0a0a;
+	border-bottom-color: var(--lcars-purple);
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	width: 56px;
+}
+
+/* Editable control fields (Difficulty, Dice) */
+.sheet-roll-bar .sheet-field input[type="number"]:not([readonly]) {
+	width: 52px;
+	text-align: center;
+	font-size: 16px;
+}
+
+/* Roll button — right-rounded LCARS lozenge */
+.sheet-roll-bar button[type="roll"] {
+	background-color: var(--lcars-orange);
+	color: var(--lcars-on-color);
+	font-family: var(--lcars-font);
+	font-size: 15px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	border: none;
+	border-radius: 4px 20px 20px 4px;
+	padding: 8px 22px 6px 16px;
+	cursor: pointer;
+	align-self: flex-end;
+	margin-left: 6px;
+}
+
+.sheet-roll-bar button[type="roll"]:hover {
+	background-color: var(--lcars-tan);
+}

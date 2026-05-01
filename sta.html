@@ -46,6 +46,116 @@ Author: Don Davis, aka omonubi
 			</div>
 		</div>
 
+		<!-- Attributes and Departments -->
+		<div class="sheet-attr-dept-row">
+
+			<!-- Attributes -->
+			<div class="sheet-section sheet-attributes">
+				<div class="sheet-section-header">Attributes</div>
+				<div class="sheet-stat-grid">
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="control" /><span></span></label>
+						<span class="sheet-stat-name">Control</span>
+						<input type="number" name="attr_control" min="7" max="12" value="8" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="daring" /><span></span></label>
+						<span class="sheet-stat-name">Daring</span>
+						<input type="number" name="attr_daring" min="7" max="12" value="8" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="fitness" /><span></span></label>
+						<span class="sheet-stat-name">Fitness</span>
+						<input type="number" name="attr_fitness" min="7" max="12" value="8" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="insight" /><span></span></label>
+						<span class="sheet-stat-name">Insight</span>
+						<input type="number" name="attr_insight" min="7" max="12" value="8" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="presence" /><span></span></label>
+						<span class="sheet-stat-name">Presence</span>
+						<input type="number" name="attr_presence" min="7" max="12" value="8" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="reason" /><span></span></label>
+						<span class="sheet-stat-name">Reason</span>
+						<input type="number" name="attr_reason" min="7" max="12" value="8" />
+					</div>
+				</div>
+			</div>
+
+			<!-- Departments -->
+			<div class="sheet-section sheet-departments">
+				<div class="sheet-section-header">Departments</div>
+				<div class="sheet-stat-grid">
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="command" /><span></span></label>
+						<span class="sheet-stat-name">Command</span>
+						<input type="number" name="attr_command" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="conn" /><span></span></label>
+						<span class="sheet-stat-name">Conn</span>
+						<input type="number" name="attr_conn" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="engineering" /><span></span></label>
+						<span class="sheet-stat-name">Engineering</span>
+						<input type="number" name="attr_engineering" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="security" /><span></span></label>
+						<span class="sheet-stat-name">Security</span>
+						<input type="number" name="attr_security" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="medicine" /><span></span></label>
+						<span class="sheet-stat-name">Medicine</span>
+						<input type="number" name="attr_medicine" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="science" /><span></span></label>
+						<span class="sheet-stat-name">Science</span>
+						<input type="number" name="attr_science" min="0" max="5" value="1" />
+					</div>
+				</div>
+			</div>
+
+		</div><!-- /.sheet-attr-dept-row -->
+
+		<!-- Task Check / Roll Panel -->
+		<div class="sheet-section sheet-roll-panel">
+			<div class="sheet-section-header">Task Check</div>
+			<div class="sheet-roll-bar">
+				<div class="sheet-field">
+					<label>Attribute</label>
+					<input type="number" name="attr_task_attribute" min="0" max="12" readonly />
+				</div>
+				<span class="sheet-roll-op">+</span>
+				<div class="sheet-field">
+					<label>Department</label>
+					<input type="number" name="attr_task_department" min="0" max="5" readonly />
+				</div>
+				<span class="sheet-roll-op">=</span>
+				<div class="sheet-field">
+					<label>Target</label>
+					<input type="number" name="attr_target_number" min="0" max="17" readonly />
+				</div>
+				<div class="sheet-roll-divider"></div>
+				<div class="sheet-field">
+					<label>Difficulty</label>
+					<input type="number" name="attr_difficulty" min="0" max="5" value="1" />
+				</div>
+				<div class="sheet-field">
+					<label>Dice</label>
+					<input type="number" name="attr_dice_count" min="1" max="5" value="2" />
+				</div>
+				<button type="roll" name="roll_task" value="@{dice_count}d20cs<=@{target_number}">Roll Task</button>
+			</div>
+		</div>
+
 	</div>
 
 	<div class="sheet-tab-page sheet-tab-page-settings">
@@ -53,3 +163,19 @@ Author: Don Davis, aka omonubi
 	</div>
 
 </div>
+
+<script type="text/worker">
+// When the selected attribute, selected department, or any stat value changes,
+// auto-populate the Task Check panel and recalculate the target number.
+on('change:selected_attribute change:selected_department change:control change:daring change:fitness change:insight change:presence change:reason change:command change:conn change:engineering change:security change:medicine change:science', function() {
+	getAttrs(['selected_attribute', 'selected_department', 'control', 'daring', 'fitness', 'insight', 'presence', 'reason', 'command', 'conn', 'engineering', 'security', 'medicine', 'science'], function(v) {
+		var attrVal = parseInt(v[v.selected_attribute]) || 0;
+		var deptVal = parseInt(v[v.selected_department]) || 0;
+		setAttrs({
+			task_attribute: attrVal,
+			task_department: deptVal,
+			target_number: attrVal + deptVal
+		});
+	});
+});
+</script>
