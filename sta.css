@@ -433,17 +433,35 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-end;
-	gap: 6px;
+	display: grid;
+	grid-template-columns: 99px min-content 99px min-content 99px min-content 108px min-content max-content;
+	grid-template-rows: auto auto;
+	column-gap: 6px;
+	row-gap: 8px;
 	padding: 4px 8px 8px;
-	flex-wrap: wrap;
+	align-items: end;
 }
+
+/* Row 1: equation fields */
+.sheet-roll-bar .sheet-field:has(input[name="attr_task_attribute"])  { grid-column: 1; grid-row: 1; }
+.sheet-roll-bar > span.sheet-roll-op:nth-of-type(1)                  { grid-column: 2; grid-row: 1; }
+.sheet-roll-bar .sheet-field:has(input[name="attr_task_department"]) { grid-column: 3; grid-row: 1; }
+.sheet-roll-bar > span.sheet-roll-op:nth-of-type(2)                  { grid-column: 4; grid-row: 1; }
+.sheet-roll-bar .sheet-field:has(input[name="attr_target_number"])   { grid-column: 5; grid-row: 1; }
+.sheet-roll-bar .sheet-focus-field                                   { grid-column: 7; grid-row: 1; width: 108px; }
+
+/* Row 2: control fields */
+.sheet-roll-bar .sheet-field:has(input[name="attr_difficulty"])      { grid-column: 1; grid-row: 2; }
+.sheet-roll-bar .sheet-field:has(input[name="attr_c_range"])         { grid-column: 3; grid-row: 2; }
+.sheet-roll-bar .sheet-field:has(input[name="attr_dice_count"])      { grid-column: 5; grid-row: 2; }
+.sheet-roll-bar > span.sheet-roll-gap                                { grid-column: 6; grid-row: 2; }
+.sheet-roll-bar .sheet-field:has(select[name="attr_determination_spend"]) { grid-column: 7; grid-row: 2; }
+.sheet-roll-bar > span.sheet-roll-gap:nth-of-type(3)                { grid-column: 8; grid-row: 2; }
+.sheet-roll-bar button[type="action"]                                { grid-column: 9; grid-row: 2; }
 
 /* Keep Task Check labels/controls aligned and sized consistently */
 .sheet-roll-bar .sheet-field {
-	width: 79px;
+	width: 99px;
 	align-items: stretch;
 	display: flex;
 	flex-direction: column;
@@ -453,6 +471,9 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar .sheet-field label {
 	width: 100%;
 	text-align: center;
+	height: 18px;
+	line-height: 18px;
+	overflow: hidden;
 }
 
 .sheet-roll-bar .sheet-field input[type="number"],
@@ -472,17 +493,150 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar .sheet-field:has(select[name="attr_determination_spend"]) {
-	width: 88px;
+	width: 108px;
 }
 
 /* Determination selector can be narrower while keeping column alignment */
 .sheet-roll-bar select[name="attr_determination_spend"] {
-	width: 88px;
+	width: 108px;
 	margin: 0 auto;
 }
 
 /* Worker-controlled state flag for disabling the roll button */
 .sheet-roll-bar .sheet-roll-disabled-flag {
+	display: none;
+}
+
+.sheet-roll-bar .sheet-roll-gap {
+	visibility: hidden;
+}
+
+/* ── Focus custom dropdown ── */
+.sheet-focus-select {
+	position: relative;
+	width: 100%;
+}
+
+.sheet-roll-bar .sheet-focus-toggle {
+	display: none !important;
+}
+
+.sheet-focus-trigger {
+	position: absolute;
+	inset: 0;
+	cursor: pointer;
+	margin: 0;
+}
+
+.sheet-focus-trigger::after {
+	content: '▾';
+	position: absolute;
+	right: 6px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--lcars-orange);
+	pointer-events: none;
+	font-size: 14px;
+	line-height: 1;
+}
+
+.sheet-roll-bar input.sheet-focus-display {
+	width: 108px;
+	box-sizing: border-box;
+	height: 30px;
+	cursor: pointer;
+	text-align: left;
+	padding-right: 22px;
+	pointer-events: none;
+	font-family: var(--lcars-font) !important;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	color: var(--lcars-orange) !important;
+}
+
+.sheet-focus-dropdown {
+	display: none;
+	position: absolute;
+	top: calc(100% + 2px);
+	left: 0;
+	min-width: 100%;
+	width: 105%;
+	max-width: 105%;
+	background-color: #111111;
+	border: 1px solid #ffffff;
+	border-radius: 0 0 3px 3px;
+	z-index: 50;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+	overflow: hidden;
+}
+
+.sheet-roll-bar:has(input[name="attr_focus_open"]:checked) .sheet-focus-dropdown {
+	display: block;
+}
+
+.sheet-roll-bar .sheet-focus-item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 8px;
+	margin: 0 0 7px 0;
+	width: 100%;
+	box-sizing: border-box;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: var(--lcars-font) !important;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+	white-space: nowrap;
+}
+
+.sheet-roll-bar .sheet-focus-item > * {
+	margin: 0;
+}
+
+.sheet-roll-bar .sheet-focus-item:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+    color: white
+}
+
+.sheet-roll-bar .sheet-focus-item:has(input[type="radio"]:checked) {
+	background-color: rgba(255, 255, 255, 0.5);
+	color: white;
+}
+
+.sheet-roll-bar .sheet-focus-item:has(input[type="radio"][value=""]) {
+	justify-content: center;
+}
+
+.sheet-roll-bar .sheet-focus-item input[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.sheet-roll-bar .sheet-focus-item input[type="text"] {
+	background: transparent;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	pointer-events: none;
+	padding: 0;
+	width: 100%;
+}
+
+/* Hide options with no focus text entered */
+.sheet-roll-bar .sheet-focus-item:has(input[type="text"]:placeholder-shown) {
 	display: none;
 }
 
@@ -496,7 +650,7 @@ Author: Don Davis, aka omonubi
 	padding-bottom: 6px;
 }
 
-/* Vertical separator between equation block and controls */
+/* Vertical separator (kept for legacy; no longer rendered in Task Check) */
 .sheet-roll-divider {
 	width: 1px;
 	height: 44px;
@@ -536,10 +690,10 @@ Author: Don Davis, aka omonubi
 	letter-spacing: 0.12em;
 	border: none;
 	border-radius: 4px 20px 20px 4px;
-	padding: 0 12px 0 6px;
+	padding: 0 22px 0 16px;
 	height: 30px;
+	min-width: 100px;
 	cursor: pointer;
-	align-self: flex-end;
 	margin-left: 6px;
 }
 

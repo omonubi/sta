@@ -25,6 +25,12 @@ Author: Don Davis, aka omonubi
 				<span class="sheet-lcars-row-value">{{department}}</span>
 			</div>
 			{{/department}}
+			{{#focus}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Focus</span>
+				<span class="sheet-lcars-row-value">{{focus}}</span>
+			</div>
+			{{/focus}}
 			{{#show_old_value}}
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Old Value</span>
@@ -259,9 +265,57 @@ Author: Don Davis, aka omonubi
 				<div class="sheet-field">
 					<label>Target</label>
 					<input type="number" name="attr_target_number" min="0" max="17" readonly />
+				</div>			<div class="sheet-field sheet-focus-field">
+				<label>Focus</label>
+				<div class="sheet-focus-select">
+					<input type="text" name="attr_task_focus_label" readonly class="sheet-focus-display" />
+					<label class="sheet-focus-trigger">
+						<input type="checkbox" name="attr_focus_open" class="sheet-focus-toggle">
+					</label>
+					<div class="sheet-focus-dropdown">
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="" />
+							<span>None</span>
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="1" />
+							<input type="text" name="attr_focus_1" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="2" />
+							<input type="text" name="attr_focus_2" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="3" />
+							<input type="text" name="attr_focus_3" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="4" />
+							<input type="text" name="attr_focus_4" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="5" />
+							<input type="text" name="attr_focus_5" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="6" />
+							<input type="text" name="attr_focus_6" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="7" />
+							<input type="text" name="attr_focus_7" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="8" />
+							<input type="text" name="attr_focus_8" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item">
+							<input type="radio" name="attr_task_focus" value="9" />
+							<input type="text" name="attr_focus_9" readonly placeholder=" " />
+						</label>
+					</div>
 				</div>
-				<div class="sheet-roll-divider"></div>
-				<div class="sheet-field">
+			</div>				<div class="sheet-field">
 					<label>Difficulty</label>
 					<input type="number" name="attr_difficulty" min="0" max="5" value="1" />
 				</div>
@@ -273,6 +327,7 @@ Author: Don Davis, aka omonubi
 					<label>Dice</label>
 					<input type="number" name="attr_dice_count" min="1" max="5" value="2" />
 				</div>
+				<span class="sheet-roll-op sheet-roll-gap">+</span>
 				<div class="sheet-field">
 					<label>Determination</label>
 					<select name="attr_determination_spend">
@@ -281,7 +336,8 @@ Author: Don Davis, aka omonubi
 						<option value="opportunity">Opportunity</option>
 					</select>
 				</div>
-			<button type="action" name="act_roll_task">Roll Task</button>
+				<span class="sheet-roll-op sheet-roll-gap">+</span>
+				<button type="action" name="act_roll_task">Roll Task</button>
 			</div>
 			</div><!-- /.sheet-roll-panel-shell -->
 		</div>
@@ -466,6 +522,11 @@ on('sheet:opened', function() {
 		}
 		syncDeterminationPips(total);
 	});
+	getAttrs(['task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9'], function(v) {
+		var focusIndex = v.task_focus || '';
+		var focusText  = focusIndex ? (v['focus_' + focusIndex] || '') : '';
+		setAttrs({ task_focus_label: focusText || 'None' }, { silent: true });
+	});
 });
 
 on('change:determination_points', function(eventInfo) {
@@ -516,6 +577,25 @@ on('change:sheet_type', function() {
 	});
 });
 
+// Keep the focus label in sync with the selected focus.
+on('change:task_focus', function() {
+	getAttrs(['task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9'], function(v) {
+		var focusIndex = v.task_focus || '';
+		var focusText  = focusIndex ? (v['focus_' + focusIndex] || '') : '';
+		setAttrs({ task_focus_label: focusText || 'None', focus_open: '0' }, { silent: true });
+	});
+});
+
+// When a focus text changes, refresh the label if that focus is selected.
+on('change:focus_1 change:focus_2 change:focus_3 change:focus_4 change:focus_5 change:focus_6 change:focus_7 change:focus_8 change:focus_9', function() {
+	getAttrs(['task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9'], function(v) {
+		var focusIndex = v.task_focus || '';
+		if (!focusIndex) { return; }
+		var focusText = v['focus_' + focusIndex] || '';
+		setAttrs({ task_focus_label: focusText || 'None' }, { silent: true });
+	});
+});
+
 // Recalculate target whenever any stat or selection changes.
 on('change:selected_attribute change:selected_department change:control change:daring change:fitness change:insight change:presence change:reason change:command change:conn change:engineering change:security change:medicine change:science', function() {
 	getAttrs(['selected_attribute', 'selected_department', 'control', 'daring', 'fitness', 'insight', 'presence', 'reason', 'command', 'conn', 'engineering', 'security', 'medicine', 'science'], function(v) {
@@ -562,7 +642,8 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 // Task Check roll: all dice generated in JavaScript, results sent to template.
 on('clicked:roll_task', function() {
 	getAttrs(['dice_count', 'target_number', 'difficulty', 'c_range', 'character_name',
-	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'determination_points'], function(v) {
+	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'determination_points',
+	          'task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9'], function(v) {
 
 		var taskAttr = parseInt(v.task_attribute) || 0;
 		var taskDept = parseInt(v.task_department) || 0;
@@ -582,6 +663,8 @@ on('clicked:roll_task', function() {
 		var isOpportunity = v.determination_spend === 'opportunity';
 		var subtitle   = isInspired ? 'Task Check (Inspired)' : (isOpportunity ? 'Task Check (Opportunity)' : 'Task Check');
 		var cRangeText = cRangeValue === 1 ? '20' : ((21 - cRangeValue) + '-20');
+		var taskFocusIndex = v.task_focus || '';
+		var taskFocusText  = taskFocusIndex ? (v['focus_' + taskFocusIndex] || '') : '';
 
 		if (spendsDetermination && determinationPoints <= 0) {
 			sendTemplateNotice(charName, subtitle, 'No Determination available to spend.', { headerGray: true });
@@ -628,6 +711,7 @@ on('clicked:roll_task', function() {
 			+ ' {{header_pink=1}}'
 			+ ' {{attribute='  + attr       + '}}'
 			+ ' {{department=' + dept       + '}}'
+			+ (taskFocusText ? ' {{focus=' + escapeTemplateValue(taskFocusText) + '}}' : '')
 			+ ' {{target='     + target     + '}}'
 			+ ' {{difficulty=' + difficulty + '}}'
 			+ ' {{c_range='    + escapeTemplateValue(cRangeText) + '}}'
@@ -662,7 +746,8 @@ on('clicked:roll_task', function() {
 					c_range: 1,
 					dice_count: 2,
 					determination_spend: 'none',
-					roll_task_disabled: 'on'
+					task_focus: '',
+					task_focus_label: 'None',						focus_open: '0',					roll_task_disabled: 'on'
 				});
 			}
 
