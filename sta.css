@@ -955,3 +955,7 @@ Author: Don Davis, aka omonubi
 	color: #ff8a8a;
 	border-color: #ff4d4d;
 }
+
+.sheet-rolltemplate-task .sheet-die-value-critical {
+	color: #FFFF00;
+}
