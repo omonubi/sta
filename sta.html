@@ -562,7 +562,8 @@ on('clicked:roll_task', function() {
 		var determinationPoints = clampDetermination(v.determination_points);
 		var spendsDetermination = v.determination_spend && v.determination_spend !== 'none';
 		var isInspired = v.determination_spend === 'inspired';
-		var subtitle   = isInspired ? 'Task Check (Inspired)' : 'Task Check';
+		var isOpportunity = v.determination_spend === 'opportunity';
+		var subtitle   = isInspired ? 'Task Check (Inspired)' : (isOpportunity ? 'Task Check (Opportunity)' : 'Task Check');
 
 		if (spendsDetermination && determinationPoints <= 0) {
 			sendTemplateNotice(charName, subtitle, 'No Determination available to spend.', { headerGray: true });
@@ -580,6 +581,13 @@ on('clicked:roll_task', function() {
 		}
 		if (isInspired) {
 			rolls[0] = 1;
+		}
+		if (isOpportunity) {
+			for (var rerollIndex = 0; rerollIndex < diceCount; rerollIndex++) {
+				if (rolls[rerollIndex] > target) {
+					rolls[rerollIndex] = Math.floor(Math.random() * 20) + 1;
+				}
+			}
 		}
 
 		// Count successes: any die <= target.
