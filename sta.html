@@ -49,6 +49,12 @@ Author: Don Davis, aka omonubi
 				<span class="sheet-lcars-row-value">{{difficulty}}</span>
 			</div>
 			{{/difficulty}}
+			{{#c_range}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">C-Range</span>
+				<span class="sheet-lcars-row-value">{{c_range}}</span>
+			</div>
+			{{/c_range}}
 			{{#dice_count}}
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Dice</span>
@@ -59,17 +65,23 @@ Author: Don Davis, aka omonubi
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Rolls</span>
 				<span class="sheet-lcars-row-value sheet-dice-results">
-					{{#d1_inspired}}<span class="sheet-die sheet-die-inspired">{{d1}}</span>{{/d1_inspired}}{{^d1_inspired}}{{#d1_hit}}<span class="sheet-die sheet-die-success">{{d1}}</span>{{/d1_hit}}{{^d1_hit}}<span class="sheet-die">{{d1}}</span>{{/d1_hit}}{{/d1_inspired}}
-					{{#d2}}{{#d2_hit}}<span class="sheet-die sheet-die-success">{{d2}}</span>{{/d2_hit}}{{^d2_hit}}<span class="sheet-die">{{d2}}</span>{{/d2_hit}}{{/d2}}
-					{{#d3}}{{#d3_hit}}<span class="sheet-die sheet-die-success">{{d3}}</span>{{/d3_hit}}{{^d3_hit}}<span class="sheet-die">{{d3}}</span>{{/d3_hit}}{{/d3}}
-					{{#d4}}{{#d4_hit}}<span class="sheet-die sheet-die-success">{{d4}}</span>{{/d4_hit}}{{^d4_hit}}<span class="sheet-die">{{d4}}</span>{{/d4_hit}}{{/d4}}
-					{{#d5}}{{#d5_hit}}<span class="sheet-die sheet-die-success">{{d5}}</span>{{/d5_hit}}{{^d5_hit}}<span class="sheet-die">{{d5}}</span>{{/d5_hit}}{{/d5}}
+					{{#d1_comp}}<span class="sheet-die sheet-die-complication">{{d1}}</span>{{/d1_comp}}{{^d1_comp}}{{#d1_inspired}}<span class="sheet-die sheet-die-inspired">{{d1}}</span>{{/d1_inspired}}{{^d1_inspired}}{{#d1_hit}}<span class="sheet-die sheet-die-success">{{d1}}</span>{{/d1_hit}}{{^d1_hit}}<span class="sheet-die">{{d1}}</span>{{/d1_hit}}{{/d1_inspired}}{{/d1_comp}}
+					{{#d2}}{{#d2_comp}}<span class="sheet-die sheet-die-complication">{{d2}}</span>{{/d2_comp}}{{^d2_comp}}{{#d2_hit}}<span class="sheet-die sheet-die-success">{{d2}}</span>{{/d2_hit}}{{^d2_hit}}<span class="sheet-die">{{d2}}</span>{{/d2_hit}}{{/d2_comp}}{{/d2}}
+					{{#d3}}{{#d3_comp}}<span class="sheet-die sheet-die-complication">{{d3}}</span>{{/d3_comp}}{{^d3_comp}}{{#d3_hit}}<span class="sheet-die sheet-die-success">{{d3}}</span>{{/d3_hit}}{{^d3_hit}}<span class="sheet-die">{{d3}}</span>{{/d3_hit}}{{/d3_comp}}{{/d3}}
+					{{#d4}}{{#d4_comp}}<span class="sheet-die sheet-die-complication">{{d4}}</span>{{/d4_comp}}{{^d4_comp}}{{#d4_hit}}<span class="sheet-die sheet-die-success">{{d4}}</span>{{/d4_hit}}{{^d4_hit}}<span class="sheet-die">{{d4}}</span>{{/d4_hit}}{{/d4_comp}}{{/d4}}
+					{{#d5}}{{#d5_comp}}<span class="sheet-die sheet-die-complication">{{d5}}</span>{{/d5_comp}}{{^d5_comp}}{{#d5_hit}}<span class="sheet-die sheet-die-success">{{d5}}</span>{{/d5_hit}}{{^d5_hit}}<span class="sheet-die">{{d5}}</span>{{/d5_hit}}{{/d5_comp}}{{/d5}}
 				</span>
 			</div>
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Successes</span>
 				<span class="sheet-lcars-row-value">{{successes}}</span>
 			</div>
+			{{#show_complications}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Complications</span>
+				<span class="sheet-lcars-row-value">{{complications}}</span>
+			</div>
+			{{/show_complications}}
 			{{/d1}}
 			{{#result}}
 			{{#is_pass}}
@@ -252,6 +264,10 @@ Author: Don Davis, aka omonubi
 				<div class="sheet-field">
 					<label>Difficulty</label>
 					<input type="number" name="attr_difficulty" min="0" max="5" value="1" />
+				</div>
+				<div class="sheet-field">
+					<label>C-Range</label>
+					<input type="number" name="attr_c_range" min="1" max="5" value="1" />
 				</div>
 				<div class="sheet-field">
 					<label>Dice</label>
@@ -545,7 +561,7 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 
 // Task Check roll: all dice generated in JavaScript, results sent to template.
 on('clicked:roll_task', function() {
-	getAttrs(['dice_count', 'target_number', 'difficulty', 'character_name',
+	getAttrs(['dice_count', 'target_number', 'difficulty', 'c_range', 'character_name',
 	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'determination_points'], function(v) {
 
 		var taskAttr = parseInt(v.task_attribute) || 0;
@@ -558,12 +574,14 @@ on('clicked:roll_task', function() {
 		var diceCount  = Math.min(Math.max(parseInt(v.dice_count)  || 2, 1), 5);
 		var target     = parseInt(v.target_number) || 0;
 		var difficulty = parseInt(v.difficulty)    || 1;
+		var cRangeValue = Math.min(Math.max(parseInt(v.c_range) || 1, 1), 5);
 		var charName   = v.character_name          || 'Character';
 		var determinationPoints = clampDetermination(v.determination_points);
 		var spendsDetermination = v.determination_spend && v.determination_spend !== 'none';
 		var isInspired = v.determination_spend === 'inspired';
 		var isOpportunity = v.determination_spend === 'opportunity';
 		var subtitle   = isInspired ? 'Task Check (Inspired)' : (isOpportunity ? 'Task Check (Opportunity)' : 'Task Check');
+		var cRangeText = cRangeValue === 1 ? '20' : ((21 - cRangeValue) + '-20');
 
 		if (spendsDetermination && determinationPoints <= 0) {
 			sendTemplateNotice(charName, subtitle, 'No Determination available to spend.', { headerGray: true });
@@ -592,28 +610,36 @@ on('clicked:roll_task', function() {
 
 		// Count successes: any die <= target.
 		var successes = rolls.reduce(function(acc, r) { return acc + (r <= target ? 1 : 0); }, 0);
+		var complicationThreshold = 21 - cRangeValue;
+		var complications = rolls.reduce(function(acc, r) {
+			return acc + (r >= complicationThreshold ? 1 : 0);
+		}, 0);
 		var pass      = successes >= difficulty;
 
 		// Build the template call. Each die is passed as a plain value;
 		// dx_hit=1 is included only when that die succeeded (truthy in template).
 		// _r=[[0]] is a required dummy inline roll for startRoll to process.
 		var tpl = '&{template:task}'
-			+ ' {{title='      + charName   + '}}'
-			+ ' {{subtitle='   + subtitle   + '}}'
+			+ ' {{title='      + escapeTemplateValue(charName) + '}}'
+			+ ' {{subtitle='   + escapeTemplateValue(subtitle) + '}}'
 			+ ' {{header_pink=1}}'
 			+ ' {{attribute='  + attr       + '}}'
 			+ ' {{department=' + dept       + '}}'
 			+ ' {{target='     + target     + '}}'
 			+ ' {{difficulty=' + difficulty + '}}'
+			+ ' {{c_range='    + escapeTemplateValue(cRangeText) + '}}'
 			+ ' {{dice_count=' + diceCount  + '}}'
 			+ ' {{d1='         + rolls[0]   + '}}'
+			+ (rolls[0] >= complicationThreshold ? ' {{d1_comp=1}}' : '')
 			+ (isInspired ? ' {{d1_inspired=1}}' : '')
 			+ (rolls[0] <= target ? ' {{d1_hit=1}}' : '')
-			+ (diceCount >= 2 ? ' {{d2=' + rolls[1] + '}}' + (rolls[1] <= target ? ' {{d2_hit=1}}' : '') : '')
-			+ (diceCount >= 3 ? ' {{d3=' + rolls[2] + '}}' + (rolls[2] <= target ? ' {{d3_hit=1}}' : '') : '')
-			+ (diceCount >= 4 ? ' {{d4=' + rolls[3] + '}}' + (rolls[3] <= target ? ' {{d4_hit=1}}' : '') : '')
-			+ (diceCount >= 5 ? ' {{d5=' + rolls[4] + '}}' + (rolls[4] <= target ? ' {{d5_hit=1}}' : '') : '')
+			+ (diceCount >= 2 ? ' {{d2=' + rolls[1] + '}}' + (rolls[1] >= complicationThreshold ? ' {{d2_comp=1}}' : '') + (rolls[1] <= target ? ' {{d2_hit=1}}' : '') : '')
+			+ (diceCount >= 3 ? ' {{d3=' + rolls[2] + '}}' + (rolls[2] >= complicationThreshold ? ' {{d3_comp=1}}' : '') + (rolls[2] <= target ? ' {{d3_hit=1}}' : '') : '')
+			+ (diceCount >= 4 ? ' {{d4=' + rolls[3] + '}}' + (rolls[3] >= complicationThreshold ? ' {{d4_comp=1}}' : '') + (rolls[3] <= target ? ' {{d4_hit=1}}' : '') : '')
+			+ (diceCount >= 5 ? ' {{d5=' + rolls[4] + '}}' + (rolls[4] >= complicationThreshold ? ' {{d5_comp=1}}' : '') + (rolls[4] <= target ? ' {{d5_hit=1}}' : '') : '')
 			+ ' {{successes='  + successes  + '}}'
+			+ ' {{show_complications=1}}'
+			+ ' {{complications=' + complications + '}}'
 			+ ' {{result='     + (pass ? 'PASS' : 'FAIL') + '}}'
 			+ (pass ? ' {{is_pass=1}}' : '')
 			+ ' {{_r=[[0]]}}';
@@ -629,6 +655,7 @@ on('clicked:roll_task', function() {
 					task_department: '',
 					target_number: '',
 					difficulty: 1,
+					c_range: 1,
 					dice_count: 2,
 					determination_spend: 'none',
 					roll_task_disabled: 'on'
