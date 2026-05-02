@@ -7,7 +7,7 @@ Author: Don Davis, aka omonubi
 <rolltemplate class="sheet-rolltemplate-task">
 	<div class="sheet-lcars-result">
 
-		<div class="sheet-lcars-result-header{{#header_pink}} sheet-header-pink{{/header_pink}}{{#header_tan}} sheet-header-tan{{/header_tan}}">
+		<div class="sheet-lcars-result-header{{#header_pink}} sheet-header-pink{{/header_pink}}{{#header_tan}} sheet-header-tan{{/header_tan}}{{#header_gray}} sheet-header-gray{{/header_gray}}">
 			<div class="sheet-lcars-result-title">{{title}}</div>
 			<div class="sheet-lcars-result-subtitle">{{subtitle}}</div>
 		</div>
@@ -59,7 +59,7 @@ Author: Don Davis, aka omonubi
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Rolls</span>
 				<span class="sheet-lcars-row-value sheet-dice-results">
-					{{#d1_hit}}<span class="sheet-die sheet-die-success">{{d1}}</span>{{/d1_hit}}{{^d1_hit}}<span class="sheet-die">{{d1}}</span>{{/d1_hit}}
+					{{#d1_inspired}}<span class="sheet-die sheet-die-inspired">{{d1}}</span>{{/d1_inspired}}{{^d1_inspired}}{{#d1_hit}}<span class="sheet-die sheet-die-success">{{d1}}</span>{{/d1_hit}}{{^d1_hit}}<span class="sheet-die">{{d1}}</span>{{/d1_hit}}{{/d1_inspired}}
 					{{#d2}}{{#d2_hit}}<span class="sheet-die sheet-die-success">{{d2}}</span>{{/d2_hit}}{{^d2_hit}}<span class="sheet-die">{{d2}}</span>{{/d2_hit}}{{/d2}}
 					{{#d3}}{{#d3_hit}}<span class="sheet-die sheet-die-success">{{d3}}</span>{{/d3_hit}}{{^d3_hit}}<span class="sheet-die">{{d3}}</span>{{/d3_hit}}{{/d3}}
 					{{#d4}}{{#d4_hit}}<span class="sheet-die sheet-die-success">{{d4}}</span>{{/d4_hit}}{{^d4_hit}}<span class="sheet-die">{{d4}}</span>{{/d4_hit}}{{/d4}}
@@ -406,6 +406,19 @@ function sendPartyCounterUpdate(title, subtitle, oldValue, newValue, headerTan) 
 	});
 }
 
+function sendTemplateNotice(title, subtitle, result, options) {
+	var tpl = '&{template:task}'
+		+ ' {{title=' + escapeTemplateValue(title) + '}}'
+		+ ' {{subtitle=' + escapeTemplateValue(subtitle) + '}}'
+		+ ' {{result=' + escapeTemplateValue(result) + '}}'
+		+ ((options && options.headerGray) ? ' {{header_gray=1}}' : '')
+		+ ' {{_r=[[0]]}}';
+
+	startRoll(tpl, function(results) {
+		finishRoll(results.rollId, {});
+	});
+}
+
 function clampDetermination(value) {
 	var parsed = parseInt(value, 10);
 	if (isNaN(parsed)) {
@@ -533,7 +546,7 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 // Task Check roll: all dice generated in JavaScript, results sent to template.
 on('clicked:roll_task', function() {
 	getAttrs(['dice_count', 'target_number', 'difficulty', 'character_name',
-	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department'], function(v) {
+	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'determination_points'], function(v) {
 
 		var taskAttr = parseInt(v.task_attribute) || 0;
 		var taskDept = parseInt(v.task_department) || 0;
@@ -546,6 +559,15 @@ on('clicked:roll_task', function() {
 		var target     = parseInt(v.target_number) || 0;
 		var difficulty = parseInt(v.difficulty)    || 1;
 		var charName   = v.character_name          || 'Character';
+		var determinationPoints = clampDetermination(v.determination_points);
+		var spendsDetermination = v.determination_spend && v.determination_spend !== 'none';
+		var isInspired = v.determination_spend === 'inspired';
+		var subtitle   = isInspired ? 'Task Check (Inspired)' : 'Task Check';
+
+		if (spendsDetermination && determinationPoints <= 0) {
+			sendTemplateNotice(charName, subtitle, 'No Determination available to spend.', { headerGray: true });
+			return;
+		}
 
 		function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
 		var attr = cap(v.selected_attribute  || '');
@@ -555,6 +577,9 @@ on('clicked:roll_task', function() {
 		var rolls = [];
 		for (var i = 0; i < diceCount; i++) {
 			rolls.push(Math.floor(Math.random() * 20) + 1);
+		}
+		if (isInspired) {
+			rolls[0] = 1;
 		}
 
 		// Count successes: any die <= target.
@@ -566,7 +591,7 @@ on('clicked:roll_task', function() {
 		// _r=[[0]] is a required dummy inline roll for startRoll to process.
 		var tpl = '&{template:task}'
 			+ ' {{title='      + charName   + '}}'
-			+ ' {{subtitle=Task Check}}'
+			+ ' {{subtitle='   + subtitle   + '}}'
 			+ ' {{header_pink=1}}'
 			+ ' {{attribute='  + attr       + '}}'
 			+ ' {{department=' + dept       + '}}'
@@ -574,6 +599,7 @@ on('clicked:roll_task', function() {
 			+ ' {{difficulty=' + difficulty + '}}'
 			+ ' {{dice_count=' + diceCount  + '}}'
 			+ ' {{d1='         + rolls[0]   + '}}'
+			+ (isInspired ? ' {{d1_inspired=1}}' : '')
 			+ (rolls[0] <= target ? ' {{d1_hit=1}}' : '')
 			+ (diceCount >= 2 ? ' {{d2=' + rolls[1] + '}}' + (rolls[1] <= target ? ' {{d2_hit=1}}' : '') : '')
 			+ (diceCount >= 3 ? ' {{d3=' + rolls[2] + '}}' + (rolls[2] <= target ? ' {{d3_hit=1}}' : '') : '')
@@ -586,17 +612,27 @@ on('clicked:roll_task', function() {
 
 		startRoll(tpl, function(results) {
 			finishRoll(results.rollId, {});
-			setAttrs({
-				selected_attribute: '',
-				selected_department: '',
-				task_attribute: '',
-				task_department: '',
-				target_number: '',
-				difficulty: 1,
-				dice_count: 2,
-				determination_spend: 'none',
-				roll_task_disabled: 'on'
-			});
+
+			function resetTaskCheck() {
+				setAttrs({
+					selected_attribute: '',
+					selected_department: '',
+					task_attribute: '',
+					task_department: '',
+					target_number: '',
+					difficulty: 1,
+					dice_count: 2,
+					determination_spend: 'none',
+					roll_task_disabled: 'on'
+				});
+			}
+
+			if (spendsDetermination) {
+				syncDeterminationPips(determinationPoints - 1, resetTaskCheck);
+				return;
+			}
+
+			resetTaskCheck();
 		});
 	});
 });

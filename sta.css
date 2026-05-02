@@ -811,6 +811,10 @@ Author: Don Davis, aka omonubi
 	background-color: #FFCC99;
 }
 
+.sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-gray {
+	background-color: #8a8a8a;
+}
+
 .sheet-rolltemplate-task .sheet-lcars-result-title {
 	font-size: 16px;
 	font-weight: 700;
@@ -938,4 +942,10 @@ Author: Don Davis, aka omonubi
 	background-color: #002200;
 	color: #66FF99;
 	border-color: #66FF99;
+}
+
+.sheet-rolltemplate-task .sheet-die.sheet-die-inspired {
+	background-color: #0f2942;
+	color: #8fd3ff;
+	border-color: #66b8ff;
 }
