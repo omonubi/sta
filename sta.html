@@ -691,9 +691,11 @@ on('clicked:roll_task', function() {
 			}
 		}
 
-		// Count successes: critical (1) counts as 2, any other die <= target counts as 1.
+		// Count successes: critical (1, or <=dept when focus active) counts as 2, any other die <= target counts as 1.
+		var hasFocus = !!taskFocusText;
+		function isCrit(r) { return r === 1 || (hasFocus && r <= taskDept); }
 		var successes = rolls.reduce(function(acc, r) {
-			if (r === 1) { return acc + 2; }
+			if (isCrit(r)) { return acc + 2; }
 			return acc + (r <= target ? 1 : 0);
 		}, 0);
 		var complicationThreshold = 21 - cRangeValue;
@@ -718,13 +720,13 @@ on('clicked:roll_task', function() {
 			+ ' {{dice_count=' + diceCount  + '}}'
 			+ ' {{d1='         + rolls[0]   + '}}'
 			+ (rolls[0] >= complicationThreshold ? ' {{d1_comp=1}}' : '')
-			+ (rolls[0] === 1 ? ' {{d1_crit=1}}' : '')
+			+ (isCrit(rolls[0]) ? ' {{d1_crit=1}}' : '')
 			+ (isInspired ? ' {{d1_inspired=1}}' : '')
 			+ (rolls[0] <= target ? ' {{d1_hit=1}}' : '')
-			+ (diceCount >= 2 ? ' {{d2=' + rolls[1] + '}}' + (rolls[1] >= complicationThreshold ? ' {{d2_comp=1}}' : '') + (rolls[1] === 1 ? ' {{d2_crit=1}}' : '') + (rolls[1] <= target ? ' {{d2_hit=1}}' : '') : '')
-			+ (diceCount >= 3 ? ' {{d3=' + rolls[2] + '}}' + (rolls[2] >= complicationThreshold ? ' {{d3_comp=1}}' : '') + (rolls[2] === 1 ? ' {{d3_crit=1}}' : '') + (rolls[2] <= target ? ' {{d3_hit=1}}' : '') : '')
-			+ (diceCount >= 4 ? ' {{d4=' + rolls[3] + '}}' + (rolls[3] >= complicationThreshold ? ' {{d4_comp=1}}' : '') + (rolls[3] === 1 ? ' {{d4_crit=1}}' : '') + (rolls[3] <= target ? ' {{d4_hit=1}}' : '') : '')
-			+ (diceCount >= 5 ? ' {{d5=' + rolls[4] + '}}' + (rolls[4] >= complicationThreshold ? ' {{d5_comp=1}}' : '') + (rolls[4] === 1 ? ' {{d5_crit=1}}' : '') + (rolls[4] <= target ? ' {{d5_hit=1}}' : '') : '')
+			+ (diceCount >= 2 ? ' {{d2=' + rolls[1] + '}}' + (rolls[1] >= complicationThreshold ? ' {{d2_comp=1}}' : '') + (isCrit(rolls[1]) ? ' {{d2_crit=1}}' : '') + (rolls[1] <= target ? ' {{d2_hit=1}}' : '') : '')
+			+ (diceCount >= 3 ? ' {{d3=' + rolls[2] + '}}' + (rolls[2] >= complicationThreshold ? ' {{d3_comp=1}}' : '') + (isCrit(rolls[2]) ? ' {{d3_crit=1}}' : '') + (rolls[2] <= target ? ' {{d3_hit=1}}' : '') : '')
+			+ (diceCount >= 4 ? ' {{d4=' + rolls[3] + '}}' + (rolls[3] >= complicationThreshold ? ' {{d4_comp=1}}' : '') + (isCrit(rolls[3]) ? ' {{d4_crit=1}}' : '') + (rolls[3] <= target ? ' {{d4_hit=1}}' : '') : '')
+			+ (diceCount >= 5 ? ' {{d5=' + rolls[4] + '}}' + (rolls[4] >= complicationThreshold ? ' {{d5_comp=1}}' : '') + (isCrit(rolls[4]) ? ' {{d5_crit=1}}' : '') + (rolls[4] <= target ? ' {{d5_hit=1}}' : '') : '')
 			+ ' {{successes='  + successes  + '}}'
 			+ ' {{show_complications=1}}'
 			+ ' {{complications=' + complications + '}}'
