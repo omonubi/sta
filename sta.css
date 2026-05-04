@@ -436,7 +436,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-roll-bar {
 	display: grid;
-	grid-template-columns: 99px min-content 99px min-content 99px min-content 108px min-content max-content;
+	grid-template-columns: 99px min-content 99px min-content 99px min-content 216px min-content max-content;
 	grid-template-rows: auto auto;
 	column-gap: 6px;
 	row-gap: 8px;
@@ -450,7 +450,7 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar .sheet-field:has(input[name="attr_task_department"]) { grid-column: 3; grid-row: 1; }
 .sheet-roll-bar > span.sheet-roll-op:nth-of-type(2)                  { grid-column: 4; grid-row: 1; }
 .sheet-roll-bar .sheet-field:has(input[name="attr_target_number"])   { grid-column: 5; grid-row: 1; }
-.sheet-roll-bar .sheet-focus-field                                   { grid-column: 7; grid-row: 1; width: 108px; }
+.sheet-roll-bar .sheet-focus-field                                   { grid-column: 7; grid-row: 1; width: 216px !important; }
 
 /* Row 2: control fields */
 .sheet-roll-bar .sheet-field:has(input[name="attr_difficulty"])      { grid-column: 1; grid-row: 2; }
@@ -495,12 +495,12 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar .sheet-field:has(select[name="attr_determination_spend"]) {
-	width: 108px;
+	width: 216px;
 }
 
 /* Determination selector can be narrower while keeping column alignment */
 .sheet-roll-bar select[name="attr_determination_spend"] {
-	width: 108px;
+	width: 216px;
 	margin: 0 auto;
 }
 
@@ -520,20 +520,36 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar .sheet-focus-toggle {
-	display: none !important;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	opacity: 0;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .sheet-focus-trigger {
-	position: absolute;
-	inset: 0;
+	position: absolute !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 216px !important;
+	height: 30px !important;
 	cursor: pointer;
-	margin: 0;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 .sheet-focus-trigger::after {
+	content: none;
+}
+
+.sheet-focus-select::after {
 	content: '▾';
 	position: absolute;
-	right: 6px;
+	left: 200px;
 	top: 50%;
 	transform: translateY(-50%);
 	color: var(--lcars-orange);
@@ -543,7 +559,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar input.sheet-focus-display {
-	width: 108px;
+	width: 216px;
 	box-sizing: border-box;
 	height: 30px;
 	cursor: pointer;
@@ -562,8 +578,8 @@ Author: Don Davis, aka omonubi
 	top: calc(100% + 2px);
 	left: 0;
 	min-width: 100%;
-	width: 105%;
-	max-width: 105%;
+	width: 100%;
+	max-width: 214%;
 	background-color: #111111;
 	border: 1px solid #ffffff;
 	border-radius: 0 0 3px 3px;
@@ -572,7 +588,7 @@ Author: Don Davis, aka omonubi
 	overflow: hidden;
 }
 
-.sheet-roll-bar:has(input[name="attr_focus_open"]:checked) .sheet-focus-dropdown {
+.sheet-focus-select:has(.sheet-focus-toggle:checked):focus-within .sheet-focus-dropdown {
 	display: block;
 }
 
@@ -580,8 +596,8 @@ Author: Don Davis, aka omonubi
 	display: flex;
 	align-items: center;
 	gap: 6px;
-	padding: 4px 8px;
-	margin: 0 0 7px 0;
+	padding: 11px 8px;
+	margin: 0 0 0px 0;
 	width: 100%;
 	box-sizing: border-box;
 	cursor: pointer;
