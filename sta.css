@@ -761,6 +761,41 @@ Author: Don Davis, aka omonubi
 }
 
 /* ============================================================
+   BACKGROUND SECTION
+   ============================================================ */
+.sheet-background .sheet-section-header { background-color: var(--lcars-blue); }
+
+.sheet-background {
+	margin: 0 8px 16px;
+}
+
+.sheet-background-shell {
+	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	border: 1px solid #2a2a2a;
+	border-left: 4px solid var(--lcars-blue);
+	padding: 8px 12px;
+}
+
+.sheet-background-fields {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+}
+
+.sheet-field-background-env,
+.sheet-field-background-upbringing,
+.sheet-field-background-career {
+	flex: 1;
+}
+
+.sheet-background-fields textarea {
+	width: 100%;
+	resize: vertical;
+	box-sizing: border-box;
+	border-bottom: 2px solid var(--lcars-blue);
+}
+
+/* ============================================================
    TRAITS SECTION
    ============================================================ */
 .sheet-traits .sheet-section-header { background-color: var(--lcars-tan); }
