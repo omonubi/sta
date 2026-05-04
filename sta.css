@@ -788,11 +788,14 @@ Author: Don Davis, aka omonubi
 	flex: 1;
 }
 
-.sheet-background-fields textarea {
+.sheet-content .sheet-background-fields textarea {
 	width: 100%;
 	resize: vertical;
 	box-sizing: border-box;
 	border-bottom: 2px solid var(--lcars-blue);
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 13px;
+	line-height: 1.5;
 }
 
 /* ============================================================
@@ -802,6 +805,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-traits {
 	margin: 0 8px 16px;
+	--sheet-traits-details-column: 74px;
 }
 
 .sheet-traits-rows {
@@ -810,15 +814,107 @@ Author: Don Davis, aka omonubi
 
 .sheet-traits-row {
 	display: flex;
-	flex-direction: row;
-	gap: 8px;
+	flex-direction: column;
+	gap: 6px;
 	margin-bottom: 6px;
 }
 
+.sheet-traits-row-main {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr)) var(--sheet-traits-details-column);
+	gap: 8px;
+	align-items: center;
+}
+
+
+.sheet-trait-item {
+	min-width: 0;
+}
+
 .sheet-traits-row input[type="text"] {
-	flex: 1;
-	width: 0; /* flex will override; prevents overflow */
+	width: 100%;
+	flex: 0 0 auto;
+	box-sizing: border-box;
 	border-bottom: 1px solid #333333;
+}
+
+.sheet-traits-row-details-trigger {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	justify-self: center;
+	width: var(--sheet-traits-details-column);
+	margin: 0px !important;
+	padding: 0px 0px 0px 16px;
+	height: 22px;
+	border: 1px solid #333333;
+	border-radius: 11px;
+	background-color: #111111;
+	color: var(--lcars-tan);
+	cursor: pointer;
+	font-family: var(--lcars-font);
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	white-space: nowrap;
+}
+
+.sheet-traits-row-details-trigger span {
+	line-height: 1;
+}
+
+.sheet-traits-row-details-trigger input[type="checkbox"] {
+	display: none;
+}
+
+.sheet-traits-row-details-trigger span::before {
+	content: none;
+}
+
+.sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger {
+	background-color: #1b1b1b;
+	border-color: var(--lcars-tan);
+}
+
+.sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger span::before {
+	content: none;
+}
+
+.sheet-traits-row-details {
+	display: none;
+	grid-template-columns: repeat(3, minmax(0, 1fr)) var(--sheet-traits-details-column);
+	gap: 8px;
+	align-items: start;
+}
+
+.sheet-content .sheet-trait-details {
+	grid-row: 1;
+	width: 100%;
+	resize: vertical;
+	box-sizing: border-box;
+	border-bottom: 1px solid #333333;
+	min-height: 72px;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.sheet-traits-row-details-spacer {
+	grid-column: 4;
+	width: var(--sheet-traits-details-column);
+	height: 1px;
+}
+
+.sheet-traits-row-details::after {
+	content: '';
+	grid-column: 4;
+}
+
+.sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details {
+	display: grid;
 }
 
 /* Rows 2+ hidden by default */
@@ -826,15 +922,15 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 
-/* Show next row when previous row has content */
-.sheet-traits-row:nth-child(1):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(2) { display: flex; }
-.sheet-traits-row:nth-child(2):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(3) { display: flex; }
-.sheet-traits-row:nth-child(3):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(4) { display: flex; }
-.sheet-traits-row:nth-child(4):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(5) { display: flex; }
-.sheet-traits-row:nth-child(5):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(6) { display: flex; }
-.sheet-traits-row:nth-child(6):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(7) { display: flex; }
-.sheet-traits-row:nth-child(7):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(8) { display: flex; }
-.sheet-traits-row:nth-child(8):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(9) { display: flex; }
+/* Show row 2 when row 1's third input has content */
+.sheet-traits-row:nth-child(1):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(2) {
+	display: flex;
+}
+
+/* Show row 3 when row 2's third input has content */
+.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(3) {
+	display: flex;
+}
 
 /* ============================================================
    VALUES SECTION
