@@ -782,9 +782,16 @@ Author: Don Davis, aka omonubi
 	gap: 12px;
 }
 
+.sheet-background-fields + .sheet-background-fields {
+	margin-top: 12px;
+}
+
 .sheet-field-background-env,
 .sheet-field-background-upbringing,
-.sheet-field-background-career {
+.sheet-field-background-career,
+.sheet-field-background-experience,
+.sheet-field-background-career-event-1,
+.sheet-field-background-career-event-2 {
 	flex: 1;
 }
 
