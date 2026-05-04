@@ -791,15 +791,15 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 
-/* Show row 2 when row 1's third input has content */
-.sheet-traits-row:nth-child(1):has(input:last-child:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(2) {
-	display: flex;
-}
-
-/* Show row 3 when row 2's third input has content */
-.sheet-traits-row:nth-child(2):has(input:last-child:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(3) {
-	display: flex;
-}
+/* Show next row when previous row has content */
+.sheet-traits-row:nth-child(1):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(2) { display: flex; }
+.sheet-traits-row:nth-child(2):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(3) { display: flex; }
+.sheet-traits-row:nth-child(3):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(4) { display: flex; }
+.sheet-traits-row:nth-child(4):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(5) { display: flex; }
+.sheet-traits-row:nth-child(5):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(6) { display: flex; }
+.sheet-traits-row:nth-child(6):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(7) { display: flex; }
+.sheet-traits-row:nth-child(7):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(8) { display: flex; }
+.sheet-traits-row:nth-child(8):has(input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(9) { display: flex; }
 
 /* ============================================================
    VALUES SECTION
