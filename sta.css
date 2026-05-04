@@ -327,6 +327,7 @@ Author: Don Davis, aka omonubi
 .sheet-attributes-shell,
 .sheet-departments-shell,
 .sheet-roll-panel-shell,
+.sheet-traits-shell,
 .sheet-focuses-shell,
 .sheet-values-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
@@ -337,6 +338,7 @@ Author: Don Davis, aka omonubi
 .sheet-attributes-shell  { border-left: 4px solid var(--lcars-orange); }
 .sheet-departments-shell { border-left: 4px solid var(--lcars-blue);   }
 .sheet-roll-panel-shell  { border-left: 4px solid var(--lcars-pink);   }
+.sheet-traits-shell      { border-left: 4px solid var(--lcars-tan);    }
 .sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
 .sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
 
@@ -755,6 +757,47 @@ Author: Don Davis, aka omonubi
 
 /* Show row 3 when row 2's third input has content */
 .sheet-focuses-row:nth-child(2):has(input:last-child:not(:placeholder-shown)) ~ .sheet-focuses-row:nth-child(3) {
+	display: flex;
+}
+
+/* ============================================================
+   TRAITS SECTION
+   ============================================================ */
+.sheet-traits .sheet-section-header { background-color: var(--lcars-tan); }
+
+.sheet-traits {
+	margin: 0 8px 16px;
+}
+
+.sheet-traits-rows {
+	padding: 0 8px;
+}
+
+.sheet-traits-row {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.sheet-traits-row input[type="text"] {
+	flex: 1;
+	width: 0; /* flex will override; prevents overflow */
+	border-bottom: 1px solid #333333;
+}
+
+/* Rows 2+ hidden by default */
+.sheet-traits-row:nth-child(n+2) {
+	display: none;
+}
+
+/* Show row 2 when row 1's third input has content */
+.sheet-traits-row:nth-child(1):has(input:last-child:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(2) {
+	display: flex;
+}
+
+/* Show row 3 when row 2's third input has content */
+.sheet-traits-row:nth-child(2):has(input:last-child:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(3) {
 	display: flex;
 }
 
