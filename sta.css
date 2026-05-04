@@ -766,13 +766,19 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 
-/* Show row 2 when row 1's third input has content */
-.sheet-focuses-row:nth-child(1):has(input:last-child:not(:placeholder-shown)) ~ .sheet-focuses-row:nth-child(2) {
+/* Show row 2 when row 1's third input is focused, and keep row 2 visible while active/filled. */
+.sheet-focuses-row:nth-child(1):has(input:last-child:focus) ~ .sheet-focuses-row:nth-child(2),
+.sheet-focuses-row:nth-child(2):focus-within,
+.sheet-focuses-row:nth-child(2):hover,
+.sheet-focuses-row:nth-child(2):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-/* Show row 3 when row 2's third input has content */
-.sheet-focuses-row:nth-child(2):has(input:last-child:not(:placeholder-shown)) ~ .sheet-focuses-row:nth-child(3) {
+/* Show row 3 when row 2's third input is focused, and keep row 3 visible while active/filled. */
+.sheet-focuses-row:nth-child(2):has(input:last-child:focus) ~ .sheet-focuses-row:nth-child(3),
+.sheet-focuses-row:nth-child(3):focus-within,
+.sheet-focuses-row:nth-child(3):hover,
+.sheet-focuses-row:nth-child(3):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
@@ -945,13 +951,19 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 
-/* Show row 2 when row 1's third input has content */
-.sheet-traits-row:nth-child(1):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(2) {
+/* Show row 2 when row 1's third input is focused, and keep row 2 visible while active/filled. */
+.sheet-traits-row:nth-child(1):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:focus) ~ .sheet-traits-row:nth-child(2),
+.sheet-traits-row:nth-child(2):focus-within,
+.sheet-traits-row:nth-child(2):hover,
+.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item > input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-/* Show row 3 when row 2's third input has content */
-.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:not(:placeholder-shown)) ~ .sheet-traits-row:nth-child(3) {
+/* Show row 3 when row 2's third input is focused, and keep row 3 visible while active/filled. */
+.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:focus) ~ .sheet-traits-row:nth-child(3),
+.sheet-traits-row:nth-child(3):focus-within,
+.sheet-traits-row:nth-child(3):hover,
+.sheet-traits-row:nth-child(3):has(.sheet-traits-row-main .sheet-trait-item > input:not(:placeholder-shown)) {
 	display: flex;
 }
 
@@ -983,32 +995,53 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 
-/* Show row n+1 when row n has content */
-.sheet-values-row:nth-child(1):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(2) {
+/* Show row n+1 when row n is focused (clicked/tabbed), and keep active/filled rows visible. */
+.sheet-values-row:nth-child(1):has(input:focus) ~ .sheet-values-row:nth-child(2),
+.sheet-values-row:nth-child(2):has(input:focus),
+.sheet-values-row:nth-child(2):hover,
+.sheet-values-row:nth-child(2):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(2):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(3) {
+.sheet-values-row:nth-child(2):has(input:focus) ~ .sheet-values-row:nth-child(3),
+.sheet-values-row:nth-child(3):has(input:focus),
+.sheet-values-row:nth-child(3):hover,
+.sheet-values-row:nth-child(3):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(3):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(4) {
+.sheet-values-row:nth-child(3):has(input:focus) ~ .sheet-values-row:nth-child(4),
+.sheet-values-row:nth-child(4):has(input:focus),
+.sheet-values-row:nth-child(4):hover,
+.sheet-values-row:nth-child(4):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(4):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(5) {
+.sheet-values-row:nth-child(4):has(input:focus) ~ .sheet-values-row:nth-child(5),
+.sheet-values-row:nth-child(5):has(input:focus),
+.sheet-values-row:nth-child(5):hover,
+.sheet-values-row:nth-child(5):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(5):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(6) {
+.sheet-values-row:nth-child(5):has(input:focus) ~ .sheet-values-row:nth-child(6),
+.sheet-values-row:nth-child(6):has(input:focus),
+.sheet-values-row:nth-child(6):hover,
+.sheet-values-row:nth-child(6):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(6):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(7) {
+.sheet-values-row:nth-child(6):has(input:focus) ~ .sheet-values-row:nth-child(7),
+.sheet-values-row:nth-child(7):has(input:focus),
+.sheet-values-row:nth-child(7):hover,
+.sheet-values-row:nth-child(7):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(7):has(input:not(:placeholder-shown)) ~ .sheet-values-row:nth-child(8) {
+.sheet-values-row:nth-child(7):has(input:focus) ~ .sheet-values-row:nth-child(8),
+.sheet-values-row:nth-child(8):has(input:focus),
+.sheet-values-row:nth-child(8):hover,
+.sheet-values-row:nth-child(8):has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 

@@ -165,7 +165,7 @@ Author: Don Davis, aka omonubi
 
 		<!-- Traits -->
 		<div class="sheet-section sheet-traits">
-			<div class="sheet-section-header">Traits, Talents, & Abilities</div>
+			<div class="sheet-section-header">Abilities, Talents, Traits, & Role</div>
 			<div class="sheet-traits-shell">
 			<div class="sheet-traits-rows">
 				<div class="sheet-traits-row">
@@ -669,6 +669,44 @@ function sortFocusValues(callback) {
 	});
 }
 
+function sortTraitValues(callback) {
+	var titleKeys = ['trait_1', 'trait_2', 'trait_3', 'trait_4', 'trait_5', 'trait_6', 'trait_7', 'trait_8', 'trait_9'];
+	var detailKeys = ['trait_details_1', 'trait_details_2', 'trait_details_3', 'trait_details_4', 'trait_details_5', 'trait_details_6', 'trait_details_7', 'trait_details_8', 'trait_details_9'];
+	var attrsToGet = titleKeys.concat(detailKeys);
+
+	getAttrs(attrsToGet, function(v) {
+		var items = [];
+
+		titleKeys.forEach(function(titleKey, idx) {
+			var rawTitle = v[titleKey] || '';
+			var trimmedTitle = rawTitle.trim();
+			if (trimmedTitle) {
+				items.push({
+					title: trimmedTitle,
+					details: v[detailKeys[idx]] || '',
+					originalSlot: idx + 1
+				});
+			}
+		});
+
+		items.sort(function(a, b) {
+			var cmp = a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: 'base' });
+			if (cmp !== 0) {
+				return cmp;
+			}
+			return a.originalSlot - b.originalSlot;
+		});
+
+		var attrsToSet = {};
+		for (var i = 0; i < titleKeys.length; i += 1) {
+			attrsToSet[titleKeys[i]] = items[i] ? items[i].title : '';
+			attrsToSet[detailKeys[i]] = items[i] ? items[i].details : '';
+		}
+
+		setAttrs(attrsToSet, { silent: true }, callback);
+	});
+}
+
 on('sheet:opened', function() {
 	getAttrs(['determination_points', 'determination_1', 'determination_2', 'determination_3'], function(v) {
 		var total = parseInt(v.determination_points, 10);
@@ -752,6 +790,13 @@ on('change:focus_1 change:focus_2 change:focus_3 change:focus_4 change:focus_5 c
 		return;
 	}
 	sortFocusValues();
+});
+
+on('change:trait_1 change:trait_2 change:trait_3 change:trait_4 change:trait_5 change:trait_6 change:trait_7 change:trait_8 change:trait_9', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+	sortTraitValues();
 });
 
 // Recalculate target whenever any stat or selection changes.
