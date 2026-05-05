@@ -15,6 +15,7 @@ Author: Don Davis, aka omonubi
 	--lcars-peach:    #FF9966;
 	--lcars-pink:     #FF6699;
 	--lcars-blue:     #6699FF;
+	--lcars-green:    #33CC99;
 	--lcars-purple:   #9999CC;
 	--lcars-on-dark:  #FFFFFF;
 	--lcars-on-color: #000000;
@@ -1076,6 +1077,122 @@ Author: Don Davis, aka omonubi
 .sheet-values-row:nth-child(8):hover,
 .sheet-values-row:nth-child(8):has(input:not(:placeholder-shown)) {
 	display: flex;
+}
+
+/* ============================================================
+   PERSONAL LOG SECTION
+   ============================================================ */
+.sheet-personal-log .sheet-section-header { background-color: var(--lcars-green); }
+
+.sheet-personal-log {
+	margin: 0 8px 16px;
+}
+
+.sheet-personal-log-shell {
+	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	border: 1px solid #2a2a2a;
+	border-left: 4px solid var(--lcars-green);
+	padding: 8px 12px;
+}
+
+/* Roll20 wraps repeating sections in a table; override to flex */
+.sheet-personal-log .repcontainer {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	counter-reset: sheet-log-row;
+}
+
+.sheet-log-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.sheet-log-row::before {
+	counter-increment: sheet-log-row;
+	content: counter(sheet-log-row) ".";
+	width: 18px;
+	flex: 0 0 18px;
+	text-align: left;
+	color: var(--lcars-green);
+	font-size: 13px;
+	line-height: 1;
+}
+
+.sheet-log-row input[type="text"] {
+	flex: 1;
+	width: 0;
+	border-bottom: 1px solid var(--lcars-green);
+}
+
+.sheet-log-row input[type="text"]:nth-child(1) { flex: 1.5; }
+.sheet-log-row input[type="text"]:nth-child(2) { flex: 0.4; }
+.sheet-log-row input[type="text"]:nth-child(3) { flex: 2.6; }
+.sheet-log-row input[type="text"]:nth-child(4) { flex: 0.1925; }
+
+/* Placeholder text styling */
+.sheet-personal-log input[type="text"]::placeholder {
+	color: #555555;
+	font-style: normal;
+}
+
+/* Roll20 repeating section control buttons */
+.sheet-personal-log .repcontrol {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 4px;
+}
+
+.sheet-personal-log .repcontrol_edit,
+.sheet-personal-log .repcontrol_add {
+	appearance: none;
+	-webkit-appearance: none;
+	background: #222 !important;
+	background-color: #222 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	font-family: var(--lcars-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border: none;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	cursor: pointer;
+	padding: 4px 14px;
+	transition: none;
+}
+
+.sheet-personal-log .repcontrol_edit {
+	border: 1px solid #666;
+	border-radius: 20px 4px 4px 20px;
+}
+
+.sheet-personal-log .repcontrol_add {
+	border: 1px solid #666;
+	border-radius: 4px 20px 20px 4px;
+}
+
+.sheet-personal-log .repcontrol_edit:hover,
+.sheet-personal-log .repcontrol_add:hover,
+.sheet-personal-log .repcontrol_edit:focus,
+.sheet-personal-log .repcontrol_add:focus,
+.sheet-personal-log .repcontrol_edit:active,
+.sheet-personal-log .repcontrol_add:active {
+	background: #444 !important;
+	background-color: #444 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	outline: none;
 }
 
 /* ============================================================
