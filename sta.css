@@ -996,15 +996,30 @@ Author: Don Davis, aka omonubi
 
 .sheet-values-rows {
 	padding: 0 8px;
+	counter-reset: sheet-value-row;
 }
 
 .sheet-values-row {
 	display: flex;
+	align-items: center;
+	gap: 8px;
 	margin-bottom: 6px;
+}
+
+.sheet-values-row::before {
+	counter-increment: sheet-value-row;
+	content: counter(sheet-value-row) ".";
+	width: 18px;
+	flex: 0 0 18px;
+	text-align: left;
+	color: var(--lcars-peach);
+	font-size: 13px;
+	line-height: 1;
 }
 
 .sheet-values-row input[type="text"] {
 	width: 100%;
+	flex: 1;
 	border-bottom: 1px solid #333333;
 }
 
