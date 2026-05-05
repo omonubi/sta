@@ -226,19 +226,21 @@ Author: Don Davis, aka omonubi
 	gap: 3px;
 }
 
-.sheet-field-name       { flex: 2.6; }
-.sheet-field-age {
-	flex: 0.8;
-	min-width: 72px;
+.sheet-field-name       { flex: 1.95; }
+.sheet-field-age { }
+.sheet-field-rank       { flex: 1.35; }
+.sheet-field-assignment { flex: 1.575; }
+.sheet-field-reputation {
+	flex: 0.7;
+	min-width: 78px;
 }
-.sheet-field-rank       { flex: 1.8; }
-.sheet-field-assignment { flex: 2.1; }
 .sheet-field-determination {
 	flex: 1.3;
 	min-width: 112px;
 }
 
-.sheet-field input[type="text"] {
+.sheet-field input[type="text"],
+.sheet-field input[type="number"] {
 	width: 100%;
 }
 
