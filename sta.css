@@ -828,7 +828,10 @@ Author: Don Davis, aka omonubi
 .sheet-field-background-career,
 .sheet-field-background-experience,
 .sheet-field-background-career-event-1,
-.sheet-field-background-career-event-2 {
+.sheet-field-background-career-event-2,
+.sheet-field-background-pastimes,
+.sheet-field-background-extra-1,
+.sheet-field-background-extra-2 {
 	flex: 1;
 }
 
