@@ -143,6 +143,10 @@ Author: Don Davis, aka omonubi
 					<label>Name</label>
 					<input type="text" name="attr_character_name" />
 				</div>
+				<div class="sheet-field sheet-field-age">
+					<label>Age</label>
+					<input type="number" name="attr_age" min="1" max="999" />
+				</div>
 				<div class="sheet-field sheet-field-rank">
 					<label>Rank</label>
 					<input type="text" name="attr_rank" />
@@ -161,11 +165,25 @@ Author: Don Davis, aka omonubi
 					</div>
 				</div>
 			</div>
+			<div class="sheet-bio-traits-row">
+				<div class="sheet-field sheet-field-trait">
+					<input type="text" name="attr_character_trait_1" />
+				</div>
+				<div class="sheet-field sheet-field-trait">
+					<input type="text" name="attr_character_trait_2" />
+				</div>
+				<div class="sheet-field sheet-field-trait">
+					<input type="text" name="attr_character_trait_3" />
+				</div>
+				<div class="sheet-field sheet-field-trait">
+					<input type="text" name="attr_character_trait_4" />
+				</div>
+			</div>
 		</div>
 
 		<!-- Traits -->
 		<div class="sheet-section sheet-traits">
-			<div class="sheet-section-header">Abilities, Talents, Traits, & Role</div>
+			<div class="sheet-section-header">Talents & Abilities</div>
 			<div class="sheet-traits-shell">
 			<div class="sheet-traits-rows">
 				<div class="sheet-traits-row">
