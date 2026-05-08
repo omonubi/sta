@@ -452,6 +452,7 @@ Author: Don Davis, aka omonubi
 						<option value="assist">Assist</option>
 						<option value="inspired">Inspired</option>
 						<option value="opportunity">Opportunity</option>
+						<option value="opposed">Opposed</option>
 					</select>
 				</div>
 				<span class="sheet-roll-op sheet-roll-gap">+</span>
@@ -1080,8 +1081,12 @@ on('change:determination_spend', function(eventInfo) {
 	var oldVal = eventInfo.previousValue;
 	if (newVal === 'assist') {
 		setAttrs({ difficulty: 0, dice_count: 1 }, { silent: true });
+	} else if (newVal === 'opposed') {
+		setAttrs({ difficulty: 0 }, { silent: true });
 	} else if (oldVal === 'assist') {
 		setAttrs({ difficulty: 1, dice_count: 2 }, { silent: true });
+	} else if (oldVal === 'opposed') {
+		setAttrs({ difficulty: 1 }, { silent: true });
 	}
 });
 
@@ -1167,12 +1172,13 @@ on('clicked:roll_task', function() {
 		var cRangeValue = Math.min(Math.max(parseInt(v.c_range) || 1, 1), 6);
 		var charName   = v.character_name          || 'Character';
 		var determinationPoints = clampDetermination(v.determination_points);
-		var spendsDetermination = v.determination_spend && v.determination_spend !== 'none' && v.determination_spend !== 'assist';
+		var spendsDetermination = v.determination_spend && v.determination_spend !== 'none' && v.determination_spend !== 'assist' && v.determination_spend !== 'opposed';
 		var isInspired = v.determination_spend === 'inspired';
 		var isOpportunity = v.determination_spend === 'opportunity';
 		var isAssist = v.determination_spend === 'assist';
+		var isOpposed = v.determination_spend === 'opposed';
 		var isReputationRoll = (v.selected_attribute === 'attribute_reputation' && v.selected_department === 'reputation');
-		var subtitle   = isReputationRoll ? 'Reputation Roll' : (isAssist ? 'Task Check (Assist)' : (isInspired ? 'Task Check (Inspired)' : (isOpportunity ? 'Task Check (Opportunity)' : 'Task Check')));
+		var subtitle   = isReputationRoll ? 'Reputation Roll' : (isAssist ? 'Task Check (Assist)' : (isOpposed ? 'Task Check (Opposed)' : (isInspired ? 'Task Check (Inspired)' : (isOpportunity ? 'Task Check (Opportunity)' : 'Task Check'))));
 		var cRangeText = cRangeValue === 1 ? '20' : (cRangeValue === 6 ? '15-20' : ((21 - cRangeValue) + '-20'));
 		var taskFocusIndex = v.task_focus || '';
 		var taskFocusText  = taskFocusIndex ? (v['focus_' + taskFocusIndex] || '') : '';
@@ -1253,8 +1259,8 @@ on('clicked:roll_task', function() {
 			+ (!isReputationRoll || !pass ? ' {{show_complications=1}}' : '')
 			+ (isReputationRoll ? ' {{reputation_roll=1}}' : '')
 			+ ' {{complications=' + complications + '}}'
-			+ (!isAssist ? ' {{result=' + (pass ? (isReputationRoll ? 'ACCLAIM' : 'PASS') : (isReputationRoll ? 'REPRIMANDED' : 'FAIL')) + '}}' : '')
-			+ (!isAssist && pass ? ' {{is_pass=1}}' : '')
+			+ (!isAssist && !isOpposed ? ' {{result=' + (pass ? (isReputationRoll ? 'ACCLAIM' : 'PASS') : (isReputationRoll ? 'REPRIMANDED' : 'FAIL')) + '}}' : '')
+			+ (!isAssist && !isOpposed && pass ? ' {{is_pass=1}}' : '')
 			+ ' {{_r=[[0]]}}';
 
 		startRoll(tpl, function(results) {
