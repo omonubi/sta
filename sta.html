@@ -601,6 +601,39 @@ Author: Don Davis, aka omonubi
 				</div>
 			</div>
 		</div>
+
+		<!-- Directives -->
+		<div class="sheet-section sheet-directives">
+			<div class="sheet-section-header">Directives</div>
+			<div class="sheet-directives-shell">
+			<div class="sheet-directives-rows">
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_1" placeholder=" " />
+				</div>
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_2" placeholder=" " />
+				</div>
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_3" placeholder=" " />
+				</div>
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_4" placeholder=" " />
+				</div>
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_5" placeholder=" " />
+				</div>
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_6" placeholder=" " />
+				</div>
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_7" placeholder=" " />
+				</div>
+				<div class="sheet-directives-row">
+					<input type="text" name="attr_directive_8" placeholder=" " />
+				</div>
+			</div>
+			</div><!-- /.sheet-directives-shell -->
+		</div>
 	</div>
 
 	<div class="sheet-tab-page sheet-tab-page-settings">
@@ -1081,7 +1114,7 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 			if (oldValue === newValue) {
 				return;
 			}
-			sendPartyCounterUpdate(title, counterLabel, oldValue, newValue, true);
+			sendPartyCounterUpdate(title, counterLabel, oldValue, newValue, false);
 		});
 	});
 });

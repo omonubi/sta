@@ -1315,18 +1315,102 @@ Author: Don Davis, aka omonubi
 	flex: 0 0 80px;
 }
 
-.sheet-field-mission-momentum input[type="number"],
-.sheet-field-mission-threat input[type="number"] {
-	width: 100%;
-	font-size: inherit;
-	font-weight: normal;
-	text-align: left;
+.sheet-directives-shell {
+	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	border: 1px solid #2a2a2a;
+	border-left: 4px solid var(--lcars-peach);
+	padding: 8px 12px;
 }
 
-/* ============================================================
-   ROLL TEMPLATE — Task Check
-   Hardcoded colors: CSS variables unavailable in chat pane.
-   ============================================================ */
+.sheet-directives .sheet-section-header { background-color: var(--lcars-peach); }
+
+.sheet-directives {
+	margin: 0 8px 16px;
+}
+
+.sheet-directives-rows {
+	padding: 0 8px;
+	counter-reset: sheet-directive-row;
+}
+
+.sheet-directives-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.sheet-directives-row::before {
+	counter-increment: sheet-directive-row;
+	content: counter(sheet-directive-row) ".";
+	width: 18px;
+	flex: 0 0 18px;
+	text-align: left;
+	color: var(--lcars-peach);
+	font-size: 13px;
+	line-height: 1;
+}
+
+.sheet-directives-row input[type="text"] {
+	width: 100%;
+	flex: 1;
+	border-bottom: 1px solid #333333;
+}
+
+/* Rows 2+ hidden by default */
+.sheet-directives-row:nth-child(n+2) {
+	display: none;
+}
+
+/* Show row n+1 when row n is focused (clicked/tabbed), and keep active/filled rows visible. */
+.sheet-directives-row:nth-child(1):has(input:focus) ~ .sheet-directives-row:nth-child(2),
+.sheet-directives-row:nth-child(2):has(input:focus),
+.sheet-directives-row:nth-child(2):hover,
+.sheet-directives-row:nth-child(2):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+.sheet-directives-row:nth-child(2):has(input:focus) ~ .sheet-directives-row:nth-child(3),
+.sheet-directives-row:nth-child(3):has(input:focus),
+.sheet-directives-row:nth-child(3):hover,
+.sheet-directives-row:nth-child(3):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+.sheet-directives-row:nth-child(3):has(input:focus) ~ .sheet-directives-row:nth-child(4),
+.sheet-directives-row:nth-child(4):has(input:focus),
+.sheet-directives-row:nth-child(4):hover,
+.sheet-directives-row:nth-child(4):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+.sheet-directives-row:nth-child(4):has(input:focus) ~ .sheet-directives-row:nth-child(5),
+.sheet-directives-row:nth-child(5):has(input:focus),
+.sheet-directives-row:nth-child(5):hover,
+.sheet-directives-row:nth-child(5):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+.sheet-directives-row:nth-child(5):has(input:focus) ~ .sheet-directives-row:nth-child(6),
+.sheet-directives-row:nth-child(6):has(input:focus),
+.sheet-directives-row:nth-child(6):hover,
+.sheet-directives-row:nth-child(6):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+.sheet-directives-row:nth-child(6):has(input:focus) ~ .sheet-directives-row:nth-child(7),
+.sheet-directives-row:nth-child(7):has(input:focus),
+.sheet-directives-row:nth-child(7):hover,
+.sheet-directives-row:nth-child(7):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+.sheet-directives-row:nth-child(7):has(input:focus) ~ .sheet-directives-row:nth-child(8),
+.sheet-directives-row:nth-child(8):has(input:focus),
+.sheet-directives-row:nth-child(8):hover,
+.sheet-directives-row:nth-child(8):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
 
 .sheet-rolltemplate-task {
 	font-family: 'Antonio', sans-serif;
