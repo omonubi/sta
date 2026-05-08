@@ -1412,6 +1412,104 @@ Author: Don Davis, aka omonubi
 	display: flex;
 }
 
+/* ============================================================
+   LOCATIONS SECTION
+   ============================================================ */
+.sheet-locations .sheet-section-header { background-color: var(--lcars-blue); }
+
+.sheet-locations {
+	margin: 0 8px 16px;
+}
+
+.sheet-locations-shell {
+	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+	border: 1px solid #2a2a2a;
+	border-left: 4px solid var(--lcars-blue);
+	padding: 8px 12px;
+}
+
+.sheet-locations .repcontainer {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.sheet-location-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.sheet-location-row input[type="text"] {
+	flex: 1;
+	width: 0;
+	border-bottom: 1px solid var(--lcars-blue);
+}
+
+.sheet-location-row input[type="text"]:nth-child(1) { flex: 2; }
+
+.sheet-locations input[type="text"]::placeholder {
+	color: #555555;
+	font-style: normal;
+}
+
+.sheet-locations .repcontrol {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 4px;
+}
+
+.sheet-locations .repcontrol_edit,
+.sheet-locations .repcontrol_add {
+	appearance: none;
+	-webkit-appearance: none;
+	background: #222 !important;
+	background-color: #222 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	font-family: var(--lcars-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border: none;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	cursor: pointer;
+	padding: 4px 14px;
+	transition: none;
+}
+
+.sheet-locations .repcontrol_edit {
+	border: 1px solid #666;
+	border-radius: 20px 4px 4px 20px;
+}
+
+.sheet-locations .repcontrol_add {
+	border: 1px solid #666;
+	border-radius: 4px 20px 20px 4px;
+}
+
+.sheet-locations .repcontrol_edit:hover,
+.sheet-locations .repcontrol_add:hover,
+.sheet-locations .repcontrol_edit:focus,
+.sheet-locations .repcontrol_add:focus,
+.sheet-locations .repcontrol_edit:active,
+.sheet-locations .repcontrol_add:active {
+	background: #444 !important;
+	background-color: #444 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	outline: none;
+}
+
 .sheet-rolltemplate-task {
 	font-family: 'Antonio', sans-serif;
 	background-color: #000000;
