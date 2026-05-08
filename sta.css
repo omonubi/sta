@@ -227,13 +227,8 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-field-name       { flex: 1.95; }
-.sheet-field-age { }
 .sheet-field-rank       { flex: 1.35; }
 .sheet-field-assignment { flex: 1.575; }
-.sheet-field-reputation {
-	flex: 0.7;
-	min-width: 78px;
-}
 .sheet-field-determination {
 	flex: 1.3;
 	min-width: 112px;
@@ -443,6 +438,41 @@ Author: Don Davis, aka omonubi
 	font-size: 16px;
 	font-weight: 700;
 	padding: 2px 4px;
+}
+
+/* Subtle readonly cue for fixed stat cells (e.g., Reputation rows). */
+.sheet-attr-row input[type="number"][readonly],
+.sheet-dept-row input[type="number"][readonly] {
+	background-color: #0d1114;
+	color: #d7dde2;
+	border-bottom-color: #4f6572;
+	cursor: default;
+}
+
+.sheet-attr-row:has(input[type="number"][readonly]),
+.sheet-dept-row:has(input[type="number"][readonly]) {
+	border-top: 1px solid #3f4d57;
+	margin-top: 6px;
+	padding-top: 7px;
+}
+
+.sheet-attr-row:has(input[type="number"][readonly]) .sheet-stat-name,
+.sheet-dept-row:has(input[type="number"][readonly]) .sheet-stat-name {
+	opacity: 0.85;
+}
+
+/* Separator for Reprimands row in Attributes section */
+.sheet-section.sheet-attributes .sheet-stat-grid .sheet-attr-row:last-child {
+	border-top: 1px solid #3f4d57;
+	margin-top: 6px;
+	padding-top: 7px;
+}
+
+/* Separator for Reputation row in Departments section */
+.sheet-stat-grid .sheet-dept-row:last-child {
+	border-top: 1px solid #3f4d57;
+	margin-top: 6px;
+	padding-top: 7px;
 }
 
 /* ============================================================
