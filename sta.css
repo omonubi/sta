@@ -1302,51 +1302,25 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    PARTY SHEET
    ============================================================ */
-.sheet-party-sheet {
-	margin: 0 8px 16px;
-}
-
-.sheet-party-sheet .sheet-section-header {
-	background-color: var(--lcars-tan);
-}
-
-.sheet-party-shell {
-	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
-	border: 1px solid #2a2a2a;
-	border-left: 4px solid var(--lcars-tan);
-	padding: 18px 20px;
-	min-height: 160px;
-}
-
-.sheet-party-stats {
+.sheet-mission-bio-fields {
 	display: flex;
+	flex-direction: row;
 	gap: 12px;
-	margin-bottom: 18px;
-	flex-wrap: wrap;
+	align-items: flex-end;
+	padding: 0 8px 8px;
 }
 
-.sheet-party-stats .sheet-field {
-	min-width: 120px;
+.sheet-field-mission-momentum,
+.sheet-field-mission-threat {
+	flex: 0 0 80px;
 }
 
-.sheet-party-stats input[type="number"] {
-	width: 72px;
-	font-size: 18px;
-	font-weight: 700;
-	text-align: center;
-}
-
-.sheet-party-intro {
-	max-width: 520px;
-}
-
-.sheet-party-intro p {
-	margin: 0;
-	font-size: 14px;
-	letter-spacing: 0.04em;
-	line-height: 1.5;
-	color: var(--lcars-on-dark);
-	opacity: 0.82;
+.sheet-field-mission-momentum input[type="number"],
+.sheet-field-mission-threat input[type="number"] {
+	width: 100%;
+	font-size: inherit;
+	font-weight: normal;
+	text-align: left;
 }
 
 /* ============================================================

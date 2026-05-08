@@ -87,10 +87,17 @@ Author: Don Davis, aka omonubi
 				<span class="sheet-lcars-row-value">{{successes}}</span>
 			</div>
 			{{#show_complications}}
+			{{#reputation_roll}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Reprimands</span>
+				<span class="sheet-lcars-row-value">{{complications}}</span>
+			</div>
+			{{/reputation_roll}}{{^reputation_roll}}
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Complications</span>
 				<span class="sheet-lcars-row-value">{{complications}}</span>
 			</div>
+			{{/reputation_roll}}
 			{{/show_complications}}
 			{{/d1}}
 			{{#result}}
@@ -127,7 +134,7 @@ Author: Don Davis, aka omonubi
 		</label>
 		<label class="sheet-tab-label sheet-tab-label-party">
 			<input type="radio" name="attr_sheet_tab" value="party" />
-			Party
+			Mission
 		</label>
 		<label class="sheet-tab-label sheet-tab-label-settings">
 			<input type="radio" name="attr_sheet_tab" value="settings" />
@@ -576,22 +583,21 @@ Author: Don Davis, aka omonubi
 	</div>
 
 	<div class="sheet-tab-page sheet-tab-page-party">
-		<div class="sheet-section sheet-party-sheet">
-			<div class="sheet-section-header">Party</div>
-			<div class="sheet-party-shell">
-				<div class="sheet-party-stats">
-					<div class="sheet-field">
-						<label>Momentum</label>
-						<input type="number" name="attr_party_momentum" min="0" max="99" value="0" />
-					</div>
-					<div class="sheet-field">
-						<label>Threat</label>
-						<input type="number" name="attr_party_threat" min="0" max="99" value="0" />
-					</div>
+
+		<!-- Mission Basic Information -->
+		<div class="sheet-section sheet-mission-bio">
+			<div class="sheet-mission-bio-fields">
+				<div class="sheet-field sheet-field-name">
+					<label>Name</label>
+					<input type="text" name="attr_character_name" />
 				</div>
-				<div class="sheet-party-intro">
-					<h2>Party Sheet</h2>
-					<p>Select this tab to manage away teams, bridge crew, or other shared party details.</p>
+				<div class="sheet-field sheet-field-mission-momentum">
+					<label>Momentum</label>
+					<input type="number" name="attr_party_momentum" min="0" max="99" value="0" />
+				</div>
+				<div class="sheet-field sheet-field-mission-threat">
+					<label>Threat</label>
+					<input type="number" name="attr_party_threat" min="0" max="99" value="0" />
 				</div>
 			</div>
 		</div>
@@ -610,7 +616,7 @@ Author: Don Davis, aka omonubi
 					</label>
 					<label class="sheet-settings-option">
 						<input type="radio" name="attr_sheet_type" value="party" />
-						<span>Party</span>
+						<span>Mission</span>
 					</label>
 				</div>
 			</div>
@@ -1149,6 +1155,9 @@ on('clicked:roll_task', function() {
 			return acc + (r >= complicationThreshold ? 1 : 0);
 		}, 0);
 		var pass      = successes >= difficulty;
+		if (isReputationRoll && !pass) {
+			complications += 1;
+		}
 
 		// Build the template call. Each die is passed as a plain value;
 		// dx_hit=1 is included only when that die succeeded (truthy in template).
@@ -1178,9 +1187,10 @@ on('clicked:roll_task', function() {
 			+ (diceCount >= 8 ? ' {{d8=' + rolls[7] + '}}' + (rolls[7] >= complicationThreshold ? ' {{d8_comp=1}}' : '') + (isCrit(rolls[7]) ? ' {{d8_crit=1}}' : '') + (rolls[7] <= target ? ' {{d8_hit=1}}' : '') : '')
 			+ (diceCount >= 9 ? ' {{d9=' + rolls[8] + '}}' + (rolls[8] >= complicationThreshold ? ' {{d9_comp=1}}' : '') + (isCrit(rolls[8]) ? ' {{d9_crit=1}}' : '') + (rolls[8] <= target ? ' {{d9_hit=1}}' : '') : '')
 			+ ' {{successes='  + successes  + '}}'
-			+ ' {{show_complications=1}}'
+			+ (!isReputationRoll || !pass ? ' {{show_complications=1}}' : '')
+			+ (isReputationRoll ? ' {{reputation_roll=1}}' : '')
 			+ ' {{complications=' + complications + '}}'
-			+ ' {{result='     + (pass ? 'PASS' : 'FAIL') + '}}'
+			+ ' {{result='     + (pass ? (isReputationRoll ? 'ACCLAIM' : 'PASS') : (isReputationRoll ? 'REPRIMANDED' : 'FAIL')) + '}}'
 			+ (pass ? ' {{is_pass=1}}' : '')
 			+ ' {{_r=[[0]]}}';
 
