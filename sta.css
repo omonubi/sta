@@ -487,7 +487,7 @@ Author: Don Davis, aka omonubi
 	grid-template-columns: 99px min-content 99px min-content 99px min-content 216px min-content max-content;
 	grid-template-rows: auto auto;
 	column-gap: 6px;
-	row-gap: 8px;
+	row-gap: 18px;
 	padding: 4px 8px 8px;
 	align-items: end;
 }
@@ -515,7 +515,7 @@ Author: Don Davis, aka omonubi
 	align-items: stretch;
 	display: flex;
 	flex-direction: column;
-	gap: 3px;
+	gap: 0px;
 }
 
 .sheet-roll-bar .sheet-field label {
