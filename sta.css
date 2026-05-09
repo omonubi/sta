@@ -17,6 +17,7 @@ Author: Don Davis, aka omonubi
 	--lcars-blue:     #6699FF;
 	--lcars-green:    #33CC99;
 	--lcars-purple:   #9999CC;
+	--lcars-gold:     #FFCC33;
 	--lcars-on-dark:  #FFFFFF;
 	--lcars-on-color: #000000;
 	--lcars-font:     'Antonio', sans-serif;
@@ -382,7 +383,8 @@ Author: Don Davis, aka omonubi
 .sheet-roll-panel-shell,
 .sheet-traits-shell,
 .sheet-focuses-shell,
-.sheet-values-shell {
+.sheet-values-shell,
+.sheet-equipment-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
 	padding: 8px 12px;
@@ -394,6 +396,7 @@ Author: Don Davis, aka omonubi
 .sheet-traits-shell      { border-left: 4px solid var(--lcars-tan);    }
 .sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
 .sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
+.sheet-equipment-shell   { border-left: 4px solid var(--lcars-purple); }
 
 /* Stat grid */
 .sheet-stat-grid {
@@ -821,6 +824,74 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"]:hover,
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"]:hover {
 	background-color: #7a5a3d;
+}
+
+/* ============================================================
+   EQUIPMENT SECTION
+   ============================================================ */
+.sheet-equipment .sheet-section-header { background-color: var(--lcars-purple); }
+
+.sheet-equipment {
+	margin: 0 8px 16px;
+}
+
+.sheet-equipment-top-row {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+	margin-bottom: 10px;
+}
+
+.sheet-equipment-subsection {
+	flex: 1;
+}
+
+.sheet-equipment-subsection-label {
+	font-family: var(--lcars-font);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 11px;
+	font-weight: 700;
+	color: var(--lcars-purple);
+	margin: 10px 0 4px;
+}
+
+.sheet-equipment-subsection .sheet-equipment-subsection-label {
+	margin-top: 0;
+}
+
+.sheet-equipment-subsection-label:first-child {
+	margin-top: 0;
+}
+
+.sheet-equipment-row {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+}
+
+.sheet-equipment-row + .sheet-equipment-row {
+	margin-top: 6px;
+}
+
+.sheet-field-equipment {
+	flex: 1;
+}
+
+.sheet-field-equipment input[type="text"] {
+	border-bottom-color: var(--lcars-purple);
+}
+
+/* Inventory second row hidden by default */
+.sheet-equipment-inventory-row-2 {
+	display: none;
+}
+
+.sheet-equipment-row.sheet-equipment-inventory-row-1:has(.sheet-field-equipment:last-child input:focus) ~ .sheet-equipment-inventory-row-2,
+.sheet-equipment-inventory-row-2:hover,
+.sheet-equipment-inventory-row-2:focus-within,
+.sheet-equipment-inventory-row-2:has(input:not(:placeholder-shown)) {
+	display: flex;
 }
 
 /* ============================================================
