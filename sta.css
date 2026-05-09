@@ -250,6 +250,46 @@ Author: Don Davis, aka omonubi
 	flex: 1;
 }
 
+/* Bio traits rows 2+ hidden by default */
+.sheet-bio-traits-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin-bottom: 16px;
+}
+
+.sheet-bio-traits-rows > .sheet-bio-traits-row {
+	display: none;
+}
+
+.sheet-bio-traits-rows > .sheet-bio-traits-row:first-child {
+	display: flex;
+}
+
+/* Show row 2 when row 1's last input is focused, and keep row 2 visible while active/filled. */
+.sheet-bio-traits-row:nth-child(1):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(2),
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):focus-within,
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):hover,
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+/* Show row 3 when row 2's last input is focused, and keep row 3 visible while active/filled. */
+.sheet-bio-traits-row:nth-child(2):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(3),
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):focus-within,
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):hover,
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+/* Show row 4 when row 3's last input is focused, and keep row 4 visible while active/filled. */
+.sheet-bio-traits-row:nth-child(3):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(4),
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):focus-within,
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):hover,
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
 /* ============================================================
    DETERMINATION TRACKER
    ============================================================ */
