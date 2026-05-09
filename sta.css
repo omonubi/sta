@@ -1051,9 +1051,62 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-values-row input[type="text"] {
-	width: 100%;
 	flex: 1;
+	min-width: 0;
 	border-bottom: 1px solid #333333;
+}
+
+.sheet-values-row .sheet-value-challenge-toggle {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.sheet-content .sheet-values-row label.sheet-value-challenge-button {
+	flex: 0 0 70px;
+	width: 70px;
+	height: 20px;
+	padding: 0 8px;
+	margin: 0;
+	border: 1px solid #7a5a3d;
+	border-radius: 3px;
+	background-color: #7a5a3d;
+	color: #24170c;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	font-family: var(--lcars-font);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	line-height: 1;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	text-transform: uppercase;
+}
+
+
+.sheet-content .sheet-values-row label.sheet-value-challenge-button:hover {
+	background-color: #8a6747;
+	border-color: #8a6747;
+}
+
+.sheet-content .sheet-values-row .sheet-value-challenge-toggle:checked + label.sheet-value-challenge-button {
+	background-color: var(--lcars-peach);
+	color: #000000;
+	border-color: var(--lcars-peach);
+}
+
+.sheet-content .sheet-values-row .sheet-value-challenge-toggle:checked + label.sheet-value-challenge-button:hover {
+	background-color: var(--lcars-tan);
+	border-color: var(--lcars-tan);
+}
+
+.sheet-values-row:has(.sheet-value-challenge-toggle:checked) input[type="text"] {
+	text-decoration: line-through;
+	opacity: 0.5;
 }
 
 /* Rows 2+ hidden by default */
@@ -1062,52 +1115,52 @@ Author: Don Davis, aka omonubi
 }
 
 /* Show row n+1 when row n is focused (clicked/tabbed), and keep active/filled rows visible. */
-.sheet-values-row:nth-child(1):has(input:focus) ~ .sheet-values-row:nth-child(2),
-.sheet-values-row:nth-child(2):has(input:focus),
+.sheet-values-row:nth-child(1):has(input[type="text"]:focus) ~ .sheet-values-row:nth-child(2),
+.sheet-values-row:nth-child(2):has(input[type="text"]:focus),
 .sheet-values-row:nth-child(2):hover,
-.sheet-values-row:nth-child(2):has(input:not(:placeholder-shown)) {
+.sheet-values-row:nth-child(2):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(2):has(input:focus) ~ .sheet-values-row:nth-child(3),
-.sheet-values-row:nth-child(3):has(input:focus),
+.sheet-values-row:nth-child(2):has(input[type="text"]:focus) ~ .sheet-values-row:nth-child(3),
+.sheet-values-row:nth-child(3):has(input[type="text"]:focus),
 .sheet-values-row:nth-child(3):hover,
-.sheet-values-row:nth-child(3):has(input:not(:placeholder-shown)) {
+.sheet-values-row:nth-child(3):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(3):has(input:focus) ~ .sheet-values-row:nth-child(4),
-.sheet-values-row:nth-child(4):has(input:focus),
+.sheet-values-row:nth-child(3):has(input[type="text"]:focus) ~ .sheet-values-row:nth-child(4),
+.sheet-values-row:nth-child(4):has(input[type="text"]:focus),
 .sheet-values-row:nth-child(4):hover,
-.sheet-values-row:nth-child(4):has(input:not(:placeholder-shown)) {
+.sheet-values-row:nth-child(4):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(4):has(input:focus) ~ .sheet-values-row:nth-child(5),
-.sheet-values-row:nth-child(5):has(input:focus),
+.sheet-values-row:nth-child(4):has(input[type="text"]:focus) ~ .sheet-values-row:nth-child(5),
+.sheet-values-row:nth-child(5):has(input[type="text"]:focus),
 .sheet-values-row:nth-child(5):hover,
-.sheet-values-row:nth-child(5):has(input:not(:placeholder-shown)) {
+.sheet-values-row:nth-child(5):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(5):has(input:focus) ~ .sheet-values-row:nth-child(6),
-.sheet-values-row:nth-child(6):has(input:focus),
+.sheet-values-row:nth-child(5):has(input[type="text"]:focus) ~ .sheet-values-row:nth-child(6),
+.sheet-values-row:nth-child(6):has(input[type="text"]:focus),
 .sheet-values-row:nth-child(6):hover,
-.sheet-values-row:nth-child(6):has(input:not(:placeholder-shown)) {
+.sheet-values-row:nth-child(6):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(6):has(input:focus) ~ .sheet-values-row:nth-child(7),
-.sheet-values-row:nth-child(7):has(input:focus),
+.sheet-values-row:nth-child(6):has(input[type="text"]:focus) ~ .sheet-values-row:nth-child(7),
+.sheet-values-row:nth-child(7):has(input[type="text"]:focus),
 .sheet-values-row:nth-child(7):hover,
-.sheet-values-row:nth-child(7):has(input:not(:placeholder-shown)) {
+.sheet-values-row:nth-child(7):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
-.sheet-values-row:nth-child(7):has(input:focus) ~ .sheet-values-row:nth-child(8),
-.sheet-values-row:nth-child(8):has(input:focus),
+.sheet-values-row:nth-child(7):has(input[type="text"]:focus) ~ .sheet-values-row:nth-child(8),
+.sheet-values-row:nth-child(8):has(input[type="text"]:focus),
 .sheet-values-row:nth-child(8):hover,
-.sheet-values-row:nth-child(8):has(input:not(:placeholder-shown)) {
+.sheet-values-row:nth-child(8):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
