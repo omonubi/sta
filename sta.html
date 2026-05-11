@@ -1,4 +1,4 @@
-<!-- 
+﻿<!-- 
 Description: HTML for a Roll20 character sheet for Star Trek Adventures, 2nd Edition, published by Modiphius.
 Author: Don Davis, aka omonubi
  -->
@@ -843,6 +843,139 @@ Author: Don Davis, aka omonubi
 				</fieldset>
 			</div><!-- /.sheet-locations-shell -->
 		</div>
+
+		<!-- Extended Tasks -->
+		<div class="sheet-section sheet-extended-tasks">
+			<div class="sheet-section-header">Extended Tasks</div>
+			<div class="sheet-extended-tasks-shell">
+				<fieldset class="repeating_extendedtasks">
+					<div class="sheet-extended-task-item">
+						<div class="sheet-extended-task-descriptor">
+							<span class="sheet-extended-task-label">Name</span>
+							<div class="sheet-field sheet-extended-task-name">
+								<input type="text" name="attr_et_name" placeholder=" " />
+							</div>
+							<span class="sheet-extended-task-label">Length</span>
+							<div class="sheet-field sheet-extended-task-number">
+								<input type="number" name="attr_et_length" value="16" min="4" max="99" />
+							</div>
+							<span class="sheet-extended-task-label">Difficulty</span>
+							<div class="sheet-field sheet-extended-task-number">
+								<input type="number" name="attr_et_difficulty" value="1" min="0" max="5" />
+							</div>
+							<span class="sheet-extended-task-label">Resistance</span>
+							<div class="sheet-field sheet-extended-task-number">
+								<input type="number" name="attr_et_resistance" value="0" min="0" max="9" />
+							</div>
+							<div class="sheet-extended-task-complete">Complete</div>
+						        
+                                        <input type="checkbox" name="attr_et_complete" class="sheet-et-complete-flag" value="1" />
+                                        <div class="sheet-extended-task-progress"><div class="sheet-extended-task-boxes">
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_1" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_1" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_1" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_1" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_2" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_2" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_2" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_2" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_3" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_3" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_3" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_3" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_4" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_4" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_4" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_4" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_5" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_5" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_5" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_5" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_6" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_6" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_6" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_6" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_7" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_7" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_7" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_7" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_8" class="sheet-et-milestone" value="1" checked="checked" /><input type="checkbox" name="attr_et_m75_8" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_8" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_8" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_9" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_9" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_9" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_9" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_10" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_10" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_10" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_10" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_11" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_11" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_11" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_11" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_12" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_12" class="sheet-et-milestone" value="1" checked="checked" /><input type="checkbox" name="attr_et_show_12" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_12" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_13" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_13" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_13" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_13" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_14" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_14" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_14" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_14" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_15" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_15" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_15" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_15" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_16" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_16" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_16" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_16" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_17" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_17" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_17" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_17" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_18" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_18" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_18" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_18" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_19" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_19" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_19" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_19" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_20" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_20" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_20" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_20" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_21" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_21" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_21" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_21" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_22" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_22" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_22" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_22" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_23" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_23" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_23" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_23" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_24" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_24" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_24" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_24" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_25" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_25" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_25" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_25" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_26" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_26" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_26" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_26" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_27" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_27" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_27" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_27" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_28" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_28" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_28" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_28" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_29" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_29" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_29" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_29" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_30" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_30" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_30" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_30" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_31" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_31" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_31" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_31" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_32" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_32" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_32" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_32" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_33" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_33" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_33" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_33" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_34" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_34" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_34" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_34" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_35" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_35" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_35" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_35" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_36" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_36" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_36" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_36" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_37" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_37" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_37" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_37" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_38" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_38" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_38" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_38" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_39" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_39" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_39" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_39" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_40" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_40" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_40" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_40" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_41" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_41" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_41" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_41" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_42" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_42" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_42" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_42" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_43" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_43" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_43" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_43" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_44" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_44" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_44" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_44" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_45" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_45" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_45" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_45" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_46" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_46" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_46" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_46" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_47" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_47" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_47" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_47" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_48" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_48" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_48" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_48" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_49" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_49" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_49" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_49" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_50" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_50" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_50" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_50" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_51" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_51" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_51" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_51" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_52" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_52" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_52" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_52" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_53" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_53" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_53" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_53" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_54" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_54" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_54" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_54" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_55" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_55" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_55" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_55" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_56" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_56" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_56" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_56" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_57" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_57" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_57" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_57" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_58" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_58" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_58" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_58" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_59" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_59" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_59" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_59" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_60" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_60" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_60" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_60" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_61" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_61" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_61" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_61" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_62" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_62" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_62" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_62" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_63" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_63" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_63" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_63" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_64" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_64" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_64" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_64" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_65" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_65" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_65" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_65" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_66" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_66" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_66" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_66" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_67" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_67" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_67" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_67" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_68" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_68" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_68" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_68" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_69" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_69" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_69" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_69" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_70" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_70" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_70" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_70" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_71" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_71" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_71" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_71" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_72" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_72" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_72" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_72" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_73" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_73" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_73" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_73" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_74" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_74" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_74" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_74" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_75" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_75" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_75" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_75" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_76" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_76" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_76" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_76" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_77" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_77" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_77" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_77" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_78" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_78" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_78" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_78" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_79" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_79" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_79" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_79" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_80" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_80" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_80" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_80" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_81" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_81" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_81" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_81" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_82" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_82" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_82" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_82" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_83" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_83" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_83" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_83" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_84" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_84" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_84" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_84" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_85" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_85" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_85" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_85" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_86" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_86" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_86" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_86" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_87" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_87" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_87" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_87" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_88" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_88" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_88" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_88" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_89" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_89" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_89" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_89" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_90" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_90" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_90" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_90" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_91" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_91" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_91" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_91" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_92" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_92" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_92" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_92" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_93" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_93" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_93" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_93" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_94" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_94" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_94" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_94" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_95" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_95" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_95" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_95" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_96" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_96" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_96" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_96" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_97" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_97" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_97" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_97" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_98" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_98" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_98" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_98" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_99" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_99" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_99" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_99" class="sheet-et-prog" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                        </div></div>
+                                </div>
+					</div>
+				</fieldset>
+			</div><!-- /.sheet-extended-tasks-shell -->
+		</div>
 	</div>
 
 	<div class="sheet-tab-page sheet-tab-page-settings">
@@ -977,6 +1110,162 @@ function clampDiceCount(value) {
 	return Math.max(1, Math.min(parsed, 9));
 }
 
+function clampExtendedTaskLength(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 16;
+	}
+	return Math.max(4, Math.min(parsed, 99));
+}
+
+function clampExtendedTaskDifficulty(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 1;
+	}
+	return Math.max(0, Math.min(parsed, 5));
+}
+
+function clampExtendedTaskResistance(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 9));
+}
+
+function isCheckedValue(value) {
+	return value === '1' || value === 'on' || value === 1 || value === true;
+}
+
+function clampExtendedTaskNumericFields(rowPrefix, callback) {
+	getAttrs([
+		rowPrefix + '_et_length',
+		rowPrefix + '_et_difficulty',
+		rowPrefix + '_et_resistance'
+	], function(v) {
+		var attrsToSet = {};
+		var length = clampExtendedTaskLength(v[rowPrefix + '_et_length']);
+		var difficulty = clampExtendedTaskDifficulty(v[rowPrefix + '_et_difficulty']);
+		var resistance = clampExtendedTaskResistance(v[rowPrefix + '_et_resistance']);
+
+		if (parseInt(v[rowPrefix + '_et_length'], 10) !== length) {
+			attrsToSet[rowPrefix + '_et_length'] = length;
+		}
+		if (parseInt(v[rowPrefix + '_et_difficulty'], 10) !== difficulty) {
+			attrsToSet[rowPrefix + '_et_difficulty'] = difficulty;
+		}
+		if (parseInt(v[rowPrefix + '_et_resistance'], 10) !== resistance) {
+			attrsToSet[rowPrefix + '_et_resistance'] = resistance;
+		}
+
+		if (Object.keys(attrsToSet).length > 0) {
+			setAttrs(attrsToSet, { silent: true }, callback);
+			return;
+		}
+
+		if (callback) {
+			callback();
+		}
+	});
+}
+
+function syncExtendedTaskTrack(rowPrefix, options, callback) {
+	var keys = [rowPrefix + '_et_length', rowPrefix + '_et_complete'];
+	for (var i = 1; i <= 99; i += 1) {
+		keys.push(rowPrefix + '_et_prog_' + i);
+		keys.push(rowPrefix + '_et_show_' + i);
+		keys.push(rowPrefix + '_et_m50_' + i);
+		keys.push(rowPrefix + '_et_m75_' + i);
+	}
+
+	getAttrs(keys, function(v) {
+		var attrsToSet = {};
+		var length = clampExtendedTaskLength(v[rowPrefix + '_et_length']);
+
+		if (parseInt(v[rowPrefix + '_et_length'], 10) !== length) {
+			attrsToSet[rowPrefix + '_et_length'] = length;
+		}
+
+		var mark50 = Math.ceil(length * 0.5);
+		var mark75 = Math.ceil(length * 0.75);
+
+		var progress = 0;
+		for (var scan = 1; scan <= length; scan += 1) {
+			if (isCheckedValue(v[rowPrefix + '_et_prog_' + scan])) {
+				progress = scan;
+			}
+		}
+
+		if (options && typeof options.changedIndex === 'number') {
+			if (options.changedChecked) {
+				progress = Math.max(progress, options.changedIndex);
+			} else if (options.changedIndex <= progress) {
+				progress = options.changedIndex - 1;
+			}
+		}
+
+		if (progress < 0) {
+			progress = 0;
+		}
+		if (progress > length) {
+			progress = length;
+		}
+
+		for (var idx = 1; idx <= 99; idx += 1) {
+			var progKey = rowPrefix + '_et_prog_' + idx;
+			var showKey = rowPrefix + '_et_show_' + idx;
+			var m50Key  = rowPrefix + '_et_m50_'  + idx;
+			var m75Key  = rowPrefix + '_et_m75_'  + idx;
+			var shouldShow = idx <= length;
+			var shouldCheck = idx <= progress && idx <= length;
+			var shouldM50 = idx === mark50;
+			var shouldM75 = idx === mark75;
+
+			if (isCheckedValue(v[showKey]) !== shouldShow) {
+				attrsToSet[showKey] = shouldShow ? '1' : '0';
+			}
+
+			if (isCheckedValue(v[progKey]) !== shouldCheck) {
+				attrsToSet[progKey] = shouldCheck ? '1' : '0';
+			}
+
+			if (isCheckedValue(v[m50Key]) !== shouldM50) {
+				attrsToSet[m50Key] = shouldM50 ? '1' : '0';
+			}
+
+			if (isCheckedValue(v[m75Key]) !== shouldM75) {
+				attrsToSet[m75Key] = shouldM75 ? '1' : '0';
+			}
+		}
+
+		var isComplete = length > 0 && progress === length;
+		if (isCheckedValue(v[rowPrefix + '_et_complete']) !== isComplete) {
+			attrsToSet[rowPrefix + '_et_complete'] = isComplete ? '1' : '0';
+		}
+
+		if (Object.keys(attrsToSet).length > 0) {
+			setAttrs(attrsToSet, { silent: true }, callback);
+			return;
+		}
+
+		if (callback) {
+			callback();
+		}
+	});
+}
+
+function initializeExtendedTasks() {
+	getSectionIDs('repeating_extendedtasks', function(ids) {
+		ids.forEach(function(id) {
+			var rowPrefix = 'repeating_extendedtasks_' + id;
+			clampExtendedTaskNumericFields(rowPrefix, function() {
+				syncExtendedTaskTrack(rowPrefix);
+			});
+		});
+	});
+}
+
 function syncDeterminationPips(total, callback) {
 	var clamped = clampDetermination(total);
 	setAttrs({
@@ -1090,6 +1379,11 @@ on('sheet:opened', function() {
 		var focusText  = focusIndex ? (v['focus_' + focusIndex] || '') : '';
 		setAttrs({ task_focus_label: focusText || 'None' }, { silent: true });
 	});
+	initializeExtendedTasks();
+});
+
+on('change:repeating_extendedtasks', function() {
+	initializeExtendedTasks();
 });
 
 on('change:determination_points', function(eventInfo) {
@@ -1296,6 +1590,80 @@ on('change:dice_count', function(eventInfo) {
 	setAttrs({ dice_count: clamped }, { silent: true });
 });
 
+on('change:repeating_extendedtasks:et_length change:repeating_extendedtasks:et_difficulty change:repeating_extendedtasks:et_resistance', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var source = eventInfo.sourceAttribute || '';
+	var match = source.match(/^(repeating_extendedtasks_[^_]+)_et_(length|difficulty|resistance)$/);
+	if (!match) {
+		return;
+	}
+
+	var rowPrefix = match[1];
+	var field = match[2];
+	var attrsToSet = {};
+
+	if (field === 'length') {
+		var clampedLength = clampExtendedTaskLength(eventInfo.newValue);
+		if (parseInt(eventInfo.newValue, 10) !== clampedLength) {
+			attrsToSet[rowPrefix + '_et_length'] = clampedLength;
+		}
+	} else if (field === 'difficulty') {
+		var clampedDifficulty = clampExtendedTaskDifficulty(eventInfo.newValue);
+		if (parseInt(eventInfo.newValue, 10) !== clampedDifficulty) {
+			attrsToSet[rowPrefix + '_et_difficulty'] = clampedDifficulty;
+		}
+	} else {
+		var clampedResistance = clampExtendedTaskResistance(eventInfo.newValue);
+		if (parseInt(eventInfo.newValue, 10) !== clampedResistance) {
+			attrsToSet[rowPrefix + '_et_resistance'] = clampedResistance;
+		}
+	}
+
+	if (Object.keys(attrsToSet).length > 0) {
+		setAttrs(attrsToSet, { silent: true }, function() {
+			if (field === 'length') {
+				syncExtendedTaskTrack(rowPrefix);
+			}
+		});
+		return;
+	}
+
+	if (field === 'length') {
+		syncExtendedTaskTrack(rowPrefix);
+	}
+});
+
+var extendedTaskProgressEvents = [];
+for (var extendedTaskIndex = 1; extendedTaskIndex <= 99; extendedTaskIndex += 1) {
+	extendedTaskProgressEvents.push('change:repeating_extendedtasks:et_prog_' + extendedTaskIndex);
+}
+
+on(extendedTaskProgressEvents.join(' '), function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var source = eventInfo.sourceAttribute || '';
+	var match = source.match(/^(repeating_extendedtasks_[^_]+)_et_prog_(\d+)$/);
+	if (!match) {
+		return;
+	}
+
+	var rowPrefix = match[1];
+	var changedIndex = parseInt(match[2], 10);
+	if (isNaN(changedIndex) || changedIndex < 1 || changedIndex > 99) {
+		return;
+	}
+
+	syncExtendedTaskTrack(rowPrefix, {
+		changedIndex: changedIndex,
+		changedChecked: isCheckedValue(eventInfo.newValue)
+	});
+});
+
 // Recalculate target whenever any stat or selection changes.
 on('change:selected_attribute change:selected_department change:control change:daring change:fitness change:insight change:presence change:reason change:attribute_reputation change:command change:conn change:engineering change:security change:medicine change:science change:reputation', function() {
 	getAttrs(['selected_attribute', 'selected_department', 'control', 'daring', 'fitness', 'insight', 'presence', 'reason', 'attribute_reputation', 'command', 'conn', 'engineering', 'security', 'medicine', 'science', 'reputation'], function(v) {
@@ -1484,3 +1852,7 @@ on('clicked:roll_task', function() {
 	});
 });
 </script>
+
+
+
+

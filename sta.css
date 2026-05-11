@@ -384,7 +384,8 @@ Author: Don Davis, aka omonubi
 .sheet-traits-shell,
 .sheet-focuses-shell,
 .sheet-values-shell,
-.sheet-equipment-shell {
+.sheet-equipment-shell,
+.sheet-extended-tasks-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
 	padding: 8px 12px;
@@ -396,7 +397,8 @@ Author: Don Davis, aka omonubi
 .sheet-traits-shell      { border-left: 4px solid var(--lcars-tan);    }
 .sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
 .sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
-.sheet-equipment-shell   { border-left: 4px solid var(--lcars-purple); }
+.sheet-equipment-shell        { border-left: 4px solid var(--lcars-purple); }
+.sheet-extended-tasks-shell   { border-left: 4px solid var(--lcars-gold);   }
 
 /* Stat grid */
 .sheet-stat-grid {
@@ -1751,6 +1753,215 @@ Author: Don Davis, aka omonubi
 .sheet-locations .repcontrol_add:focus,
 .sheet-locations .repcontrol_edit:active,
 .sheet-locations .repcontrol_add:active {
+	background: #444 !important;
+	background-color: #444 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	outline: none;
+}
+
+/* ── Extended Tasks ─────────────────────────────────────────── */
+
+.sheet-extended-tasks {
+	margin: 0 8px 16px;
+}
+
+.sheet-extended-tasks .sheet-section-header {
+	background-color: var(--lcars-gold);
+}
+
+.sheet-extended-tasks .repcontainer {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.sheet-extended-task-descriptor {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-bottom: 6px;
+}
+
+.sheet-extended-task-label {
+	font-family: var(--lcars-font);
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--lcars-gold);
+	white-space: nowrap;
+}
+
+.sheet-extended-task-name {
+	flex: 1;
+	min-width: 0;
+}
+
+.sheet-extended-task-name input[type="text"] {
+	width: 100%;
+	border-bottom: 1px solid var(--lcars-gold);
+}
+
+.sheet-extended-task-number input[type="number"] {
+	width: 48px;
+	text-align: center;
+	border-bottom: 1px solid var(--lcars-gold);
+}
+
+.sheet-extended-task-complete {
+	font-family: var(--lcars-font);
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--lcars-gold);
+	opacity: 0.25;
+	white-space: nowrap;
+	padding: 2px 6px;
+}
+
+.sheet-et-complete-flag,
+.sheet-et-show-flag {
+	display: none;
+}
+
+.sheet-extended-task-item:has(.sheet-et-complete-flag:checked) .sheet-extended-task-complete {
+	opacity: 1;
+	color: var(--lcars-green);
+	text-shadow: 0 0 6px rgba(51, 204, 153, 0.4);
+}
+
+.sheet-extended-task-progress {
+	flex: 0 0 100%;
+	display: block;
+	margin-top: 2px;
+}
+
+.sheet-extended-task-boxes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-items: center;
+}
+
+.sheet-extended-task-box-wrap {
+	position: relative;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	padding: 0;
+}
+
+.sheet-extended-task-box-wrap:has(.sheet-et-show-flag:not(:checked)) {
+	display: none;
+}
+
+.sheet-content label.sheet-extended-task-box-hit {
+	position: relative;
+	display: block;
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	font-size: 0;
+	line-height: 0;
+	letter-spacing: 0;
+	text-transform: none;
+	color: transparent;
+}
+
+.sheet-extended-task-box-hit .sheet-et-prog {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.sheet-extended-task-box {
+	display: block;
+	width: 14px;
+	height: 14px;
+	box-sizing: border-box;
+	border: 1px solid #8f7540;
+	border-radius: 2px;
+	background-color: #111111;
+	transition: background-color 0.08s ease, border-color 0.08s ease, box-shadow 0.08s ease;
+}
+
+.sheet-extended-task-box-hit .sheet-et-prog:checked + .sheet-extended-task-box {
+	background-color: var(--lcars-gold);
+	border-color: var(--lcars-gold);
+	box-shadow: 0 0 4px rgba(255, 204, 51, 0.35);
+}
+
+.sheet-extended-task-box-hit .sheet-et-prog:hover + .sheet-extended-task-box {
+	border-color: var(--lcars-tan);
+}
+
+.sheet-et-milestone {
+	display: none;
+}
+
+.sheet-extended-task-box-wrap:has(.sheet-et-milestone:checked) .sheet-extended-task-box {
+	border-width: 3px;
+}
+
+.sheet-extended-tasks .repcontrol {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 4px;
+}
+
+.sheet-extended-tasks .repcontrol_edit,
+.sheet-extended-tasks .repcontrol_add {
+	appearance: none;
+	-webkit-appearance: none;
+	background: #222 !important;
+	background-color: #222 !important;
+	background-image: none !important;
+	color: var(--lcars-on-dark) !important;
+	font-family: var(--lcars-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border: none;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	cursor: pointer;
+	padding: 4px 14px;
+	transition: none;
+}
+
+.sheet-extended-tasks .repcontrol_edit {
+	border: 1px solid #666;
+	border-radius: 20px 4px 4px 20px;
+}
+
+.sheet-extended-tasks .repcontrol_add {
+	border: 1px solid #666;
+	border-radius: 4px 20px 20px 4px;
+}
+
+.sheet-extended-tasks .repcontrol_edit:hover,
+.sheet-extended-tasks .repcontrol_add:hover,
+.sheet-extended-tasks .repcontrol_edit:focus,
+.sheet-extended-tasks .repcontrol_add:focus,
+.sheet-extended-tasks .repcontrol_edit:active,
+.sheet-extended-tasks .repcontrol_add:active {
 	background: #444 !important;
 	background-color: #444 !important;
 	background-image: none !important;
