@@ -1852,21 +1852,56 @@ Author: Don Davis, aka omonubi
 	gap: 0;
 }
 
+.sheet-location-item {
+	margin-bottom: 6px;
+}
+
 .sheet-location-row {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 1.5fr 1fr 1fr 1fr;
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 6px;
 }
 
+.sheet-location-item > .sheet-location-row:last-child {
+	margin-bottom: 0;
+}
+
 .sheet-location-row input[type="text"] {
-	flex: 1;
-	width: 0;
+	width: 100%;
 	border-bottom: 1px solid var(--lcars-blue);
 }
 
-.sheet-location-row input[type="text"]:nth-child(1) { flex: 2; }
+.sheet-location-item > .sheet-location-row:not(.sheet-location-row-primary) input[type="text"]:nth-child(1) {
+	grid-column: 2;
+}
+
+.sheet-location-item > .sheet-location-row:not(.sheet-location-row-primary) input[type="text"]:nth-child(2) {
+	grid-column: 3;
+}
+
+.sheet-location-item > .sheet-location-row:not(.sheet-location-row-primary) input[type="text"]:nth-child(3) {
+	grid-column: 4;
+}
+
+.sheet-location-item > .sheet-location-row:nth-child(n+2) {
+	display: none;
+}
+
+.sheet-location-item > .sheet-location-row:nth-child(1):has(input:last-child:focus) ~ .sheet-location-row:nth-child(2),
+.sheet-location-item > .sheet-location-row:nth-child(2):focus-within,
+.sheet-location-item > .sheet-location-row:nth-child(2):hover,
+.sheet-location-item > .sheet-location-row:nth-child(2):has(input:not(:placeholder-shown)) {
+	display: grid;
+}
+
+.sheet-location-item > .sheet-location-row:nth-child(2):has(input:last-child:focus) ~ .sheet-location-row:nth-child(3),
+.sheet-location-item > .sheet-location-row:nth-child(3):focus-within,
+.sheet-location-item > .sheet-location-row:nth-child(3):hover,
+.sheet-location-item > .sheet-location-row:nth-child(3):has(input:not(:placeholder-shown)) {
+	display: grid;
+}
 
 .sheet-locations input[type="text"]::placeholder {
 	color: #555555;

@@ -239,7 +239,7 @@ Author: Don Davis, aka omonubi
 		<div class="sheet-stress-row">
 			<span class="sheet-stress-label">Max Stress</span>
 			<div class="sheet-field sheet-stress-max-field">
-				<input type="number" name="attr_stress_max" value="7" min="1" max="24" />
+				<input type="number" name="attr_stress_max" value="7" min="1" max="19" />
 			</div>
 			<span class="sheet-stress-current-label">Current</span>
 			<input type="checkbox" name="attr_stress_fatigued" class="sheet-stress-fatigued-flag" value="1" />
@@ -721,7 +721,7 @@ Author: Don Davis, aka omonubi
 							</div>
 							<span class="sheet-extended-task-label">Length</span>
 							<div class="sheet-field sheet-extended-task-number">
-								<input type="number" name="attr_et_length" value="16" min="4" max="99" />
+								<input type="number" name="attr_et_length" value="12" min="4" max="43" />
 							</div>
 							<span class="sheet-extended-task-label">Difficulty</span>
 							<div class="sheet-field sheet-extended-task-number">
@@ -1018,11 +1018,23 @@ Author: Don Davis, aka omonubi
 			<div class="sheet-section-header">Locations</div>
 			<div class="sheet-locations-shell">
 				<fieldset class="repeating_locations">
-					<div class="sheet-location-row">
-						<input type="text" name="attr_location_name" placeholder="Location Name" />
-						<input type="text" name="attr_location_trait_1" />
-						<input type="text" name="attr_location_trait_2" />
-						<input type="text" name="attr_location_trait_3" />
+					<div class="sheet-location-item">
+						<div class="sheet-location-row sheet-location-row-primary">
+							<input type="text" name="attr_location_name" placeholder="Location Name" />
+							<input type="text" name="attr_location_trait_1" placeholder=" " />
+							<input type="text" name="attr_location_trait_2" placeholder=" " />
+							<input type="text" name="attr_location_trait_3" placeholder=" " />
+						</div>
+						<div class="sheet-location-row">
+							<input type="text" name="attr_location_trait_4" placeholder=" " />
+							<input type="text" name="attr_location_trait_5" placeholder=" " />
+							<input type="text" name="attr_location_trait_6" placeholder=" " />
+						</div>
+						<div class="sheet-location-row">
+							<input type="text" name="attr_location_trait_7" placeholder=" " />
+							<input type="text" name="attr_location_trait_8" placeholder=" " />
+							<input type="text" name="attr_location_trait_9" placeholder=" " />
+						</div>
 					</div>
 				</fieldset>
 			</div><!-- /.sheet-locations-shell -->
@@ -1041,7 +1053,7 @@ Author: Don Davis, aka omonubi
 							</div>
 							<span class="sheet-extended-task-label">Length</span>
 							<div class="sheet-field sheet-extended-task-number">
-								<input type="number" name="attr_et_length" value="16" min="4" max="99" />
+								<input type="number" name="attr_et_length" value="12" min="4" max="43" />
 							</div>
 							<span class="sheet-extended-task-label">Difficulty</span>
 							<div class="sheet-field sheet-extended-task-number">
@@ -1299,7 +1311,7 @@ function clampStressMax(value) {
 	if (isNaN(parsed)) {
 		return 7;
 	}
-	return Math.max(1, Math.min(parsed, 24));
+	return Math.max(1, Math.min(parsed, 19));
 }
 
 function syncStressTrack(options, callback) {
@@ -1415,9 +1427,9 @@ function syncTaskShutdownWarning(callback) {
 function clampExtendedTaskLength(value) {
 	var parsed = parseInt(value, 10);
 	if (isNaN(parsed)) {
-		return 16;
+		return 12;
 	}
-	return Math.max(4, Math.min(parsed, 99));
+	return Math.max(4, Math.min(parsed, 43));
 }
 
 function clampExtendedTaskDifficulty(value) {
