@@ -51,7 +51,7 @@ Author: Don Davis, aka omonubi
 			{{/target}}
 			{{#difficulty}}
 			<div class="sheet-lcars-row">
-				<span class="sheet-lcars-row-label">Difficulty</span>
+				<span class="sheet-lcars-row-label">Difficulty{{#difficulty_fatigued}} <span class="sheet-fatigued-label">(Fatigued)</span>{{/difficulty_fatigued}}</span>
 				<span class="sheet-lcars-row-value">{{difficulty}}</span>
 			</div>
 			{{/difficulty}}
@@ -235,6 +235,52 @@ Author: Don Davis, aka omonubi
 		</div>
 		</div><!-- /.sheet-bio-traits-rows -->
 		</div>
+
+		<div class="sheet-stress-row">
+			<span class="sheet-stress-label">Max Stress</span>
+			<div class="sheet-field sheet-stress-max-field">
+				<input type="number" name="attr_stress_max" value="7" min="1" max="24" />
+			</div>
+			<span class="sheet-stress-current-label">Current</span>
+			<input type="checkbox" name="attr_stress_fatigued" class="sheet-stress-fatigued-flag" value="1" />
+			<input type="checkbox" name="attr_stress_attribute_locked" class="sheet-stress-attr-locked-flag" value="1" checked="checked" />
+			<div class="sheet-stress-boxes">
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_1" class="sheet-stress-show-flag" value="1" checked="checked" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_2" class="sheet-stress-show-flag" value="1" checked="checked" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_3" class="sheet-stress-show-flag" value="1" checked="checked" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_4" class="sheet-stress-show-flag" value="1" checked="checked" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_5" class="sheet-stress-show-flag" value="1" checked="checked" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_6" class="sheet-stress-show-flag" value="1" checked="checked" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_7" class="sheet-stress-show-flag" value="1" checked="checked" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_7" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_8" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_8" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_9" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_9" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_10" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_10" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_11" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_11" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_12" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_12" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_13" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_13" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_14" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_14" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_15" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_15" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_16" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_16" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_17" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_17" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_18" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_18" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_19" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_19" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_20" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_20" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_21" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_21" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_22" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_22" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_23" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_23" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+				<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_stress_show_24" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_stress_24" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+			</div>
+			<div class="sheet-stress-fatigued">Fatigued</div>
+			<select name="attr_stress_attribute" class="sheet-stress-attr-select">
+				<option value="control" selected="selected">Control</option>
+				<option value="daring">Daring</option>
+				<option value="fitness">Fitness</option>
+				<option value="insight">Insight</option>
+				<option value="presence">Presence</option>
+				<option value="reason">Reason</option>
+			</select>
+		</div>
+
 
 		<!-- Equipment -->
 		<div class="sheet-section sheet-equipment">
@@ -477,6 +523,7 @@ Author: Don Davis, aka omonubi
 			<div class="sheet-roll-panel-shell">
 			<div class="sheet-roll-bar">
 				<input type="checkbox" name="attr_roll_task_disabled" class="sheet-roll-disabled-flag" checked="checked" />
+				<input type="checkbox" name="attr_task_shutdown" class="sheet-task-shutdown-flag" value="1" />
 				<div class="sheet-field">
 					<label>Attribute</label>
 					<input type="number" name="attr_task_attribute" min="0" max="12" readonly />
@@ -540,7 +587,9 @@ Author: Don Davis, aka omonubi
 						</label>
 					</div>
 				</div>
-			</div>				<div class="sheet-field">
+			</div>
+				<div class="sheet-task-shutdown-warning">Shut Down</div>
+				<div class="sheet-field">
 					<label>Difficulty</label>
 					<input type="number" name="attr_difficulty" min="0" max="9" value="1" />
 				</div>
@@ -568,6 +617,8 @@ Author: Don Davis, aka omonubi
 			</div>
 			</div><!-- /.sheet-roll-panel-shell -->
 		</div>
+
+		
 
 		<!-- Focuses -->
 		<div class="sheet-section sheet-focuses">
@@ -1243,6 +1294,124 @@ function clampDiceCount(value) {
 	return Math.max(1, Math.min(parsed, 9));
 }
 
+function clampStressMax(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 7;
+	}
+	return Math.max(1, Math.min(parsed, 24));
+}
+
+function syncStressTrack(options, callback) {
+	if (typeof options === 'function') {
+		callback = options;
+		options = null;
+	}
+
+	var keys = ['stress_max', 'stress_fatigued', 'stress_attribute', 'stress_attribute_locked'];
+	for (var i = 1; i <= 24; i += 1) {
+		keys.push('stress_' + i);
+		keys.push('stress_show_' + i);
+	}
+
+	getAttrs(keys, function(v) {
+		var attrsToSet = {};
+		var maxStress = clampStressMax(v.stress_max);
+		var currentStressAttr = v.stress_attribute || 'control';
+		var progress = 0;
+
+		if (parseInt(v.stress_max, 10) !== maxStress) {
+			attrsToSet.stress_max = maxStress;
+		}
+
+		for (var scan = 1; scan <= maxStress; scan += 1) {
+			if (isCheckedValue(v['stress_' + scan])) {
+				progress = scan;
+			}
+		}
+
+		if (options && typeof options.changedIndex === 'number') {
+			if (options.changedChecked) {
+				progress = Math.max(progress, options.changedIndex);
+			} else if (options.changedIndex <= progress) {
+				progress = options.changedIndex - 1;
+			}
+		}
+
+		if (progress < 0) {
+			progress = 0;
+		}
+		if (progress > maxStress) {
+			progress = maxStress;
+		}
+
+		var checkedCount = 0;
+
+		for (var idx = 1; idx <= 24; idx += 1) {
+			var stressKey = 'stress_' + idx;
+			var showKey = 'stress_show_' + idx;
+			var shouldShow = idx <= maxStress;
+			var shouldCheck = shouldShow && idx <= progress;
+
+			if (isCheckedValue(v[showKey]) !== shouldShow) {
+				attrsToSet[showKey] = shouldShow ? '1' : '0';
+			}
+
+			if (isCheckedValue(v[stressKey]) !== shouldCheck) {
+				attrsToSet[stressKey] = shouldCheck ? '1' : '0';
+			}
+
+			if (shouldCheck) {
+				checkedCount += 1;
+			}
+		}
+
+		var fatigued = maxStress > 0 && checkedCount === maxStress;
+		var shouldLockAttribute = !fatigued;
+
+		if (isCheckedValue(v.stress_fatigued) !== fatigued) {
+			attrsToSet.stress_fatigued = fatigued ? '1' : '0';
+		}
+
+		if (isCheckedValue(v.stress_attribute_locked) !== shouldLockAttribute) {
+			attrsToSet.stress_attribute_locked = shouldLockAttribute ? '1' : '0';
+		}
+
+		if (!fatigued && currentStressAttr !== 'control') {
+			attrsToSet.stress_attribute = 'control';
+		} else if (!currentStressAttr) {
+			attrsToSet.stress_attribute = 'control';
+		}
+
+		if (Object.keys(attrsToSet).length > 0) {
+			setAttrs(attrsToSet, { silent: true }, callback);
+			return;
+		}
+
+		if (callback) {
+			callback();
+		}
+	});
+}
+
+function syncTaskShutdownWarning(callback) {
+	getAttrs(['selected_attribute', 'stress_fatigued', 'stress_attribute', 'task_shutdown'], function(v) {
+		var selectedAttribute = v.selected_attribute || '';
+		var stressAttribute = v.stress_attribute || 'control';
+		var shouldShowShutdown = isCheckedValue(v.stress_fatigued) && selectedAttribute === stressAttribute;
+		var currentShutdown = isCheckedValue(v.task_shutdown);
+
+		if (currentShutdown === shouldShowShutdown) {
+			if (callback) {
+				callback();
+			}
+			return;
+		}
+
+		setAttrs({ task_shutdown: shouldShowShutdown ? '1' : '0' }, { silent: true }, callback);
+	});
+}
+
 function clampExtendedTaskLength(value) {
 	var parsed = parseInt(value, 10);
 	if (isNaN(parsed)) {
@@ -1517,6 +1686,9 @@ on('sheet:opened', function() {
 		var focusText  = focusIndex ? (v['focus_' + focusIndex] || '') : '';
 		setAttrs({ task_focus_label: focusText || 'None' }, { silent: true });
 	});
+	syncStressTrack(function() {
+		syncTaskShutdownWarning();
+	});
 	initializeExtendedTasks();
 });
 
@@ -1728,6 +1900,62 @@ on('change:dice_count', function(eventInfo) {
 	setAttrs({ dice_count: clamped }, { silent: true });
 });
 
+on('change:stress_max', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	syncStressTrack(function() {
+		syncTaskShutdownWarning();
+	});
+});
+
+var stressBoxEvents = [];
+for (var stressIndex = 1; stressIndex <= 24; stressIndex += 1) {
+	stressBoxEvents.push('change:stress_' + stressIndex);
+}
+
+on(stressBoxEvents.join(' '), function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var source = eventInfo.sourceAttribute || '';
+	var match = source.match(/^stress_(\d+)$/);
+	if (!match) {
+		return;
+	}
+
+	var changedIndex = parseInt(match[1], 10);
+	if (isNaN(changedIndex) || changedIndex < 1 || changedIndex > 24) {
+		return;
+	}
+
+	syncStressTrack({
+		changedIndex: changedIndex,
+		changedChecked: isCheckedValue(eventInfo.newValue)
+	}, function() {
+		syncTaskShutdownWarning();
+	});
+});
+
+on('change:stress_attribute', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	getAttrs(['stress_fatigued'], function(v) {
+		if (!isCheckedValue(v.stress_fatigued)) {
+			setAttrs({ stress_attribute: 'control' }, { silent: true }, function() {
+				syncTaskShutdownWarning();
+			});
+			return;
+		}
+
+		syncTaskShutdownWarning();
+	});
+});
+
 on('change:repeating_extendedtasks:et_length change:repeating_extendedtasks:et_difficulty change:repeating_extendedtasks:et_resistance change:repeating_characterextendedtasks:et_length change:repeating_characterextendedtasks:et_difficulty change:repeating_characterextendedtasks:et_resistance', function(eventInfo) {
 	if (!eventInfo || eventInfo.sourceType !== 'player') {
 		return;
@@ -1819,7 +2047,9 @@ on('change:selected_attribute change:selected_department change:control change:d
 			var reprimands = parseInt(v.attribute_reputation) || 0;
 			attrsToSet.c_range = Math.min(1 + reprimands, 6);
 		}
-		setAttrs(attrsToSet);
+		setAttrs(attrsToSet, {}, function() {
+			syncTaskShutdownWarning();
+		});
 	});
 });
 
@@ -1856,7 +2086,8 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 on('clicked:roll_task', function() {
 	getAttrs(['dice_count', 'target_number', 'difficulty', 'c_range', 'character_name',
 	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'determination_points',
-	          'task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9'], function(v) {
+	          'task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9',
+	          'stress_fatigued'], function(v) {
 
 		var taskAttr = parseInt(v.task_attribute) || 0;
 		var taskDept = parseInt(v.task_department) || 0;
@@ -1868,6 +2099,8 @@ on('clicked:roll_task', function() {
 		var diceCount  = Math.min(Math.max(parseInt(v.dice_count)  || 2, 1), 9);
 		var target     = parseInt(v.target_number) || 0;
 		var difficulty = Math.min(Math.max(isNaN(parseInt(v.difficulty)) ? 1 : parseInt(v.difficulty), 0), 9);
+		var isFatigued = isCheckedValue(v.stress_fatigued);
+		var effectiveDifficulty = difficulty + (isFatigued ? 1 : 0);
 		var cRangeValue = Math.min(Math.max(parseInt(v.c_range) || 1, 1), 6);
 		var charName   = v.character_name          || 'Character';
 		var determinationPoints = clampDetermination(v.determination_points);
@@ -1922,7 +2155,7 @@ on('clicked:roll_task', function() {
 		var complications = rolls.reduce(function(acc, r) {
 			return acc + (r >= complicationThreshold ? 1 : 0);
 		}, 0);
-		var pass      = successes >= difficulty;
+		var pass      = successes >= effectiveDifficulty;
 		if (isReputationRoll && !pass) {
 			complications += 1;
 		}
@@ -1938,7 +2171,8 @@ on('clicked:roll_task', function() {
 			+ (!isReputationRoll ? ' {{department=' + dept + '}}' : '')
 			+ (taskFocusText ? ' {{focus=' + escapeTemplateValue(taskFocusText) + '}}' : '')
 			+ ' {{target='     + target     + '}}'
-			+ (difficulty > 0 ? ' {{difficulty=' + difficulty + '}}' : '')
+			+ (effectiveDifficulty > 0 ? ' {{difficulty=' + effectiveDifficulty + '}}' : '')
+			+ (isFatigued ? ' {{difficulty_fatigued=1}}' : '')
 			+ ' {{c_range='    + escapeTemplateValue(cRangeText) + '}}'
 			+ ' {{dice_count=' + diceCount  + '}}'
 			+ ' {{d1='         + rolls[0]   + '}}'

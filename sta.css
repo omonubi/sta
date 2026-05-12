@@ -544,6 +544,7 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar > span.sheet-roll-op:nth-of-type(2)                  { grid-column: 4; grid-row: 1; }
 .sheet-roll-bar .sheet-field:has(input[name="attr_target_number"])   { grid-column: 5; grid-row: 1; }
 .sheet-roll-bar .sheet-focus-field                                   { grid-column: 7; grid-row: 1; width: 216px !important; }
+.sheet-roll-bar .sheet-task-shutdown-warning                         { grid-column: 8 / span 2; grid-row: 1; }
 
 /* Row 2: control fields */
 .sheet-roll-bar .sheet-field:has(input[name="attr_difficulty"])      { grid-column: 1; grid-row: 2; }
@@ -600,6 +601,31 @@ Author: Don Davis, aka omonubi
 /* Worker-controlled state flag for disabling the roll button */
 .sheet-roll-bar .sheet-roll-disabled-flag {
 	display: none;
+}
+
+.sheet-roll-bar .sheet-task-shutdown-flag {
+	display: none;
+}
+
+.sheet-roll-bar .sheet-task-shutdown-warning {
+	display: none;
+	align-self: end;
+	height: 30px;
+	padding-left: 6px;
+	font-family: var(--lcars-font);
+	font-size: 21px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 30px;
+	text-transform: uppercase;
+	color: #d6483b;
+	margin-left: 35px;
+	white-space: nowrap;
+	text-align: left;
+}
+
+.sheet-roll-bar:has(.sheet-task-shutdown-flag:checked) .sheet-task-shutdown-warning {
+	display: block;
 }
 
 .sheet-roll-bar .sheet-roll-gap {
@@ -813,9 +839,11 @@ Author: Don Davis, aka omonubi
 	background-color: var(--lcars-tan);
 }
 
-/* Disable Roll Task when task Attribute or Department is 0 */
+/* Disable Roll Task when task Attribute/Department is 0 or Shut Down is active */
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"],
-.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"] {
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"],
+.sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"],
+.sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"] {
 	background-color: #7a5a3d;
 	color: #24170c;
 	cursor: not-allowed;
@@ -824,8 +852,145 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"]:hover,
-.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"]:hover {
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"]:hover,
+.sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"]:hover,
+.sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"]:hover {
 	background-color: #7a5a3d;
+}
+
+/* ============================================================
+   STRESS ROW
+   ============================================================ */
+.sheet-stress-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0 16px;
+	margin: -2px 0 16px;
+	flex-wrap: wrap;
+}
+
+.sheet-stress-label {
+	font-family: var(--lcars-font);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--lcars-tan);
+	line-height: 30px;
+	min-width: 64px;
+}
+
+.sheet-stress-max-field {
+	width: 76px;
+}
+
+.sheet-stress-max-field input[type="number"] {
+	text-align: center;
+	color: var(--lcars-orange);
+	font-weight: 700;
+}
+
+.sheet-stress-current-label {
+	font-family: var(--lcars-font);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--lcars-tan);
+	line-height: 30px;
+	margin-right: 0px;
+}
+
+.sheet-stress-boxes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-items: center;
+	max-width: 470px;
+}
+
+.sheet-stress-show-flag,
+.sheet-stress-fatigued-flag,
+.sheet-stress-attr-locked-flag {
+	display: none;
+}
+
+.sheet-stress-box-wrap:has(.sheet-stress-show-flag:not(:checked)) {
+	display: none;
+}
+
+.sheet-content label.sheet-stress-box-hit {
+	position: relative;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	line-height: 0;
+}
+
+.sheet-stress-box-input {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.sheet-stress-box {
+	display: block;
+	width: 14px;
+	height: 14px;
+	box-sizing: border-box;
+	border: 1px solid #8f4f1f;
+	border-radius: 2px;
+	background-color: #111111;
+	transition: background-color 0.08s ease, border-color 0.08s ease, box-shadow 0.08s ease;
+}
+
+.sheet-stress-box-hit .sheet-stress-box-input:checked + .sheet-stress-box {
+	background-color: var(--lcars-orange);
+	border-color: var(--lcars-orange);
+	box-shadow: 0 0 4px rgba(255, 119, 0, 0.35);
+}
+
+.sheet-stress-box-hit .sheet-stress-box-input:hover + .sheet-stress-box {
+	border-color: var(--lcars-tan);
+}
+
+.sheet-stress-fatigued {
+	font-family: var(--lcars-font);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--lcars-tan);
+	opacity: 0.5;
+	line-height: 30px;
+	margin-left: 20px;
+	transition: opacity 0.12s ease;
+}
+
+.sheet-stress-row:has(.sheet-stress-fatigued-flag:checked) .sheet-stress-fatigued {
+	opacity: 1;
+}
+
+.sheet-stress-attr-select {
+	width: 130px;
+	height: 30px;
+	color: var(--lcars-orange);
+	margin: 0px;
+}
+
+.sheet-stress-row:has(.sheet-stress-attr-locked-flag:checked) .sheet-stress-attr-select {
+	opacity: 0.45;
+	filter: saturate(0.6);
+	pointer-events: none;
+	color: #7a5a3d;
+	border-bottom-color: #7a5a3d;
 }
 
 /* ============================================================
@@ -1975,7 +2140,7 @@ Author: Don Davis, aka omonubi
 .sheet-rolltemplate-task {
 	font-family: 'Antonio', sans-serif;
 	background-color: #000000;
-	border: 2px solid #FF7700;
+	border: 2px solid #000000;
 	border-radius: 4px;
 	overflow: hidden;
 	min-width: 220px;
@@ -2059,6 +2224,10 @@ Author: Don Davis, aka omonubi
 }
 
 /* Capitalize single-word attribute/department names */
+
+.sheet-rolltemplate-task .sheet-fatigued-label {
+	color: #d6483b;
+}
 .sheet-rolltemplate-task .sheet-capitalize {
 	text-transform: capitalize;
 }
