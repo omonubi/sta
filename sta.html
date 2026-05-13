@@ -1060,6 +1060,8 @@ Author: Don Davis, aka omonubi
 				<input type="number" name="attr_starship_resistance" readonly style="width: 52px; text-align: center;" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Crew Support</label>
 				<input type="number" name="attr_starship_crew_support" min="1" max="8" style="width: 52px; text-align: center;" />
+				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Small Craft Readiness</label>
+				<input type="number" name="attr_starship_small_craft_readiness" min="0" max="9" style="width: 52px; text-align: center;" />
 			</div>
 		</div>
 		<div class="sheet-bio-fields sheet-bio-fields-max-shields">
@@ -1706,6 +1708,14 @@ function clampStarshipCrewSupport(value) {
 	return Math.max(1, Math.min(parsed, 8));
 }
 
+function clampStarshipSmallCraftReadiness(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 9));
+}
+
 function clampDepartment(value) {
 	var parsed = parseInt(value, 10);
 	if (isNaN(parsed)) {
@@ -2184,6 +2194,7 @@ on('sheet:opened', function() {
 	initializeExtendedTasks();
 	updateStarshipResistance();
 	initializeStarshipCrewSupportDefault();
+	initializeStarshipSmallCraftReadinessDefault();
 	initializeStarshipMaxShieldsDefault();
 });
 
@@ -2391,6 +2402,23 @@ function initializeStarshipCrewSupportDefault() {
 	});
 }
 
+function updateStarshipSmallCraftReadiness(scaleOverride) {
+	getAttrs(['starship_scale'], function(v) {
+		var scale = (scaleOverride !== undefined) ? scaleOverride : (parseInt(v.starship_scale, 10) || 1);
+		setAttrs({ starship_small_craft_readiness: clampStarshipSmallCraftReadiness(scale - 1) }, { silent: true });
+	});
+}
+
+function initializeStarshipSmallCraftReadinessDefault() {
+	getAttrs(['starship_small_craft_readiness', 'starship_scale'], function(v) {
+		if (String(v.starship_small_craft_readiness || '').trim() !== '') {
+			return;
+		}
+		var scale = parseInt(v.starship_scale, 10) || 1;
+		setAttrs({ starship_small_craft_readiness: clampStarshipSmallCraftReadiness(scale - 1) }, { silent: true });
+	});
+}
+
 on('change:starship_scale', function(eventInfo) {
 	if (!eventInfo || eventInfo.sourceType !== 'player') {
 		return;
@@ -2400,12 +2428,14 @@ on('change:starship_scale', function(eventInfo) {
 	if (!isNaN(parsed) && parsed === clamped) {
 		updateStarshipResistance(clamped, undefined);
 		updateStarshipCrewSupport(clamped);
+		updateStarshipSmallCraftReadiness(clamped);
 		updateStarshipMaxShields(clamped, undefined, undefined);
 		return;
 	}
 	setAttrs({ starship_scale: clamped }, { silent: true }, function() {
 		updateStarshipResistance(clamped, undefined);
 		updateStarshipCrewSupport(clamped);
+		updateStarshipSmallCraftReadiness(clamped);
 		updateStarshipMaxShields(clamped, undefined, undefined);
 	});
 });
@@ -2477,6 +2507,20 @@ on('change:starship_crew_support', function(eventInfo) {
 	}
 
 	setAttrs({ starship_crew_support: clamped }, { silent: true });
+});
+
+on('change:starship_small_craft_readiness', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var parsed = parseInt(eventInfo.newValue, 10);
+	var clamped = clampStarshipSmallCraftReadiness(eventInfo.newValue);
+	if (!isNaN(parsed) && parsed === clamped) {
+		return;
+	}
+
+	setAttrs({ starship_small_craft_readiness: clamped }, { silent: true });
 });
 
 // Enforce reputation bounds even if user types values outside min/max.
