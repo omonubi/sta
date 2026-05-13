@@ -67,6 +67,12 @@ Author: Don Davis, aka omonubi
 				<span class="sheet-lcars-row-value">{{dice_count}}</span>
 			</div>
 			{{/dice_count}}
+			{{#assists}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">Assists</span>
+				<span class="sheet-lcars-row-value">{{assists}}</span>
+			</div>
+			{{/assists}}
 			{{#d1}}
 			<div class="sheet-lcars-row">
 				<span class="sheet-lcars-row-label">Rolls</span>
@@ -637,6 +643,10 @@ Author: Don Davis, aka omonubi
 				<div class="sheet-field">
 					<label>Dice</label>
 					<input type="number" name="attr_dice_count" min="1" max="9" value="2" />
+				</div>
+				<div class="sheet-field">
+					<label>Assists</label>
+					<input type="number" name="attr_assists" min="0" max="9" value="0" />
 				</div>
 				<span class="sheet-roll-op sheet-roll-gap">+</span>
 				<div class="sheet-field">
@@ -1240,6 +1250,10 @@ Author: Don Davis, aka omonubi
 					<label>Dice</label>
 					<input type="number" name="attr_dice_count" min="1" max="9" value="2" />
 				</div>
+				<div class="sheet-field">
+					<label>Assists</label>
+					<input type="number" name="attr_assists" min="0" max="9" value="0" />
+				</div>
 				<span class="sheet-roll-op sheet-roll-gap">+</span>
 				<div class="sheet-field">
 					<label>Check Type</label>
@@ -1682,6 +1696,14 @@ function clampDiceCount(value) {
 		return 2;
 	}
 	return Math.max(1, Math.min(parsed, 9));
+}
+
+function clampAssists(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 9));
 }
 
 function clampStressMax(value) {
@@ -2352,8 +2374,19 @@ on('change:dice_count', function(eventInfo) {
 	setAttrs({ dice_count: clamped }, { silent: true });
 });
 
+on('change:assists', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
 
-// Reset reroll flag on change for all fields EXCEPT difficulty, c_range, and dice_count
+	var parsed = parseInt(eventInfo.newValue, 10);
+	var clamped = clampAssists(eventInfo.newValue);
+	if (!isNaN(parsed) && parsed === clamped) {
+		return;
+	}
+
+	setAttrs({ assists: clamped }, { silent: true });
+});
 on('change:selected_attribute change:selected_department change:task_focus change:determination_spend change:focus_open', function(eventInfo) {
 	if (!eventInfo || eventInfo.sourceType !== 'player') {
 		  return;
@@ -2564,7 +2597,7 @@ on('clicked:roll_task', function() {
 	getAttrs(['dice_count', 'target_number', 'difficulty', 'c_range', 'character_name',
 	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'starship_determination_spend', 'determination_points',
 	          'task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9',
-	          'stress_fatigued'], function(v) {
+	          'stress_fatigued', 'assists'], function(v) {
 
 		var taskAttr = parseInt(v.task_attribute) || 0;
 		var taskDept = parseInt(v.task_department) || 0;
@@ -2574,6 +2607,7 @@ on('clicked:roll_task', function() {
 		}
 
 		var diceCount  = Math.min(Math.max(parseInt(v.dice_count)  || 2, 1), 9);
+		var assistsValue = clampAssists(v.assists);
 		var target     = parseInt(v.target_number) || 0;
 		var difficulty = Math.min(Math.max(isNaN(parseInt(v.difficulty)) ? 1 : parseInt(v.difficulty), 0), 9);
 		var isFatigued = isCheckedValue(v.stress_fatigued);
@@ -2638,6 +2672,7 @@ on('clicked:roll_task', function() {
 			if (isCrit(r)) { return acc + 2; }
 			return acc + (r <= target ? 1 : 0);
 		}, 0);
+		successes += assistsValue;
 		var complicationThreshold = 21 - cRangeValue;
 		var complications = rolls.reduce(function(acc, r) {
 			return acc + (r >= complicationThreshold ? 1 : 0);
@@ -2663,6 +2698,7 @@ on('clicked:roll_task', function() {
 				   + (isFatigued ? ' {{difficulty_fatigued=1}}' : '')
 				   + ' {{c_range='    + escapeTemplateValue(cRangeText) + '}}'
 				   + ' {{dice_count=' + diceCount  + '}}'
+				   + (assistsValue > 0 ? ' {{assists=' + assistsValue + '}}' : '')
 				   + ' {{d1='         + rolls[0]   + '}}' + (rerolledFlags[0] ? ' {{d1_rerolled=1}}' : '')
 				   + (rolls[0] >= complicationThreshold ? ' {{d1_comp=1}}' : '')
 				   + (isCrit(rolls[0]) ? ' {{d1_crit=1}}' : '')
@@ -2701,6 +2737,7 @@ on('clicked:roll_task', function() {
 				task_last_difficulty_fatigued: isFatigued ? '1' : '',
 				task_last_c_range_text: cRangeText,
 				task_last_dice_count: String(diceCount),
+				task_last_assists: String(assistsValue),
 				task_last_rolls: rolls.join(','),
 				task_last_complication_threshold: String(complicationThreshold),
 				task_last_task_department: String(taskDept)
@@ -2766,6 +2803,7 @@ on('clicked:reroll_task', function() {
 		'task_last_difficulty_fatigued',
 		'task_last_c_range_text',
 		'task_last_dice_count',
+		'task_last_assists',
 		'task_last_rolls',
 		'task_last_complication_threshold',
 		'task_last_task_department'
@@ -2783,6 +2821,7 @@ on('clicked:reroll_task', function() {
 		var difficultyFatigued = isCheckedValue(v.task_last_difficulty_fatigued);
 		var cRangeText = v.task_last_c_range_text || '20';
 		var diceCount = Math.max(1, Math.min(parseInt(v.task_last_dice_count, 10) || 2, 9));
+		var assistsValue = Math.max(0, parseInt(v.task_last_assists, 10) || 0);
 		var complicationThreshold = Math.max(15, Math.min(parseInt(v.task_last_complication_threshold, 10) || 20, 20));
 		var taskDept = Math.max(0, Math.min(parseInt(v.task_last_task_department, 10) || 0, 5));
 
@@ -2841,6 +2880,7 @@ on('clicked:reroll_task', function() {
 				}
 				return acc + (r <= target ? 1 : 0);
 			}, 0);
+			successes += assistsValue;
 
 			var complications = rerolled.reduce(function(acc, r) {
 				return acc + (r >= complicationThreshold ? 1 : 0);
@@ -2863,6 +2903,7 @@ on('clicked:reroll_task', function() {
 				+ (difficultyFatigued ? ' {{difficulty_fatigued=1}}' : '')
 				+ ' {{c_range=' + escapeTemplateValue(cRangeText) + '}}'
 				+ ' {{dice_count=' + diceCount + '}}'
+				+ (assistsValue > 0 ? ' {{assists=' + assistsValue + '}}' : '')
 				+ ' {{d1=' + rerolled[0] + '}}'
 				+ (rerolledFlags[0] ? ' {{d1_rerolled=1}}' : '')
 				+ (rerolled[0] >= complicationThreshold ? ' {{d1_comp=1}}' : '')
