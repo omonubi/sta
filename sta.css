@@ -255,6 +255,24 @@ Author: Don Davis, aka omonubi
 .sheet-field-date-entering-service { flex: 0.7; }
 .sheet-field-age             { flex: 0 0 52px; }
 
+/* Starship Scale field is shown as a compact label+input row. */
+.sheet-tab-page-starship .sheet-field-scale {
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	flex: 0 0 auto;
+}
+
+.sheet-tab-page-starship .sheet-field-scale label {
+	white-space: nowrap;
+	align-self: center;
+	margin-bottom: 0px !important;
+}
+
+.sheet-tab-page-starship .sheet-field-scale input[type="number"] {
+	width: 52px;
+}
+
 .sheet-field input[type="text"],
 .sheet-field input[type="number"] {
 	width: 100%;

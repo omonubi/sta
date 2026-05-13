@@ -477,32 +477,32 @@ Author: Don Davis, aka omonubi
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="control" /><span></span></label>
 						<span class="sheet-stat-name">Control</span>
-						<input type="number" name="attr_control" min="7" max="12" value="7" />
+						<input type="number" name="attr_control" min="7" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="daring" /><span></span></label>
 						<span class="sheet-stat-name">Daring</span>
-						<input type="number" name="attr_daring" min="7" max="12" value="7" />
+						<input type="number" name="attr_daring" min="7" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="fitness" /><span></span></label>
 						<span class="sheet-stat-name">Fitness</span>
-						<input type="number" name="attr_fitness" min="7" max="12" value="7" />
+						<input type="number" name="attr_fitness" min="7" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="insight" /><span></span></label>
 						<span class="sheet-stat-name">Insight</span>
-						<input type="number" name="attr_insight" min="7" max="12" value="7" />
+						<input type="number" name="attr_insight" min="7" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="presence" /><span></span></label>
 						<span class="sheet-stat-name">Presence</span>
-						<input type="number" name="attr_presence" min="7" max="12" value="7" />
+						<input type="number" name="attr_presence" min="7" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="reason" /><span></span></label>
 						<span class="sheet-stat-name">Reason</span>
-						<input type="number" name="attr_reason" min="7" max="12" value="7" />
+						<input type="number" name="attr_reason" min="7" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="attribute_reputation" /><span></span></label>
@@ -1052,11 +1052,19 @@ Author: Don Davis, aka omonubi
 			</div>
 		</div>
 		</div><!-- /.sheet-bio-traits-rows -->
+		<div class="sheet-bio-fields">
+			<div class="sheet-field sheet-field-scale" style="flex-direction: row; align-items: center; gap: 8px;">
+				<label style="align-self: center; white-space: nowrap;">Scale</label>
+				<input type="number" name="attr_starship_scale" min="1" max="8" value="1" />
+				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Resistance</label>
+				<input type="number" name="attr_starship_resistance" readonly style="width: 52px; text-align: center;" />
+			</div>
+		</div>
 		</div>
 
 		<!-- Traits -->
 		<div class="sheet-section sheet-traits">
-			<div class="sheet-section-header">Talents & Abilities</div>
+			<div class="sheet-section-header">Talents</div>
 			<div class="sheet-traits-shell">
 			<div class="sheet-traits-rows">
 				<div class="sheet-traits-row">
@@ -1143,32 +1151,32 @@ Author: Don Davis, aka omonubi
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="comms" /><span></span></label>
 						<span class="sheet-stat-name">Comms</span>
-						<input type="number" name="attr_starship_comms" min="1" max="12" value="1" />
+						<input type="number" name="attr_starship_comms" min="1" max="20" value="1" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="computers" /><span></span></label>
 						<span class="sheet-stat-name">Computers</span>
-						<input type="number" name="attr_starship_computers" min="1" max="12" value="1" />
+						<input type="number" name="attr_starship_computers" min="1" max="20" value="1" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="engines" /><span></span></label>
 						<span class="sheet-stat-name">Engines</span>
-						<input type="number" name="attr_starship_engines" min="1" max="12" value="1" />
+						<input type="number" name="attr_starship_engines" min="1" max="20" value="1" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="sensors" /><span></span></label>
 						<span class="sheet-stat-name">Sensors</span>
-						<input type="number" name="attr_starship_sensors" min="1" max="12" value="1" />
+						<input type="number" name="attr_starship_sensors" min="1" max="20" value="1" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="structure" /><span></span></label>
 						<span class="sheet-stat-name">Structure</span>
-						<input type="number" name="attr_starship_structure" min="1" max="12" value="1" />
+						<input type="number" name="attr_starship_structure" min="1" max="20" value="1" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="weapons" /><span></span></label>
 						<span class="sheet-stat-name">Weapons</span>
-						<input type="number" name="attr_starship_weapons" min="1" max="12" value="1" />
+						<input type="number" name="attr_starship_weapons" min="1" max="20" value="1" />
 					</div>
 				</div>
 				</div><!-- /.sheet-attributes-shell -->
@@ -1655,7 +1663,7 @@ function clampAttribute(value) {
 	if (isNaN(parsed)) {
 		return 7;
 	}
-	return Math.max(7, Math.min(parsed, 12));
+	return Math.max(7, Math.min(parsed, 20));
 }
 
 function clampStarshipSystem(value) {
@@ -1663,7 +1671,15 @@ function clampStarshipSystem(value) {
 	if (isNaN(parsed)) {
 		return 1;
 	}
-	return Math.max(1, Math.min(parsed, 12));
+	return Math.max(1, Math.min(parsed, 20));
+}
+
+function clampStarshipScale(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 1;
+	}
+	return Math.max(1, Math.min(parsed, 8));
 }
 
 function clampDepartment(value) {
@@ -2142,6 +2158,7 @@ on('sheet:opened', function() {
 	});
 	syncCharacterTraitStunnedFlags();
 	initializeExtendedTasks();
+	updateStarshipResistance();
 });
 
 on('change:repeating_extendedtasks change:repeating_characterextendedtasks', function() {
@@ -2249,15 +2266,72 @@ on('change:starship_comms change:starship_computers change:starship_engines chan
 	}
 
 	var systemName = eventInfo.sourceAttribute || '';
+	var isStructure = systemName === 'starship_structure';
 	var parsed = parseInt(eventInfo.newValue, 10);
 	var clamped = clampStarshipSystem(eventInfo.newValue);
 	if (!isNaN(parsed) && parsed === clamped) {
+		if (isStructure) {
+			updateStarshipResistance(undefined, clamped);
+		}
 		return;
 	}
 
 	var attrsToSet = {};
 	attrsToSet[systemName] = clamped;
-	setAttrs(attrsToSet, { silent: true });
+	setAttrs(attrsToSet, { silent: true }, function() {
+		if (isStructure) {
+			updateStarshipResistance(undefined, clamped);
+		}
+	});
+});
+
+// Enforce Starship Scale bounds even if user types values outside min/max.
+
+// Enforce Starship Scale bounds even if user types values outside min/max.
+// Resistance = Scale + Structure bonus by schedule:
+// Structure <= 6: +0, 7-8: +1, 9-10: +2, 11-12: +3, >=13: +4
+function getStarshipStructureResistanceBonus(structure) {
+	if (structure <= 6) {
+		return 0;
+	}
+	if (structure <= 8) {
+		return 1;
+	}
+	if (structure <= 10) {
+		return 2;
+	}
+	if (structure <= 12) {
+		return 3;
+	}
+	return 4;
+}
+
+function calculateStarshipResistance(scale, structure) {
+	return scale + getStarshipStructureResistanceBonus(structure);
+}
+
+function updateStarshipResistance(scaleOverride, structureOverride) {
+	getAttrs(['starship_scale', 'starship_structure'], function(v) {
+		var scale = (scaleOverride !== undefined) ? scaleOverride : (parseInt(v.starship_scale, 10) || 1);
+		var structure = (structureOverride !== undefined) ? structureOverride : (parseInt(v.starship_structure, 10) || 1);
+		var resistance = calculateStarshipResistance(scale, structure);
+		setAttrs({ starship_resistance: resistance }, { silent: true });
+	});
+}
+
+on('change:starship_scale', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+	var parsed = parseInt(eventInfo.newValue, 10);
+	var clamped = clampStarshipScale(eventInfo.newValue);
+	if (!isNaN(parsed) && parsed === clamped) {
+		updateStarshipResistance(clamped, undefined);
+		return;
+	}
+	setAttrs({ starship_scale: clamped }, { silent: true }, function() {
+		updateStarshipResistance(clamped, undefined);
+	});
 });
 
 // Enforce Reprimands attribute bounds even if user types values outside min/max.
