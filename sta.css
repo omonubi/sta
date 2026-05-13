@@ -273,6 +273,25 @@ Author: Don Davis, aka omonubi
 	width: 52px;
 }
 
+.sheet-tab-page-starship .sheet-bio-fields-max-shields {
+	margin-top: 16px;
+}
+
+.sheet-tab-page-starship .sheet-field-max-shields {
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	flex: 0 0 auto;
+}
+
+.sheet-tab-page-starship .sheet-field-max-shields label {
+	white-space: nowrap;
+	align-self: center;
+	margin-bottom: 0 !important;
+	display: flex;
+	align-items: center;
+}
+
 .sheet-field input[type="text"],
 .sheet-field input[type="number"] {
 	width: 100%;
