@@ -121,10 +121,21 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 
+.sheet-tab-nav .sheet-tab-label-starship {
+	display: none;
+}
+
 .sheet-content:has(input[name="attr_sheet_type"][value="party"]:checked) .sheet-tab-label-character {
 	display: none;
 }
 .sheet-content:has(input[name="attr_sheet_type"][value="party"]:checked) .sheet-tab-label-party {
+	display: inline-flex;
+}
+
+.sheet-content:has(input[name="attr_sheet_type"][value="starship"]:checked) .sheet-tab-label-character {
+	display: none;
+}
+.sheet-content:has(input[name="attr_sheet_type"][value="starship"]:checked) .sheet-tab-label-starship {
 	display: inline-flex;
 }
 
@@ -145,6 +156,10 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-content:has(input[name="attr_sheet_tab"][value="character"]:checked) .sheet-tab-page-character {
+	display: block;
+}
+
+.sheet-content:has(input[name="attr_sheet_tab"][value="starship"]:checked) .sheet-tab-page-starship {
 	display: block;
 }
 
@@ -271,7 +286,7 @@ Author: Don Davis, aka omonubi
 .sheet-bio-traits-row:nth-child(1):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(2),
 .sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):focus-within,
 .sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):hover,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):has(input:not(:placeholder-shown)) {
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
@@ -279,7 +294,7 @@ Author: Don Davis, aka omonubi
 .sheet-bio-traits-row:nth-child(2):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(3),
 .sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):focus-within,
 .sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):hover,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):has(input:not(:placeholder-shown)) {
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
@@ -287,8 +302,24 @@ Author: Don Davis, aka omonubi
 .sheet-bio-traits-row:nth-child(3):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(4),
 .sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):focus-within,
 .sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):hover,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):has(input:not(:placeholder-shown)) {
+.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):has(input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
+}
+
+.sheet-bio-traits-rows .sheet-trait-stunned-flag {
+	display: none;
+}
+
+.sheet-bio-traits-rows .sheet-trait-defeated-flag {
+	display: none;
+}
+
+.sheet-bio-traits-rows .sheet-field-trait:has(.sheet-trait-stunned-flag:checked) input[name^="attr_character_trait_"] {
+	color: var(--lcars-gold);
+}
+
+.sheet-bio-traits-rows .sheet-field-trait:has(.sheet-trait-defeated-flag:checked) input[name^="attr_character_trait_"] {
+	color: #ff3333;
 }
 
 /* ============================================================
@@ -478,11 +509,28 @@ Author: Don Davis, aka omonubi
 /* Stat number inputs */
 .sheet-attr-row input[type="number"],
 .sheet-dept-row input[type="number"] {
-	width: 46px;
+	width: 60px;
+	flex: 0 0 60px;
 	text-align: center;
 	font-size: 16px;
 	font-weight: 700;
 	padding: 2px 4px;
+}
+
+.sheet-dept-row input[type="number"] {
+	border-bottom-color: var(--lcars-blue);
+}
+
+.sheet-dept-row input[type="number"]:focus {
+	border-bottom-color: var(--lcars-blue);
+}
+
+.sheet-dept-row input[name="attr_reputation"] {
+	border-bottom-color: var(--lcars-orange);
+}
+
+.sheet-dept-row input[name="attr_reputation"]:focus {
+	border-bottom-color: var(--lcars-orange);
 }
 
 /* Subtle readonly cue for fixed stat cells (e.g., Reputation rows). */
@@ -492,6 +540,10 @@ Author: Don Davis, aka omonubi
 	color: #d7dde2;
 	border-bottom-color: #4f6572;
 	cursor: default;
+}
+
+.sheet-dept-row input[type="number"][readonly] {
+	border-bottom-color: var(--lcars-blue);
 }
 
 .sheet-attr-row:has(input[type="number"][readonly]),
@@ -604,6 +656,10 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar .sheet-task-shutdown-flag {
+	display: none;
+}
+
+.sheet-roll-bar .sheet-task-reroll-flag {
 	display: none;
 }
 
@@ -806,6 +862,31 @@ Author: Don Davis, aka omonubi
 	text-align: center;
 }
 
+/* Task Check underlines: default pink, with field-specific LCARS accents. */
+.sheet-roll-bar input,
+.sheet-roll-bar select {
+	border-bottom-color: var(--lcars-pink);
+}
+
+.sheet-roll-bar input[name="attr_task_attribute"] {
+	border-bottom-color: var(--lcars-orange);
+}
+
+.sheet-roll-bar input[name="attr_task_department"] {
+	border-bottom-color: var(--lcars-blue);
+}
+
+.sheet-roll-bar input[name="attr_task_focus_label"] {
+	border-bottom-color: var(--lcars-purple);
+}
+
+.sheet-roll-bar input[name="attr_target_number"],
+.sheet-roll-bar input[name="attr_difficulty"],
+.sheet-roll-bar input[name="attr_c_range"],
+.sheet-roll-bar input[name="attr_dice_count"] {
+	border-bottom-color: var(--lcars-pink);
+}
+
 /* Editable control fields (Difficulty, Dice) */
 .sheet-roll-bar .sheet-field input[type="number"]:not([readonly]) {
 	text-align: center;
@@ -815,7 +896,7 @@ Author: Don Davis, aka omonubi
 /* Roll button — right-rounded LCARS lozenge */
 .sheet-roll-bar button[type="roll"],
 .sheet-roll-bar button[type="action"] {
-	background-color: var(--lcars-orange);
+	background-color: var(--lcars-pink);
 	color: var(--lcars-on-color);
 	display: inline-flex;
 	align-items: center;
@@ -834,28 +915,56 @@ Author: Don Davis, aka omonubi
 	margin-left: 6px;
 }
 
+.sheet-roll-bar button.sheet-reroll-task-btn {
+	background-color: var(--lcars-orange);
+}
+
+.sheet-roll-bar button.sheet-reroll-task-btn:hover {
+	background-color: #ffb255;
+}
+
+.sheet-roll-bar .sheet-task-reroll-flag:not(:checked) ~ .sheet-roll-task-btn {
+	display: inline-flex;
+}
+
+.sheet-roll-bar .sheet-task-reroll-flag:not(:checked) ~ .sheet-reroll-task-btn {
+	display: none;
+}
+
+.sheet-roll-bar .sheet-task-reroll-flag:checked ~ .sheet-roll-task-btn {
+	display: none;
+}
+
+.sheet-roll-bar .sheet-task-reroll-flag:checked ~ .sheet-reroll-task-btn {
+	display: inline-flex;
+}
+
 .sheet-roll-bar button[type="roll"]:hover,
 .sheet-roll-bar button[type="action"]:hover {
-	background-color: var(--lcars-tan);
+	background-color: #ff85b0;
+}
+
+.sheet-roll-bar button[type="action"].sheet-reroll-task-btn:hover {
+	background-color: #ffb255;
 }
 
 /* Disable Roll Task when task Attribute/Department is 0 or Shut Down is active */
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"],
-.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"],
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button.sheet-roll-task-btn,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"],
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"] {
-	background-color: #7a5a3d;
-	color: #24170c;
+	background-color: #8b4c63;
+	color: #2c141d;
 	cursor: not-allowed;
 	opacity: 0.6;
 	pointer-events: none;
 }
 
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="roll"]:hover,
-.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button[type="action"]:hover,
+.sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button.sheet-roll-task-btn:hover,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"]:hover,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"]:hover {
-	background-color: #7a5a3d;
+	background-color: #8b4c63;
 }
 
 /* ============================================================
@@ -2217,7 +2326,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-rolltemplate-task .sheet-lcars-result-subtitle {
 	font-size: 11px;
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.28em;
 	color: #000000;
@@ -2342,6 +2451,11 @@ Author: Don Davis, aka omonubi
 	background-color: #3a0000;
 	color: #ff8a8a;
 	border-color: #ff4d4d;
+}
+
+.sheet-rolltemplate-task .sheet-die-rerolled-wrap .sheet-die {
+	border-color: #ffcc33;
+	box-shadow: 0 0 0 1px rgba(255, 204, 51, 0.45);
 }
 
 .sheet-rolltemplate-task .sheet-die-value-critical {
