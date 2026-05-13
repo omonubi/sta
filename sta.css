@@ -250,6 +250,11 @@ Author: Don Davis, aka omonubi
 	min-width: 112px;
 }
 
+/* Starship bio field widths */
+.sheet-field-registry        { flex: 1.2; }
+.sheet-field-date-entering-service { flex: 0.7; }
+.sheet-field-age             { flex: 0 0 52px; }
+
 .sheet-field input[type="text"],
 .sheet-field input[type="number"] {
 	width: 100%;
