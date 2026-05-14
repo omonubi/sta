@@ -1057,7 +1057,7 @@ Author: Don Davis, aka omonubi
 				<label style="align-self: center; white-space: nowrap;">Scale</label>
 				<input type="number" name="attr_starship_scale" min="1" max="8" value="1" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Resistance</label>
-				<input type="number" name="attr_starship_resistance" readonly style="width: 52px; text-align: center;" />
+				<input type="number" name="attr_starship_resistance" min="0" max="12" style="width: 52px; text-align: center;" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Crew Support</label>
 				<input type="number" name="attr_starship_crew_support" min="1" max="8" style="width: 52px; text-align: center;" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Small Craft Readiness</label>
@@ -1109,9 +1109,22 @@ Author: Don Davis, aka omonubi
 			</div>
 		</div>
 
+		<!-- Weapons -->
+		<div class="sheet-section sheet-weapons">
+			<div class="sheet-section-header">Weapons</div>
+			<div class="sheet-weapons-shell">
+				<div class="sheet-weapons-row">
+					<input type="text" name="attr_starship_weapon_1" placeholder=" " />
+					<input type="text" name="attr_starship_weapon_2" placeholder=" " />
+					<input type="text" name="attr_starship_weapon_3" placeholder=" " />
+					<input type="text" name="attr_starship_weapon_4" placeholder=" " />
+				</div>
+			</div>
+		</div>
+
 		<!-- Traits -->
 		<div class="sheet-section sheet-traits">
-			<div class="sheet-section-header">Talents</div>
+			<div class="sheet-section-header">Talents &amp; Special Rules</div>
 			<div class="sheet-traits-shell">
 			<div class="sheet-traits-rows">
 				<div class="sheet-traits-row">
@@ -1727,6 +1740,14 @@ function clampStarshipScale(value) {
 		return 1;
 	}
 	return Math.max(1, Math.min(parsed, 8));
+}
+
+function clampStarshipResistance(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 12));
 }
 
 function clampStarshipMaxShields(value) {
@@ -2607,6 +2628,20 @@ on('change:starship_max_shields', function(eventInfo) {
 	setAttrs({ starship_max_shields: clamped }, { silent: true }, function() {
 		syncStarshipShieldTrack();
 	});
+});
+
+on('change:starship_resistance', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var parsed = parseInt(eventInfo.newValue, 10);
+	var clamped = clampStarshipResistance(eventInfo.newValue);
+	if (!isNaN(parsed) && parsed === clamped) {
+		return;
+	}
+
+	setAttrs({ starship_resistance: clamped }, { silent: true });
 });
 
 on('change:starship_crew_support', function(eventInfo) {

@@ -481,6 +481,7 @@ Author: Don Davis, aka omonubi
 .sheet-focuses-shell,
 .sheet-values-shell,
 .sheet-equipment-shell,
+.sheet-weapons-shell,
 .sheet-extended-tasks-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
@@ -494,6 +495,7 @@ Author: Don Davis, aka omonubi
 .sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
 .sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
 .sheet-equipment-shell        { border-left: 4px solid var(--lcars-purple); }
+.sheet-weapons-shell          { border-left: 4px solid var(--lcars-purple); }
 .sheet-extended-tasks-shell   { border-left: 4px solid var(--lcars-gold);   }
 
 /* Stat grid */
@@ -1338,6 +1340,27 @@ Author: Don Davis, aka omonubi
    TRAITS SECTION
    ============================================================ */
 .sheet-traits .sheet-section-header { background-color: var(--lcars-tan); }
+
+.sheet-weapons .sheet-section-header { background-color: var(--lcars-purple); }
+
+.sheet-weapons {
+	margin: 0 8px 16px;
+}
+
+.sheet-weapons-shell {
+	padding: 8px 8px 12px;
+}
+
+.sheet-weapons-row {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+}
+
+.sheet-weapons-row input[type="text"] {
+	flex: 1;
+	border-bottom-color: var(--lcars-purple);
+}
 
 .sheet-traits {
 	margin: 0 8px 16px;
