@@ -1062,6 +1062,8 @@ Author: Don Davis, aka omonubi
 				<input type="number" name="attr_starship_crew_support" min="1" max="8" style="width: 52px; text-align: center;" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Small Craft Readiness</label>
 				<input type="number" name="attr_starship_small_craft_readiness" min="0" max="9" style="width: 52px; text-align: center;" />
+				<input type="checkbox" name="attr_starship_reroute_reserve_power" class="sheet-starship-power-toggle" id="starship_reroute_reserve_power" value="1" checked="checked" />
+				<label class="sheet-starship-power-toggle-button" for="starship_reroute_reserve_power">Use Reserve Power</label>
 			</div>
 		</div>
 		<div class="sheet-bio-fields sheet-bio-fields-max-shields">
@@ -1686,6 +1688,7 @@ function sendTemplateNotice(title, subtitle, result, options) {
 		+ ' {{title=' + escapeTemplateValue(title) + '}}'
 		+ ' {{subtitle=' + escapeTemplateValue(subtitle) + '}}'
 		+ ' {{result=' + escapeTemplateValue(result) + '}}'
+		+ ((options && options.isPass) ? ' {{is_pass=1}}' : '')
 		+ ((options && options.headerGray) ? ' {{header_gray=1}}' : '')
 		+ ' {{_r=[[0]]}}';
 
@@ -2670,6 +2673,19 @@ on('change:starship_small_craft_readiness', function(eventInfo) {
 	}
 
 	setAttrs({ starship_small_craft_readiness: clamped }, { silent: true });
+});
+
+on('change:starship_reroute_reserve_power', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var isOn = isCheckedValue(eventInfo.newValue);
+	var message = isOn ? 'Power Restored' : 'Power Re-Routed';
+
+	getAttrs(['character_name'], function(v) {
+		sendTemplateNotice(v.character_name || 'Character', 'Reserve Power', message, { isPass: isOn });
+	});
 });
 
 // Enforce reputation bounds even if user types values outside min/max.
