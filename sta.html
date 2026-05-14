@@ -1066,10 +1066,47 @@ Author: Don Davis, aka omonubi
 		</div>
 		<div class="sheet-bio-fields sheet-bio-fields-max-shields">
 			<div class="sheet-field sheet-field-max-shields" style="flex-direction: row; align-items: center; gap: 8px;">
-				<label style="align-self: center; white-space: nowrap;">Max Shields</label>
-				<input type="number" name="attr_starship_max_shields" min="0" max="30" style="width: 64px; text-align: center;" />
+				<div class="sheet-field-max-shields-value">
+					<label style="align-self: center; white-space: nowrap;">Max Shields</label>
+					<input type="number" name="attr_starship_max_shields" min="0" max="30" style="width: 64px; text-align: center;" />
+				</div>
+				<div class="sheet-field-max-shields-current">
+					<span class="sheet-stress-current-label">Current</span>
+					<div class="sheet-stress-boxes">
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_7" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_7" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_8" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_8" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_9" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_9" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_10" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_10" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_11" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_11" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_12" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_12" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_13" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_13" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_14" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_14" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_15" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_15" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_16" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_16" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_17" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_17" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_18" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_18" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_19" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_19" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_20" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_20" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_21" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_21" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_22" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_22" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_23" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_23" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_24" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_24" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_25" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_25" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_26" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_26" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_27" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_27" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_28" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_28" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_29" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_29" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_30" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_30" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					</div>
+				</div>
+				</div>
 			</div>
-		</div>
 		</div>
 
 		<!-- Traits -->
@@ -1856,6 +1893,74 @@ function syncStressTrack(options, callback) {
 	});
 }
 
+function syncStarshipShieldTrack(options, callback) {
+	if (typeof options === 'function') {
+		callback = options;
+		options = null;
+	}
+
+	var keys = ['starship_max_shields'];
+	for (var i = 1; i <= 30; i += 1) {
+		keys.push('starship_shields_' + i);
+		keys.push('starship_shields_show_' + i);
+	}
+
+	getAttrs(keys, function(v) {
+		var attrsToSet = {};
+		var maxShields = clampStarshipMaxShields(v.starship_max_shields);
+		var progress = 0;
+
+		if (parseInt(v.starship_max_shields, 10) !== maxShields) {
+			attrsToSet.starship_max_shields = maxShields;
+		}
+
+		for (var scan = 1; scan <= maxShields; scan += 1) {
+			if (isCheckedValue(v['starship_shields_' + scan])) {
+				progress = scan;
+			}
+		}
+
+		if (options && typeof options.changedIndex === 'number') {
+			if (options.changedChecked) {
+				progress = Math.max(progress, options.changedIndex);
+			} else if (options.changedIndex <= progress) {
+				progress = options.changedIndex - 1;
+			}
+		}
+
+		if (progress < 0) {
+			progress = 0;
+		}
+		if (progress > maxShields) {
+			progress = maxShields;
+		}
+
+		for (var idx = 1; idx <= 30; idx += 1) {
+			var shieldKey = 'starship_shields_' + idx;
+			var showKey = 'starship_shields_show_' + idx;
+			var shouldShow = idx <= maxShields;
+			var shouldCheck = shouldShow && idx <= progress;
+
+			if (isCheckedValue(v[showKey]) !== shouldShow) {
+				attrsToSet[showKey] = shouldShow ? '1' : '0';
+			}
+
+			if (isCheckedValue(v[shieldKey]) !== shouldCheck) {
+				attrsToSet[shieldKey] = shouldCheck ? '1' : '0';
+			}
+		}
+
+		if (Object.keys(attrsToSet).length > 0) {
+			setAttrs(attrsToSet, { silent: true }, callback);
+			return;
+		}
+
+		if (callback) {
+			callback();
+		}
+	});
+}
+
 function syncTaskShutdownWarning(callback) {
 	getAttrs(['selected_attribute', 'stress_fatigued', 'stress_attribute', 'task_shutdown'], function(v) {
 		var selectedAttribute = v.selected_attribute || '';
@@ -2196,6 +2301,7 @@ on('sheet:opened', function() {
 	initializeStarshipCrewSupportDefault();
 	initializeStarshipSmallCraftReadinessDefault();
 	initializeStarshipMaxShieldsDefault();
+	syncStarshipShieldTrack();
 });
 
 on('change:repeating_extendedtasks change:repeating_characterextendedtasks', function() {
@@ -2368,20 +2474,25 @@ function updateStarshipMaxShields(scaleOverride, structureOverride, securityOver
 		var structure = (structureOverride !== undefined) ? structureOverride : (parseInt(v.starship_structure, 10) || 1);
 		var security = (securityOverride !== undefined) ? securityOverride : (parseInt(v.security, 10) || 0);
 		var maxShields = clampStarshipMaxShields(calculateStarshipMaxShields(scale, structure, security));
-		setAttrs({ starship_max_shields: maxShields }, { silent: true });
+		setAttrs({ starship_max_shields: maxShields }, { silent: true }, function() {
+			syncStarshipShieldTrack();
+		});
 	});
 }
 
 function initializeStarshipMaxShieldsDefault() {
 	getAttrs(['starship_max_shields', 'starship_scale', 'starship_structure', 'security'], function(v) {
 		if (String(v.starship_max_shields || '').trim() !== '') {
+			syncStarshipShieldTrack();
 			return;
 		}
 		var scale = parseInt(v.starship_scale, 10) || 1;
 		var structure = parseInt(v.starship_structure, 10) || 1;
 		var security = parseInt(v.security, 10) || 0;
 		var maxShields = clampStarshipMaxShields(calculateStarshipMaxShields(scale, structure, security));
-		setAttrs({ starship_max_shields: maxShields }, { silent: true });
+		setAttrs({ starship_max_shields: maxShields }, { silent: true }, function() {
+			syncStarshipShieldTrack();
+		});
 	});
 }
 
@@ -2489,10 +2600,13 @@ on('change:starship_max_shields', function(eventInfo) {
 	var parsed = parseInt(eventInfo.newValue, 10);
 	var clamped = clampStarshipMaxShields(eventInfo.newValue);
 	if (!isNaN(parsed) && parsed === clamped) {
+		syncStarshipShieldTrack();
 		return;
 	}
 
-	setAttrs({ starship_max_shields: clamped }, { silent: true });
+	setAttrs({ starship_max_shields: clamped }, { silent: true }, function() {
+		syncStarshipShieldTrack();
+	});
 });
 
 on('change:starship_crew_support', function(eventInfo) {
@@ -2661,11 +2775,47 @@ on(stressBoxEvents.join(' '), function(eventInfo) {
 		return;
 	}
 
-	syncStressTrack({
-		changedIndex: changedIndex,
-		changedChecked: isCheckedValue(eventInfo.newValue)
-	}, function() {
-		syncTaskShutdownWarning();
+	var stressKeys = ['character_name'];
+	for (var idx = 1; idx <= 24; idx += 1) {
+		stressKeys.push('stress_' + idx);
+	}
+
+	getAttrs(stressKeys, function(v) {
+		var rawCount = 0;
+		for (var i = 1; i <= 24; i += 1) {
+			if (isCheckedValue(v['stress_' + i])) {
+				rawCount += 1;
+			}
+		}
+
+		var wasChecked = isCheckedValue(eventInfo.previousValue);
+		var isNowChecked = isCheckedValue(eventInfo.newValue);
+		var oldCount = rawCount + (wasChecked ? 1 : 0) - (isNowChecked ? 1 : 0);
+		if (oldCount < 0) {
+			oldCount = 0;
+		}
+
+		syncStressTrack({
+			changedIndex: changedIndex,
+			changedChecked: isNowChecked
+		}, function() {
+			syncTaskShutdownWarning(function() {
+				getAttrs(stressKeys, function(after) {
+					var newCount = 0;
+					for (var scan = 1; scan <= 24; scan += 1) {
+						if (isCheckedValue(after['stress_' + scan])) {
+							newCount += 1;
+						}
+					}
+
+					if (newCount === oldCount) {
+						return;
+					}
+
+					sendPartyCounterUpdate(after.character_name || 'Character', 'Stress Value Changed', oldCount, newCount, false);
+				});
+			});
+		});
 	});
 });
 
@@ -2683,6 +2833,69 @@ on('change:stress_attribute', function(eventInfo) {
 		}
 
 		syncTaskShutdownWarning();
+	});
+});
+
+var shieldBoxEvents = [];
+for (var shieldIndex = 1; shieldIndex <= 30; shieldIndex += 1) {
+	shieldBoxEvents.push('change:starship_shields_' + shieldIndex);
+}
+
+on(shieldBoxEvents.join(' '), function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var source = eventInfo.sourceAttribute || '';
+	var match = source.match(/^starship_shields_(\d+)$/);
+	if (!match) {
+		return;
+	}
+
+	var changedIndex = parseInt(match[1], 10);
+	if (isNaN(changedIndex) || changedIndex < 1 || changedIndex > 30) {
+		return;
+	}
+
+	var shieldKeys = ['character_name'];
+	for (var idx = 1; idx <= 30; idx += 1) {
+		shieldKeys.push('starship_shields_' + idx);
+	}
+
+	getAttrs(shieldKeys, function(v) {
+		var rawCount = 0;
+		for (var i = 1; i <= 30; i += 1) {
+			if (isCheckedValue(v['starship_shields_' + i])) {
+				rawCount += 1;
+			}
+		}
+
+		var wasChecked = isCheckedValue(eventInfo.previousValue);
+		var isNowChecked = isCheckedValue(eventInfo.newValue);
+		var oldCount = rawCount + (wasChecked ? 1 : 0) - (isNowChecked ? 1 : 0);
+		if (oldCount < 0) {
+			oldCount = 0;
+		}
+
+		syncStarshipShieldTrack({
+			changedIndex: changedIndex,
+			changedChecked: isNowChecked
+		}, function() {
+			getAttrs(shieldKeys, function(after) {
+				var newCount = 0;
+				for (var scan = 1; scan <= 30; scan += 1) {
+					if (isCheckedValue(after['starship_shields_' + scan])) {
+						newCount += 1;
+					}
+				}
+
+				if (newCount === oldCount) {
+					return;
+				}
+
+				sendPartyCounterUpdate(after.character_name || 'Character', 'Shield Value Changed', oldCount, newCount, false);
+			});
+		});
 	});
 });
 

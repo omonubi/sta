@@ -280,8 +280,9 @@ Author: Don Davis, aka omonubi
 .sheet-tab-page-starship .sheet-field-max-shields {
 	flex-direction: row;
 	align-items: center;
-	gap: 8px;
-	flex: 0 0 auto;
+	gap: 18px;
+	flex: 1 1 auto;
+	width: 100%;
 }
 
 .sheet-tab-page-starship .sheet-field-max-shields label {
@@ -290,6 +291,28 @@ Author: Don Davis, aka omonubi
 	margin-bottom: 0 !important;
 	display: flex;
 	align-items: center;
+}
+
+.sheet-tab-page-starship .sheet-field-max-shields-value {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	gap: 8px;
+}
+
+.sheet-tab-page-starship .sheet-field-max-shields-current {
+	display: flex;
+	flex: 1 1 auto;
+	min-width: 0;
+	align-items: center;
+	margin-left: 18px;
+	gap: 8px;
+}
+
+.sheet-tab-page-starship .sheet-field-max-shields-current .sheet-stress-boxes {
+	flex: 1 1 auto;
+	max-width: none;
+	width: auto;
 }
 
 .sheet-field input[type="text"],
