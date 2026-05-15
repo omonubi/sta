@@ -7,7 +7,7 @@ Author: Don Davis, aka omonubi
 <rolltemplate class="sheet-rolltemplate-task">
 	<div class="sheet-lcars-result">
 
-		<div class="sheet-lcars-result-header{{#header_pink}} sheet-header-pink{{/header_pink}}{{#header_tan}} sheet-header-tan{{/header_tan}}{{#header_gray}} sheet-header-gray{{/header_gray}}">
+		<div class="sheet-lcars-result-header{{#header_pink}} sheet-header-pink{{/header_pink}}{{#header_tan}} sheet-header-tan{{/header_tan}}{{#header_gray}} sheet-header-gray{{/header_gray}}{{#header_purple}} sheet-header-purple{{/header_purple}}">
 			<div class="sheet-lcars-result-title">{{title}}</div>
 			<div class="sheet-lcars-result-subtitle">{{subtitle}}</div>
 		</div>
@@ -119,6 +119,24 @@ Author: Don Davis, aka omonubi
 			</div>
 			{{/is_pass}}
 			{{/result}}
+			{{#row1_label}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">{{row1_label}}</span>
+				<span class="sheet-lcars-row-value">{{row1_value}}</span>
+			</div>
+			{{/row1_label}}
+			{{#row2_label}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">{{row2_label}}</span>
+				<span class="sheet-lcars-row-value">{{row2_value}}</span>
+			</div>
+			{{/row2_label}}
+			{{#row3_label}}
+			<div class="sheet-lcars-row">
+				<span class="sheet-lcars-row-label">{{row3_label}}</span>
+				<span class="sheet-lcars-row-value">{{row3_value}}</span>
+			</div>
+			{{/row3_label}}
 		</div>
 
 	</div>
@@ -1338,6 +1356,40 @@ Author: Don Davis, aka omonubi
 				<button type="action" name="act_reroll_task" class="sheet-reroll-task-btn">Re-roll</button>
 			</div>
 			</div><!-- /.sheet-roll-panel-shell -->
+		</div>
+
+		<!-- Shuttlebay -->
+		<div class="sheet-section sheet-shuttlebay">
+			<div class="sheet-section-header">Shuttlebay</div>
+			<div class="sheet-shuttlebay-shell">
+				<fieldset class="repeating_shuttlebay">
+					<div class="sheet-shuttlebay-row">
+						<div class="sheet-field sheet-field-shuttlebay-name">
+							<label>Small Craft Name</label>
+							<input type="text" name="attr_shuttlebay_name" placeholder=" " />
+						</div>
+						<div class="sheet-field sheet-field-shuttlebay-type">
+							<label>Type</label>
+							<input type="text" name="attr_shuttlebay_type" placeholder=" " />
+						</div>
+						<div class="sheet-field sheet-field-shuttlebay-scale">
+							<label>Scale</label>
+							<input type="number" name="attr_shuttlebay_scale" min="1" max="2" value="1" />
+						</div>
+						<div class="sheet-field sheet-field-shuttlebay-operation">
+							<label>In Operation</label>
+							<div class="sheet-shuttlebay-operation-box">
+								<div class="sheet-stress-box-wrap">
+									<label class="sheet-stress-box-hit">
+										<input type="checkbox" name="attr_shuttlebay_in_operation" class="sheet-stress-box-input" value="1" />
+										<span class="sheet-stress-box"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
 		</div>
 
 	</div>
@@ -2688,6 +2740,38 @@ on('change:starship_reroute_reserve_power', function(eventInfo) {
 	});
 });
 
+on('change:repeating_shuttlebay:shuttlebay_in_operation', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	var rowId = eventInfo.sourceAttribute.match(/repeating_shuttlebay_([^_]+)_/)[1];
+	var isChecked = isCheckedValue(eventInfo.newValue);
+	var action = isChecked ? 'Launched' : 'Retrieved';
+
+	getAttrs(['character_name', 'repeating_shuttlebay_' + rowId + '_shuttlebay_name', 'repeating_shuttlebay_' + rowId + '_shuttlebay_type'], function(v) {
+		var characterName = v.character_name || 'Character';
+		var craftName = v['repeating_shuttlebay_' + rowId + '_shuttlebay_name'] || 'Unknown';
+		var craftType = v['repeating_shuttlebay_' + rowId + '_shuttlebay_type'] || 'Unknown';
+
+		var tpl = '&{template:task}'
+			+ ' {{title=' + escapeTemplateValue(characterName) + '}}'
+			+ ' {{subtitle=' + escapeTemplateValue('Small Craft Operations') + '}}'
+			+ ' {{header_purple=1}}'
+			+ ' {{row1_label=Name}}'
+			+ ' {{row1_value=' + escapeTemplateValue(craftName) + '}}'
+			+ ' {{row2_label=Type}}'
+			+ ' {{row2_value=' + escapeTemplateValue(craftType) + '}}'
+			+ ' {{row3_label=Action}}'
+			+ ' {{row3_value=' + escapeTemplateValue(action) + '}}'
+			+ ' {{_r=[[0]]}}';
+
+		startRoll(tpl, function(results) {
+			finishRoll(results.rollId, {});
+		});
+	});
+});
+
 // Enforce reputation bounds even if user types values outside min/max.
 on('change:reputation', function(eventInfo) {
 	if (!eventInfo || eventInfo.sourceType !== 'player') {
@@ -3341,7 +3425,6 @@ on('clicked:reroll_task', function() {
 				rerollCount = parseInt(queryResults.results.count.result, 10) || 1;
 			}
 			rerollCount = Math.max(1, Math.min(rerollCount, diceCount));
-			finishRoll(queryResults.rollId, {});
 
 			var rerolled = previousRolls.slice(0, diceCount);
 			var rerolledFlags = [];

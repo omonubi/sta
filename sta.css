@@ -525,6 +525,7 @@ Author: Don Davis, aka omonubi
 .sheet-values-shell,
 .sheet-equipment-shell,
 .sheet-weapons-shell,
+.sheet-shuttlebay-shell,
 .sheet-extended-tasks-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
@@ -539,6 +540,7 @@ Author: Don Davis, aka omonubi
 .sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
 .sheet-equipment-shell        { border-left: 4px solid var(--lcars-purple); }
 .sheet-weapons-shell          { border-left: 4px solid var(--lcars-purple); }
+.sheet-shuttlebay-shell       { border-left: 4px solid var(--lcars-purple); }
 .sheet-extended-tasks-shell   { border-left: 4px solid var(--lcars-gold);   }
 
 /* Stat grid */
@@ -1403,6 +1405,139 @@ Author: Don Davis, aka omonubi
 .sheet-weapons-row input[type="text"] {
 	flex: 1;
 	border-bottom-color: var(--lcars-purple);
+}
+
+.sheet-shuttlebay .sheet-section-header { background-color: var(--lcars-purple); }
+
+.sheet-shuttlebay {
+	margin: 0 8px 16px;
+}
+
+.sheet-shuttlebay-shell {
+	padding: 8px 8px 12px;
+}
+
+.sheet-shuttlebay-row {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+
+.sheet-shuttlebay-row .sheet-field {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.sheet-shuttlebay-row .sheet-field label {
+	font-family: var(--lcars-font);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 11px;
+	font-weight: 700;
+	color: var(--lcars-purple);
+	margin: 0;
+}
+
+.sheet-shuttlebay-row .sheet-field-shuttlebay-name {
+	flex: 1.5;
+}
+
+.sheet-shuttlebay-row .sheet-field-shuttlebay-type {
+	flex: 1.2;
+}
+
+.sheet-shuttlebay-row .sheet-field-shuttlebay-scale {
+	flex: 0.6;
+}
+
+.sheet-shuttlebay-row .sheet-field-shuttlebay-operation {
+	flex: 0.8;
+}
+
+.sheet-shuttlebay-operation-box {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.sheet-field-shuttlebay-operation .sheet-stress-box {
+	border-color: var(--lcars-purple);
+}
+
+.sheet-field-shuttlebay-operation .sheet-stress-box-hit .sheet-stress-box-input:checked + .sheet-stress-box {
+	background-color: var(--lcars-purple);
+	border-color: var(--lcars-purple);
+	box-shadow: 0 0 4px rgba(153, 51, 204, 0.35);
+}
+
+.sheet-field-shuttlebay-operation .sheet-stress-box-hit .sheet-stress-box-input:hover + .sheet-stress-box {
+	border-color: var(--lcars-tan);
+}
+
+.sheet-shuttlebay-row input[type="text"] {
+	border-bottom-color: var(--lcars-purple);
+}
+
+.sheet-shuttlebay-row input[type="number"] {
+	border-bottom-color: var(--lcars-purple);
+}
+
+.sheet-shuttlebay .repcontrol {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 4px;
+}
+
+.sheet-shuttlebay .repcontrol_edit,
+.sheet-shuttlebay .repcontrol_add {
+	appearance: none;
+	-webkit-appearance: none;
+	background: #222 !important;
+	background-color: #222 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	font-family: var(--lcars-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border: none;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	cursor: pointer;
+	padding: 4px 14px;
+	transition: none;
+}
+
+.sheet-shuttlebay .repcontrol_edit {
+	border: 1px solid #666;
+	border-radius: 20px 4px 4px 20px;
+}
+
+.sheet-shuttlebay .repcontrol_add {
+	border: 1px solid #666;
+	border-radius: 4px 20px 20px 4px;
+}
+
+.sheet-shuttlebay .repcontrol_edit:hover,
+.sheet-shuttlebay .repcontrol_add:hover,
+.sheet-shuttlebay .repcontrol_edit:focus,
+.sheet-shuttlebay .repcontrol_add:focus,
+.sheet-shuttlebay .repcontrol_edit:active,
+.sheet-shuttlebay .repcontrol_add:active {
+	background: #444 !important;
+	background-color: #444 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	outline: none;
 }
 
 .sheet-traits {
@@ -2441,6 +2576,10 @@ Author: Don Davis, aka omonubi
 
 .sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-gray {
 	background-color: #8a8a8a;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-purple {
+	background-color: #9999CC;
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-title {
