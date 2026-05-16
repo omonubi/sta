@@ -142,6 +142,9 @@ Author: Don Davis, aka omonubi
 	</div>
 </rolltemplate>
 
+<!-- Internal helper template used for hidden sheet-worker queries. -->
+<rolltemplate class="sheet-rolltemplate-hidden"></rolltemplate>
+
 <div class="sheet-content">
 
 	<!-- Sheet masthead: always visible -->
@@ -1268,32 +1271,32 @@ Author: Don Davis, aka omonubi
 				<div class="sheet-departments-shell">
 				<div class="sheet-stat-grid">
 					<div class="sheet-dept-row">
-						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="command" /><span></span></label>
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="s_command" /><span></span></label>
 						<span class="sheet-stat-name">Command</span>
 						<input type="number" name="attr_command" min="0" max="5" value="1" />
 					</div>
 					<div class="sheet-dept-row">
-						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="conn" /><span></span></label>
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="s_conn" /><span></span></label>
 						<span class="sheet-stat-name">Conn</span>
 						<input type="number" name="attr_conn" min="0" max="5" value="1" />
 					</div>
 					<div class="sheet-dept-row">
-						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="engineering" /><span></span></label>
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="s_engineering" /><span></span></label>
 						<span class="sheet-stat-name">Engineering</span>
 						<input type="number" name="attr_engineering" min="0" max="5" value="1" />
 					</div>
 					<div class="sheet-dept-row">
-						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="security" /><span></span></label>
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="s_security" /><span></span></label>
 						<span class="sheet-stat-name">Security</span>
 						<input type="number" name="attr_security" min="0" max="5" value="1" />
 					</div>
 					<div class="sheet-dept-row">
-						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="medicine" /><span></span></label>
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="s_medicine" /><span></span></label>
 						<span class="sheet-stat-name">Medicine</span>
 						<input type="number" name="attr_medicine" min="0" max="5" value="1" />
 					</div>
 					<div class="sheet-dept-row">
-						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="science" /><span></span></label>
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="s_science" /><span></span></label>
 						<span class="sheet-stat-name">Science</span>
 						<input type="number" name="attr_science" min="0" max="5" value="1" />
 					</div>
@@ -2947,7 +2950,7 @@ on(stressBoxEvents.join(' '), function(eventInfo) {
 						return;
 					}
 
-					sendPartyCounterUpdate(after.character_name || 'Character', 'Stress Value Changed', oldCount, newCount, false);
+					sendPartyCounterUpdate(after.character_name || 'Character', 'Stress', oldCount, newCount, false);
 				});
 			});
 		});
@@ -3123,7 +3126,8 @@ on('change:selected_attribute change:selected_department change:control change:d
 		var selectedAttribute = v.selected_attribute || '';
 		var resolvedAttribute = starshipSystemAttributeMap[selectedAttribute] || selectedAttribute;
 		var attrVal = (selectedAttribute === 'attribute_reputation') ? 7 : (parseInt(v[resolvedAttribute]) || 0);
-		var deptVal = parseInt(v[v.selected_department]) || 0;
+		var deptKey = (v.selected_department || '').replace(/^s_/, '');
+		var deptVal = parseInt(v[deptKey]) || 0;
 		var attrsToSet = {
 			task_attribute: attrVal,
 			task_department: deptVal,
@@ -3222,7 +3226,7 @@ on('clicked:roll_task', function() {
 			selectedAttribute = selectedAttribute.slice('attribute_'.length);
 		}
 		var attr = cap(selectedAttribute);
-		var dept = cap(v.selected_department || '');
+		var dept = cap((v.selected_department || '').replace(/^s_/, ''));
 
 		// Roll each die individually using JavaScript.
 		var rolls = [];
@@ -3332,17 +3336,16 @@ on('clicked:roll_task', function() {
 					   difficulty: 1,
 					   c_range: 1,
 					   dice_count: 2,
+					   assists: 0,
 					   determination_spend: 'none',
 					   task_focus: '',
 					   task_focus_label: 'None',
 					   focus_open: '0',
 					   roll_task_disabled: 'on'
 				   };
-
 				   if (isStarshipSystemRoll) {
 					   resetAttrs.starship_determination_spend = 'assist';
 				   }
-
 				   setAttrs(resetAttrs, { silent: true }, function() {
 					   setAttrs({ task_reroll_ready: '1' }, { silent: true });
 				   });
@@ -3367,6 +3370,7 @@ on('clicked:roll_task', function() {
 });
 
 on('clicked:reroll_task', function() {
+	setAttrs({ task_reroll_ready: '' }, { silent: true });
 	getAttrs([
 		'task_last_title',
 		'task_last_subtitle',
@@ -3418,11 +3422,19 @@ on('clicked:reroll_task', function() {
 			previousRolls.push(Math.floor(Math.random() * 20) + 1);
 		}
 
-		var queryTpl = '&{template:default} {{name=Task Check Re-roll}} {{count=[[?{How many dice to re-roll?|' + diceCount + '}]]}}';
+		var queryTpl = '&{template:hidden} {{count=[[?{How many dice to re-roll?|' + diceCount + '}]]}}';
 		startRoll(queryTpl, function(queryResults) {
+			finishRoll(queryResults.rollId, {});
 			var rerollCount = 1;
-			if (queryResults && queryResults.results && queryResults.results.count) {
-				rerollCount = parseInt(queryResults.results.count.result, 10) || 1;
+			if (queryResults && queryResults.results) {
+				if (queryResults.results.count) {
+					rerollCount = parseInt(queryResults.results.count.result, 10) || 1;
+				} else {
+					var resultKeys = Object.keys(queryResults.results);
+					if (resultKeys.length > 0 && queryResults.results[resultKeys[0]]) {
+						rerollCount = parseInt(queryResults.results[resultKeys[0]].result, 10) || 1;
+					}
+				}
 			}
 			rerollCount = Math.max(1, Math.min(rerollCount, diceCount));
 
@@ -3506,7 +3518,7 @@ on('clicked:reroll_task', function() {
 				finishRoll(rerollResults.rollId, {});
 				setAttrs({
 					task_last_rolls: rerolled.join(','),
-					task_reroll_ready: '1'
+					task_reroll_ready: ''
 				}, { silent: true });
 			});
 		});
