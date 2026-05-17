@@ -10,7 +10,7 @@ Author: Don Davis, aka omonubi
    ============================================================ */
 .sheet-content {
 	--lcars-black:    #000000;
-	--lcars-orange:   #FF9966;
+	--lcars-orange:   #ff8800;
 	--lcars-tan:      #FFCC99;
 	--lcars-peach:    #FFCC99;
 	--lcars-pink:     #cc5599;
@@ -83,35 +83,74 @@ Author: Don Davis, aka omonubi
 
 /* Lozenge tab button */
 .sheet-tab-nav .sheet-tab-label {
+	--sheet-tab-bg: var(--lcars-purple);
+	--sheet-tab-cap-gap: 4px;
+	--sheet-tab-cap-width: 24px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--lcars-purple);
+	position: relative;
+	background-color: transparent;
 	color: var(--lcars-on-color);
 	font-size: 15px;
 	font-weight: 700;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	padding: 7px 20px 5px 16px;
-	border-radius: 20px 4px 4px 20px;
+	padding: 4px 36px 5px 14px;
+	border-radius: 0;
 	cursor: pointer;
 	user-select: none;
+	box-sizing: border-box;
+	overflow: visible;
+	z-index: 0;
+}
+
+.sheet-tab-nav .sheet-tab-label::before,
+.sheet-tab-nav .sheet-tab-label::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background-color: var(--sheet-tab-bg);
+	z-index: -1;
+}
+
+.sheet-tab-nav .sheet-tab-label::before {
+	left: 0;
+	right: calc(var(--sheet-tab-cap-width) + var(--sheet-tab-cap-gap));
+	border-radius: 0;
+}
+
+.sheet-tab-nav .sheet-tab-label::after {
+	right: 0;
+	width: var(--sheet-tab-cap-width);
+	border-radius: 0 20px 20px 0;
 }
 
 /* Content tabs grow equally; specificity (0,3,0) beats the base rule */
 .sheet-tab-nav .sheet-tab-label:not(.sheet-tab-label-settings) {
 	flex: 1;
+	padding-right: 14px;
+}
+
+/* No end-cap on content tabs — bar extends to full right edge */
+.sheet-tab-nav .sheet-tab-label:not(.sheet-tab-label-settings)::before {
+	right: 0;
+}
+
+.sheet-tab-nav .sheet-tab-label:not(.sheet-tab-label-settings)::after {
+	display: none;
 }
 
 /* Settings tab: fixed 100px, never grows or shrinks */
 .sheet-tab-nav .sheet-tab-label-settings {
-	flex: 0 0 100px;
-	width: 100px;
+	flex: 0 0 150px;
+	width: 150px;
 }
 
 /* Active tab: label whose child radio is checked */
 .sheet-tab-nav .sheet-tab-label:has(input:checked) {
-	background-color: var(--lcars-orange);
+	--sheet-tab-bg: var(--lcars-orange);
 }
 
 /* Settings tab is always visible; content tabs are gated by Sheet Type.
@@ -212,17 +251,48 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-section-header {
-	background-color: var(--lcars-peach);
+	--sheet-section-bg: var(--lcars-peach);
+	--sheet-section-cap-gap: 4px;
+	--sheet-section-cap-width: 22px;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
 	color: var(--lcars-on-color);
 	font-family: var(--lcars-font);
 	font-size: 13px;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.18em;
-	padding: 4px 14px;
-	border-radius: 0 20px 20px 0;
-	display: inline-block;
+	padding: 4px 37px 4px 17px;
+	border-radius: 0;
+	box-sizing: border-box;
+	overflow: visible;
+	z-index: 0;
 	margin-bottom: 10px;
+}
+
+.sheet-section-header::before,
+.sheet-section-header::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background-color: var(--sheet-section-bg);
+	z-index: -1;
+}
+
+.sheet-section-header::before {
+	left: 0;
+	right: calc(var(--sheet-section-cap-width) + var(--sheet-section-cap-gap));
+	border-radius: 0;
+}
+
+.sheet-section-header::after {
+	right: 0;
+	width: var(--sheet-section-cap-width);
+	border-radius: 0 20px 20px 0;
 }
 
 /* ============================================================
@@ -286,14 +356,15 @@ Author: Don Davis, aka omonubi
 	align-items: center;
 	justify-content: center;
 	font-family: var(--lcars-font);
-	font-size: 12px;
+	font-size: 3px;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 0.09em;
+	letter-spacing: 0.12em;
 	border: none;
-	border-radius: 20px;
-	padding: 0 11px 0 10px;
-	height: 22px;
+	border-radius: 0 12px 12px 0;
+	padding: 0 11px 0 8px;
+	height: 26px;
+	min-width: 100px;
 	line-height: 1;
 	margin-left: 10px;
 	cursor: pointer;
@@ -301,11 +372,10 @@ Author: Don Davis, aka omonubi
 	white-space: nowrap;
 }
 
-.sheet-tab-page-starship .sheet-starship-power-toggle:not(:checked) + .sheet-starship-power-toggle-button {
+.sheet-tab-page-starship .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button {
 	background-color: var(--lcars-orange);
 	color: #000000;
-	opacity: 0.62;
-	filter: saturate(0.65);
+	box-shadow: 0 0 0 1px rgba(255, 136, 0, 0.85) inset;
 }
 
 .sheet-tab-page-starship .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover {
@@ -313,7 +383,17 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-tab-page-starship .sheet-starship-power-toggle:not(:checked) + .sheet-starship-power-toggle-button:hover {
+	background-color: #ffb255;
+	opacity: 1;
+	filter: none;
+}
+
+.sheet-tab-page-starship .sheet-starship-power-toggle:not(:checked) + .sheet-starship-power-toggle {
 	background-color: var(--lcars-orange);
+	color: #000000;
+	opacity: 0.65;
+	filter: saturate(0.72);
+	box-shadow: none;
 }
 
 .sheet-tab-page-starship .sheet-bio-fields-max-shields {
@@ -512,9 +592,9 @@ Author: Don Davis, aka omonubi
 }
 
 /* Section header color overrides — each section gets its own LCARS accent */
-.sheet-attributes  .sheet-section-header { background-color: var(--lcars-orange); }
-.sheet-departments .sheet-section-header { background-color: var(--lcars-blue);   }
-.sheet-roll-panel  .sheet-section-header { background-color: var(--lcars-pink);   }
+.sheet-attributes  .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
+.sheet-departments .sheet-section-header { --sheet-section-bg: var(--lcars-blue);   }
+.sheet-roll-panel  .sheet-section-header { --sheet-section-bg: var(--lcars-pink);   }
 
 /* Character tab section shells */
 .sheet-attributes-shell,
@@ -697,7 +777,7 @@ Author: Don Davis, aka omonubi
 	grid-template-rows: auto auto;
 	column-gap: 6px;
 	row-gap: 18px;
-	padding: 4px 8px 8px;
+	padding: 4px 0px 8px;
 	align-items: end;
 }
 
@@ -1253,7 +1333,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    EQUIPMENT SECTION
    ============================================================ */
-.sheet-equipment .sheet-section-header { background-color: var(--lcars-purple); }
+.sheet-equipment .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
 .sheet-equipment {
 	margin: 0 8px 16px;
@@ -1321,14 +1401,14 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    FOCUSES SECTION
    ============================================================ */
-.sheet-focuses .sheet-section-header { background-color: var(--lcars-purple); }
+.sheet-focuses .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
 .sheet-focuses {
 	margin: 0 8px 16px;
 }
 
 .sheet-focuses-rows {
-	padding: 0 8px;
+	padding: 0px;
 }
 
 .sheet-focuses-row {
@@ -1368,7 +1448,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    BACKGROUND SECTION
    ============================================================ */
-.sheet-background .sheet-section-header { background-color: var(--lcars-blue); }
+.sheet-background .sheet-section-header { --sheet-section-bg: var(--lcars-blue); }
 
 .sheet-background {
 	margin: 0 8px 16px;
@@ -1416,9 +1496,9 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    TRAITS SECTION
    ============================================================ */
-.sheet-traits .sheet-section-header { background-color: var(--lcars-tan); }
+.sheet-traits .sheet-section-header { --sheet-section-bg: var(--lcars-tan); }
 
-.sheet-weapons .sheet-section-header { background-color: var(--lcars-purple); }
+.sheet-weapons .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
 .sheet-weapons {
 	margin: 0 8px 16px;
@@ -1450,7 +1530,7 @@ Author: Don Davis, aka omonubi
 	color: var(--lcars-purple);
 }
 
-.sheet-shuttlebay .sheet-section-header { background-color: var(--lcars-purple); }
+.sheet-shuttlebay .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
 .sheet-shuttlebay {
 	margin: 0 8px 16px;
@@ -1728,14 +1808,14 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    VALUES SECTION
    ============================================================ */
-.sheet-values .sheet-section-header { background-color: var(--lcars-peach); }
+.sheet-values .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
 
 .sheet-values {
 	margin: 0 8px 16px;
 }
 
 .sheet-values-rows {
-	padding: 0 8px;
+	padding: 0 0px;
 	counter-reset: sheet-value-row;
 }
 
@@ -1874,7 +1954,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    PERSONAL LOG SECTION
    ============================================================ */
-.sheet-personal-log .sheet-section-header { background-color: var(--lcars-orange); }
+.sheet-personal-log .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-personal-log {
 	margin: 0 8px 16px;
@@ -1995,7 +2075,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-settings .sheet-section-header {
-	background-color: var(--lcars-purple);
+	--sheet-section-bg: var(--lcars-purple);
 }
 
 .sheet-settings-shell {
@@ -2009,7 +2089,7 @@ Author: Don Davis, aka omonubi
 	display: flex;
 	align-items: center;
 	gap: 16px;
-	padding: 4px 8px;
+	padding: 4px 0px;
 	border-bottom: 1px solid #1a1a1a;
 }
 
@@ -2036,8 +2116,8 @@ Author: Don Davis, aka omonubi
 	gap: 6px;
 	background-color: #1e1e1e;
 	border: 1px solid #333333;
-	border-radius: 20px 4px 4px 20px;
-	padding: 5px 16px 4px 12px;
+	border-radius: 4px 20px 20px 4px;
+	padding: 5px 12px 4px 16px;
 	cursor: pointer;
 	user-select: none;
 	font-family: var(--lcars-font);
@@ -2082,7 +2162,7 @@ Author: Don Davis, aka omonubi
 	padding: 8px 12px;
 }
 
-.sheet-directives .sheet-section-header { background-color: var(--lcars-peach); }
+.sheet-directives .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
 
 .sheet-directives {
 	margin: 0 8px 16px;
@@ -2175,7 +2255,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    CHARACTERS SECTION
    ============================================================ */
-.sheet-mission-characters .sheet-section-header { background-color: var(--lcars-orange); }
+.sheet-mission-characters .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-mission-characters {
 	margin: 0 8px 16px;
@@ -2262,7 +2342,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    LOCATIONS SECTION
    ============================================================ */
-.sheet-locations .sheet-section-header { background-color: var(--lcars-blue); }
+.sheet-locations .sheet-section-header { --sheet-section-bg: var(--lcars-blue); }
 
 .sheet-locations {
 	margin: 0 8px 16px;
@@ -2399,7 +2479,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-extended-tasks .sheet-section-header {
-	background-color: var(--lcars-pink);
+	--sheet-section-bg: var(--lcars-pink);
 }
 
 .sheet-extended-tasks .repcontainer {
@@ -2547,6 +2627,14 @@ Author: Don Davis, aka omonubi
 	border-width: 3px;
 }
 
+.sheet-shield-milestone {
+	display: none;
+}
+
+.sheet-stress-box-wrap:has(.sheet-shield-milestone:checked) .sheet-stress-box {
+	border-width: 3px;
+}
+
 .sheet-extended-tasks .repcontrol {
 	display: flex;
 	justify-content: space-between;
@@ -2601,10 +2689,12 @@ Author: Don Davis, aka omonubi
 	outline: none;
 }
 
+/* ── Roll20 Template ─────────────────────────────────────────── */
+
 .sheet-rolltemplate-task {
 	font-family: 'Antonio', sans-serif;
 	background-color: #000000;
-	border: 2px solid #000000;
+	border: none;
 	border-radius: 4px;
 	overflow: hidden;
 	min-width: 220px;
@@ -2616,7 +2706,7 @@ Author: Don Davis, aka omonubi
 
 /* Header banner */
 .sheet-rolltemplate-task .sheet-lcars-result-header {
-	background-color: #FF9966;
+	background-color: var(--lcars-orange, #ff8800);
 	padding: 6px 12px 5px;
 }
 
@@ -2653,10 +2743,10 @@ Author: Don Davis, aka omonubi
 
 
 .sheet-rolltemplate-task .sheet-lcars-result-subtitle {
-	font-size: 11px;
+	font-size: 13px;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 0.28em;
+	letter-spacing: 0.12em;
 	color: #000000;
 	opacity: 0.75;
 }

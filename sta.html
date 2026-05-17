@@ -120,7 +120,7 @@ Author: Don Davis, aka omonubi
 			{{/is_pass}}
 			{{/result}}
 			{{#row1_label}}
-			<div class="sheet-lcars-row">
+			<div class="sheet-lcars-row{{#row1_result}} sheet-lcars-row-result{{/row1_result}}{{#row1_pass}} sheet-pass{{/row1_pass}}">
 				<span class="sheet-lcars-row-label">{{row1_label}}</span>
 				<span class="sheet-lcars-row-value">{{row1_value}}</span>
 			</div>
@@ -132,11 +132,23 @@ Author: Don Davis, aka omonubi
 			</div>
 			{{/row2_label}}
 			{{#row3_label}}
-			<div class="sheet-lcars-row">
+			<div class="sheet-lcars-row{{#row3_result}} sheet-lcars-row-result{{/row3_result}}{{#row3_pass}} sheet-pass{{/row3_pass}}">
 				<span class="sheet-lcars-row-label">{{row3_label}}</span>
 				<span class="sheet-lcars-row-value">{{row3_value}}</span>
 			</div>
 			{{/row3_label}}
+			{{#row4_label}}
+			<div class="sheet-lcars-row{{#row4_result}} sheet-lcars-row-result{{/row4_result}}{{#row4_pass}} sheet-pass{{/row4_pass}}">
+				<span class="sheet-lcars-row-label">{{row4_label}}</span>
+				<span class="sheet-lcars-row-value">{{row4_value}}</span>
+			</div>
+			{{/row4_label}}
+			{{#row5_label}}
+			<div class="sheet-lcars-row{{#row5_result}} sheet-lcars-row-result{{/row5_result}}{{#row5_pass}} sheet-pass{{/row5_pass}}">
+				<span class="sheet-lcars-row-label">{{row5_label}}</span>
+				<span class="sheet-lcars-row-value">{{row5_value}}</span>
+			</div>
+			{{/row5_label}}
 		</div>
 
 	</div>
@@ -1083,8 +1095,8 @@ Author: Don Davis, aka omonubi
 				<input type="number" name="attr_starship_crew_support" min="1" max="8" style="width: 52px; text-align: center;" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Small Craft Readiness</label>
 				<input type="number" name="attr_starship_small_craft_readiness" min="0" max="9" style="width: 52px; text-align: center;" />
-				<input type="checkbox" name="attr_starship_reroute_reserve_power" class="sheet-starship-power-toggle" id="starship_reroute_reserve_power" value="1" checked="checked" />
-				<label class="sheet-starship-power-toggle-button" for="starship_reroute_reserve_power">Use Reserve Power</label>
+				<input type="checkbox" name="attr_starship_reroute_reserve_power" class="sheet-starship-power-toggle" id="starship_reroute_reserve_power" value="1" />
+				<label class="sheet-starship-power-toggle-button" for="starship_reroute_reserve_power">Reserve Power</label>
 			</div>
 		</div>
 		<div class="sheet-bio-fields sheet-bio-fields-max-shields">
@@ -1096,36 +1108,36 @@ Author: Don Davis, aka omonubi
 				<div class="sheet-field-max-shields-current">
 					<span class="sheet-stress-current-label">Current</span>
 					<div class="sheet-stress-boxes">
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_7" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_7" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_8" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_8" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_9" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_9" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_10" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_10" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_11" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_11" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_12" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_12" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_13" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_13" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_14" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_14" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_15" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_15" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_16" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_16" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_17" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_17" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_18" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_18" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_19" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_19" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_20" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_20" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_21" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_21" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_22" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_22" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_23" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_23" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_24" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_24" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_25" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_25" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_26" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_26" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_27" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_27" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_28" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_28" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_29" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_29" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
-					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_show_30" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_30" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_1" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_1" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_2" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_2" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_3" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_3" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_4" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_4" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_5" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_5" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_6" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_6" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_7" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_7" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_7" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_7" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_8" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_8" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_8" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_8" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_9" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_9" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_9" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_9" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_10" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_10" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_10" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_10" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_11" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_11" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_11" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_11" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_12" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_12" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_12" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_12" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_13" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_13" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_13" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_13" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_14" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_14" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_14" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_14" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_15" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_15" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_15" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_15" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_16" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_16" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_16" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_16" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_17" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_17" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_17" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_17" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_18" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_18" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_18" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_18" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_19" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_19" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_19" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_19" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_20" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_20" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_20" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_20" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_21" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_21" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_21" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_21" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_22" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_22" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_22" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_22" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_23" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_23" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_23" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_23" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_24" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_24" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_24" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_24" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_25" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_25" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_25" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_25" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_26" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_26" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_26" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_26" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_27" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_27" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_27" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_27" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_28" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_28" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_28" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_28" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_29" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_29" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_29" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_29" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_30" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_30" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_30" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_30" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
 					</div>
 				</div>
 				</div>
@@ -1681,10 +1693,9 @@ Author: Don Davis, aka omonubi
 
 	<div class="sheet-tab-page sheet-tab-page-settings">
 		<div class="sheet-section sheet-settings">
-			<div class="sheet-section-header">Settings</div>
+			<div class="sheet-section-header">Sheet Type</div>
 			<div class="sheet-settings-shell">
 			<div class="sheet-settings-row">
-				<span class="sheet-settings-label">Sheet Type</span>
 				<div class="sheet-settings-options">
 					<label class="sheet-settings-option">
 						<input type="radio" name="attr_sheet_type" value="character" checked="checked" />
@@ -1723,16 +1734,33 @@ function escapeTemplateValue(value) {
 }
 
 function sendPartyCounterUpdate(title, subtitle, oldValue, newValue, headerTan) {
-	var tpl = '&{template:task}'
-		+ ' {{title=' + escapeTemplateValue(title) + '}}'
-		+ ' {{subtitle=' + escapeTemplateValue(subtitle) + '}}'
-		+ ' {{show_old_value=1}}'
-		+ ' {{old_value=' + oldValue + '}}'
-		+ ' {{show_new_value=1}}'
-		+ ' {{new_value=' + newValue + '}}'
-		+ (headerTan ? ' {{header_tan=1}}' : '')
-		+ ' {{_r=[[0]]}}';
-
+	// Special format for Momentum and Threat Pool
+	var isMomentum = (subtitle === 'Momentum');
+	var isThreat = (subtitle === 'Threat');
+	var tpl;
+	if (isMomentum || isThreat) {
+		var poolTitle = isMomentum ? 'Momentum Pool' : 'Threat Pool';
+		var sign = (newValue > oldValue) ? '+' : (newValue < oldValue) ? '-' : '';
+		var amount = Math.abs(newValue - oldValue);
+		tpl = '&{template:task}'
+			+ ' {{title=' + poolTitle + '}}'
+			+ ' {{header_orange=1}}'
+			+ ' {{row1_label=Change}}'
+			+ ' {{row1_value=' + (sign ? sign : '') + amount + '}}'
+			+ ' {{row2_label=New Total}}'
+			+ ' {{row2_value=' + newValue + '}}'
+			+ ' {{_r=[[0]]}}';
+	} else {
+		tpl = '&{template:task}'
+			+ ' {{title=' + escapeTemplateValue(title) + '}}'
+			+ ' {{subtitle=' + escapeTemplateValue(subtitle) + '}}'
+			+ ' {{show_old_value=1}}'
+			+ ' {{old_value=' + oldValue + '}}'
+			+ ' {{show_new_value=1}}'
+			+ ' {{new_value=' + newValue + '}}'
+			+ (headerTan ? ' {{header_tan=1}}' : '')
+			+ ' {{_r=[[0]]}}';
+	}
 	startRoll(tpl, function(results) {
 		finishRoll(results.rollId, {});
 	});
@@ -1982,6 +2010,8 @@ function syncStarshipShieldTrack(options, callback) {
 	for (var i = 1; i <= 30; i += 1) {
 		keys.push('starship_shields_' + i);
 		keys.push('starship_shields_show_' + i);
+		keys.push('starship_shields_m25_' + i);
+		keys.push('starship_shields_m50_' + i);
 	}
 
 	getAttrs(keys, function(v) {
@@ -2014,11 +2044,18 @@ function syncStarshipShieldTrack(options, callback) {
 			progress = maxShields;
 		}
 
+		var m25Index = Math.floor(maxShields * 0.25);
+		var m50Index = Math.floor(maxShields * 0.50);
+
 		for (var idx = 1; idx <= 30; idx += 1) {
 			var shieldKey = 'starship_shields_' + idx;
 			var showKey = 'starship_shields_show_' + idx;
+			var m25Key = 'starship_shields_m25_' + idx;
+			var m50Key = 'starship_shields_m50_' + idx;
 			var shouldShow = idx <= maxShields;
 			var shouldCheck = shouldShow && idx <= progress;
+			var shouldM25 = idx === m25Index;
+			var shouldM50 = idx === m50Index;
 
 			if (isCheckedValue(v[showKey]) !== shouldShow) {
 				attrsToSet[showKey] = shouldShow ? '1' : '0';
@@ -2026,6 +2063,14 @@ function syncStarshipShieldTrack(options, callback) {
 
 			if (isCheckedValue(v[shieldKey]) !== shouldCheck) {
 				attrsToSet[shieldKey] = shouldCheck ? '1' : '0';
+			}
+
+			if (isCheckedValue(v[m25Key]) !== shouldM25) {
+				attrsToSet[m25Key] = shouldM25 ? '1' : '0';
+			}
+
+			if (isCheckedValue(v[m50Key]) !== shouldM50) {
+				attrsToSet[m50Key] = shouldM50 ? '1' : '0';
 			}
 		}
 
@@ -2421,7 +2466,21 @@ on('change:determination_1 change:determination_2 change:determination_3', funct
 		syncDeterminationPips(total, function() {
 			if (total !== oldTotal) {
 				var charName = v.character_name || 'Character';
-				sendPartyCounterUpdate(charName, 'Determination', oldTotal, total);
+				// Determination roll-template: orange header, charName as title, subtitle 'Determination', rows for Change and New Total
+				var sign = (total > oldTotal) ? '+' : (total < oldTotal) ? '-' : '';
+				var amount = Math.abs(total - oldTotal);
+				var tpl = '&{template:task}'
+					+ ' {{title=' + escapeTemplateValue(charName) + '}}'
+					+ ' {{subtitle=Determination}}'
+					+ ' {{header_orange=1}}'
+					+ ' {{row1_label=Change}}'
+					+ ' {{row1_value=' + (sign ? sign : '') + amount + '}}'
+					+ ' {{row2_label=New Total}}'
+					+ ' {{row2_value=' + total + '}}'
+					+ ' {{_r=[[0]]}}';
+				startRoll(tpl, function(results) {
+					finishRoll(results.rollId, {});
+				});
 			}
 		});
 	});
@@ -2736,10 +2795,20 @@ on('change:starship_reroute_reserve_power', function(eventInfo) {
 	}
 
 	var isOn = isCheckedValue(eventInfo.newValue);
-	var message = isOn ? 'Power Restored' : 'Power Re-Routed';
+	var rowLabel = isOn ? 'Restored' : 'Re-routed';
 
 	getAttrs(['character_name'], function(v) {
-		sendTemplateNotice(v.character_name || 'Character', 'Reserve Power', message, { isPass: isOn });
+		var tpl = '&{template:task}'
+			+ ' {{title=' + escapeTemplateValue(v.character_name || 'Character') + '}}'
+			+ ' {{subtitle=Reserve Power}}'
+			+ ' {{row1_label=' + escapeTemplateValue(rowLabel) + '}}'
+			+ ' {{row1_value=}}'
+			+ ' {{row1_result=1}}'
+			+ (isOn ? ' {{row1_pass=1}}' : '')
+			+ ' {{_r=[[0]]}}';
+		startRoll(tpl, function(results) {
+			finishRoll(results.rollId, {});
+		});
 	});
 });
 
@@ -2913,7 +2982,7 @@ on(stressBoxEvents.join(' '), function(eventInfo) {
 		return;
 	}
 
-	var stressKeys = ['character_name'];
+	var stressKeys = ['character_name', 'stress_max'];
 	for (var idx = 1; idx <= 24; idx += 1) {
 		stressKeys.push('stress_' + idx);
 	}
@@ -2950,7 +3019,25 @@ on(stressBoxEvents.join(' '), function(eventInfo) {
 						return;
 					}
 
-					sendPartyCounterUpdate(after.character_name || 'Character', 'Stress', oldCount, newCount, false);
+					var charName = after.character_name || 'Character';
+					var maxStress = parseInt(after.stress_max, 10) || 7;
+					var sign = (newCount > oldCount) ? '+' : (newCount < oldCount) ? '-' : '';
+					var amount = Math.abs(newCount - oldCount);
+					var tpl = '&{template:task}'
+						+ ' {{title=' + escapeTemplateValue(charName) + '}}'
+						+ ' {{subtitle=Stress}}'
+						+ ' {{header_orange=1}}'
+						+ ' {{row1_label=Change}}'
+						+ ' {{row1_value=' + (sign ? sign : '') + amount + '}}'
+						+ ' {{row2_label=New Total}}'
+						+ ' {{row2_value=' + newCount + '}}';
+					if (newCount >= maxStress) {
+						tpl += ' {{row3_label=Fatigued}} {{row3_value=}} {{row3_result=1}}';
+					}
+					tpl += ' {{_r=[[0]]}}';
+					startRoll(tpl, function(results) {
+						finishRoll(results.rollId, {});
+					});
 				});
 			});
 		});
@@ -2995,7 +3082,7 @@ on(shieldBoxEvents.join(' '), function(eventInfo) {
 		return;
 	}
 
-	var shieldKeys = ['character_name'];
+	var shieldKeys = ['character_name', 'starship_max_shields'];
 	for (var idx = 1; idx <= 30; idx += 1) {
 		shieldKeys.push('starship_shields_' + idx);
 	}
@@ -3030,8 +3117,42 @@ on(shieldBoxEvents.join(' '), function(eventInfo) {
 				if (newCount === oldCount) {
 					return;
 				}
-
-				sendPartyCounterUpdate(after.character_name || 'Character', 'Shield Value Changed', oldCount, newCount, false);
+				var charName = after.character_name || 'Character';
+				var maxShields = parseInt(after.starship_max_shields, 10) || 30;
+				var sign = (newCount > oldCount) ? '+' : (newCount < oldCount) ? '-' : '';
+				var amount = Math.abs(newCount - oldCount);
+				var shakenThreshold50 = Math.ceil(maxShields * 0.5);
+				var shakenThreshold25 = Math.ceil(maxShields * 0.25);
+				var crossedToShaken50 = oldCount > shakenThreshold50 && newCount <= shakenThreshold50 && newCount > 0;
+				var crossedToShaken25 = oldCount > shakenThreshold25 && newCount <= shakenThreshold25 && newCount > 0;
+				var crossedToShaken = crossedToShaken50 || crossedToShaken25;
+				var isFullyCharged = newCount === maxShields;
+				var isShieldsDown = newCount === 0;
+				var tpl = '&{template:task}'
+					+ ' {{title=' + escapeTemplateValue(charName) + '}}'
+					+ ' {{subtitle=Shields}}'
+					+ ' {{header_orange=1}}'
+					+ ' {{row1_label=Change}}'
+					+ ' {{row1_value=' + (sign ? sign : '') + amount + '}}'
+					+ ' {{row2_label=New Total}}'
+					+ ' {{row2_value=' + newCount + '}}';
+				if (isFullyCharged) {
+					tpl += ' {{row3_result=1}}'
+						+ ' {{row3_pass=1}}'
+						+ ' {{row3_label=Fully Charged}}';
+				}
+				if (isShieldsDown) {
+					tpl += ' {{row4_result=1}}'
+						+ ' {{row4_label=Shields Down}}';
+				}
+				if (crossedToShaken) {
+					tpl += ' {{row5_result=1}}'
+						+ ' {{row5_label=Shaken}}';
+				}
+				tpl += ' {{_r=[[0]]}}';
+				startRoll(tpl, function(results) {
+					finishRoll(results.rollId, {});
+				});
 			});
 		});
 	});
