@@ -433,9 +433,49 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-tab-page-starship .sheet-field-max-shields-current .sheet-stress-boxes {
-	flex: 1 1 auto;
+	flex: 0 0 auto;
 	max-width: none;
 	width: auto;
+}
+
+.sheet-tab-page-starship .sheet-starship-no-shields-ready-flag {
+	display: none;
+}
+
+.sheet-tab-page-starship .sheet-starship-no-shields-btn {
+	background-color: var(--lcars-orange);
+	color: #000000;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--lcars-font);
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	border: none;
+	border-radius: 0 11px 11px 0;
+	padding: 0 10px 0 8px;
+	height: 25px;
+	min-width: 94px;
+	opacity: 0.45;
+	filter: saturate(0.6);
+	pointer-events: none;
+	cursor: not-allowed;
+	margin-left: 6px;
+}
+
+.sheet-tab-page-starship .sheet-field-max-shields-current:has(.sheet-starship-no-shields-ready-flag:checked) .sheet-starship-no-shields-btn {
+	background-color: var(--lcars-orange);
+	color: #000000;
+	opacity: 1;
+	filter: none;
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.sheet-tab-page-starship .sheet-field-max-shields-current:has(.sheet-starship-no-shields-ready-flag:checked) .sheet-starship-no-shields-btn:hover {
+	background-color: #ffb255;
 }
 
 .sheet-field input[type="text"],
@@ -508,6 +548,12 @@ Author: Don Davis, aka omonubi
 
 .sheet-bio-traits-rows .sheet-field-trait:has(.sheet-trait-defeated-flag:checked) input[name^="attr_character_trait_"] {
 	color: #ff3333;
+}
+
+.sheet-bio-traits-rows .sheet-field-trait:has(.sheet-trait-stunned-flag:checked):has(.sheet-trait-defeated-flag:checked) input[name^="attr_character_trait_"] {
+	background-color: #ff3333;
+	border-color: #ff3333;
+	color: #000000;
 }
 
 /* ============================================================
@@ -591,6 +637,17 @@ Author: Don Davis, aka omonubi
 	flex: 1;
 }
 
+/* Starship Systems needs extra room for value + dynamic breach boxes. */
+.sheet-tab-page-starship .sheet-attr-dept-row .sheet-attributes {
+	flex: 0.65;
+	min-width: 0;
+}
+
+.sheet-tab-page-starship .sheet-attr-dept-row .sheet-departments {
+	flex: 0.65;
+	min-width: 0;
+}
+
 /* Section header color overrides — each section gets its own LCARS accent */
 .sheet-attributes  .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 .sheet-departments .sheet-section-header { --sheet-section-bg: var(--lcars-blue);   }
@@ -606,6 +663,7 @@ Author: Don Davis, aka omonubi
 .sheet-equipment-shell,
 .sheet-weapons-shell,
 .sheet-shuttlebay-shell,
+.sheet-space-dock-shell,
 .sheet-extended-tasks-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
@@ -621,6 +679,7 @@ Author: Don Davis, aka omonubi
 .sheet-equipment-shell        { border-left: 4px solid var(--lcars-purple); }
 .sheet-weapons-shell          { border-left: 4px solid var(--lcars-purple); }
 .sheet-shuttlebay-shell       { border-left: 4px solid var(--lcars-purple); }
+.sheet-space-dock-shell       { border-left: 4px solid var(--lcars-orange); }
 .sheet-extended-tasks-shell   { border-left: 4px solid var(--lcars-pink);   }
 
 /* Stat grid */
@@ -647,14 +706,23 @@ Author: Don Davis, aka omonubi
 }
 
 /* Highlight the selected row */
-.sheet-attr-row:has(input:checked),
-.sheet-dept-row:has(input:checked) {
+.sheet-attr-row:has(.sheet-stat-select input[type="radio"]:checked),
+.sheet-dept-row:has(.sheet-stat-select input[type="radio"]:checked) {
 	background-color: #181818;
 }
 
 /* Radio dot — hidden input, visible span */
 .sheet-stat-select input[type="radio"] {
 	display: none;
+}
+
+.sheet-stat-select {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 14px;
+	width: 14px;
+	line-height: 0;
 }
 
 .sheet-stat-select span {
@@ -668,12 +736,46 @@ Author: Don Davis, aka omonubi
 	flex-shrink: 0;
 }
 
-.sheet-attr-row:has(input:checked) .sheet-stat-select span {
+.sheet-system-breach-boxes {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	flex: 0 1 auto;
+	width: auto;
+	min-width: 0;
+	margin-right: 2px;
+}
+
+.sheet-tab-page-starship .sheet-section.sheet-attributes .sheet-attr-row .sheet-stat-name {
+	flex: 1 1 auto;
+	min-width: 122px;
+	text-align: right;
+	padding-right: 2px;
+}
+
+.sheet-content .sheet-system-breach-boxes label.sheet-stress-box-hit {
+	width: 14px;
+	height: 14px;
+}
+
+.sheet-system-breach-boxes .sheet-stress-box {
+	width: 14px;
+	height: 14px;
+	border-width: 1px;
+}
+
+.sheet-system-breach-boxes .sheet-stress-box-hit,
+.sheet-system-breach-boxes .sheet-stress-box-input {
+	pointer-events: none;
+	cursor: default;
+}
+
+.sheet-attr-row:has(.sheet-stat-select input[type="radio"]:checked) .sheet-stat-select span {
 	background-color: var(--lcars-orange);
 	border-color: var(--lcars-orange);
 }
 
-.sheet-dept-row:has(input:checked) .sheet-stat-select span {
+.sheet-dept-row:has(.sheet-stat-select input[type="radio"]:checked) .sheet-stat-select span {
 	background-color: var(--lcars-blue);
 	border-color: var(--lcars-blue);
 }
@@ -688,12 +790,12 @@ Author: Don Davis, aka omonubi
 	color: var(--lcars-on-dark);
 }
 
-.sheet-attr-row:has(input:checked) .sheet-stat-name {
+.sheet-attr-row:has(.sheet-stat-select input[type="radio"]:checked) .sheet-stat-name {
 	color: var(--lcars-orange);
 	font-weight: 700;
 }
 
-.sheet-dept-row:has(input:checked) .sheet-stat-name {
+.sheet-dept-row:has(.sheet-stat-select input[type="radio"]:checked) .sheet-stat-name {
 	color: var(--lcars-blue);
 	font-weight: 700;
 }
@@ -1661,6 +1763,52 @@ Author: Don Davis, aka omonubi
 	box-shadow: none !important;
 	text-shadow: none !important;
 	outline: none;
+}
+
+.sheet-space-dock .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
+
+.sheet-space-dock {
+	margin: 0 8px 16px;
+}
+
+.sheet-space-dock-shell {
+	padding: 8px 8px 12px;
+}
+
+.sheet-space-dock-row {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.sheet-space-dock-repair-reset-btn {
+	appearance: none;
+	-webkit-appearance: none;
+	background: #111111;
+	background-image: none;
+	color: #ffffff;
+	border: 1px solid #666;
+	border-radius: 0 16px 16px 0;
+	font-family: var(--lcars-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+	padding: 4px 14px;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.sheet-space-dock-repair-reset-btn:hover,
+.sheet-space-dock-repair-reset-btn:focus,
+.sheet-space-dock-repair-reset-btn:active {
+	background: #444444;
+	background-color: #444444;
+	color: #ffffff;
+	border-color: #666;
+	outline: none;
+	box-shadow: none;
+	text-shadow: none;
 }
 
 .sheet-traits {

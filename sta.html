@@ -149,6 +149,12 @@ Author: Don Davis, aka omonubi
 				<span class="sheet-lcars-row-value">{{row5_value}}</span>
 			</div>
 			{{/row5_label}}
+			{{#row6_label}}
+			<div class="sheet-lcars-row{{#row6_result}} sheet-lcars-row-result{{/row6_result}}{{#row6_pass}} sheet-pass{{/row6_pass}}">
+				<span class="sheet-lcars-row-label">{{row6_label}}</span>
+				<span class="sheet-lcars-row-value">{{row6_value}}</span>
+			</div>
+			{{/row6_label}}
 		</div>
 
 	</div>
@@ -1088,7 +1094,7 @@ Author: Don Davis, aka omonubi
 		<div class="sheet-bio-fields">
 			<div class="sheet-field sheet-field-scale" style="flex-direction: row; align-items: center; gap: 8px;">
 				<label style="align-self: center; white-space: nowrap;">Scale</label>
-				<input type="number" name="attr_starship_scale" min="1" max="8" value="1" />
+				<input type="number" name="attr_starship_scale" min="1" max="12" value="1" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Resistance</label>
 				<input type="number" name="attr_starship_resistance" min="0" max="12" style="width: 52px; text-align: center;" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Crew Support</label>
@@ -1103,7 +1109,7 @@ Author: Don Davis, aka omonubi
 			<div class="sheet-field sheet-field-max-shields" style="flex-direction: row; align-items: center; gap: 8px;">
 				<div class="sheet-field-max-shields-value">
 					<label style="align-self: center; white-space: nowrap;">Max Shields</label>
-					<input type="number" name="attr_starship_max_shields" min="0" max="30" style="width: 64px; text-align: center;" />
+					<input type="number" name="attr_starship_max_shields" min="0" max="24" style="width: 64px; text-align: center;" />
 				</div>
 				<div class="sheet-field-max-shields-current">
 					<span class="sheet-stress-current-label">Current</span>
@@ -1139,6 +1145,8 @@ Author: Don Davis, aka omonubi
 					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_29" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_29" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_29" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_29" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
 					<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_shields_m25_30" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_m50_30" class="sheet-shield-milestone" value="1" /><input type="checkbox" name="attr_starship_shields_show_30" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_shields_30" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
 					</div>
+					<input type="checkbox" name="attr_starship_no_shields_ready" class="sheet-starship-no-shields-ready-flag" value="1" />
+					<button type="action" name="act_no_shields" class="sheet-starship-no-shields-btn">No Shields</button>
 				</div>
 				</div>
 			</div>
@@ -1247,31 +1255,79 @@ Author: Don Davis, aka omonubi
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="comms" /><span></span></label>
 						<span class="sheet-stat-name">Comms</span>
 						<input type="number" name="attr_starship_comms" min="1" max="20" value="1" />
+						<div class="sheet-system-breach-boxes">
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_comms_breach_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_comms_breach_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_comms_breach_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_comms_breach_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_comms_breach_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_comms_breach_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_comms_breach_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_comms_breach_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_comms_breach_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_comms_breach_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_comms_breach_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_comms_breach_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+						</div>
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="computers" /><span></span></label>
 						<span class="sheet-stat-name">Computers</span>
 						<input type="number" name="attr_starship_computers" min="1" max="20" value="1" />
+						<div class="sheet-system-breach-boxes">
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_computers_breach_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_computers_breach_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_computers_breach_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_computers_breach_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_computers_breach_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_computers_breach_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_computers_breach_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_computers_breach_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_computers_breach_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_computers_breach_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_computers_breach_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_computers_breach_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+						</div>
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="engines" /><span></span></label>
 						<span class="sheet-stat-name">Engines</span>
 						<input type="number" name="attr_starship_engines" min="1" max="20" value="1" />
+						<div class="sheet-system-breach-boxes">
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_engines_breach_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_engines_breach_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_engines_breach_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_engines_breach_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_engines_breach_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_engines_breach_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_engines_breach_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_engines_breach_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_engines_breach_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_engines_breach_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_engines_breach_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_engines_breach_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+						</div>
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="sensors" /><span></span></label>
 						<span class="sheet-stat-name">Sensors</span>
 						<input type="number" name="attr_starship_sensors" min="1" max="20" value="1" />
+						<div class="sheet-system-breach-boxes">
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_sensors_breach_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_sensors_breach_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_sensors_breach_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_sensors_breach_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_sensors_breach_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_sensors_breach_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_sensors_breach_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_sensors_breach_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_sensors_breach_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_sensors_breach_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_sensors_breach_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_sensors_breach_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+						</div>
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="structure" /><span></span></label>
 						<span class="sheet-stat-name">Structure</span>
 						<input type="number" name="attr_starship_structure" min="1" max="20" value="1" />
+						<div class="sheet-system-breach-boxes">
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_structure_breach_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_structure_breach_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_structure_breach_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_structure_breach_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_structure_breach_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_structure_breach_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_structure_breach_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_structure_breach_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_structure_breach_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_structure_breach_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_structure_breach_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_structure_breach_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+						</div>
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="weapons" /><span></span></label>
 						<span class="sheet-stat-name">Weapons</span>
 						<input type="number" name="attr_starship_weapons" min="1" max="20" value="1" />
+						<div class="sheet-system-breach-boxes">
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_weapons_breach_show_1" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_weapons_breach_1" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_weapons_breach_show_2" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_weapons_breach_2" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_weapons_breach_show_3" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_weapons_breach_3" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_weapons_breach_show_4" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_weapons_breach_4" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_weapons_breach_show_5" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_weapons_breach_5" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+							<div class="sheet-stress-box-wrap"><input type="checkbox" name="attr_starship_weapons_breach_show_6" class="sheet-stress-show-flag" value="1" /><label class="sheet-stress-box-hit"><input type="checkbox" name="attr_starship_weapons_breach_6" class="sheet-stress-box-input" value="1" /><span class="sheet-stress-box"></span></label></div>
+						</div>
 					</div>
 				</div>
 				</div><!-- /.sheet-attributes-shell -->
@@ -1404,6 +1460,16 @@ Author: Don Davis, aka omonubi
 						</div>
 					</div>
 				</fieldset>
+			</div>
+		</div>
+
+		<!-- Space Dock -->
+		<div class="sheet-section sheet-space-dock">
+			<div class="sheet-section-header">Space Dock</div>
+			<div class="sheet-space-dock-shell">
+				<div class="sheet-space-dock-row">
+					<button type="action" name="act_space_dock_repair_reset" class="sheet-space-dock-repair-reset-btn">Repair and Reset</button>
+				</div>
 			</div>
 		</div>
 
@@ -1825,7 +1891,11 @@ function clampStarshipScale(value) {
 	if (isNaN(parsed)) {
 		return 1;
 	}
-	return Math.max(1, Math.min(parsed, 8));
+	return Math.max(1, Math.min(parsed, 12));
+}
+
+function clampStarshipBreachCount(scale) {
+	return Math.max(0, Math.min(6, Math.ceil(scale / 2)));
 }
 
 function clampStarshipResistance(value) {
@@ -1841,7 +1911,7 @@ function clampStarshipMaxShields(value) {
 	if (isNaN(parsed)) {
 		return 0;
 	}
-	return Math.max(0, Math.min(parsed, 30));
+	return Math.max(0, Math.min(parsed, 24));
 }
 
 function clampStarshipCrewSupport(value) {
@@ -2006,7 +2076,7 @@ function syncStarshipShieldTrack(options, callback) {
 		options = null;
 	}
 
-	var keys = ['starship_max_shields'];
+	var keys = ['starship_max_shields', 'starship_no_shields_ready'];
 	for (var i = 1; i <= 30; i += 1) {
 		keys.push('starship_shields_' + i);
 		keys.push('starship_shields_show_' + i);
@@ -2074,6 +2144,11 @@ function syncStarshipShieldTrack(options, callback) {
 			}
 		}
 
+		var noShieldsReady = progress === 0;
+		if (isCheckedValue(v.starship_no_shields_ready) !== noShieldsReady) {
+			attrsToSet.starship_no_shields_ready = noShieldsReady ? '1' : '0';
+		}
+
 		if (Object.keys(attrsToSet).length > 0) {
 			setAttrs(attrsToSet, { silent: true }, callback);
 			return;
@@ -2082,6 +2157,329 @@ function syncStarshipShieldTrack(options, callback) {
 		if (callback) {
 			callback();
 		}
+	});
+}
+
+function syncStarshipSystemBreaches(scaleOverride, callback) {
+	var systems = ['comms', 'computers', 'engines', 'sensors', 'structure', 'weapons'];
+	var keys = ['starship_scale'];
+
+	systems.forEach(function(systemName) {
+		for (var index = 1; index <= 6; index += 1) {
+			keys.push('starship_' + systemName + '_breach_show_' + index);
+			keys.push('starship_' + systemName + '_breach_' + index);
+		}
+	});
+
+	getAttrs(keys, function(v) {
+		var attrsToSet = {};
+		var scale = (scaleOverride !== undefined) ? scaleOverride : clampStarshipScale(v.starship_scale);
+		var breachCount = clampStarshipBreachCount(scale);
+
+		if (parseInt(v.starship_scale, 10) !== scale) {
+			attrsToSet.starship_scale = scale;
+		}
+
+		systems.forEach(function(systemName) {
+			var currentBreaches = 0;
+			for (var scan = 1; scan <= 6; scan += 1) {
+				if (isCheckedValue(v['starship_' + systemName + '_breach_' + scan])) {
+					currentBreaches += 1;
+				}
+			}
+
+			var appliedBreaches = Math.max(0, Math.min(currentBreaches, breachCount));
+
+			for (var index = 1; index <= 6; index += 1) {
+				var showKey = 'starship_' + systemName + '_breach_show_' + index;
+				var breachKey = 'starship_' + systemName + '_breach_' + index;
+				var shouldShow = index <= breachCount;
+				var shouldCheck = index <= appliedBreaches;
+				if (isCheckedValue(v[showKey]) !== shouldShow) {
+					attrsToSet[showKey] = shouldShow ? '1' : '0';
+				}
+
+				if (isCheckedValue(v[breachKey]) !== shouldCheck) {
+					attrsToSet[breachKey] = shouldCheck ? '1' : '0';
+				}
+			}
+		});
+
+		var finalizeSync = function() {
+			syncDisabledTraitFromSystemBreaches(callback);
+		};
+
+		if (Object.keys(attrsToSet).length > 0) {
+			setAttrs(attrsToSet, { silent: true }, finalizeSync);
+			return;
+		}
+
+		finalizeSync();
+	});
+}
+
+function syncDisabledTraitFromSystemBreaches(callback) {
+	var systems = ['comms', 'computers', 'engines', 'sensors', 'structure', 'weapons'];
+	var keys = ['starship_scale'];
+
+	for (var traitIndex = 1; traitIndex <= 16; traitIndex += 1) {
+		keys.push('character_trait_' + traitIndex);
+		keys.push('character_trait_' + traitIndex + '_stunned');
+		keys.push('character_trait_' + traitIndex + '_defeated');
+	}
+
+	systems.forEach(function(systemName) {
+		for (var breachIndex = 1; breachIndex <= 6; breachIndex += 1) {
+			keys.push('starship_' + systemName + '_breach_' + breachIndex);
+		}
+	});
+
+	getAttrs(keys, function(v) {
+		var scale = clampStarshipScale(v.starship_scale);
+		var totalBreaches = 0;
+		var attrsToSet = {};
+		var disabledTraitIndex = 0;
+		var destroyedTraitIndex = 0;
+		var emptyTraitIndex = 0;
+
+		systems.forEach(function(systemName) {
+			for (var breachIndex = 1; breachIndex <= 6; breachIndex += 1) {
+				if (isCheckedValue(v['starship_' + systemName + '_breach_' + breachIndex])) {
+					totalBreaches += 1;
+				}
+			}
+		});
+
+		for (var traitIndex = 1; traitIndex <= 16; traitIndex += 1) {
+			var traitKey = 'character_trait_' + traitIndex;
+			var traitText = (v[traitKey] || '').trim();
+
+			if (/^disabled$/i.test(traitText)) {
+				disabledTraitIndex = traitIndex;
+			}
+
+			if (/^destroyed$/i.test(traitText)) {
+				destroyedTraitIndex = traitIndex;
+			}
+
+			if (!emptyTraitIndex && !traitText) {
+				emptyTraitIndex = traitIndex;
+			}
+		}
+
+		if (totalBreaches === scale) {
+			if (!destroyedTraitIndex && !disabledTraitIndex && emptyTraitIndex) {
+				disabledTraitIndex = emptyTraitIndex;
+			}
+
+			if (!destroyedTraitIndex && disabledTraitIndex) {
+				var disabledTraitKey = 'character_trait_' + disabledTraitIndex;
+				var disabledStunnedKey = disabledTraitKey + '_stunned';
+				var disabledDefeatedKey = disabledTraitKey + '_defeated';
+
+				if ((v[disabledTraitKey] || '').trim() !== 'Disabled') {
+					attrsToSet[disabledTraitKey] = 'Disabled';
+				}
+				if (isCheckedValue(v[disabledStunnedKey])) {
+					attrsToSet[disabledStunnedKey] = '0';
+				}
+				if (!isCheckedValue(v[disabledDefeatedKey])) {
+					attrsToSet[disabledDefeatedKey] = '1';
+				}
+			}
+		}
+
+		if (totalBreaches > scale) {
+			var destroyedTargetIndex = disabledTraitIndex || destroyedTraitIndex;
+			if (destroyedTargetIndex) {
+				var destroyedTraitKey = 'character_trait_' + destroyedTargetIndex;
+				var destroyedStunnedKey = destroyedTraitKey + '_stunned';
+				var destroyedDefeatedKey = destroyedTraitKey + '_defeated';
+
+				if ((v[destroyedTraitKey] || '').trim() !== 'Destroyed') {
+					attrsToSet[destroyedTraitKey] = 'Destroyed';
+				}
+				if (!isCheckedValue(v[destroyedStunnedKey])) {
+					attrsToSet[destroyedStunnedKey] = '1';
+				}
+				if (!isCheckedValue(v[destroyedDefeatedKey])) {
+					attrsToSet[destroyedDefeatedKey] = '1';
+				}
+			}
+		}
+
+		if (Object.keys(attrsToSet).length > 0) {
+			setAttrs(attrsToSet, { silent: true }, callback);
+			return;
+		}
+
+		if (callback) {
+			callback();
+		}
+	});
+}
+
+function getStarshipSystemFromHitRoll(d20Roll) {
+	if (d20Roll <= 1) {
+		return 'comms';
+	}
+	if (d20Roll <= 2) {
+		return 'computers';
+	}
+	if (d20Roll <= 6) {
+		return 'engines';
+	}
+	if (d20Roll <= 9) {
+		return 'sensors';
+	}
+	if (d20Roll <= 17) {
+		return 'structure';
+	}
+	return 'weapons';
+}
+
+function applyNoShieldsRandomBreach(forceApply) {
+	var systems = ['comms', 'computers', 'engines', 'sensors', 'structure', 'weapons'];
+	var systemLabels = {
+		comms: 'Communications',
+		computers: 'Computers',
+		engines: 'Engines',
+		sensors: 'Sensors',
+		structure: 'Structure',
+		weapons: 'Weapons'
+	};
+	var keys = ['character_name', 'starship_scale', 'starship_no_shields_ready'];
+
+	systems.forEach(function(systemName) {
+		for (var index = 1; index <= 6; index += 1) {
+			keys.push('starship_' + systemName + '_breach_' + index);
+		}
+	});
+
+	getAttrs(keys, function(v) {
+		if (!forceApply && !isCheckedValue(v.starship_no_shields_ready)) {
+			return;
+		}
+
+		var scale = clampStarshipScale(v.starship_scale);
+		var breachCount = clampStarshipBreachCount(scale);
+		var systemCounts = {};
+		var availableSystems = [];
+
+		systems.forEach(function(systemName) {
+			var count = 0;
+			for (var index = 1; index <= 6; index += 1) {
+				if (isCheckedValue(v['starship_' + systemName + '_breach_' + index])) {
+					count += 1;
+				}
+			}
+			count = Math.max(0, Math.min(count, breachCount));
+			systemCounts[systemName] = count;
+			if (count < breachCount) {
+				availableSystems.push(systemName);
+			}
+		});
+
+		if (availableSystems.length === 0) {
+			return;
+		}
+
+		var chosenSystem = '';
+		while (!chosenSystem) {
+			var d20Roll = Math.floor(Math.random() * 20) + 1;
+			var rolledSystem = getStarshipSystemFromHitRoll(d20Roll);
+			if (systemCounts[rolledSystem] < breachCount) {
+				chosenSystem = rolledSystem;
+			}
+		}
+
+		var nextCount = systemCounts[chosenSystem] + 1;
+		var attrsToSet = {};
+		for (var breachIndex = 1; breachIndex <= 6; breachIndex += 1) {
+			var breachKey = 'starship_' + chosenSystem + '_breach_' + breachIndex;
+			attrsToSet[breachKey] = breachIndex <= nextCount ? '1' : '0';
+		}
+
+		setAttrs(attrsToSet, { silent: true }, function() {
+			syncStarshipSystemBreaches(undefined, function() {
+				var title = v.character_name || 'Character';
+				var breachedSystemLabel = systemLabels[chosenSystem] || chosenSystem;
+				var tpl = '&{template:task}'
+					+ ' {{title=' + escapeTemplateValue(title) + '}}'
+					+ ' {{subtitle=Breech}}'
+					+ ' {{header_orange=1}}'
+					+ ' {{row1_label=System}}'
+					+ ' {{row1_value=' + escapeTemplateValue(breachedSystemLabel) + '}}'
+					+ ' {{row2_label=Breaches}}'
+					+ ' {{row2_value=' + nextCount + '}}';
+
+				if (nextCount >= breachCount) {
+					tpl += ' {{row3_result=1}}'
+						+ ' {{row3_label=System Destroyed}}'
+						+ ' {{row3_value=}}';
+				}
+
+				tpl += ' {{_r=[[0]]}}';
+				startRoll(tpl, function(results) {
+					finishRoll(results.rollId, {});
+				});
+			});
+		});
+	});
+}
+
+function applySpaceDockRepairReset() {
+	var systems = ['comms', 'computers', 'engines', 'sensors', 'structure', 'weapons'];
+	var keys = ['character_name', 'starship_max_shields'];
+	for (var traitIndex = 1; traitIndex <= 16; traitIndex += 1) {
+		keys.push('character_trait_' + traitIndex);
+		keys.push('character_trait_' + traitIndex + '_stunned');
+		keys.push('character_trait_' + traitIndex + '_defeated');
+	}
+
+	getAttrs(keys, function(v) {
+		var attrsToSet = {};
+		var maxShields = clampStarshipMaxShields(v.starship_max_shields);
+
+		for (var shieldIndex = 1; shieldIndex <= 30; shieldIndex += 1) {
+			attrsToSet['starship_shields_' + shieldIndex] = shieldIndex <= maxShields ? '1' : '0';
+		}
+
+		systems.forEach(function(systemName) {
+			for (var breachIndex = 1; breachIndex <= 6; breachIndex += 1) {
+				attrsToSet['starship_' + systemName + '_breach_' + breachIndex] = '0';
+			}
+		});
+
+		for (var traitIndex = 1; traitIndex <= 16; traitIndex += 1) {
+			var traitKey = 'character_trait_' + traitIndex;
+			var stunnedKey = traitKey + '_stunned';
+			var defeatedKey = traitKey + '_defeated';
+			var traitText = (v[traitKey] || '').trim();
+
+			if (/^(disabled|destroyed)$/i.test(traitText)) {
+				attrsToSet[traitKey] = '';
+				attrsToSet[stunnedKey] = '0';
+				attrsToSet[defeatedKey] = '0';
+			}
+		}
+
+		setAttrs(attrsToSet, { silent: true }, function() {
+			syncStarshipShieldTrack(function() {
+				syncStarshipSystemBreaches(undefined, function() {
+					var title = v.character_name || 'Character';
+					var tpl = '&{template:task}'
+						+ ' {{title=' + escapeTemplateValue(title) + '}}'
+						+ ' {{subtitle=' + escapeTemplateValue('Repaired & Reset') + '}}'
+						+ ' {{header_orange=1}}'
+						+ ' {{_r=[[0]]}}';
+
+					startRoll(tpl, function(results) {
+						finishRoll(results.rollId, {});
+					});
+				});
+			});
+		});
 	});
 }
 
@@ -2375,8 +2773,9 @@ function syncCharacterTraitStunnedFlags(callback) {
 			var stunnedKey = traitKey + '_stunned';
 			var defeatedKey = traitKey + '_defeated';
 			var traitText = (v[traitKey] || '').trim();
-			var isStunned = /\bstunned\b/i.test(traitText);
-			var isDefeated = /\bdefeated\b/i.test(traitText);
+			var isStunned = /\bstunned\b/i.test(traitText) || /\bdestroyed\b/i.test(traitText);
+			var isDefeated = /\bdefeated\b/i.test(traitText) || /\bdisabled\b/i.test(traitText);
+			isDefeated = isDefeated || /\bdestroyed\b/i.test(traitText);
 
 			if (isCheckedValue(v[stunnedKey]) !== isStunned) {
 				attrsToSet[stunnedKey] = isStunned ? '1' : '0';
@@ -2426,6 +2825,7 @@ on('sheet:opened', function() {
 	initializeStarshipSmallCraftReadinessDefault();
 	initializeStarshipMaxShieldsDefault();
 	syncStarshipShieldTrack();
+	syncStarshipSystemBreaches();
 });
 
 on('change:repeating_extendedtasks change:repeating_characterextendedtasks', function() {
@@ -2679,6 +3079,7 @@ on('change:starship_scale', function(eventInfo) {
 		updateStarshipCrewSupport(clamped);
 		updateStarshipSmallCraftReadiness(clamped);
 		updateStarshipMaxShields(clamped, undefined, undefined);
+		syncStarshipSystemBreaches(clamped);
 		return;
 	}
 	setAttrs({ starship_scale: clamped }, { silent: true }, function() {
@@ -2686,6 +3087,7 @@ on('change:starship_scale', function(eventInfo) {
 		updateStarshipCrewSupport(clamped);
 		updateStarshipSmallCraftReadiness(clamped);
 		updateStarshipMaxShields(clamped, undefined, undefined);
+		syncStarshipSystemBreaches(clamped);
 	});
 });
 
@@ -3066,6 +3468,22 @@ for (var shieldIndex = 1; shieldIndex <= 30; shieldIndex += 1) {
 	shieldBoxEvents.push('change:starship_shields_' + shieldIndex);
 }
 
+var systemBreachEvents = [];
+var systemBreachNames = ['comms', 'computers', 'engines', 'sensors', 'structure', 'weapons'];
+for (var breachSystemIndex = 0; breachSystemIndex < systemBreachNames.length; breachSystemIndex += 1) {
+	for (var breachIndex = 1; breachIndex <= 6; breachIndex += 1) {
+		systemBreachEvents.push('change:starship_' + systemBreachNames[breachSystemIndex] + '_breach_' + breachIndex);
+	}
+}
+
+on(systemBreachEvents.join(' '), function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	syncStarshipSystemBreaches();
+});
+
 on(shieldBoxEvents.join(' '), function(eventInfo) {
 	if (!eventInfo || eventInfo.sourceType !== 'player') {
 		return;
@@ -3118,7 +3536,7 @@ on(shieldBoxEvents.join(' '), function(eventInfo) {
 					return;
 				}
 				var charName = after.character_name || 'Character';
-				var maxShields = parseInt(after.starship_max_shields, 10) || 30;
+				var maxShields = clampStarshipMaxShields(after.starship_max_shields);
 				var sign = (newCount > oldCount) ? '+' : (newCount < oldCount) ? '-' : '';
 				var amount = Math.abs(newCount - oldCount);
 				var shakenThreshold50 = Math.ceil(maxShields * 0.5);
@@ -3126,6 +3544,8 @@ on(shieldBoxEvents.join(' '), function(eventInfo) {
 				var crossedToShaken50 = oldCount > shakenThreshold50 && newCount <= shakenThreshold50 && newCount > 0;
 				var crossedToShaken25 = oldCount > shakenThreshold25 && newCount <= shakenThreshold25 && newCount > 0;
 				var crossedToShaken = crossedToShaken50 || crossedToShaken25;
+				var crossedToBreach = oldCount > shakenThreshold50 && newCount <= shakenThreshold25 && newCount > 0;
+				var crossedToShieldsDown = oldCount > 0 && newCount === 0;
 				var isFullyCharged = newCount === maxShields;
 				var isShieldsDown = newCount === 0;
 				var tpl = '&{template:task}'
@@ -3149,9 +3569,16 @@ on(shieldBoxEvents.join(' '), function(eventInfo) {
 					tpl += ' {{row5_result=1}}'
 						+ ' {{row5_label=Shaken}}';
 				}
+				if (crossedToBreach || crossedToShieldsDown) {
+					tpl += ' {{row6_result=1}}'
+						+ ' {{row6_label=Breach}}';
+				}
 				tpl += ' {{_r=[[0]]}}';
 				startRoll(tpl, function(results) {
 					finishRoll(results.rollId, {});
+					if (crossedToBreach || crossedToShieldsDown) {
+						applyNoShieldsRandomBreach(true);
+					}
 				});
 			});
 		});
@@ -3235,7 +3662,7 @@ on(extendedTaskProgressEvents.join(' '), function(eventInfo) {
 
 // Recalculate target whenever any stat or selection changes.
 on('change:selected_attribute change:selected_department change:control change:daring change:fitness change:insight change:presence change:reason change:attribute_reputation change:starship_comms change:starship_computers change:starship_engines change:starship_sensors change:starship_structure change:starship_weapons change:command change:conn change:engineering change:security change:medicine change:science change:reputation', function() {
-	getAttrs(['selected_attribute', 'selected_department', 'control', 'daring', 'fitness', 'insight', 'presence', 'reason', 'attribute_reputation', 'starship_comms', 'starship_computers', 'starship_engines', 'starship_sensors', 'starship_structure', 'starship_weapons', 'command', 'conn', 'engineering', 'security', 'medicine', 'science', 'reputation'], function(v) {
+	getAttrs(['selected_attribute', 'selected_department', 'control', 'daring', 'fitness', 'insight', 'presence', 'reason', 'attribute_reputation', 'starship_comms', 'starship_computers', 'starship_engines', 'starship_sensors', 'starship_structure', 'starship_weapons', 'command', 'conn', 'engineering', 'security', 'medicine', 'science', 'reputation', 'starship_scale', 'starship_comms_breach_1', 'starship_comms_breach_2', 'starship_comms_breach_3', 'starship_comms_breach_4', 'starship_comms_breach_5', 'starship_comms_breach_6', 'starship_computers_breach_1', 'starship_computers_breach_2', 'starship_computers_breach_3', 'starship_computers_breach_4', 'starship_computers_breach_5', 'starship_computers_breach_6', 'starship_engines_breach_1', 'starship_engines_breach_2', 'starship_engines_breach_3', 'starship_engines_breach_4', 'starship_engines_breach_5', 'starship_engines_breach_6', 'starship_sensors_breach_1', 'starship_sensors_breach_2', 'starship_sensors_breach_3', 'starship_sensors_breach_4', 'starship_sensors_breach_5', 'starship_sensors_breach_6', 'starship_structure_breach_1', 'starship_structure_breach_2', 'starship_structure_breach_3', 'starship_structure_breach_4', 'starship_structure_breach_5', 'starship_structure_breach_6', 'starship_weapons_breach_1', 'starship_weapons_breach_2', 'starship_weapons_breach_3', 'starship_weapons_breach_4', 'starship_weapons_breach_5', 'starship_weapons_breach_6'], function(v) {
 		var starshipSystemAttributeMap = {
 			comms: 'starship_comms',
 			computers: 'starship_computers',
@@ -3247,12 +3674,33 @@ on('change:selected_attribute change:selected_department change:control change:d
 		var selectedAttribute = v.selected_attribute || '';
 		var resolvedAttribute = starshipSystemAttributeMap[selectedAttribute] || selectedAttribute;
 		var attrVal = (selectedAttribute === 'attribute_reputation') ? 7 : (parseInt(v[resolvedAttribute]) || 0);
+		var isStarshipSystemSelection = selectedAttribute === 'comms'
+			|| selectedAttribute === 'computers'
+			|| selectedAttribute === 'engines'
+			|| selectedAttribute === 'sensors'
+			|| selectedAttribute === 'structure'
+			|| selectedAttribute === 'weapons';
+		var isDestroyedSystemSelection = false;
+		if (isStarshipSystemSelection) {
+			var breachCount = clampStarshipBreachCount(v.starship_scale);
+			var selectedSystemBreaches = 0;
+			for (var breachIndex = 1; breachIndex <= 6; breachIndex += 1) {
+				if (isCheckedValue(v['starship_' + selectedAttribute + '_breach_' + breachIndex])) {
+					selectedSystemBreaches += 1;
+				}
+			}
+			selectedSystemBreaches = Math.max(0, Math.min(selectedSystemBreaches, breachCount));
+			isDestroyedSystemSelection = breachCount > 0 && selectedSystemBreaches >= breachCount;
+			if (isDestroyedSystemSelection) {
+				attrVal = 0;
+			}
+		}
 		var deptKey = (v.selected_department || '').replace(/^s_/, '');
 		var deptVal = parseInt(v[deptKey]) || 0;
 		var attrsToSet = {
-			task_attribute: attrVal,
+			task_attribute: isDestroyedSystemSelection ? '' : attrVal,
 			task_department: deptVal,
-			target_number: attrVal + deptVal,
+			target_number: isDestroyedSystemSelection ? '' : (attrVal + deptVal),
 			roll_task_disabled: (attrVal === 0 || deptVal === 0) ? 'on' : '0'
 		};
 		var isRepRoll = (selectedAttribute === 'attribute_reputation' && v.selected_department === 'reputation');
@@ -3300,7 +3748,13 @@ on('clicked:roll_task', function() {
 	getAttrs(['dice_count', 'target_number', 'difficulty', 'c_range', 'character_name',
 	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'starship_determination_spend', 'determination_points',
 	          'task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9',
-	          'stress_fatigued', 'assists'], function(v) {
+	          'stress_fatigued', 'assists', 'starship_scale',
+	          'starship_comms_breach_1', 'starship_comms_breach_2', 'starship_comms_breach_3', 'starship_comms_breach_4', 'starship_comms_breach_5', 'starship_comms_breach_6',
+	          'starship_computers_breach_1', 'starship_computers_breach_2', 'starship_computers_breach_3', 'starship_computers_breach_4', 'starship_computers_breach_5', 'starship_computers_breach_6',
+	          'starship_engines_breach_1', 'starship_engines_breach_2', 'starship_engines_breach_3', 'starship_engines_breach_4', 'starship_engines_breach_5', 'starship_engines_breach_6',
+	          'starship_sensors_breach_1', 'starship_sensors_breach_2', 'starship_sensors_breach_3', 'starship_sensors_breach_4', 'starship_sensors_breach_5', 'starship_sensors_breach_6',
+	          'starship_structure_breach_1', 'starship_structure_breach_2', 'starship_structure_breach_3', 'starship_structure_breach_4', 'starship_structure_breach_5', 'starship_structure_breach_6',
+	          'starship_weapons_breach_1', 'starship_weapons_breach_2', 'starship_weapons_breach_3', 'starship_weapons_breach_4', 'starship_weapons_breach_5', 'starship_weapons_breach_6'], function(v) {
 
 		var taskAttr = parseInt(v.task_attribute) || 0;
 		var taskDept = parseInt(v.task_department) || 0;
@@ -3314,7 +3768,6 @@ on('clicked:roll_task', function() {
 		var target     = parseInt(v.target_number) || 0;
 		var difficulty = Math.min(Math.max(isNaN(parseInt(v.difficulty)) ? 1 : parseInt(v.difficulty), 0), 9);
 		var isFatigued = isCheckedValue(v.stress_fatigued);
-		var effectiveDifficulty = difficulty + (isFatigued ? 1 : 0);
 		var cRangeValue = Math.min(Math.max(parseInt(v.c_range) || 1, 1), 6);
 		var charName   = v.character_name          || 'Character';
 		var determinationPoints = clampDetermination(v.determination_points);
@@ -3325,6 +3778,17 @@ on('clicked:roll_task', function() {
 			|| selectedAttribute === 'sensors'
 			|| selectedAttribute === 'structure'
 			|| selectedAttribute === 'weapons';
+		var breachedSystemDifficultyBonus = 0;
+		if (isStarshipSystemRoll) {
+			var maxBreaches = clampStarshipBreachCount(v.starship_scale);
+			for (var breachIndex = 1; breachIndex <= 6; breachIndex += 1) {
+				if (isCheckedValue(v['starship_' + selectedAttribute + '_breach_' + breachIndex])) {
+					breachedSystemDifficultyBonus += 1;
+				}
+			}
+			breachedSystemDifficultyBonus = Math.max(0, Math.min(breachedSystemDifficultyBonus, maxBreaches));
+		}
+		var effectiveDifficulty = difficulty + (isFatigued ? 1 : 0) + breachedSystemDifficultyBonus;
 		var determinationSpendValue = isStarshipSystemRoll ? (v.starship_determination_spend || 'none') : (v.determination_spend || 'none');
 		var spendsDetermination = determinationSpendValue && determinationSpendValue !== 'none' && determinationSpendValue !== 'assist' && determinationSpendValue !== 'opposed';
 		var isInspired = determinationSpendValue === 'inspired';
@@ -3643,6 +4107,32 @@ on('clicked:reroll_task', function() {
 				}, { silent: true });
 			});
 		});
+	});
+});
+
+on('clicked:no_shields', function() {
+	applyNoShieldsRandomBreach();
+});
+
+on('clicked:space_dock_repair_reset', function() {
+	var queryTpl = '&{template:hidden} {{confirm=[[?{Confirm Reset|Confirm,1|Cancel,0}]]}}';
+	startRoll(queryTpl, function(queryResults) {
+		finishRoll(queryResults.rollId, {});
+		var confirmReset = 1;
+		if (queryResults && queryResults.results) {
+			if (queryResults.results.confirm) {
+				confirmReset = parseInt(queryResults.results.confirm.result, 10);
+			} else {
+				var resultKeys = Object.keys(queryResults.results);
+				if (resultKeys.length > 0 && queryResults.results[resultKeys[0]]) {
+					confirmReset = parseInt(queryResults.results[resultKeys[0]].result, 10);
+				}
+			}
+		}
+
+		if (confirmReset === 1) {
+			applySpaceDockRepairReset();
+		}
 	});
 });
 </script>
