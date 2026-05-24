@@ -302,6 +302,10 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 
+.sheet-tab-nav .sheet-tab-label-npc {
+	display: none;
+}
+
 .sheet-content:has(input[name="attr_sheet_type"][value="party"]:checked) .sheet-tab-label-character {
 	display: none;
 }
@@ -313,6 +317,13 @@ Author: Don Davis, aka omonubi
 	display: none;
 }
 .sheet-content:has(input[name="attr_sheet_type"][value="starship"]:checked) .sheet-tab-label-starship {
+	display: inline-flex;
+}
+
+.sheet-content:has(input[name="attr_sheet_type"][value="npc"]:checked) .sheet-tab-label-character {
+	display: none;
+}
+.sheet-content:has(input[name="attr_sheet_type"][value="npc"]:checked) .sheet-tab-label-npc {
 	display: inline-flex;
 }
 
@@ -341,6 +352,10 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-content:has(input[name="attr_sheet_tab"][value="party"]:checked) .sheet-tab-page-party {
+	display: block;
+}
+
+.sheet-content:has(input[name="attr_sheet_tab"][value="npc"]:checked) .sheet-tab-page-npc {
 	display: block;
 }
 
@@ -460,6 +475,48 @@ Author: Don Davis, aka omonubi
 .sheet-field-determination {
 	flex: 1.3;
 	min-width: 112px;
+}
+
+.sheet-tab-page-npc .sheet-field-name {
+	flex: .8;
+	min-width: 0;
+}
+
+.sheet-tab-page-npc .sheet-field-occupation {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.sheet-tab-page-npc .sheet-field-threat {
+	flex: 0 0 52px;
+	min-width: 52px;
+	align-items: flex-start;
+}
+
+.sheet-tab-page-npc .sheet-field-protection {
+	flex: 0 0 52px;
+	min-width: 52px;
+	align-items: flex-start;
+}
+
+.sheet-tab-page-npc .sheet-field-threat input[type="number"] {
+	width: 100%;
+	text-align: center;
+}
+
+.sheet-tab-page-npc .sheet-field-threat label {
+	width: 100%;
+	text-align: left;
+}
+
+.sheet-tab-page-npc .sheet-field-protection input[type="number"] {
+	width: 100%;
+	text-align: center;
+}
+
+.sheet-tab-page-npc .sheet-field-protection label {
+	width: 100%;
+	text-align: left;
 }
 
 /* Starship bio field widths */
@@ -798,6 +855,7 @@ Author: Don Davis, aka omonubi
 	border-bottom-color: var(--lcars-blue) !important;
 }
 
+.sheet-content .sheet-attacks input[type="text"]:focus,
 .sheet-content .sheet-equipment input[type="text"]:focus,
 .sheet-content .sheet-focuses input[type="text"]:focus,
 .sheet-content .sheet-weapons input[type="text"]:focus,
@@ -857,6 +915,7 @@ Author: Don Davis, aka omonubi
 .sheet-traits-shell,
 .sheet-focuses-shell,
 .sheet-values-shell,
+.sheet-attacks-shell,
 .sheet-equipment-shell,
 .sheet-weapons-shell,
 .sheet-shuttlebay-shell,
@@ -865,6 +924,7 @@ Author: Don Davis, aka omonubi
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
 	padding: 8px 12px;
+	padding-bottom: 24px;
 }
 
 .sheet-attributes-shell  { border-left: 4px solid var(--lcars-orange); }
@@ -873,6 +933,7 @@ Author: Don Davis, aka omonubi
 .sheet-traits-shell      { border-left: 4px solid var(--lcars-peach);  }
 .sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
 .sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
+.sheet-attacks-shell          { border-left: 4px solid var(--lcars-purple); }
 .sheet-equipment-shell        { border-left: 4px solid var(--lcars-purple); }
 .sheet-weapons-shell          { border-left: 4px solid var(--lcars-purple); }
 .sheet-shuttlebay-shell       { border-left: 4px solid var(--lcars-purple); }
@@ -1685,6 +1746,15 @@ Author: Don Davis, aka omonubi
 }
 
 /* ============================================================
+	ATTACKS SECTION
+	============================================================ */
+.sheet-attacks .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
+
+.sheet-attacks {
+	margin: 0 8px 16px;
+}
+
+/* ============================================================
    EQUIPMENT SECTION
    ============================================================ */
 .sheet-equipment .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
@@ -1749,6 +1819,45 @@ Author: Don Davis, aka omonubi
 .sheet-equipment-inventory-row-2:hover,
 .sheet-equipment-inventory-row-2:focus-within,
 .sheet-equipment-inventory-row-2:has(input:not(:placeholder-shown)) {
+	display: flex;
+}
+
+.sheet-field-equipment-attack-name {
+	flex: 0 0 20%;
+}
+
+.sheet-field-equipment-attack-desc {
+	flex: 1 1 80%;
+}
+
+.sheet-equipment-attack-row-2,
+.sheet-equipment-attack-row-3,
+.sheet-equipment-attack-row-4,
+.sheet-equipment-attack-row-5,
+.sheet-equipment-attack-row-6 {
+	display: none;
+}
+
+.sheet-equipment-attack-row-1:has(.sheet-field-equipment-attack-desc input:focus) ~ .sheet-equipment-attack-row-2,
+.sheet-equipment-attack-row-2:has(.sheet-field-equipment-attack-desc input:focus) ~ .sheet-equipment-attack-row-3,
+.sheet-equipment-attack-row-3:has(.sheet-field-equipment-attack-desc input:focus) ~ .sheet-equipment-attack-row-4,
+.sheet-equipment-attack-row-4:has(.sheet-field-equipment-attack-desc input:focus) ~ .sheet-equipment-attack-row-5,
+.sheet-equipment-attack-row-5:has(.sheet-field-equipment-attack-desc input:focus) ~ .sheet-equipment-attack-row-6,
+.sheet-equipment-attack-row-2:hover,
+.sheet-equipment-attack-row-2:focus-within,
+.sheet-equipment-attack-row-2:has(input:not(:placeholder-shown)),
+.sheet-equipment-attack-row-3:hover,
+.sheet-equipment-attack-row-3:focus-within,
+.sheet-equipment-attack-row-3:has(input:not(:placeholder-shown)),
+.sheet-equipment-attack-row-4:hover,
+.sheet-equipment-attack-row-4:focus-within,
+.sheet-equipment-attack-row-4:has(input:not(:placeholder-shown)),
+.sheet-equipment-attack-row-5:hover,
+.sheet-equipment-attack-row-5:focus-within,
+.sheet-equipment-attack-row-5:has(input:not(:placeholder-shown)),
+.sheet-equipment-attack-row-6:hover,
+.sheet-equipment-attack-row-6:focus-within,
+.sheet-equipment-attack-row-6:has(input:not(:placeholder-shown)) {
 	display: flex;
 }
 
@@ -1849,6 +1958,14 @@ Author: Don Davis, aka omonubi
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-size: 13px;
 	line-height: 1.5;
+}
+
+.sheet-tab-page-npc .sheet-background-fields-npc-notes {
+	display: block;
+}
+
+.sheet-content .sheet-tab-page-npc .sheet-background-fields-npc-notes textarea {
+	min-height: 280px;
 }
 
 /* ============================================================
@@ -2953,6 +3070,15 @@ Author: Don Davis, aka omonubi
 	display: flex;
 	flex-direction: column;
 	gap: 0;
+	padding-bottom: 14px;
+}
+
+.sheet-extended-task-item {
+	margin-bottom: 10px;
+}
+
+.sheet-extended-task-item:last-child {
+	margin-bottom: 18px;
 }
 
 .sheet-extended-task-descriptor {
@@ -3000,6 +3126,7 @@ Author: Don Davis, aka omonubi
 	opacity: 0.25;
 	white-space: nowrap;
 	padding: 2px 6px;
+	pointer-events: none;
 }
 
 .sheet-et-complete-flag,
@@ -3107,6 +3234,8 @@ Author: Don Davis, aka omonubi
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 4px;
+	position: relative;
+	z-index: 5;
 }
 
 .sheet-extended-tasks .repcontrol_edit,

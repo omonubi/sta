@@ -185,6 +185,10 @@ Author: Don Davis, aka omonubi
 			<input type="radio" name="attr_sheet_tab" value="party" />
 			Mission
 		</label>
+		<label class="sheet-tab-label sheet-tab-label-npc">
+			<input type="radio" name="attr_sheet_tab" value="npc" />
+			NPC
+		</label>
 		<label class="sheet-tab-label sheet-tab-label-settings">
 			<input type="radio" name="attr_sheet_tab" value="settings" />
 			Settings
@@ -361,6 +365,60 @@ Author: Don Davis, aka omonubi
 				<option value="reason">Reason</option>
 			</select>
 		</div>
+<!-- Attacks -->
+<div class="sheet-section sheet-attacks">
+<div class="sheet-section-header">Attacks</div>
+<div class="sheet-attacks-shell">
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-1">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_1" placeholder="Attack" />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_1" placeholder="Description" />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-2">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_2" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_2" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-3">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_3" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_3" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-4">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_4" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_4" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-5">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_5" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_5" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-6">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_6" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_6" placeholder=" " />
+</div>
+</div>
+</div><!-- /.sheet-attacks-shell -->
+</div>
 
 
 		<!-- Equipment -->
@@ -1152,15 +1210,57 @@ Author: Don Davis, aka omonubi
 			</div>
 		</div>
 
-		<!-- Weapons -->
-		<div class="sheet-section sheet-weapons">
-			<div class="sheet-section-header">Weapons</div>
-			<div class="sheet-weapons-shell">
-				<div class="sheet-weapons-row">
-					<input type="text" name="attr_starship_weapon_1" placeholder=" " />
-					<input type="text" name="attr_starship_weapon_2" placeholder=" " />
-					<input type="text" name="attr_starship_weapon_3" placeholder=" " />
-					<input type="text" name="attr_starship_weapon_4" placeholder=" " />
+		<!-- Attacks -->
+		<div class="sheet-section sheet-attacks">
+			<div class="sheet-section-header">Attacks</div>
+			<div class="sheet-attacks-shell">
+				<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-1">
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+						<input type="text" name="attr_equipment_attack_1" placeholder="Attack" />
+					</div>
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+						<input type="text" name="attr_equipment_attack_desc_1" placeholder="Description" />
+					</div>
+				</div>
+				<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-2">
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+						<input type="text" name="attr_equipment_attack_2" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+						<input type="text" name="attr_equipment_attack_desc_2" placeholder=" " />
+					</div>
+				</div>
+				<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-3">
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+						<input type="text" name="attr_equipment_attack_3" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+						<input type="text" name="attr_equipment_attack_desc_3" placeholder=" " />
+					</div>
+				</div>
+				<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-4">
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+						<input type="text" name="attr_equipment_attack_4" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+						<input type="text" name="attr_equipment_attack_desc_4" placeholder=" " />
+					</div>
+				</div>
+				<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-5">
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+						<input type="text" name="attr_equipment_attack_5" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+						<input type="text" name="attr_equipment_attack_desc_5" placeholder=" " />
+					</div>
+				</div>
+				<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-6">
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+						<input type="text" name="attr_equipment_attack_6" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+						<input type="text" name="attr_equipment_attack_desc_6" placeholder=" " />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1757,6 +1857,740 @@ Author: Don Davis, aka omonubi
 		</div>
 	</div>
 
+	<div class="sheet-tab-page sheet-tab-page-npc">
+
+		<!-- Basic Character Information -->
+		<div class="sheet-section sheet-bio">
+			<div class="sheet-bio-fields">
+				<div class="sheet-field sheet-field-name">
+					<label>Name</label>
+					<input type="text" name="attr_character_name" />
+				</div>
+				<div class="sheet-field sheet-field-age">
+					<label>Age</label>
+					<input type="number" name="attr_age" min="1" max="999" />
+				</div>
+				<div class="sheet-field sheet-field-occupation">
+					<label>Title</label>
+					<input type="text" name="attr_occupation" />
+				</div>
+				<div class="sheet-field sheet-field-threat">
+					<label>Threat</label>
+					<input type="number" name="attr_threat" value="3" min="0" max="20" step="1" />
+				</div>
+				<div class="sheet-field sheet-field-protection">
+					<label>Protection</label>
+					<input type="number" name="attr_protection" value="0" min="0" max="9" step="1" />
+				</div>
+			</div>
+		<div class="sheet-bio-traits-rows">
+		<div class="sheet-bio-traits-row">
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_1" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_1_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_1_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_2" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_2_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_2_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_3" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_3_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_3_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_4" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_4_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_4_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+		</div>
+		<div class="sheet-bio-traits-row">
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_5" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_5_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_5_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_6" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_6_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_6_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_7" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_7_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_7_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_8" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_8_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_8_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+		</div>
+		<div class="sheet-bio-traits-row">
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_9" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_9_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_9_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_10" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_10_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_10_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_11" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_11_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_11_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_12" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_12_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_12_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+		</div>
+		<div class="sheet-bio-traits-row">
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_13" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_13_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_13_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_14" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_14_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_14_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_15" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_15_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_15_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+			<div class="sheet-field sheet-field-trait">
+				<input type="text" name="attr_character_trait_16" placeholder=" " />
+				<input type="checkbox" name="attr_character_trait_16_stunned" class="sheet-trait-stunned-flag" value="1" />
+				<input type="checkbox" name="attr_character_trait_16_defeated" class="sheet-trait-defeated-flag" value="1" />
+			</div>
+		</div>
+		</div><!-- /.sheet-bio-traits-rows -->
+		</div>
+<!-- Attacks -->
+<div class="sheet-section sheet-attacks">
+<div class="sheet-section-header">Attacks</div>
+<div class="sheet-attacks-shell">
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-1">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_1" placeholder="Attack" />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_1" placeholder="Description" />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-2">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_2" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_2" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-3">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_3" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_3" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-4">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_4" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_4" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-5">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_5" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_5" placeholder=" " />
+</div>
+</div>
+<div class="sheet-equipment-row sheet-equipment-attack-row sheet-equipment-attack-row-6">
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-name">
+<input type="text" name="attr_equipment_attack_6" placeholder=" " />
+</div>
+<div class="sheet-field sheet-field-equipment sheet-field-equipment-attack-desc">
+<input type="text" name="attr_equipment_attack_desc_6" placeholder=" " />
+</div>
+</div>
+</div><!-- /.sheet-attacks-shell -->
+</div>
+
+		<!-- Equipment -->
+		<div class="sheet-section sheet-equipment">
+			<div class="sheet-section-header">Equipment</div>
+			<div class="sheet-equipment-shell">
+
+				<div class="sheet-equipment-top-row">
+					<div class="sheet-equipment-subsection">
+						<div class="sheet-equipment-subsection-label">In-Hand</div>
+						<div class="sheet-equipment-row">
+							<div class="sheet-field sheet-field-equipment">
+								<input type="text" name="attr_equipment_inhand_1" placeholder="Left Hand" />
+							</div>
+							<div class="sheet-field sheet-field-equipment">
+								<input type="text" name="attr_equipment_inhand_2" placeholder="Right Hand" />
+							</div>
+						</div>
+					</div>
+
+					<div class="sheet-equipment-subsection">
+						<div class="sheet-equipment-subsection-label">Worn</div>
+						<div class="sheet-equipment-row">
+							<div class="sheet-field sheet-field-equipment">
+								<input type="text" name="attr_equipment_worn_1" placeholder="Uniform" value="Uniform" />
+							</div>
+							<div class="sheet-field sheet-field-equipment">
+								<input type="text" name="attr_equipment_worn_2" placeholder="Suit / Armor" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="sheet-equipment-subsection-label">Inventory</div>
+				<div class="sheet-equipment-row sheet-equipment-inventory-row-1">
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_1" placeholder="Communicator" value="Communicator" />
+					</div>
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_2" placeholder="Tricorder" value="Tricorder" />
+					</div>
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_3" placeholder="Sidearm" value="Sidearm" />
+					</div>
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_4" placeholder="Toolkit" />
+					</div>
+				</div>
+				<div class="sheet-equipment-row sheet-equipment-inventory-row-2">
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_5" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_6" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_7" placeholder=" " />
+					</div>
+					<div class="sheet-field sheet-field-equipment">
+						<input type="text" name="attr_equipment_inv_8" placeholder=" " />
+					</div>
+				</div>
+
+			</div><!-- /.sheet-equipment-shell -->
+		</div>
+
+		<!-- Traits -->
+		<div class="sheet-section sheet-traits">
+			<div class="sheet-section-header">Talents & Abilities</div>
+			<div class="sheet-traits-shell">
+			<div class="sheet-traits-rows">
+				<div class="sheet-traits-row">
+					<div class="sheet-traits-row-main">
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_1" placeholder=" " />
+						</div>
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_2" placeholder=" " />
+						</div>
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_3" placeholder=" " />
+						</div>
+						<label class="sheet-traits-row-details-trigger" aria-label="Toggle row 1 details">
+							<input type="checkbox" name="attr_trait_row_details_open_1" class="sheet-traits-row-details-toggle" />
+							<span>Details</span>
+						</label>
+					</div>
+					<div class="sheet-traits-row-details">
+						<textarea name="attr_trait_details_1" class="sheet-trait-details" rows="3"></textarea>
+						<textarea name="attr_trait_details_2" class="sheet-trait-details" rows="3"></textarea>
+						<textarea name="attr_trait_details_3" class="sheet-trait-details" rows="3"></textarea>
+						<div class="sheet-traits-row-details-spacer" aria-hidden="true"></div>
+					</div>
+				</div>
+				<div class="sheet-traits-row">
+					<div class="sheet-traits-row-main">
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_4" placeholder=" " />
+						</div>
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_5" placeholder=" " />
+						</div>
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_6" placeholder=" " />
+						</div>
+						<label class="sheet-traits-row-details-trigger" aria-label="Toggle row 2 details">
+							<input type="checkbox" name="attr_trait_row_details_open_2" class="sheet-traits-row-details-toggle" />
+							<span>Details</span>
+						</label>
+					</div>
+					<div class="sheet-traits-row-details">
+						<textarea name="attr_trait_details_4" class="sheet-trait-details" rows="3"></textarea>
+						<textarea name="attr_trait_details_5" class="sheet-trait-details" rows="3"></textarea>
+						<textarea name="attr_trait_details_6" class="sheet-trait-details" rows="3"></textarea>
+						<div class="sheet-traits-row-details-spacer" aria-hidden="true"></div>
+					</div>
+				</div>
+				<div class="sheet-traits-row">
+					<div class="sheet-traits-row-main">
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_7" placeholder=" " />
+						</div>
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_8" placeholder=" " />
+						</div>
+						<div class="sheet-trait-item">
+							<input type="text" name="attr_trait_9" placeholder=" " />
+						</div>
+						<label class="sheet-traits-row-details-trigger" aria-label="Toggle row 3 details">
+							<input type="checkbox" name="attr_trait_row_details_open_3" class="sheet-traits-row-details-toggle" />
+							<span>Details</span>
+						</label>
+					</div>
+					<div class="sheet-traits-row-details">
+						<textarea name="attr_trait_details_7" class="sheet-trait-details" rows="3"></textarea>
+						<textarea name="attr_trait_details_8" class="sheet-trait-details" rows="3"></textarea>
+						<textarea name="attr_trait_details_9" class="sheet-trait-details" rows="3"></textarea>
+						<div class="sheet-traits-row-details-spacer" aria-hidden="true"></div>
+					</div>
+				</div>
+			</div>
+			</div><!-- /.sheet-traits-shell -->
+		</div>
+
+		<!-- Attributes and Departments -->
+		<div class="sheet-attr-dept-row">
+
+			<!-- Attributes -->
+			<div class="sheet-section sheet-attributes">
+				<div class="sheet-section-header">Attributes</div>
+				<div class="sheet-attributes-shell">
+				<div class="sheet-stat-grid">
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="control" /><span></span></label>
+						<span class="sheet-stat-name">Control</span>
+						<input type="number" name="attr_control" min="7" max="20" value="7" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="daring" /><span></span></label>
+						<span class="sheet-stat-name">Daring</span>
+						<input type="number" name="attr_daring" min="7" max="20" value="7" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="fitness" /><span></span></label>
+						<span class="sheet-stat-name">Fitness</span>
+						<input type="number" name="attr_fitness" min="7" max="20" value="7" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="insight" /><span></span></label>
+						<span class="sheet-stat-name">Insight</span>
+						<input type="number" name="attr_insight" min="7" max="20" value="7" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="presence" /><span></span></label>
+						<span class="sheet-stat-name">Presence</span>
+						<input type="number" name="attr_presence" min="7" max="20" value="7" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="reason" /><span></span></label>
+						<span class="sheet-stat-name">Reason</span>
+						<input type="number" name="attr_reason" min="7" max="20" value="7" />
+					</div>
+					<div class="sheet-attr-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="attribute_reputation" /><span></span></label>
+						<span class="sheet-stat-name">Reprimands</span>
+						<input type="number" name="attr_attribute_reputation" min="0" max="9" value="0" />
+					</div>
+				</div>
+				</div><!-- /.sheet-attributes-shell -->
+			</div>
+
+			<!-- Departments -->
+			<div class="sheet-section sheet-departments">
+				<div class="sheet-section-header">Departments</div>
+				<div class="sheet-departments-shell">
+				<div class="sheet-stat-grid">
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="command" /><span></span></label>
+						<span class="sheet-stat-name">Command</span>
+						<input type="number" name="attr_command" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="conn" /><span></span></label>
+						<span class="sheet-stat-name">Conn</span>
+						<input type="number" name="attr_conn" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="engineering" /><span></span></label>
+						<span class="sheet-stat-name">Engineering</span>
+						<input type="number" name="attr_engineering" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="security" /><span></span></label>
+						<span class="sheet-stat-name">Security</span>
+						<input type="number" name="attr_security" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="medicine" /><span></span></label>
+						<span class="sheet-stat-name">Medicine</span>
+						<input type="number" name="attr_medicine" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="science" /><span></span></label>
+						<span class="sheet-stat-name">Science</span>
+						<input type="number" name="attr_science" min="0" max="5" value="1" />
+					</div>
+					<div class="sheet-dept-row">
+						<label class="sheet-stat-select"><input type="radio" name="attr_selected_department" value="reputation" /><span></span></label>
+						<span class="sheet-stat-name">Reputation</span>
+						<input type="number" name="attr_reputation" min="0" max="5" value="3" />
+					</div>
+				</div>
+				</div><!-- /.sheet-departments-shell -->
+			</div>
+
+		</div><!-- /.sheet-attr-dept-row -->
+
+		<!-- Task Check / Roll Panel -->
+		<div class="sheet-section sheet-roll-panel">
+			<div class="sheet-section-header">Task Check</div>
+			<div class="sheet-roll-panel-shell">
+			<div class="sheet-roll-bar">
+				<input type="checkbox" name="attr_roll_task_disabled" class="sheet-roll-disabled-flag" checked="checked" />
+				<input type="checkbox" name="attr_task_shutdown" class="sheet-task-shutdown-flag" value="1" />
+				   <input type="checkbox" name="attr_task_reroll_ready" class="sheet-task-reroll-flag" value="1" />
+				<div class="sheet-field">
+					<label>Attribute</label>
+					<input type="number" name="attr_task_attribute" min="0" max="12" readonly />
+				</div>
+				<span class="sheet-roll-op">+</span>
+				<div class="sheet-field">
+					<label>Department</label>
+					<input type="number" name="attr_task_department" min="0" max="5" readonly />
+				</div>
+				<span class="sheet-roll-op">=</span>
+				<div class="sheet-field">
+					<label>Target</label>
+					<input type="number" name="attr_target_number" min="0" max="17" readonly />
+				</div>			<div class="sheet-field sheet-focus-field">
+				<label>Focus</label>
+				<div class="sheet-focus-select">
+					<input type="text" name="attr_task_focus_label" readonly class="sheet-focus-display" />
+					<label class="sheet-focus-trigger">
+						<input type="checkbox" name="attr_focus_open" class="sheet-focus-toggle">
+					</label>
+					<div class="sheet-focus-dropdown">
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="" />
+							<span>None</span>
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="1" />
+							<input type="text" name="attr_focus_1" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="2" />
+							<input type="text" name="attr_focus_2" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="3" />
+							<input type="text" name="attr_focus_3" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="4" />
+							<input type="text" name="attr_focus_4" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="5" />
+							<input type="text" name="attr_focus_5" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="6" />
+							<input type="text" name="attr_focus_6" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="7" />
+							<input type="text" name="attr_focus_7" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="8" />
+							<input type="text" name="attr_focus_8" readonly placeholder=" " />
+						</label>
+						<label class="sheet-focus-item" tabindex="0">
+							<input type="radio" name="attr_task_focus" value="9" />
+							<input type="text" name="attr_focus_9" readonly placeholder=" " />
+						</label>
+					</div>
+				</div>
+			</div>
+				<div class="sheet-task-shutdown-warning">Shut Down</div>
+				<div class="sheet-field">
+					<label>Difficulty</label>
+					<input type="number" name="attr_difficulty" min="0" max="9" value="1" />
+				</div>
+				<div class="sheet-field">
+					<label>C-Range</label>
+					<input type="number" name="attr_c_range" min="1" max="6" value="1" />
+				</div>
+				<div class="sheet-field">
+					<label>Dice</label>
+					<input type="number" name="attr_dice_count" min="1" max="9" value="2" />
+				</div>
+				<div class="sheet-field">
+					<label>Assists</label>
+					<input type="number" name="attr_assists" min="0" max="9" value="0" />
+				</div>
+				<span class="sheet-roll-op sheet-roll-gap">+</span>
+				<div class="sheet-field">
+					<label>Check Type</label>
+					<select name="attr_determination_spend">
+						<option value="none" selected="selected">Standard</option>
+						<option value="assist">Assist</option>
+						<option value="inspired">Inspired</option>
+						<option value="opportunity">Opportunity</option>
+						<option value="opposed">Opposed</option>
+					</select>
+				</div>
+				<span class="sheet-roll-op sheet-roll-gap">+</span>
+				<button type="action" name="act_roll_task" class="sheet-roll-task-btn">Roll</button>
+				<button type="action" name="act_reroll_task" class="sheet-reroll-task-btn">Re-roll</button>
+			</div>
+			</div><!-- /.sheet-roll-panel-shell -->
+		</div>
+
+		
+
+		<!-- Focuses -->
+		<div class="sheet-section sheet-focuses">
+			<div class="sheet-section-header">Focuses</div>
+			<div class="sheet-focuses-shell">
+			<div class="sheet-focuses-rows">
+				<div class="sheet-focuses-row">
+					<input type="text" name="attr_focus_1" placeholder=" " />
+					<input type="text" name="attr_focus_2" placeholder=" " />
+					<input type="text" name="attr_focus_3" placeholder=" " />
+				</div>
+				<div class="sheet-focuses-row">
+					<input type="text" name="attr_focus_4" placeholder=" " />
+					<input type="text" name="attr_focus_5" placeholder=" " />
+					<input type="text" name="attr_focus_6" placeholder=" " />
+				</div>
+				<div class="sheet-focuses-row">
+					<input type="text" name="attr_focus_7" placeholder=" " />
+					<input type="text" name="attr_focus_8" placeholder=" " />
+					<input type="text" name="attr_focus_9" placeholder=" " />
+				</div>
+			</div>
+			</div><!-- /.sheet-focuses-shell -->
+		</div>
+
+		<!-- Values -->
+		<div class="sheet-section sheet-values">
+			<div class="sheet-section-header">Values</div>
+			<div class="sheet-values-shell">
+			<div class="sheet-values-rows">
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_1" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_1" class="sheet-value-challenge-toggle" id="value_challenged_1" />
+					<label class="sheet-value-challenge-button" for="value_challenged_1">challenged</label>
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_2" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_2" class="sheet-value-challenge-toggle" id="value_challenged_2" />
+					<label class="sheet-value-challenge-button" for="value_challenged_2">challenged</label>
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_3" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_3" class="sheet-value-challenge-toggle" id="value_challenged_3" />
+					<label class="sheet-value-challenge-button" for="value_challenged_3">challenged</label>
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_4" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_4" class="sheet-value-challenge-toggle" id="value_challenged_4" />
+					<label class="sheet-value-challenge-button" for="value_challenged_4">challenged</label>
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_5" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_5" class="sheet-value-challenge-toggle" id="value_challenged_5" />
+					<label class="sheet-value-challenge-button" for="value_challenged_5">challenged</label>
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_6" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_6" class="sheet-value-challenge-toggle" id="value_challenged_6" />
+					<label class="sheet-value-challenge-button" for="value_challenged_6">challenged</label>
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_7" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_7" class="sheet-value-challenge-toggle" id="value_challenged_7" />
+					<label class="sheet-value-challenge-button" for="value_challenged_7">challenged</label>
+				</div>
+				<div class="sheet-values-row">
+					<input type="text" name="attr_value_8" placeholder=" " />
+					<input type="checkbox" name="attr_value_challenged_8" class="sheet-value-challenge-toggle" id="value_challenged_8" />
+					<label class="sheet-value-challenge-button" for="value_challenged_8">challenged</label>
+				</div>
+			</div>
+			</div><!-- /.sheet-values-shell -->
+		</div>
+
+		<!-- Character Extended Tasks -->
+		<div class="sheet-section sheet-extended-tasks">
+			<div class="sheet-section-header">Extended Tasks</div>
+			<div class="sheet-extended-tasks-shell">
+				<fieldset class="repeating_characterextendedtasks">
+					<div class="sheet-extended-task-item">
+						<div class="sheet-extended-task-descriptor">
+							<span class="sheet-extended-task-label">Name</span>
+							<div class="sheet-field sheet-extended-task-name">
+								<input type="text" name="attr_et_name" placeholder=" " />
+							</div>
+							<span class="sheet-extended-task-label">Length</span>
+							<div class="sheet-field sheet-extended-task-number">
+								<input type="number" name="attr_et_length" value="12" min="4" max="43" />
+							</div>
+							<span class="sheet-extended-task-label">Difficulty</span>
+							<div class="sheet-field sheet-extended-task-number">
+								<input type="number" name="attr_et_difficulty" value="1" min="0" max="5" />
+							</div>
+							<span class="sheet-extended-task-label">Resistance</span>
+							<div class="sheet-field sheet-extended-task-number">
+								<input type="number" name="attr_et_resistance" value="0" min="0" max="9" />
+							</div>
+							<div class="sheet-extended-task-complete">Complete</div>
+						        
+                                        <input type="checkbox" name="attr_et_complete" class="sheet-et-complete-flag" value="1" />
+                                        <div class="sheet-extended-task-progress"><div class="sheet-extended-task-boxes">
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_1" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_1" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_1" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_1" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_2" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_2" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_2" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_2" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_3" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_3" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_3" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_3" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_4" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_4" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_4" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_4" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_5" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_5" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_5" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_5" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_6" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_6" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_6" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_6" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_7" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_7" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_7" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_7" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_8" class="sheet-et-milestone" value="1" checked="checked" /><input type="checkbox" name="attr_et_m75_8" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_8" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_8" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_9" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_9" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_9" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_9" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_10" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_10" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_10" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_10" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_11" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_11" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_11" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_11" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_12" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_12" class="sheet-et-milestone" value="1" checked="checked" /><input type="checkbox" name="attr_et_show_12" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_12" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_13" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_13" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_13" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_13" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_14" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_14" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_14" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_14" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_15" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_15" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_15" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_15" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_16" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_16" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_16" class="sheet-et-show-flag" value="1" checked="checked" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_16" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_17" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_17" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_17" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_17" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_18" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_18" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_18" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_18" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_19" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_19" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_19" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_19" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_20" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_20" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_20" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_20" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_21" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_21" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_21" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_21" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_22" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_22" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_22" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_22" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_23" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_23" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_23" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_23" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_24" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_24" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_24" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_24" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_25" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_25" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_25" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_25" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_26" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_26" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_26" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_26" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_27" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_27" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_27" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_27" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_28" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_28" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_28" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_28" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_29" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_29" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_29" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_29" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_30" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_30" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_30" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_30" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_31" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_31" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_31" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_31" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_32" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_32" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_32" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_32" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_33" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_33" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_33" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_33" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_34" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_34" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_34" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_34" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_35" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_35" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_35" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_35" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_36" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_36" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_36" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_36" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_37" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_37" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_37" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_37" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_38" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_38" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_38" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_38" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_39" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_39" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_39" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_39" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_40" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_40" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_40" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_40" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_41" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_41" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_41" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_41" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_42" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_42" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_42" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_42" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_43" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_43" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_43" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_43" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_44" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_44" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_44" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_44" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_45" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_45" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_45" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_45" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_46" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_46" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_46" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_46" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_47" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_47" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_47" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_47" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_48" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_48" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_48" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_48" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_49" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_49" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_49" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_49" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_50" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_50" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_50" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_50" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_51" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_51" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_51" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_51" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_52" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_52" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_52" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_52" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_53" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_53" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_53" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_53" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_54" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_54" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_54" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_54" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_55" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_55" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_55" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_55" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_56" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_56" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_56" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_56" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_57" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_57" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_57" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_57" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_58" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_58" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_58" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_58" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_59" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_59" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_59" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_59" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_60" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_60" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_60" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_60" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_61" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_61" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_61" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_61" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_62" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_62" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_62" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_62" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_63" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_63" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_63" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_63" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_64" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_64" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_64" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_64" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_65" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_65" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_65" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_65" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_66" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_66" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_66" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_66" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_67" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_67" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_67" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_67" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_68" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_68" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_68" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_68" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_69" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_69" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_69" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_69" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_70" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_70" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_70" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_70" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_71" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_71" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_71" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_71" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_72" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_72" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_72" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_72" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_73" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_73" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_73" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_73" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_74" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_74" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_74" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_74" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_75" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_75" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_75" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_75" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_76" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_76" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_76" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_76" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_77" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_77" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_77" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_77" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_78" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_78" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_78" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_78" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_79" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_79" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_79" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_79" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_80" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_80" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_80" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_80" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_81" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_81" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_81" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_81" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_82" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_82" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_82" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_82" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_83" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_83" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_83" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_83" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_84" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_84" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_84" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_84" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_85" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_85" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_85" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_85" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_86" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_86" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_86" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_86" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_87" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_87" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_87" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_87" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_88" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_88" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_88" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_88" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_89" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_89" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_89" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_89" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_90" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_90" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_90" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_90" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_91" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_91" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_91" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_91" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_92" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_92" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_92" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_92" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_93" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_93" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_93" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_93" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_94" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_94" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_94" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_94" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_95" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_95" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_95" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_95" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_96" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_96" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_96" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_96" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_97" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_97" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_97" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_97" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_98" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_98" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_98" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_98" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                                <div class="sheet-extended-task-box-wrap"><input type="checkbox" name="attr_et_m50_99" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_m75_99" class="sheet-et-milestone" value="1" /><input type="checkbox" name="attr_et_show_99" class="sheet-et-show-flag" value="1" /><label class="sheet-extended-task-box-hit"><input type="checkbox" name="attr_et_prog_99" class="sheet-et-prog" tabindex="-1" value="1" /><span class="sheet-extended-task-box"></span></label></div>
+                                        </div></div>
+                                </div>
+					</div>
+				</fieldset>
+			</div><!-- /.sheet-extended-tasks-shell -->
+		</div>
+
+		<!-- Background -->
+		<div class="sheet-section sheet-background">
+			<div class="sheet-section-header">Notes</div>
+			<div class="sheet-background-shell">
+			<div class="sheet-background-fields sheet-background-fields-npc-notes">
+				<textarea name="attr_npc_notes" rows="16"></textarea>
+			</div>
+			</div><!-- /.sheet-background-shell -->
+		</div>
+
+	</div>
+
 	<div class="sheet-tab-page sheet-tab-page-settings">
 		<div class="sheet-section sheet-settings">
 			<div class="sheet-section-header">Sheet Type</div>
@@ -1774,6 +2608,10 @@ Author: Don Davis, aka omonubi
 					<label class="sheet-settings-option">
 						<input type="radio" name="attr_sheet_type" value="party" />
 						<span>Mission</span>
+					</label>
+					<label class="sheet-settings-option">
+						<input type="radio" name="attr_sheet_type" value="npc" />
+						<span>NPC</span>
 					</label>
 				</div>
 			</div>
@@ -2017,6 +2855,22 @@ function clampStressMax(value) {
 		return 7;
 	}
 	return Math.max(1, Math.min(parsed, 19));
+}
+
+function clampThreat(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 3;
+	}
+	return Math.max(0, Math.min(parsed, 20));
+}
+
+function clampProtection(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 9));
 }
 
 function syncStressTrack(options, callback) {
@@ -3464,6 +4318,32 @@ on('change:stress_max', function(eventInfo) {
 
 	syncStressTrack(function() {
 		syncTaskShutdownWarning();
+	});
+});
+
+on('change:threat', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	getAttrs(['threat'], function(v) {
+		var threat = clampThreat(v.threat);
+		if (parseInt(v.threat, 10) !== threat) {
+			setAttrs({ threat: threat });
+		}
+	});
+});
+
+on('change:protection', function(eventInfo) {
+	if (!eventInfo || eventInfo.sourceType !== 'player') {
+		return;
+	}
+
+	getAttrs(['protection'], function(v) {
+		var protection = clampProtection(v.protection);
+		if (parseInt(v.protection, 10) !== protection) {
+			setAttrs({ protection: protection });
+		}
 	});
 });
 
