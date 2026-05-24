@@ -11,16 +11,154 @@ Author: Don Davis, aka omonubi
 .sheet-content {
 	--lcars-black:    #000000;
 	--lcars-orange:   #ff8800;
+	--lcars-orange-muted: #8f4f1f;
+	--lcars-orange-hover: #ffb255;
+	--lcars-orange-glow: rgba(255, 153, 102, 0.35);
 	--lcars-tan:      #FFCC99;
 	--lcars-peach:    #FFCC99;
 	--lcars-pink:     #cc5599;
+	--lcars-pink-hover: #ff85b0;
 	--lcars-blue:     #8899ff;
 	--lcars-green:    #33CC99;
 	--lcars-purple:   #CC99FF;
 	--lcars-gold:     #FFCC33;
+	--lcars-input-text: var(--lcars-tan);
+	--lcars-label-color: var(--lcars-tan);
+	--lcars-box-hover: var(--lcars-tan);
+	--lcars-button-disabled-bg: #8b4c63;
+	--lcars-button-disabled-text: #2c141d;
 	--lcars-on-dark:  #FFFFFF;
 	--lcars-on-color: #000000;
 	--lcars-font:     'Antonio', sans-serif;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) {
+	--lcars-orange: #2266ff;
+	--lcars-orange-muted: #1d3f93;
+	--lcars-orange-hover: #4d7cff;
+	--lcars-orange-glow: rgba(34, 102, 255, 0.35);
+	--lcars-purple: #6699ff;
+	--lcars-blue: #2233ff;
+	--lcars-peach: #ccaa88;
+	--lcars-pink: #9966cc;
+	--lcars-pink-hover: #b78bde;
+	--lcars-input-text: #88bbff;
+	--lcars-label-color: #88bbff;
+	--lcars-box-hover: #88bbff;
+	--lcars-button-disabled-bg: #5d4d73;
+	--lcars-button-disabled-text: #241b30;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) {
+	--lcars-orange: #ff7700;
+	--lcars-orange-muted: #cc5500;
+	--lcars-orange-hover: #ff9911;
+	--lcars-orange-glow: rgba(255, 119, 0, 0.35);
+	--lcars-purple: #ff9911;
+	--lcars-blue: #cc5500;
+	--lcars-peach: #ffaa44;
+	--lcars-pink: #ff4400;
+	--lcars-pink-hover: #ff7700;
+	--lcars-input-text: #ffcc99;
+	--lcars-label-color: #ffcc99;
+	--lcars-box-hover: #ffcc99;
+	--lcars-button-disabled-bg: #8a4d22;
+	--lcars-button-disabled-text: #2a1608;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) {
+	--lcars-orange: #6d748c;
+	--lcars-orange-muted: #52596e;
+	--lcars-orange-hover: #828ba6;
+	--lcars-orange-glow: rgba(109, 116, 140, 0.35);
+	--lcars-purple: #808c6d;
+	--lcars-blue: #37a6d1;
+	--lcars-peach: #9ea5ba;
+	--lcars-pink: #8c6d7c;
+	--lcars-pink-hover: #f05f48;
+	--lcars-input-text: #d2d5df;
+	--lcars-label-color: #d2d5df;
+	--lcars-box-hover: #d2d5df;
+	--lcars-button-disabled-bg: #4a4f5f;
+	--lcars-button-disabled-text: #1a1c22;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) label:not(.sheet-tab-label) {
+	color: #88bbff !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) input[type="text"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) input[type="number"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) textarea,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) select {
+	color: #88bbff !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) label:not(.sheet-tab-label) {
+	color: #ffcc99 !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) input[type="text"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) input[type="number"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) textarea,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) select {
+	color: #ffcc99 !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) label:not(.sheet-tab-label) {
+	color: #d2d5df !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) input[type="text"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) input[type="number"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) textarea,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) select {
+	color: #d2d5df !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-tab-page-starship .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-settings-option:has(input:checked) {
+	color: #000000 !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-settings-option:has(input:checked),
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-settings-option:has(input:checked),
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-settings-option:has(input:checked),
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover {
+	color: #000000 !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-settings-option,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-no-shields-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-space-dock-repair-reset-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-settings-option,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-starship-no-shields-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-space-dock-repair-reset-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-settings-option,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-no-shields-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-space-dock-repair-reset-btn {
+	color: #000000 !important;
 }
 
 /* ============================================================
@@ -236,7 +374,7 @@ Author: Don Davis, aka omonubi
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	font-size: 12px;
-	color: var(--lcars-tan);
+	color: var(--lcars-label-color);
 }
 
 /* ============================================================
@@ -293,6 +431,10 @@ Author: Don Davis, aka omonubi
 	right: 0;
 	width: var(--sheet-section-cap-width);
 	border-radius: 0 20px 20px 0;
+}
+
+.sheet-section-header-blue {
+	--sheet-section-bg: var(--lcars-blue);
 }
 
 /* ============================================================
@@ -375,25 +517,27 @@ Author: Don Davis, aka omonubi
 .sheet-tab-page-starship .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button {
 	background-color: var(--lcars-orange);
 	color: #000000;
-	box-shadow: 0 0 0 1px rgba(255, 136, 0, 0.85) inset;
+	opacity: 1;
+	filter: none;
+	box-shadow: none;
 }
 
 .sheet-tab-page-starship .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover {
-	background-color: #ffb255;
+	background-color: var(--lcars-orange-hover);
 }
 
-.sheet-tab-page-starship .sheet-starship-power-toggle:not(:checked) + .sheet-starship-power-toggle-button:hover {
-	background-color: #ffb255;
-	opacity: 1;
-	filter: none;
-}
-
-.sheet-tab-page-starship .sheet-starship-power-toggle:not(:checked) + .sheet-starship-power-toggle {
-	background-color: var(--lcars-orange);
-	color: #000000;
+.sheet-tab-page-starship .sheet-starship-power-toggle:not(:checked) + .sheet-starship-power-toggle-button {
 	opacity: 0.65;
 	filter: saturate(0.72);
 	box-shadow: none;
+	background-color: var(--lcars-orange);
+	color: #000000;
+}
+
+.sheet-tab-page-starship .sheet-starship-power-toggle:not(:checked) + .sheet-starship-power-toggle-button:hover {
+	background-color: var(--lcars-orange-hover);
+	opacity: 1;
+	filter: none;
 }
 
 .sheet-tab-page-starship .sheet-bio-fields-max-shields {
@@ -475,7 +619,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-tab-page-starship .sheet-field-max-shields-current:has(.sheet-starship-no-shields-ready-flag:checked) .sheet-starship-no-shields-btn:hover {
-	background-color: #ffb255;
+	background-color: var(--lcars-orange-hover);
 }
 
 .sheet-field input[type="text"],
@@ -603,7 +747,7 @@ Author: Don Davis, aka omonubi
 .sheet-content textarea,
 .sheet-content select {
 	background-color: #111111;
-	color: var(--lcars-tan);
+	color: var(--lcars-input-text);
 	border: 1px solid #333333;
 	border-bottom: 2px solid var(--lcars-orange);
 	border-radius: 3px 3px 0 0;
@@ -618,7 +762,60 @@ Author: Don Davis, aka omonubi
 .sheet-content textarea:focus,
 .sheet-content select:focus {
 	outline: none;
-	border-bottom-color: var(--lcars-tan);
+	border-bottom-color: var(--lcars-label-color);
+}
+
+.sheet-content input[type="text"]:not(:focus),
+.sheet-content textarea:not(:focus) {
+	border: 1px solid #333333 !important;
+}
+
+.sheet-content input[type="number"]:not(:focus) {
+	border: 1px solid #333333 !important;
+}
+
+/* Section-specific focus underline colors (match section label/accent color) */
+.sheet-content .sheet-bio-fields input[type="text"]:focus,
+.sheet-content .sheet-bio-fields input[type="number"]:focus,
+.sheet-content .sheet-bio-traits-rows input[type="text"]:focus,
+.sheet-content .sheet-mission-bio-fields input[type="text"]:focus,
+.sheet-content .sheet-mission-bio-fields input[type="number"]:focus,
+.sheet-content .sheet-personal-log input[type="text"]:focus,
+.sheet-content .sheet-mission-characters input[type="text"]:focus,
+.sheet-content .sheet-stress-max-field input[type="number"]:focus,
+.sheet-content .sheet-attributes input[type="number"]:focus {
+	border-bottom-color: var(--lcars-orange) !important;
+}
+
+.sheet-content .sheet-departments input[type="number"]:focus,
+.sheet-content .sheet-background input[type="text"]:focus,
+.sheet-content .sheet-background textarea:focus,
+.sheet-content .sheet-locations input[type="text"]:focus,
+.sheet-content .sheet-settings input[type="text"]:focus,
+.sheet-content .sheet-settings input[type="number"]:focus,
+.sheet-content .sheet-settings textarea:focus,
+.sheet-content .sheet-settings select:focus {
+	border-bottom-color: var(--lcars-blue) !important;
+}
+
+.sheet-content .sheet-equipment input[type="text"]:focus,
+.sheet-content .sheet-focuses input[type="text"]:focus,
+.sheet-content .sheet-weapons input[type="text"]:focus,
+.sheet-content .sheet-shuttlebay input[type="text"]:focus,
+.sheet-content .sheet-shuttlebay input[type="number"]:focus {
+	border-bottom-color: var(--lcars-purple) !important;
+}
+
+.sheet-content .sheet-traits input[type="text"]:focus,
+.sheet-content .sheet-traits textarea:focus,
+.sheet-content .sheet-values input[type="text"]:focus,
+.sheet-content .sheet-directives input[type="text"]:focus {
+	border-bottom-color: var(--lcars-peach) !important;
+}
+
+.sheet-content .sheet-extended-tasks input[type="text"]:focus,
+.sheet-content .sheet-extended-tasks input[type="number"]:focus {
+	border-bottom-color: var(--lcars-pink) !important;
 }
 
 /* ============================================================
@@ -673,7 +870,7 @@ Author: Don Davis, aka omonubi
 .sheet-attributes-shell  { border-left: 4px solid var(--lcars-orange); }
 .sheet-departments-shell { border-left: 4px solid var(--lcars-blue);   }
 .sheet-roll-panel-shell  { border-left: 4px solid var(--lcars-pink);   }
-.sheet-traits-shell      { border-left: 4px solid var(--lcars-tan);    }
+.sheet-traits-shell      { border-left: 4px solid var(--lcars-peach);  }
 .sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
 .sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
 .sheet-equipment-shell        { border-left: 4px solid var(--lcars-purple); }
@@ -842,7 +1039,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-dept-row input[type="number"]:focus {
-	border-bottom-color: var(--lcars-blue);
+	border-bottom-color: var(--lcars-label-color);
 }
 
 .sheet-dept-row input[name="attr_reputation"] {
@@ -850,7 +1047,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-dept-row input[name="attr_reputation"]:focus {
-	border-bottom-color: var(--lcars-orange);
+	border-bottom-color: var(--lcars-label-color);
 }
 
 /* Subtle readonly cue for fixed stat cells (e.g., Reputation rows). */
@@ -1124,6 +1321,7 @@ Author: Don Davis, aka omonubi
 	text-transform: none !important;
 	letter-spacing: normal !important;
 	white-space: nowrap;
+	border: none !important;
 }
 
 .sheet-roll-bar .sheet-focus-item > * {
@@ -1158,7 +1356,8 @@ Author: Don Davis, aka omonubi
 
 .sheet-roll-bar .sheet-focus-item input[type="text"] {
 	background: transparent;
-	border: none;
+	border: none !important;
+	border-bottom: none !important;
 	outline: none;
 	box-shadow: none;
 	color: inherit;
@@ -1217,8 +1416,28 @@ Author: Don Davis, aka omonubi
 	border-bottom-color: var(--lcars-blue);
 }
 
+.sheet-roll-bar .sheet-field input[type="number"][name="attr_task_attribute"]:focus,
+.sheet-roll-bar .sheet-field input[type="number"][name="attr_task_department"]:focus,
+.sheet-roll-bar .sheet-field input[type="number"][name="attr_target_number"]:focus {
+	border-bottom-color: var(--lcars-pink);
+}
+
 .sheet-roll-bar .sheet-field input[name="attr_task_focus_label"] {
 	border-bottom-color: var(--lcars-purple);
+}
+
+.sheet-roll-bar .sheet-field input[name="attr_task_focus_label"]:focus {
+	border-bottom-color: var(--lcars-pink);
+}
+
+.sheet-roll-bar select[name="attr_determination_spend"],
+.sheet-roll-bar select[name="attr_starship_determination_spend"] {
+	border-bottom-color: transparent;
+}
+
+.sheet-roll-bar select[name="attr_determination_spend"]:focus,
+.sheet-roll-bar select[name="attr_starship_determination_spend"]:focus {
+	border-bottom-color: var(--lcars-pink);
 }
 
 /* Task Check control text color accents */
@@ -1250,6 +1469,13 @@ Author: Don Davis, aka omonubi
 	font-size: 14px;
 }
 
+.sheet-roll-bar .sheet-field input[type="number"][name="attr_difficulty"]:focus,
+.sheet-roll-bar .sheet-field input[type="number"][name="attr_c_range"]:focus,
+.sheet-roll-bar .sheet-field input[type="number"][name="attr_dice_count"]:focus,
+.sheet-roll-bar .sheet-field input[type="number"][name="attr_assists"]:focus {
+	border-bottom-color: var(--lcars-pink);
+}
+
 /* Roll button — right-rounded LCARS lozenge */
 .sheet-roll-bar button[type="roll"],
 .sheet-roll-bar button[type="action"] {
@@ -1277,16 +1503,16 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar button.sheet-reroll-task-btn:hover {
-	background-color: var(--lcars-pink);
+	background-color: var(--lcars-pink-hover);
 }
 
 .sheet-roll-bar button[type="roll"]:hover,
 .sheet-roll-bar button[type="action"]:hover {
-	background-color: #ff85b0;
+	background-color: var(--lcars-pink-hover);
 }
 
 .sheet-roll-bar button[type="action"].sheet-reroll-task-btn:hover {
-	background-color: var(--lcars-pink);
+	background-color: var(--lcars-pink-hover);
 }
 
 /* Disable Roll Task when task Attribute/Department is 0 or Shut Down is active */
@@ -1294,8 +1520,8 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button.sheet-roll-task-btn,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"],
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"] {
-	background-color: #8b4c63;
-	color: #2c141d;
+	background-color: var(--lcars-button-disabled-bg);
+	color: var(--lcars-button-disabled-text);
 	cursor: not-allowed;
 	opacity: 0.6;
 	pointer-events: none;
@@ -1305,14 +1531,14 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button.sheet-roll-task-btn:hover,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"]:hover,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"]:hover {
-	background-color: #8b4c63;
+	background-color: var(--lcars-button-disabled-bg);
 }
 
 /* Disable Re-roll button when Roll button is enabled or no reroll is available */
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:not(:checked)) button.sheet-reroll-task-btn,
 .sheet-roll-bar:has(input[name="attr_task_reroll_ready"]:not(:checked)) button.sheet-reroll-task-btn {
-	background-color: #8b4c63;
-	color: #2c141d;
+	background-color: var(--lcars-button-disabled-bg);
+	color: var(--lcars-button-disabled-text);
 	cursor: not-allowed;
 	opacity: 0.6;
 	pointer-events: none;
@@ -1320,7 +1546,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:not(:checked)) button.sheet-reroll-task-btn:hover,
 .sheet-roll-bar:has(input[name="attr_task_reroll_ready"]:not(:checked)) button.sheet-reroll-task-btn:hover {
-	background-color: #8b4c63;
+	background-color: var(--lcars-button-disabled-bg);
 }
 
 /* ============================================================
@@ -1341,7 +1567,7 @@ Author: Don Davis, aka omonubi
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--lcars-tan);
+	color: var(--lcars-label-color);
 	line-height: 30px;
 	min-width: 64px;
 }
@@ -1362,7 +1588,7 @@ Author: Don Davis, aka omonubi
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--lcars-tan);
+	color: var(--lcars-label-color);
 	line-height: 30px;
 	margin-right: 0px;
 }
@@ -1410,7 +1636,7 @@ Author: Don Davis, aka omonubi
 	width: 14px;
 	height: 14px;
 	box-sizing: border-box;
-	border: 1px solid #8f4f1f;
+	border: 1px solid var(--lcars-orange-muted);
 	border-radius: 2px;
 	background-color: #111111;
 	transition: background-color 0.08s ease, border-color 0.08s ease, box-shadow 0.08s ease;
@@ -1419,11 +1645,11 @@ Author: Don Davis, aka omonubi
 .sheet-stress-box-hit .sheet-stress-box-input:checked + .sheet-stress-box {
 	background-color: var(--lcars-orange);
 	border-color: var(--lcars-orange);
-	box-shadow: 0 0 4px rgba(255, 153, 102, 0.35);
+	box-shadow: 0 0 4px var(--lcars-orange-glow);
 }
 
 .sheet-stress-box-hit .sheet-stress-box-input:hover + .sheet-stress-box {
-	border-color: var(--lcars-tan);
+	border-color: var(--lcars-box-hover);
 }
 
 .sheet-stress-fatigued {
@@ -1432,7 +1658,7 @@ Author: Don Davis, aka omonubi
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--lcars-tan);
+	color: var(--lcars-label-color);
 	opacity: 0.5;
 	line-height: 30px;
 	margin-left: 20px;
@@ -1552,6 +1778,10 @@ Author: Don Davis, aka omonubi
 	border-bottom: 1px solid #333333;
 }
 
+.sheet-focuses-row input[type="text"]:focus {
+	border-bottom-width: 2px;
+}
+
 /* Rows 2+ hidden by default */
 .sheet-focuses-row:nth-child(n+2) {
 	display: none;
@@ -1624,7 +1854,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    TRAITS SECTION
    ============================================================ */
-.sheet-traits .sheet-section-header { --sheet-section-bg: var(--lcars-tan); }
+.sheet-traits .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
 
 .sheet-weapons .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
@@ -1725,7 +1955,13 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-field-shuttlebay-operation .sheet-stress-box-hit .sheet-stress-box-input:hover + .sheet-stress-box {
-	border-color: var(--lcars-tan);
+	border-color: var(--lcars-box-hover);
+}
+
+.sheet-field-shuttlebay-operation .sheet-stress-box-hit .sheet-stress-box-input:focus + .sheet-stress-box,
+.sheet-field-shuttlebay-operation .sheet-stress-box-hit .sheet-stress-box-input:focus-visible + .sheet-stress-box {
+	border-color: var(--lcars-purple);
+	box-shadow: 0 0 0 2px rgba(204, 153, 255, 0.5);
 }
 
 .sheet-shuttlebay-row input[type="text"] {
@@ -1872,6 +2108,11 @@ Author: Don Davis, aka omonubi
 	border-bottom: 1px solid var(--lcars-peach);
 }
 
+.sheet-traits-row input[type="text"]:focus,
+.sheet-content .sheet-trait-details:focus {
+	border-bottom-width: 2px;
+}
+
 .sheet-traits-row-details-trigger {
 	display: flex;
 	align-items: center;
@@ -1885,7 +2126,7 @@ Author: Don Davis, aka omonubi
 	border: 1px solid #333333;
 	border-radius: 0 15px 15px 0;
 	background-color: #111111;
-	color: var(--lcars-tan);
+	color: var(--lcars-peach);
 	cursor: pointer;
 	font-family: var(--lcars-font);
 	font-size: 11px;
@@ -1914,7 +2155,23 @@ Author: Don Davis, aka omonubi
 	content: none;
 }
 
+.sheet-traits-row-details-trigger:hover,
+.sheet-traits-row-details-trigger:focus,
+.sheet-traits-row-details-trigger:active {
+	background-color: #444444;
+	border-color: #666666;
+	color: var(--lcars-on-dark);
+}
+
 .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger {
+	background-color: var(--lcars-peach);
+	border-color: var(--lcars-peach);
+	color: #000000;
+}
+
+.sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:hover,
+.sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:focus,
+.sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:active {
 	background-color: var(--lcars-peach);
 	border-color: var(--lcars-peach);
 	color: #000000;
@@ -2015,6 +2272,10 @@ Author: Don Davis, aka omonubi
 	flex: 1;
 	min-width: 0;
 	border-bottom: 1px solid #333333;
+}
+
+.sheet-values-row input[type="text"]:focus {
+	border-bottom-width: 2px;
 }
 
 .sheet-values-row .sheet-value-challenge-toggle {
@@ -2171,7 +2432,7 @@ Author: Don Davis, aka omonubi
 .sheet-log-row input[type="text"] {
 	flex: 1;
 	width: 0;
-	border-bottom: 1px solid var(--lcars-orange);
+	border-bottom: 2px solid var(--lcars-orange);
 }
 
 .sheet-log-row input[type="text"]:nth-child(1) { flex: 1.5; }
@@ -2310,6 +2571,38 @@ Author: Don Davis, aka omonubi
 .sheet-settings-option:has(input:checked) {
 	background-color: var(--lcars-purple);
 	border-color: var(--lcars-purple);
+	color: var(--lcars-on-color);
+}
+
+.sheet-settings-theme .sheet-settings-shell {
+	border-left-color: var(--lcars-blue);
+}
+
+.sheet-settings-theme .sheet-section-header {
+	--sheet-section-bg: var(--lcars-blue);
+}
+
+.sheet-settings-theme .sheet-settings-label,
+.sheet-settings-theme .sheet-settings-option {
+	color: var(--lcars-blue);
+}
+
+.sheet-settings-theme .sheet-settings-option {
+	width: 124px;
+	justify-content: center;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.sheet-settings-theme .sheet-settings-option span {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+.sheet-settings-theme .sheet-settings-option:has(input:checked) {
+	background-color: var(--lcars-blue);
+	border-color: var(--lcars-blue);
 	color: var(--lcars-on-color);
 }
 
@@ -2553,7 +2846,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-location-row input[type="text"] {
 	width: 100%;
-	border-bottom: 1px solid var(--lcars-blue);
+	border-bottom: 2px solid var(--lcars-blue);
 }
 
 .sheet-location-item > .sheet-location-row:not(.sheet-location-row-primary) input[type="text"]:nth-child(1) {
@@ -2688,13 +2981,13 @@ Author: Don Davis, aka omonubi
 
 .sheet-extended-task-name input[type="text"] {
 	width: 100%;
-	border-bottom: 1px solid var(--lcars-pink);
+	border-bottom: 2px solid var(--lcars-pink);
 }
 
 .sheet-extended-task-number input[type="number"] {
 	width: 48px;
 	text-align: center;
-	border-bottom: 1px solid var(--lcars-pink);
+	border-bottom: 2px solid var(--lcars-pink);
 }
 
 .sheet-extended-task-complete {
@@ -2777,7 +3070,7 @@ Author: Don Davis, aka omonubi
 	width: 14px;
 	height: 14px;
 	box-sizing: border-box;
-	border: 1px solid #8f7540;
+	border: 1px solid var(--lcars-orange-muted);
 	border-radius: 2px;
 	background-color: #111111;
 	transition: background-color 0.08s ease, border-color 0.08s ease, box-shadow 0.08s ease;
@@ -2790,7 +3083,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-extended-task-box-hit .sheet-et-prog:hover + .sheet-extended-task-box {
-	border-color: var(--lcars-tan);
+	border-color: var(--lcars-box-hover);
 }
 
 .sheet-et-milestone {
@@ -2863,15 +3156,135 @@ Author: Don Davis, aka omonubi
 	outline: none;
 }
 
+/* Unified repeating-list control style (matches shuttlebay controls) */
+.sheet-shuttlebay .repcontrol,
+.sheet-personal-log .repcontrol,
+.sheet-locations .repcontrol,
+.sheet-extended-tasks .repcontrol {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 4px;
+}
+
+.sheet-shuttlebay .repcontrol_edit,
+.sheet-shuttlebay .repcontrol_add,
+.sheet-personal-log .repcontrol_edit,
+.sheet-personal-log .repcontrol_add,
+.sheet-locations .repcontrol_edit,
+.sheet-locations .repcontrol_add,
+.sheet-extended-tasks .repcontrol_edit,
+.sheet-extended-tasks .repcontrol_add,
+.sheet-space-dock-repair-reset-btn {
+	appearance: none;
+	-webkit-appearance: none;
+	background: #222 !important;
+	background-color: #222 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	font-family: var(--lcars-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	cursor: pointer;
+	padding: 4px 14px;
+	transition: none;
+}
+
+.sheet-shuttlebay .repcontrol_edit,
+.sheet-personal-log .repcontrol_edit,
+.sheet-locations .repcontrol_edit,
+.sheet-extended-tasks .repcontrol_edit {
+	border-radius: 20px 4px 4px 20px;
+}
+
+.sheet-shuttlebay .repcontrol_add,
+.sheet-personal-log .repcontrol_add,
+.sheet-locations .repcontrol_add,
+.sheet-extended-tasks .repcontrol_add,
+.sheet-space-dock-repair-reset-btn {
+	border-radius: 4px 20px 20px 4px;
+}
+
+.sheet-shuttlebay .repcontrol_edit:hover,
+.sheet-shuttlebay .repcontrol_add:hover,
+.sheet-shuttlebay .repcontrol_edit:focus,
+.sheet-shuttlebay .repcontrol_add:focus,
+.sheet-shuttlebay .repcontrol_edit:active,
+.sheet-shuttlebay .repcontrol_add:active,
+.sheet-personal-log .repcontrol_edit:hover,
+.sheet-personal-log .repcontrol_add:hover,
+.sheet-personal-log .repcontrol_edit:focus,
+.sheet-personal-log .repcontrol_add:focus,
+.sheet-personal-log .repcontrol_edit:active,
+.sheet-personal-log .repcontrol_add:active,
+.sheet-locations .repcontrol_edit:hover,
+.sheet-locations .repcontrol_add:hover,
+.sheet-locations .repcontrol_edit:focus,
+.sheet-locations .repcontrol_add:focus,
+.sheet-locations .repcontrol_edit:active,
+.sheet-locations .repcontrol_add:active,
+.sheet-extended-tasks .repcontrol_edit:hover,
+.sheet-extended-tasks .repcontrol_add:hover,
+.sheet-extended-tasks .repcontrol_edit:focus,
+.sheet-extended-tasks .repcontrol_add:focus,
+.sheet-extended-tasks .repcontrol_edit:active,
+.sheet-extended-tasks .repcontrol_add:active,
+.sheet-space-dock-repair-reset-btn:hover,
+.sheet-space-dock-repair-reset-btn:focus,
+.sheet-space-dock-repair-reset-btn:active {
+	background: #444 !important;
+	background-color: #444 !important;
+	background-image: none !important;
+	border: 1px solid #666;
+	color: var(--lcars-on-dark) !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	outline: none;
+}
+
 /* ── Roll20 Template ─────────────────────────────────────────── */
 
 .sheet-rolltemplate-task {
+	--lcars-orange: #ff8800;
+	--lcars-peach: #ffcc99;
+	--lcars-pink: #cc5599;
+	--lcars-purple: #cc99ff;
+	--lcars-blue: #8899ff;
 	font-family: 'Antonio', sans-serif;
 	background-color: #000000;
 	border: none;
 	border-radius: 4px;
 	overflow: hidden;
 	min-width: 220px;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result.sheet-theme-nemesis {
+	--lcars-orange: #2266ff;
+	--lcars-peach: #ccaa88;
+	--lcars-pink: #9966cc;
+	--lcars-purple: #6699ff;
+	--lcars-blue: #2233ff;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result.sheet-theme-lower-decks {
+	--lcars-orange: #ff7700;
+	--lcars-peach: #ffaa44;
+	--lcars-pink: #ff4400;
+	--lcars-purple: #ff9911;
+	--lcars-blue: #cc5500;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result.sheet-theme-picard {
+	--lcars-orange: #6d748c;
+	--lcars-peach: #9ea5ba;
+	--lcars-pink: #8c6d7c;
+	--lcars-purple: #808c6d;
+	--lcars-blue: #37a6d1;
 }
 
 .sheet-rolltemplate-hidden {
@@ -2885,11 +3298,11 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-pink {
-	background-color: #cc5599;
+	background-color: var(--lcars-pink);
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-tan {
-	background-color: #FFCC99;
+	background-color: var(--lcars-peach);
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-gray {
@@ -2897,7 +3310,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-purple {
-	background-color: #CC99FF;
+	background-color: var(--lcars-purple);
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-title {
