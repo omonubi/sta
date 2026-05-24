@@ -1054,9 +1054,15 @@ Author: Don Davis, aka omonubi
 					<label>Commissioned</label>
 					<input type="text" name="attr_starship_date_entering_service" />
 				</div>
-				<div class="sheet-field sheet-field-age">
-					<label>Age</label>
-					<input type="number" name="attr_age" min="1" max="999" />
+				<div class="sheet-field sheet-field-crew-quality">
+					<label>Crew Quality</label>
+					<select name="attr_starship_crew_quality">
+						<option value="Not Applicable" selected="selected">Not Applicable</option>
+						<option value="Basic">Basic</option>
+						<option value="Proficient">Proficient</option>
+						<option value="Talented">Talented</option>
+						<option value="Exceptional">Exceptional</option>
+					</select>
 				</div>
 			</div>
 		<div class="sheet-bio-traits-rows">
@@ -2872,6 +2878,25 @@ function clampProtection(value) {
 	}
 	return Math.max(0, Math.min(parsed, 9));
 }
+
+var CREW_QUALITY_LOOKUP = {
+	Basic: {
+		attribute_rating: 8,
+		department_rating: 1
+	},
+	Proficient: {
+		attribute_rating: 9,
+		department_rating: 2
+	},
+	Talented: {
+		attribute_rating: 10,
+		department_rating: 3
+	},
+	Exceptional: {
+		attribute_rating: 11,
+		department_rating: 4
+	}
+};
 
 function syncStressTrack(options, callback) {
 	if (typeof options === 'function') {
@@ -4885,7 +4910,7 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 // Task Check roll: all dice generated in JavaScript, results sent to template.
 on('clicked:roll_task', function() {
 	getAttrs(['dice_count', 'target_number', 'difficulty', 'c_range', 'character_name',
-	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'determination_spend', 'starship_determination_spend', 'determination_points',
+	          'selected_attribute', 'selected_department', 'task_attribute', 'task_department', 'starship_crew_quality', 'determination_spend', 'starship_determination_spend', 'determination_points',
 	          'task_focus', 'focus_1', 'focus_2', 'focus_3', 'focus_4', 'focus_5', 'focus_6', 'focus_7', 'focus_8', 'focus_9',
 	          'stress_fatigued', 'assists', 'starship_scale',
 	          'starship_comms_breach_1', 'starship_comms_breach_2', 'starship_comms_breach_3', 'starship_comms_breach_4', 'starship_comms_breach_5', 'starship_comms_breach_6',
@@ -4901,8 +4926,25 @@ on('clicked:roll_task', function() {
 	          'starship_weapons_breach_1', 'starship_weapons_breach_2', 'starship_weapons_breach_3', 'starship_weapons_breach_4', 'starship_weapons_breach_5', 'starship_weapons_breach_6',
 	          'starship_weapons_breach_repaired_1', 'starship_weapons_breach_repaired_2', 'starship_weapons_breach_repaired_3', 'starship_weapons_breach_repaired_4', 'starship_weapons_breach_repaired_5', 'starship_weapons_breach_repaired_6'], function(v) {
 
+		var selectedAttribute = v.selected_attribute || '';
+		var selectedDepartment = v.selected_department || '';
+		var isStarshipSystemRoll = selectedAttribute === 'comms'
+			|| selectedAttribute === 'computers'
+			|| selectedAttribute === 'engines'
+			|| selectedAttribute === 'sensors'
+			|| selectedAttribute === 'structure'
+			|| selectedAttribute === 'weapons';
+
 		var taskAttr = parseInt(v.task_attribute) || 0;
 		var taskDept = parseInt(v.task_department) || 0;
+		var crewQuality = v.starship_crew_quality || 'Not Applicable';
+		var crewQualityOverride = null;
+		if (isStarshipSystemRoll && crewQuality && crewQuality !== 'Not Applicable' && CREW_QUALITY_LOOKUP[crewQuality]) {
+			crewQualityOverride = CREW_QUALITY_LOOKUP[crewQuality];
+			taskAttr = crewQualityOverride.attribute_rating;
+			taskDept = crewQualityOverride.department_rating;
+		}
+
 		if (taskAttr === 0 || taskDept === 0) {
 			setAttrs({ roll_task_disabled: 'on' });
 			return;
@@ -4910,19 +4952,12 @@ on('clicked:roll_task', function() {
 
 		var diceCount  = Math.min(Math.max(parseInt(v.dice_count)  || 2, 1), 9);
 		var assistsValue = clampAssists(v.assists);
-		var target     = parseInt(v.target_number) || 0;
+		var target     = crewQualityOverride ? (taskAttr + taskDept) : (parseInt(v.target_number) || 0);
 		var difficulty = Math.min(Math.max(isNaN(parseInt(v.difficulty)) ? 1 : parseInt(v.difficulty), 0), 9);
 		var isFatigued = isCheckedValue(v.stress_fatigued);
 		var cRangeValue = Math.min(Math.max(parseInt(v.c_range) || 1, 1), 6);
 		var charName   = v.character_name          || 'Character';
 		var determinationPoints = clampDetermination(v.determination_points);
-		var selectedAttribute = v.selected_attribute || '';
-		var isStarshipSystemRoll = selectedAttribute === 'comms'
-			|| selectedAttribute === 'computers'
-			|| selectedAttribute === 'engines'
-			|| selectedAttribute === 'sensors'
-			|| selectedAttribute === 'structure'
-			|| selectedAttribute === 'weapons';
 		var breachedSystemDifficultyBonus = 0;
 		if (isStarshipSystemRoll) {
 			var maxBreaches = clampStarshipBreachCount(v.starship_scale);
@@ -4941,7 +4976,7 @@ on('clicked:roll_task', function() {
 		var isOpportunity = determinationSpendValue === 'opportunity';
 		var isAssist = determinationSpendValue === 'assist';
 		var isOpposed = determinationSpendValue === 'opposed';
-		var isReputationRoll = (v.selected_attribute === 'attribute_reputation' && v.selected_department === 'reputation');
+		var isReputationRoll = (selectedAttribute === 'attribute_reputation' && selectedDepartment === 'reputation');
 		var subtitle   = isReputationRoll ? 'Reputation Roll' : (isAssist ? 'Task Check (Assist)' : (isOpposed ? 'Task Check (Opposed)' : (isInspired ? 'Task Check (Inspired)' : (isOpportunity ? 'Task Check (Opportunity)' : 'Task Check'))));
 		var cRangeText = cRangeValue === 1 ? '20' : (cRangeValue === 6 ? '15-20' : ((21 - cRangeValue) + '-20'));
 		var taskFocusIndex = v.task_focus || '';
@@ -4957,7 +4992,7 @@ on('clicked:roll_task', function() {
 			selectedAttribute = selectedAttribute.slice('attribute_'.length);
 		}
 		var attr = cap(selectedAttribute);
-		var dept = cap((v.selected_department || '').replace(/^s_/, ''));
+		var dept = cap(selectedDepartment.replace(/^s_/, ''));
 
 		// Roll each die individually using JavaScript.
 		var rolls = [];

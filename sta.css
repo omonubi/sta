@@ -520,8 +520,43 @@ Author: Don Davis, aka omonubi
 }
 
 /* Starship bio field widths */
-.sheet-field-registry        { flex: 1.2; }
-.sheet-field-date-entering-service { flex: 0.7; }
+.sheet-tab-page-starship .sheet-field-registry {
+	flex: 0.9;
+	min-width: 0;
+}
+
+.sheet-tab-page-starship .sheet-field-date-entering-service {
+	flex: 0.55;
+	min-width: 0;
+}
+
+.sheet-tab-page-starship .sheet-field-crew-quality {
+	flex: 0.75;
+	min-width: 0;
+}
+
+.sheet-tab-page-starship .sheet-field-crew-quality select {
+	width: 100%;
+	margin: 0;
+	height: 26px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.sheet-tab-page-starship .sheet-field-crew-quality select:not(:focus) {
+	border-bottom: 1px solid #333333 !important;
+}
+
+.sheet-tab-page-starship .sheet-field-crew-quality select:focus {
+	border-bottom-color: var(--lcars-orange) !important;
+}
+
+.sheet-tab-page-starship .sheet-field-crew-quality label {
+	white-space: nowrap;
+	position: relative;
+	top: 0;
+}
+
 .sheet-field-age             { flex: 0 0 52px; }
 
 /* Starship Scale field is shown as a compact label+input row. */
