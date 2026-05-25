@@ -179,7 +179,7 @@ Author: Don Davis, aka omonubi
 		</label>
 		<label class="sheet-tab-label sheet-tab-label-starship">
 			<input type="radio" name="attr_sheet_tab" value="starship" />
-			Starship
+			Spaceframe
 		</label>
 		<label class="sheet-tab-label sheet-tab-label-party">
 			<input type="radio" name="attr_sheet_tab" value="party" />
@@ -1165,7 +1165,7 @@ Author: Don Davis, aka omonubi
 				<input type="number" name="attr_starship_crew_support" min="1" max="8" style="width: 52px; text-align: center;" />
 				<label style="align-self: center; margin-left: 18px; white-space: nowrap;">Small Craft Readiness</label>
 				<input type="number" name="attr_starship_small_craft_readiness" min="0" max="9" style="width: 52px; text-align: center;" />
-				<input type="checkbox" name="attr_starship_reroute_reserve_power" class="sheet-starship-power-toggle" id="starship_reroute_reserve_power" value="1" />
+				<input type="checkbox" name="attr_starship_reroute_reserve_power" class="sheet-starship-power-toggle" id="starship_reroute_reserve_power" value="1" checked="checked" />
 				<label class="sheet-starship-power-toggle-button" for="starship_reroute_reserve_power">Reserve Power</label>
 			</div>
 		</div>
@@ -1542,19 +1542,16 @@ Author: Don Davis, aka omonubi
 				<fieldset class="repeating_shuttlebay">
 					<div class="sheet-shuttlebay-row">
 						<div class="sheet-field sheet-field-shuttlebay-name">
-							<label>Small Craft Name</label>
-							<input type="text" name="attr_shuttlebay_name" placeholder=" " />
+							<input type="text" name="attr_shuttlebay_name" placeholder="Small Craft Name" />
 						</div>
 						<div class="sheet-field sheet-field-shuttlebay-type">
-							<label>Type</label>
-							<input type="text" name="attr_shuttlebay_type" placeholder=" " />
+							<input type="text" name="attr_shuttlebay_type" placeholder="Type" />
 						</div>
 						<div class="sheet-field sheet-field-shuttlebay-scale">
 							<label>Scale</label>
 							<input type="number" name="attr_shuttlebay_scale" min="1" max="2" value="1" />
 						</div>
 						<div class="sheet-field sheet-field-shuttlebay-operation">
-							<label>In Operation</label>
 							<div class="sheet-shuttlebay-operation-box">
 								<div class="sheet-stress-box-wrap">
 									<label class="sheet-stress-box-hit">
@@ -1562,11 +1559,22 @@ Author: Don Davis, aka omonubi
 										<span class="sheet-stress-box"></span>
 									</label>
 								</div>
+								<span class="sheet-shuttlebay-operation-label">In Operation</span>
 							</div>
 						</div>
 					</div>
 				</fieldset>
 			</div>
+		</div>
+
+		<!-- Notes -->
+		<div class="sheet-section sheet-background">
+			<div class="sheet-section-header">Notes</div>
+			<div class="sheet-background-shell">
+				<div class="sheet-background-fields sheet-background-fields-npc-notes">
+					<textarea name="attr_starship_notes" rows="16"></textarea>
+				</div>
+			</div><!-- /.sheet-background-shell -->
 		</div>
 
 		<!-- Space Dock -->
@@ -2609,7 +2617,7 @@ Author: Don Davis, aka omonubi
 					</label>
 					<label class="sheet-settings-option">
 						<input type="radio" name="attr_sheet_type" value="starship" />
-						<span>Starship</span>
+						<span>Spaceframe</span>
 					</label>
 					<label class="sheet-settings-option">
 						<input type="radio" name="attr_sheet_type" value="party" />
@@ -3031,6 +3039,10 @@ function syncStarshipShieldTrack(options, callback) {
 			progress = 0;
 		}
 		if (progress > maxShields) {
+			progress = maxShields;
+		}
+
+		if (options && options.fillDisplayed) {
 			progress = maxShields;
 		}
 
@@ -3807,6 +3819,7 @@ on('sheet:opened', function() {
 	initializeStarshipCrewSupportDefault();
 	initializeStarshipSmallCraftReadinessDefault();
 	initializeStarshipMaxShieldsDefault();
+	initializeDefaultAttack();
 	syncStarshipShieldTrack();
 	syncStarshipSystemBreaches();
 });
@@ -3912,14 +3925,32 @@ on('change:control change:daring change:fitness change:insight change:presence c
 	}
 
 	var attributeName = eventInfo.sourceAttribute || '';
+	var isFitness = attributeName === 'fitness';
 	var parsed = parseInt(eventInfo.newValue, 10);
 	var clamped = clampAttribute(eventInfo.newValue);
 	if (!isNaN(parsed) && parsed === clamped) {
+		if (isFitness) {
+			setAttrs({ stress_max: clamped }, { silent: true }, function() {
+				syncStressTrack(function() {
+					syncTaskShutdownWarning();
+				});
+			});
+		}
 		return;
 	}
 
 	var attrsToSet = {};
 	attrsToSet[attributeName] = clamped;
+	if (isFitness) {
+		attrsToSet.stress_max = clamped;
+		setAttrs(attrsToSet, { silent: true }, function() {
+			syncStressTrack(function() {
+				syncTaskShutdownWarning();
+			});
+		});
+		return;
+	}
+
 	setAttrs(attrsToSet, { silent: true });
 });
 
@@ -3994,9 +4025,10 @@ function updateStarshipMaxShields(scaleOverride, structureOverride, securityOver
 		var scale = (scaleOverride !== undefined) ? scaleOverride : (parseInt(v.starship_scale, 10) || 1);
 		var structure = (structureOverride !== undefined) ? structureOverride : (parseInt(v.starship_structure, 10) || 1);
 		var security = (securityOverride !== undefined) ? securityOverride : (parseInt(v.security, 10) || 0);
+		var previousMaxShields = clampStarshipMaxShields(v.starship_max_shields);
 		var maxShields = clampStarshipMaxShields(calculateStarshipMaxShields(scale, structure, security));
 		setAttrs({ starship_max_shields: maxShields }, { silent: true }, function() {
-			syncStarshipShieldTrack();
+			syncStarshipShieldTrack({ fillDisplayed: previousMaxShields !== maxShields });
 		});
 	});
 }
@@ -4012,7 +4044,7 @@ function initializeStarshipMaxShieldsDefault() {
 		var security = parseInt(v.security, 10) || 0;
 		var maxShields = clampStarshipMaxShields(calculateStarshipMaxShields(scale, structure, security));
 		setAttrs({ starship_max_shields: maxShields }, { silent: true }, function() {
-			syncStarshipShieldTrack();
+			syncStarshipShieldTrack({ fillDisplayed: true });
 		});
 	});
 }
@@ -4048,6 +4080,21 @@ function initializeStarshipSmallCraftReadinessDefault() {
 		}
 		var scale = parseInt(v.starship_scale, 10) || 1;
 		setAttrs({ starship_small_craft_readiness: clampStarshipSmallCraftReadiness(scale - 1) }, { silent: true });
+	});
+}
+
+function initializeDefaultAttack() {
+	getAttrs(['equipment_attack_1', 'equipment_attack_desc_1'], function(v) {
+		var attackName = String(v.equipment_attack_1 || '').trim();
+		var attackDesc = String(v.equipment_attack_desc_1 || '').trim();
+		if (attackName !== '' || attackDesc !== '') {
+			return;
+		}
+
+		setAttrs({
+			equipment_attack_1: 'Unarmed Strike',
+			equipment_attack_desc_1: 'Melee, Stun 2, Size 1H'
+		}, { silent: true });
 	});
 }
 
@@ -4123,12 +4170,12 @@ on('change:starship_max_shields', function(eventInfo) {
 	var parsed = parseInt(eventInfo.newValue, 10);
 	var clamped = clampStarshipMaxShields(eventInfo.newValue);
 	if (!isNaN(parsed) && parsed === clamped) {
-		syncStarshipShieldTrack();
+		syncStarshipShieldTrack({ fillDisplayed: true });
 		return;
 	}
 
 	setAttrs({ starship_max_shields: clamped }, { silent: true }, function() {
-		syncStarshipShieldTrack();
+		syncStarshipShieldTrack({ fillDisplayed: true });
 	});
 });
 

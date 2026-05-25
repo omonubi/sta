@@ -2084,16 +2084,42 @@ Author: Don Davis, aka omonubi
 
 .sheet-shuttlebay-row .sheet-field-shuttlebay-scale {
 	flex: 0.6;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
 }
 
 .sheet-shuttlebay-row .sheet-field-shuttlebay-operation {
 	flex: 0.8;
+	justify-content: center;
 }
 
 .sheet-shuttlebay-operation-box {
-	display: flex;
+	display: inline-flex;
+	align-items: center;
 	justify-content: flex-start;
+	gap: 8px;
 	width: 100%;
+}
+
+.sheet-shuttlebay-row .sheet-field-shuttlebay-scale label {
+	margin: 0;
+	white-space: nowrap;
+}
+
+.sheet-shuttlebay-row .sheet-field-shuttlebay-scale input[type="number"] {
+	width: 52px;
+	text-align: center;
+}
+
+.sheet-shuttlebay-row .sheet-field-shuttlebay-operation .sheet-shuttlebay-operation-label {
+	font-family: var(--lcars-font);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 11px;
+	font-weight: 700;
+	color: var(--lcars-purple);
+	white-space: nowrap;
 }
 
 .sheet-field-shuttlebay-operation .sheet-stress-box {
