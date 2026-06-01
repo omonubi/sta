@@ -900,8 +900,6 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-content .sheet-departments input[type="number"]:focus,
-.sheet-content .sheet-background input[type="text"]:focus,
-.sheet-content .sheet-background textarea:focus,
 .sheet-content .sheet-locations input[type="text"]:focus,
 .sheet-content .sheet-settings input[type="text"]:focus,
 .sheet-content .sheet-settings input[type="number"]:focus,
@@ -910,7 +908,15 @@ Author: Don Davis, aka omonubi
 	border-bottom-color: var(--lcars-blue) !important;
 }
 
-.sheet-content .sheet-attacks input[type="text"]:focus,
+.sheet-content .sheet-background input[type="text"]:focus,
+.sheet-content .sheet-background textarea:focus {
+	border-bottom-color: var(--lcars-orange) !important;
+}
+
+.sheet-content .sheet-attacks input[type="text"]:focus {
+	border-bottom-color: var(--lcars-pink) !important;
+}
+
 .sheet-content .sheet-equipment input[type="text"]:focus,
 .sheet-content .sheet-focuses input[type="text"]:focus,
 .sheet-content .sheet-weapons input[type="text"]:focus,
@@ -919,16 +925,23 @@ Author: Don Davis, aka omonubi
 	border-bottom-color: var(--lcars-purple) !important;
 }
 
+.sheet-content .sheet-equipment input[type="text"]:focus {
+	border-bottom-color: var(--lcars-orange) !important;
+}
+
 .sheet-content .sheet-traits input[type="text"]:focus,
 .sheet-content .sheet-traits textarea:focus,
-.sheet-content .sheet-values input[type="text"]:focus,
 .sheet-content .sheet-directives input[type="text"]:focus {
+	border-bottom-color: var(--lcars-orange) !important;
+}
+
+.sheet-content .sheet-values input[type="text"]:focus {
 	border-bottom-color: var(--lcars-peach) !important;
 }
 
 .sheet-content .sheet-extended-tasks input[type="text"]:focus,
 .sheet-content .sheet-extended-tasks input[type="number"]:focus {
-	border-bottom-color: var(--lcars-pink) !important;
+	border-bottom-color: var(--lcars-purple) !important;
 }
 
 /* ============================================================
@@ -961,7 +974,7 @@ Author: Don Davis, aka omonubi
 /* Section header color overrides — each section gets its own LCARS accent */
 .sheet-attributes  .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 .sheet-departments .sheet-section-header { --sheet-section-bg: var(--lcars-blue);   }
-.sheet-roll-panel  .sheet-section-header { --sheet-section-bg: var(--lcars-pink);   }
+.sheet-roll-panel  .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
 /* Character tab section shells */
 .sheet-attributes-shell,
@@ -984,16 +997,16 @@ Author: Don Davis, aka omonubi
 
 .sheet-attributes-shell  { border-left: 4px solid var(--lcars-orange); }
 .sheet-departments-shell { border-left: 4px solid var(--lcars-blue);   }
-.sheet-roll-panel-shell  { border-left: 4px solid var(--lcars-pink);   }
-.sheet-traits-shell      { border-left: 4px solid var(--lcars-peach);  }
-.sheet-focuses-shell     { border-left: 4px solid var(--lcars-purple); }
-.sheet-values-shell      { border-left: 4px solid var(--lcars-peach);  }
-.sheet-attacks-shell          { border-left: 4px solid var(--lcars-purple); }
-.sheet-equipment-shell        { border-left: 4px solid var(--lcars-purple); }
+.sheet-roll-panel-shell  { border-left: 4px solid var(--lcars-purple); }
+.sheet-traits-shell      { border-left: 4px solid var(--lcars-orange); }
+.sheet-focuses-shell     { border-left: 4px solid var(--lcars-orange); }
+.sheet-values-shell      { border-left: 4px solid var(--lcars-peach); }
+.sheet-attacks-shell          { border-left: 4px solid var(--lcars-pink); }
+.sheet-equipment-shell        { border-left: 4px solid var(--lcars-orange); }
 .sheet-weapons-shell          { border-left: 4px solid var(--lcars-purple); }
 .sheet-shuttlebay-shell       { border-left: 4px solid var(--lcars-purple); }
 .sheet-space-dock-shell       { border-left: 4px solid var(--lcars-orange); }
-.sheet-extended-tasks-shell   { border-left: 4px solid var(--lcars-pink);   }
+.sheet-extended-tasks-shell   { border-left: 4px solid var(--lcars-purple); }
 
 /* Stat grid */
 .sheet-stat-grid {
@@ -1558,7 +1571,7 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar .sheet-field input[type="number"][name="attr_task_attribute"]:focus,
 .sheet-roll-bar .sheet-field input[type="number"][name="attr_task_department"]:focus,
 .sheet-roll-bar .sheet-field input[type="number"][name="attr_target_number"]:focus {
-	border-bottom-color: var(--lcars-pink);
+	border-bottom-color: var(--lcars-purple);
 }
 
 .sheet-roll-bar .sheet-field input[name="attr_task_focus_label"] {
@@ -1566,7 +1579,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar .sheet-field input[name="attr_task_focus_label"]:focus {
-	border-bottom-color: var(--lcars-pink);
+	border-bottom-color: var(--lcars-purple);
 }
 
 .sheet-roll-bar select[name="attr_determination_spend"],
@@ -1576,7 +1589,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-roll-bar select[name="attr_determination_spend"]:focus,
 .sheet-roll-bar select[name="attr_starship_determination_spend"]:focus {
-	border-bottom-color: var(--lcars-pink);
+	border-bottom-color: var(--lcars-purple);
 }
 
 /* Task Check control text color accents */
@@ -1612,13 +1625,13 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar .sheet-field input[type="number"][name="attr_c_range"]:focus,
 .sheet-roll-bar .sheet-field input[type="number"][name="attr_dice_count"]:focus,
 .sheet-roll-bar .sheet-field input[type="number"][name="attr_assists"]:focus {
-	border-bottom-color: var(--lcars-pink);
+	border-bottom-color: var(--lcars-purple);
 }
 
 /* Roll button — right-rounded LCARS lozenge */
 .sheet-roll-bar button[type="roll"],
 .sheet-roll-bar button[type="action"] {
-	background-color: var(--lcars-pink);
+	background-color: var(--lcars-purple);
 	color: var(--lcars-on-color);
 	display: inline-flex;
 	align-items: center;
@@ -1638,20 +1651,27 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-roll-bar button.sheet-reroll-task-btn {
-	background-color: var(--lcars-pink);
+	background-color: var(--lcars-purple);
 }
 
 .sheet-roll-bar button.sheet-reroll-task-btn:hover {
-	background-color: var(--lcars-pink-hover);
+	background-color: var(--lcars-purple);
 }
 
 .sheet-roll-bar button[type="roll"]:hover,
 .sheet-roll-bar button[type="action"]:hover {
-	background-color: var(--lcars-pink-hover);
+	background-color: var(--lcars-purple);
 }
 
 .sheet-roll-bar button[type="action"].sheet-reroll-task-btn:hover {
-	background-color: var(--lcars-pink-hover);
+	background-color: var(--lcars-purple);
+}
+
+.sheet-roll-bar button[type="roll"]:focus,
+.sheet-roll-bar button[type="action"]:focus,
+.sheet-roll-bar button[type="roll"]:active,
+.sheet-roll-bar button[type="action"]:active {
+	background-color: var(--lcars-purple);
 }
 
 /* Disable Roll Task when task Attribute/Department is 0 or Shut Down is active */
@@ -1659,7 +1679,7 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button.sheet-roll-task-btn,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"],
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"] {
-	background-color: var(--lcars-button-disabled-bg);
+	background-color: var(--lcars-purple);
 	color: var(--lcars-button-disabled-text);
 	cursor: not-allowed;
 	opacity: 0.6;
@@ -1670,13 +1690,13 @@ Author: Don Davis, aka omonubi
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:checked) button.sheet-roll-task-btn:hover,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="roll"]:hover,
 .sheet-roll-bar:has(input[name="attr_task_shutdown"]:checked) button[type="action"]:hover {
-	background-color: var(--lcars-button-disabled-bg);
+	background-color: var(--lcars-purple);
 }
 
 /* Disable Re-roll button when Roll button is enabled or no reroll is available */
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:not(:checked)) button.sheet-reroll-task-btn,
 .sheet-roll-bar:has(input[name="attr_task_reroll_ready"]:not(:checked)) button.sheet-reroll-task-btn {
-	background-color: var(--lcars-button-disabled-bg);
+	background-color: var(--lcars-purple);
 	color: var(--lcars-button-disabled-text);
 	cursor: not-allowed;
 	opacity: 0.6;
@@ -1685,7 +1705,7 @@ Author: Don Davis, aka omonubi
 
 .sheet-roll-bar:has(input[name="attr_roll_task_disabled"]:not(:checked)) button.sheet-reroll-task-btn:hover,
 .sheet-roll-bar:has(input[name="attr_task_reroll_ready"]:not(:checked)) button.sheet-reroll-task-btn:hover {
-	background-color: var(--lcars-button-disabled-bg);
+	background-color: var(--lcars-purple);
 }
 
 /* ============================================================
@@ -1833,15 +1853,20 @@ Author: Don Davis, aka omonubi
 	--sheet-traits-details-column: 74px;
 }
 
+.sheet-tab-page-starship .sheet-bio-traits-section {
+	margin-bottom: 8px;
+}
+
 .sheet-bio-traits-section .sheet-traits-shell {
 	border-left-color: var(--lcars-orange);
 }
 
 .sheet-bio-traits-panel {
+	margin-top: 12px;
 	padding: 8px 12px 0px;
 }
 
-.sheet-attacks .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
+.sheet-attacks .sheet-section-header { --sheet-section-bg: var(--lcars-pink); }
 
 .sheet-attacks {
 	margin: 0 8px 16px;
@@ -1850,7 +1875,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    EQUIPMENT SECTION
    ============================================================ */
-.sheet-equipment .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
+.sheet-equipment .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-equipment {
 	margin: 0 8px 16px;
@@ -1873,7 +1898,7 @@ Author: Don Davis, aka omonubi
 	letter-spacing: 0.12em;
 	font-size: 11px;
 	font-weight: 700;
-	color: var(--lcars-purple);
+	color: var(--lcars-orange);
 	margin: 10px 0 4px;
 }
 
@@ -1900,7 +1925,11 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-field-equipment input[type="text"] {
-	border-bottom-color: var(--lcars-purple);
+	border-bottom-color: var(--lcars-orange);
+}
+
+.sheet-attacks .sheet-field-equipment input[type="text"] {
+	border-bottom-color: var(--lcars-pink);
 }
 
 /* Inventory second row hidden by default */
@@ -1957,7 +1986,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    FOCUSES SECTION
    ============================================================ */
-.sheet-focuses .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
+.sheet-focuses .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-focuses {
 	margin: 0 8px 16px;
@@ -2008,7 +2037,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    BACKGROUND SECTION
    ============================================================ */
-.sheet-background .sheet-section-header { --sheet-section-bg: var(--lcars-blue); }
+.sheet-background .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-background {
 	margin: 0 8px 16px;
@@ -2017,7 +2046,7 @@ Author: Don Davis, aka omonubi
 .sheet-background-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
-	border-left: 4px solid var(--lcars-blue);
+	border-left: 4px solid var(--lcars-orange);
 	padding: 8px 12px;
 }
 
@@ -2047,7 +2076,7 @@ Author: Don Davis, aka omonubi
 	width: 100%;
 	resize: vertical;
 	box-sizing: border-box;
-	border-bottom: 2px solid var(--lcars-blue);
+	border-bottom: 2px solid var(--lcars-orange);
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-size: 13px;
 	line-height: 1.5;
@@ -2056,7 +2085,10 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    TRAITS SECTION
    ============================================================ */
-.sheet-traits .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
+.sheet-traits .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
+
+.sheet-tab-page-character .sheet-traits .sheet-section-header,
+.sheet-tab-page-npc .sheet-traits .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-weapons .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
@@ -2341,7 +2373,7 @@ Author: Don Davis, aka omonubi
 	width: 100%;
 	flex: 0 0 auto;
 	box-sizing: border-box;
-	border-bottom: 1px solid var(--lcars-peach);
+	border-bottom: 1px solid var(--lcars-orange);
 }
 
 .sheet-traits-row input[type="text"]:focus,
@@ -2400,16 +2432,16 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger {
-	background-color: var(--lcars-peach);
-	border-color: var(--lcars-peach);
+	background-color: var(--lcars-orange);
+	border-color: var(--lcars-orange);
 	color: #000000;
 }
 
 .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:hover,
 .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:focus,
 .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:active {
-	background-color: var(--lcars-peach);
-	border-color: var(--lcars-peach);
+	background-color: var(--lcars-orange);
+	border-color: var(--lcars-orange);
 	color: #000000;
 }
 
@@ -2558,8 +2590,8 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-content .sheet-values-row .sheet-value-challenge-toggle:checked + label.sheet-value-challenge-button:hover {
-	background-color: var(--lcars-tan);
-	border-color: var(--lcars-tan);
+	background-color: var(--lcars-peach);
+	border-color: var(--lcars-peach);
 }
 
 .sheet-values-row:has(.sheet-value-challenge-toggle:checked) input[type="text"] {
@@ -2865,7 +2897,7 @@ Author: Don Davis, aka omonubi
 	padding: 8px 12px;
 }
 
-.sheet-directives .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
+.sheet-directives .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
 
 .sheet-directives {
 	margin: 0 8px 16px;
@@ -2958,7 +2990,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    CHARACTERS SECTION
    ============================================================ */
-.sheet-mission-characters .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
+.sheet-mission-characters .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-mission-characters {
 	margin: 0 8px 16px;
@@ -3182,7 +3214,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-extended-tasks .sheet-section-header {
-	--sheet-section-bg: var(--lcars-pink);
+	--sheet-section-bg: var(--lcars-purple);
 }
 
 .sheet-extended-tasks .repcontainer {
@@ -3215,7 +3247,7 @@ Author: Don Davis, aka omonubi
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	color: var(--lcars-pink);
+	color: var(--lcars-purple);
 	white-space: nowrap;
 }
 
@@ -3226,13 +3258,13 @@ Author: Don Davis, aka omonubi
 
 .sheet-extended-task-name input[type="text"] {
 	width: 100%;
-	border-bottom: 2px solid var(--lcars-pink);
+	border-bottom: 2px solid var(--lcars-purple);
 }
 
 .sheet-extended-task-number input[type="number"] {
 	width: 48px;
 	text-align: center;
-	border-bottom: 2px solid var(--lcars-pink);
+	border-bottom: 2px solid var(--lcars-purple);
 }
 
 .sheet-extended-task-complete {
@@ -3241,7 +3273,7 @@ Author: Don Davis, aka omonubi
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
-	color: var(--lcars-pink);
+	color: var(--lcars-purple);
 	opacity: 0.25;
 	white-space: nowrap;
 	padding: 2px 6px;
@@ -3316,20 +3348,20 @@ Author: Don Davis, aka omonubi
 	width: 14px;
 	height: 14px;
 	box-sizing: border-box;
-	border: 1px solid var(--lcars-orange-muted);
+	border: 1px solid var(--lcars-purple);
 	border-radius: 2px;
 	background-color: #111111;
 	transition: background-color 0.08s ease, border-color 0.08s ease, box-shadow 0.08s ease;
 }
 
 .sheet-extended-task-box-hit .sheet-et-prog:checked + .sheet-extended-task-box {
-	background-color: var(--lcars-pink);
-	border-color: var(--lcars-pink);
-	box-shadow: 0 0 4px rgba(204, 85, 153, 0.35);
+	background-color: var(--lcars-purple);
+	border-color: var(--lcars-purple);
+	box-shadow: 0 0 4px rgba(204, 153, 255, 0.35);
 }
 
 .sheet-extended-task-box-hit .sheet-et-prog:hover + .sheet-extended-task-box {
-	border-color: var(--lcars-box-hover);
+	border-color: var(--lcars-purple);
 }
 
 .sheet-et-milestone {
@@ -3346,62 +3378,6 @@ Author: Don Davis, aka omonubi
 
 .sheet-stress-box-wrap:has(.sheet-shield-milestone:checked) .sheet-stress-box {
 	border-width: 3px;
-}
-
-.sheet-extended-tasks .repcontrol {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 4px;
-	position: relative;
-	z-index: 5;
-}
-
-.sheet-extended-tasks .repcontrol_edit,
-.sheet-extended-tasks .repcontrol_add {
-	appearance: none;
-	-webkit-appearance: none;
-	background: #222 !important;
-	background-color: #222 !important;
-	background-image: none !important;
-	color: var(--lcars-on-dark) !important;
-	font-family: var(--lcars-font);
-	font-size: 13px;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	border: none;
-	box-shadow: none !important;
-	text-shadow: none !important;
-	cursor: pointer;
-	padding: 4px 14px;
-	transition: none;
-}
-
-.sheet-extended-tasks .repcontrol_edit {
-	border: 1px solid #666;
-	border-radius: 20px 4px 4px 20px;
-}
-
-.sheet-extended-tasks .repcontrol_add {
-	border: 1px solid #666;
-	border-radius: 4px 20px 20px 4px;
-}
-
-.sheet-extended-tasks .repcontrol_edit:hover,
-.sheet-extended-tasks .repcontrol_add:hover,
-.sheet-extended-tasks .repcontrol_edit:focus,
-.sheet-extended-tasks .repcontrol_add:focus,
-.sheet-extended-tasks .repcontrol_edit:active,
-.sheet-extended-tasks .repcontrol_add:active {
-	background: #444 !important;
-	background-color: #444 !important;
-	background-image: none !important;
-	border: 1px solid #666;
-	color: var(--lcars-on-dark) !important;
-	box-shadow: none !important;
-	text-shadow: none !important;
-	outline: none;
 }
 
 /* Unified repeating-list control style (matches shuttlebay controls) */
@@ -3546,7 +3522,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-pink {
-	background-color: var(--lcars-pink);
+	background-color: var(--lcars-purple);
 }
 
 .sheet-rolltemplate-task .sheet-lcars-result-header.sheet-header-tan {
