@@ -109,6 +109,33 @@ Author: Don Davis, aka omonubi
 	color: #d2d5df !important;
 }
 
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:active {
+	color: #000000 !important;
+}
+
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) input[type="text"],
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) input[type="number"],
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) textarea,
@@ -565,6 +592,7 @@ Author: Don Davis, aka omonubi
 	align-items: center;
 	gap: 8px;
 	flex: 0 0 auto;
+	margin-top: 10px;
 }
 
 .sheet-tab-page-starship .sheet-field-scale label {
@@ -633,7 +661,7 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-tab-page-starship .sheet-bio-fields-max-shields {
-	margin-top: 16px;
+	margin-top: 8px;
 }
 
 .sheet-tab-page-starship .sheet-field-max-shields {
@@ -719,55 +747,47 @@ Author: Don Davis, aka omonubi
 	width: 100%;
 }
 
-.sheet-bio-traits-row {
-	display: flex;
-	flex-direction: row;
-	gap: 12px;
-	padding: 8px 8px 0;
-}
 
-.sheet-field-trait {
-	flex: 1;
-}
-
-/* Bio traits rows 2+ hidden by default */
 .sheet-bio-traits-rows {
-	display: flex;
-	flex-direction: column;
-	gap: 0;
-	margin-bottom: 16px;
+	margin-bottom: 0;
 }
 
-.sheet-bio-traits-rows > .sheet-bio-traits-row {
-	display: none;
+.sheet-bio-traits-section .sheet-traits-row input[type="text"] {
+	border-bottom-color: var(--lcars-orange);
 }
 
-.sheet-bio-traits-rows > .sheet-bio-traits-row:first-child {
-	display: flex;
+.sheet-bio-traits-section .sheet-traits-row-details-trigger {
+	color: #000000;
 }
 
-/* Show row 2 when row 1's last input is focused, and keep row 2 visible while active/filled. */
-.sheet-bio-traits-row:nth-child(1):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(2),
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):focus-within,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):hover,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(2):has(input[type="text"]:not(:placeholder-shown)) {
-	display: flex;
+.sheet-bio-traits-section .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger {
+	background-color: var(--lcars-orange);
+	border-color: var(--lcars-orange);
+	color: #000000;
 }
 
-/* Show row 3 when row 2's last input is focused, and keep row 3 visible while active/filled. */
-.sheet-bio-traits-row:nth-child(2):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(3),
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):focus-within,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):hover,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(3):has(input[type="text"]:not(:placeholder-shown)) {
-	display: flex;
+.sheet-bio-traits-section .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:hover,
+.sheet-bio-traits-section .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:focus,
+.sheet-bio-traits-section .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger:active {
+	background-color: var(--lcars-orange);
+	border-color: var(--lcars-orange);
+	color: #000000;
 }
 
-/* Show row 4 when row 3's last input is focused, and keep row 4 visible while active/filled. */
-.sheet-bio-traits-row:nth-child(3):has(.sheet-field-trait:last-child input:focus) ~ .sheet-bio-traits-row:nth-child(4),
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):focus-within,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):hover,
-.sheet-bio-traits-rows > .sheet-bio-traits-row:nth-child(4):has(input[type="text"]:not(:placeholder-shown)) {
-	display: flex;
+.sheet-bio-traits-section .sheet-trait-details {
+	border-bottom-color: var(--lcars-orange);
+}
+
+.sheet-bio-traits-section .sheet-traits-row:nth-child(n+4) {
+	display: none !important;
+}
+
+.sheet-bio-trait-item-empty {
+	min-height: 27px;
+}
+
+.sheet-bio-traits-detail-empty {
+	min-height: 72px;
 }
 
 .sheet-bio-traits-rows .sheet-trait-stunned-flag {
@@ -959,7 +979,7 @@ Author: Don Davis, aka omonubi
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
 	border: 1px solid #2a2a2a;
 	padding: 8px 12px;
-	padding-bottom: 24px;
+	padding-bottom: 12px;
 }
 
 .sheet-attributes-shell  { border-left: 4px solid var(--lcars-orange); }
@@ -1117,6 +1137,29 @@ Author: Don Davis, aka omonubi
 .sheet-dept-row:has(.sheet-stat-select input[type="radio"]:checked) .sheet-stat-name {
 	color: var(--lcars-blue);
 	font-weight: 700;
+}
+
+/* Department color coding to match STA palette sample:
+   Command/Conn = gold, Engineering/Security = red, Medicine/Science = blue. */
+.sheet-dept-row:has(input[name="attr_command"]) .sheet-stat-name,
+.sheet-dept-row:has(input[name="attr_conn"]) .sheet-stat-name,
+.sheet-dept-row:has(input[name="attr_command"]) input[type="number"],
+.sheet-dept-row:has(input[name="attr_conn"]) input[type="number"] {
+	color: #d4a000;
+}
+
+.sheet-dept-row:has(input[name="attr_engineering"]) .sheet-stat-name,
+.sheet-dept-row:has(input[name="attr_security"]) .sheet-stat-name,
+.sheet-dept-row:has(input[name="attr_engineering"]) input[type="number"],
+.sheet-dept-row:has(input[name="attr_security"]) input[type="number"] {
+	color: #d91f1f;
+}
+
+.sheet-dept-row:has(input[name="attr_medicine"]) .sheet-stat-name,
+.sheet-dept-row:has(input[name="attr_science"]) .sheet-stat-name,
+.sheet-dept-row:has(input[name="attr_medicine"]) input[type="number"],
+.sheet-dept-row:has(input[name="attr_science"]) input[type="number"] {
+	color: #2d8abf;
 }
 
 /* Stat number inputs */
@@ -1783,6 +1826,21 @@ Author: Don Davis, aka omonubi
 /* ============================================================
 	ATTACKS SECTION
 	============================================================ */
+.sheet-bio-traits-section .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
+
+.sheet-bio-traits-section {
+	margin: 0 8px 16px;
+	--sheet-traits-details-column: 74px;
+}
+
+.sheet-bio-traits-section .sheet-traits-shell {
+	border-left-color: var(--lcars-orange);
+}
+
+.sheet-bio-traits-panel {
+	padding: 8px 12px 0px;
+}
+
 .sheet-attacks .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
 
 .sheet-attacks {
@@ -1995,14 +2053,6 @@ Author: Don Davis, aka omonubi
 	line-height: 1.5;
 }
 
-.sheet-tab-page-npc .sheet-background-fields-npc-notes {
-	display: block;
-}
-
-.sheet-content .sheet-tab-page-npc .sheet-background-fields-npc-notes textarea {
-	min-height: 280px;
-}
-
 /* ============================================================
    TRAITS SECTION
    ============================================================ */
@@ -2041,6 +2091,14 @@ Author: Don Davis, aka omonubi
 }
 
 .sheet-shuttlebay .sheet-section-header { --sheet-section-bg: var(--lcars-purple); }
+
+.sheet-starship-show-shuttlebay-flag {
+	display: none;
+}
+
+.sheet-starship-show-shuttlebay-flag:not(:checked) + .sheet-shuttlebay {
+	display: none;
+}
 
 .sheet-shuttlebay {
 	margin: 0 8px 16px;
@@ -2304,7 +2362,7 @@ Author: Don Davis, aka omonubi
 	border: 1px solid #333333;
 	border-radius: 0 15px 15px 0;
 	background-color: #111111;
-	color: var(--lcars-peach);
+	color: #000000;
 	cursor: pointer;
 	font-family: var(--lcars-font);
 	font-size: 11px;
@@ -2338,7 +2396,7 @@ Author: Don Davis, aka omonubi
 .sheet-traits-row-details-trigger:active {
 	background-color: #444444;
 	border-color: #666666;
-	color: var(--lcars-on-dark);
+	color: #000000;
 }
 
 .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) .sheet-traits-row-details-trigger {
@@ -2399,18 +2457,18 @@ Author: Don Davis, aka omonubi
 }
 
 /* Show row 2 when row 1's third input is focused, and keep row 2 visible while active/filled. */
-.sheet-traits-row:nth-child(1):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:focus) ~ .sheet-traits-row:nth-child(2),
+.sheet-traits-row:nth-child(1):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input[type="text"]:focus) ~ .sheet-traits-row:nth-child(2),
 .sheet-traits-row:nth-child(2):focus-within,
 .sheet-traits-row:nth-child(2):hover,
-.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item > input:not(:placeholder-shown)) {
+.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item > input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
 /* Show row 3 when row 2's third input is focused, and keep row 3 visible while active/filled. */
-.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input:focus) ~ .sheet-traits-row:nth-child(3),
+.sheet-traits-row:nth-child(2):has(.sheet-traits-row-main .sheet-trait-item:last-of-type > input[type="text"]:focus) ~ .sheet-traits-row:nth-child(3),
 .sheet-traits-row:nth-child(3):focus-within,
 .sheet-traits-row:nth-child(3):hover,
-.sheet-traits-row:nth-child(3):has(.sheet-traits-row-main .sheet-trait-item > input:not(:placeholder-shown)) {
+.sheet-traits-row:nth-child(3):has(.sheet-traits-row-main .sheet-trait-item > input[type="text"]:not(:placeholder-shown)) {
 	display: flex;
 }
 
@@ -2807,7 +2865,7 @@ Author: Don Davis, aka omonubi
 	padding: 8px 12px;
 }
 
-.sheet-directives .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
+.sheet-directives .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
 
 .sheet-directives {
 	margin: 0 8px 16px;
@@ -2900,7 +2958,7 @@ Author: Don Davis, aka omonubi
 /* ============================================================
    CHARACTERS SECTION
    ============================================================ */
-.sheet-mission-characters .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
+.sheet-mission-characters .sheet-section-header { --sheet-section-bg: var(--lcars-peach); }
 
 .sheet-mission-characters {
 	margin: 0 8px 16px;
