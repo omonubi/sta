@@ -615,32 +615,32 @@ Author: Don Davis, aka omonubi
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="control" /><span></span></label>
 						<span class="sheet-stat-name">Control</span>
-						<input type="number" name="attr_control" min="7" max="20" value="7" />
+						<input type="number" name="attr_control" min="0" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="daring" /><span></span></label>
 						<span class="sheet-stat-name">Daring</span>
-						<input type="number" name="attr_daring" min="7" max="20" value="7" />
+						<input type="number" name="attr_daring" min="0" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="fitness" /><span></span></label>
 						<span class="sheet-stat-name">Fitness</span>
-						<input type="number" name="attr_fitness" min="7" max="20" value="7" />
+						<input type="number" name="attr_fitness" min="0" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="insight" /><span></span></label>
 						<span class="sheet-stat-name">Insight</span>
-						<input type="number" name="attr_insight" min="7" max="20" value="7" />
+						<input type="number" name="attr_insight" min="0" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="presence" /><span></span></label>
 						<span class="sheet-stat-name">Presence</span>
-						<input type="number" name="attr_presence" min="7" max="20" value="7" />
+						<input type="number" name="attr_presence" min="0" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="reason" /><span></span></label>
 						<span class="sheet-stat-name">Reason</span>
-						<input type="number" name="attr_reason" min="7" max="20" value="7" />
+						<input type="number" name="attr_reason" min="0" max="20" value="7" />
 					</div>
 					<div class="sheet-attr-row">
 						<label class="sheet-stat-select"><input type="radio" name="attr_selected_attribute" value="attribute_reputation" /><span></span></label>
@@ -3061,7 +3061,7 @@ function clampAttribute(value) {
 	if (isNaN(parsed)) {
 		return 7;
 	}
-	return Math.max(7, Math.min(parsed, 20));
+	return Math.max(0, Math.min(parsed, 20));
 }
 
 function clampStarshipSystem(value) {
