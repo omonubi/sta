@@ -987,6 +987,7 @@ Author: Don Davis, aka omonubi
 .sheet-equipment-shell,
 .sheet-weapons-shell,
 .sheet-shuttlebay-shell,
+.sheet-senior-staff-shell,
 .sheet-space-dock-shell,
 .sheet-extended-tasks-shell {
 	background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
@@ -1005,6 +1006,7 @@ Author: Don Davis, aka omonubi
 .sheet-equipment-shell        { border-left: 4px solid var(--lcars-orange); }
 .sheet-weapons-shell          { border-left: 4px solid var(--lcars-purple); }
 .sheet-shuttlebay-shell       { border-left: 4px solid var(--lcars-purple); }
+.sheet-senior-staff-shell     { border-left: 4px solid var(--lcars-orange); }
 .sheet-space-dock-shell       { border-left: 4px solid var(--lcars-orange); }
 .sheet-extended-tasks-shell   { border-left: 4px solid var(--lcars-purple); }
 
@@ -2339,6 +2341,45 @@ Author: Don Davis, aka omonubi
 	outline: none;
 	box-shadow: none;
 	text-shadow: none;
+}
+
+.sheet-senior-staff .sheet-section-header { --sheet-section-bg: var(--lcars-orange); }
+
+.sheet-senior-staff {
+	margin: 0 8px 16px;
+}
+
+.sheet-senior-staff-shell {
+	padding: 8px 12px;
+}
+
+.sheet-senior-staff-panel {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.sheet-senior-staff-row {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+}
+
+.sheet-field-senior-staff {
+	flex: 1;
+	min-width: 0;
+}
+
+.sheet-field-senior-staff label {
+	color: var(--lcars-orange);
+}
+
+.sheet-field-senior-staff input[type="text"] {
+	border-bottom-color: var(--lcars-orange);
+}
+
+.sheet-content .sheet-senior-staff input[type="text"]:focus {
+	border-bottom-color: var(--lcars-orange) !important;
 }
 
 .sheet-traits {
