@@ -9,7 +9,7 @@ Author: Don Davis, aka omonubi
 <!-- Roll Template: Task Check
      Renders in Roll20 chat with LCARS styling. -->
 <rolltemplate class="sheet-rolltemplate-task">
-	<div class="sheet-lcars-result{{#theme_nemesis}} sheet-theme-nemesis{{/theme_nemesis}}{{#theme_lower_decks}} sheet-theme-lower-decks{{/theme_lower_decks}}{{#theme_picard}} sheet-theme-picard{{/theme_picard}}">
+	<div class="sheet-lcars-result{{#theme_tos}} sheet-theme-tos{{/theme_tos}}{{#theme_kahn}} sheet-theme-kahn{{/theme_kahn}}{{#theme_nemesis}} sheet-theme-nemesis{{/theme_nemesis}}{{#theme_lower_decks}} sheet-theme-lower-decks{{/theme_lower_decks}}{{#theme_padd}} sheet-theme-padd{{/theme_padd}}{{#theme_picard}} sheet-theme-picard{{/theme_picard}}{{#theme_prodigy}} sheet-theme-prodigy{{/theme_prodigy}}">
 
 		<div class="sheet-lcars-result-header{{#header_pink}} sheet-header-pink{{/header_pink}}{{#header_tan}} sheet-header-tan{{/header_tan}}{{#header_gray}} sheet-header-gray{{/header_gray}}{{#header_purple}} sheet-header-purple{{/header_purple}}">
 			<div class="sheet-lcars-result-title">{{title}}</div>
@@ -2926,13 +2926,21 @@ Author: Don Davis, aka omonubi
 		</div>
 
 		<div class="sheet-section sheet-settings sheet-settings-theme">
-			<div class="sheet-section-header sheet-section-header-blue">Theme</div>
+			<div class="sheet-section-header sheet-section-header-blue">LCARS Theme</div>
 			<div class="sheet-settings-shell">
 			<div class="sheet-settings-row">
 				<div class="sheet-settings-options">
 					<label class="sheet-settings-option">
+						<input type="radio" name="attr_lcars_theme" value="tos" />
+						<span>TOS/TMP</span>
+					</label>
+					<label class="sheet-settings-option">
+						<input type="radio" name="attr_lcars_theme" value="kahn" />
+						<span>Kahn</span>
+					</label>
+					<label class="sheet-settings-option">
 						<input type="radio" name="attr_lcars_theme" value="classic" checked="checked" />
-						<span>Classic</span>
+						<span>Generations</span>
 					</label>
 					<label class="sheet-settings-option">
 						<input type="radio" name="attr_lcars_theme" value="nemesis" />
@@ -2943,9 +2951,27 @@ Author: Don Davis, aka omonubi
 						<span>Lower Decks</span>
 					</label>
 					<label class="sheet-settings-option">
+						<input type="radio" name="attr_lcars_theme" value="padd" />
+						<span>PADD</span>
+					</label>
+					<label class="sheet-settings-option">
 						<input type="radio" name="attr_lcars_theme" value="picard" />
 						<span>Picard</span>
 					</label>
+					<label class="sheet-settings-option">
+						<input type="radio" name="attr_lcars_theme" value="prodigy" />
+						<span>Prodigy</span>
+					</label>
+				</div>
+			</div>
+			<div class="sheet-settings-row sheet-settings-row-theme-preview">
+				<div class="sheet-theme-preview" aria-label="Selected theme palette preview">
+					<span class="sheet-theme-swatch sheet-theme-swatch-orange" title="LCARS orange"></span>
+					<span class="sheet-theme-swatch sheet-theme-swatch-purple" title="LCARS purple"></span>
+					<span class="sheet-theme-swatch sheet-theme-swatch-blue" title="LCARS blue"></span>
+					<span class="sheet-theme-swatch sheet-theme-swatch-peach" title="LCARS peach"></span>
+					<span class="sheet-theme-swatch sheet-theme-swatch-pink" title="LCARS pink"></span>
+					<span class="sheet-theme-swatch sheet-theme-swatch-text" title="Text or label color"></span>
 				</div>
 			</div>
 			</div><!-- /.sheet-settings-shell -->
@@ -2974,12 +3000,20 @@ function startTaskRoll(tpl, callback) {
 	getAttrs(['lcars_theme'], function(values) {
 		var themedTpl = tpl;
 		var theme = values.lcars_theme || 'classic';
-		if (theme === 'nemesis') {
+		if (theme === 'tos') {
+			themedTpl += ' {{theme_tos=1}}';
+		} else if (theme === 'kahn') {
+			themedTpl += ' {{theme_kahn=1}}';
+		} else if (theme === 'nemesis') {
 			themedTpl += ' {{theme_nemesis=1}}';
 		} else if (theme === 'lower_decks') {
 			themedTpl += ' {{theme_lower_decks=1}}';
+		} else if (theme === 'padd') {
+			themedTpl += ' {{theme_padd=1}}';
 		} else if (theme === 'picard') {
 			themedTpl += ' {{theme_picard=1}}';
+		} else if (theme === 'prodigy') {
+			themedTpl += ' {{theme_prodigy=1}}';
 		}
 		startRoll(themedTpl, callback);
 	});

@@ -83,6 +83,77 @@ Author: Don Davis, aka omonubi
 	--lcars-button-disabled-text: #1a1c22;
 }
 
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) {
+	--lcars-orange: #0033ff;
+	--lcars-orange-muted: #0028cc;
+	--lcars-orange-hover: #4158ff;
+	--lcars-orange-glow: rgba(2, 101, 255, 0.35);
+	--lcars-purple: #4158ff;
+	--lcars-blue: #0265ff;
+	--lcars-peach: #98c4e1;
+	--lcars-pink: #cb0000;
+	--lcars-pink-hover: #e03a3a;
+	--lcars-input-text: #cccccc;
+	--lcars-label-color: #cccccc;
+	--lcars-box-hover: #cccccc;
+	--lcars-button-disabled-bg: #3d3d53;
+	--lcars-button-disabled-text: #17171f;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) {
+	/* TOS-inspired palette from command gold/chartreuse, operations red, and science blue. */
+	--lcars-orange: #d2ad2c;
+	--lcars-orange-muted: #8d741f;
+	--lcars-orange-hover: #e4c45e;
+	--lcars-orange-glow: rgba(210, 173, 44, 0.35);
+	--lcars-purple: #6f86d8;
+	--lcars-blue: #4f78cc;
+	--lcars-peach: #b7c4e6;
+	--lcars-pink: #b22a2e;
+	--lcars-pink-hover: #cd4a4e;
+	--lcars-input-text: #d6d8dd;
+	--lcars-label-color: #d6d8dd;
+	--lcars-box-hover: #d6d8dd;
+	--lcars-button-disabled-bg: #575348;
+	--lcars-button-disabled-text: #1f1d18;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) {
+	/* Wrath of Khan-inspired palette from the Monster Maroon uniform and strap accents. */
+	--lcars-orange: #7b1e2b;
+	--lcars-orange-muted: #5f1721;
+	--lcars-orange-hover: #9a2e3f;
+	--lcars-orange-glow: rgba(123, 30, 43, 0.35);
+	--lcars-purple: #b58a3a;
+	--lcars-blue: #6f7482;
+	--lcars-peach: #c8bba0;
+	--lcars-pink: #c63a3f;
+	--lcars-pink-hover: #dc5257;
+	--lcars-input-text: #d9d4ca;
+	--lcars-label-color: #d9d4ca;
+	--lcars-box-hover: #d9d4ca;
+	--lcars-button-disabled-bg: #4a3a3e;
+	--lcars-button-disabled-text: #181214;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) {
+	/* PADD palette from the reference image: periwinkle/slate panels with cyan and mint accents. */
+	--lcars-orange: #6786df;
+	--lcars-orange-muted: #4f5f93;
+	--lcars-orange-hover: #7b9ef7;
+	--lcars-orange-glow: rgba(103, 134, 223, 0.35);
+	--lcars-purple: #4f5f93;
+	--lcars-blue: #73c8f4;
+	--lcars-peach: #9debe8;
+	--lcars-pink: #2f3d6a;
+	--lcars-pink-hover: #46598f;
+	--lcars-input-text: #cfd8ee;
+	--lcars-label-color: #cfd8ee;
+	--lcars-box-hover: #cfd8ee;
+	--lcars-button-disabled-bg: #3a4463;
+	--lcars-button-disabled-text: #111521;
+}
+
 .sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) label:not(.sheet-tab-label) {
 	color: #88bbff !important;
 }
@@ -107,6 +178,22 @@ Author: Don Davis, aka omonubi
 
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) label:not(.sheet-tab-label) {
 	color: #d2d5df !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) label:not(.sheet-tab-label) {
+	color: #cccccc !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) label:not(.sheet-tab-label) {
+	color: #d6d8dd !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) label:not(.sheet-tab-label) {
+	color: #d9d4ca !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) label:not(.sheet-tab-label) {
+	color: #cfd8ee !important;
 }
 
 .sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) label.sheet-traits-row-details-trigger,
@@ -136,11 +223,83 @@ Author: Don Davis, aka omonubi
 	color: #000000 !important;
 }
 
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:active {
+	color: #000000 !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:active {
+	color: #000000 !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:active {
+	color: #000000 !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) label.sheet-traits-row-details-trigger:active,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:focus,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-traits-row:has(.sheet-traits-row-details-toggle:checked) label.sheet-traits-row-details-trigger:active {
+	color: #000000 !important;
+}
+
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) input[type="text"],
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) input[type="number"],
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) textarea,
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) select {
 	color: #d2d5df !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) input[type="text"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) input[type="number"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) textarea,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) select {
+	color: #cccccc !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) input[type="text"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) input[type="number"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) textarea,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) select {
+	color: #d6d8dd !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) input[type="text"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) input[type="number"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) textarea,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) select {
+	color: #d9d4ca !important;
+}
+
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) input[type="text"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) input[type="number"],
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) textarea,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) select {
+	color: #cfd8ee !important;
 }
 
 .sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-tab-page-starship .sheet-starship-power-toggle-button,
@@ -152,6 +311,10 @@ Author: Don Davis, aka omonubi
 .sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-settings-option:has(input:checked),
 .sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-settings-option:has(input:checked),
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-settings-option:has(input:checked),
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-settings-option:has(input:checked),
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-settings-option:has(input:checked),
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-settings-option:has(input:checked),
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-settings-option:has(input:checked),
 .sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
 .sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
 .sheet-content:has(input[name="attr_lcars_theme"][value="nemesis"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
@@ -160,7 +323,19 @@ Author: Don Davis, aka omonubi
 .sheet-content:has(input[name="attr_lcars_theme"][value="lower_decks"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
-.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover {
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-starship-power-toggle:checked + .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-starship-power-toggle + .sheet-starship-power-toggle-button:hover {
 	color: #000000 !important;
 }
 
@@ -184,7 +359,35 @@ Author: Don Davis, aka omonubi
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-traits-row-details-trigger,
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-power-toggle-button,
 .sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-starship-no-shields-btn,
-.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-space-dock-repair-reset-btn {
+.sheet-content:has(input[name="attr_lcars_theme"][value="picard"]:checked) .sheet-space-dock-repair-reset-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-settings-option,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-starship-no-shields-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="prodigy"]:checked) .sheet-space-dock-repair-reset-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-settings-option,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-starship-no-shields-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="tos"]:checked) .sheet-space-dock-repair-reset-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-settings-option,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-starship-no-shields-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="kahn"]:checked) .sheet-space-dock-repair-reset-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-settings-option,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-values-row label.sheet-value-challenge-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-traits-row-details-trigger,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-starship-power-toggle-button,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-starship-no-shields-btn,
+.sheet-content:has(input[name="attr_lcars_theme"][value="padd"]:checked) .sheet-space-dock-repair-reset-btn {
 	color: #000000 !important;
 }
 
@@ -2915,6 +3118,52 @@ Author: Don Davis, aka omonubi
 	color: var(--lcars-on-color);
 }
 
+.sheet-theme-preview {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 0;
+	padding-left: 2px;
+	width: 100%;
+}
+
+.sheet-settings-row-theme-preview {
+	padding-top: 8px;
+}
+
+.sheet-theme-swatch {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	border: 1px solid #2f2f2f;
+	box-shadow: 0 0 0 1px #111111;
+	flex: 0 0 18px;
+}
+
+.sheet-theme-swatch-orange {
+	background-color: var(--lcars-orange);
+}
+
+.sheet-theme-swatch-purple {
+	background-color: var(--lcars-purple);
+}
+
+.sheet-theme-swatch-blue {
+	background-color: var(--lcars-blue);
+}
+
+.sheet-theme-swatch-peach {
+	background-color: var(--lcars-peach);
+}
+
+.sheet-theme-swatch-pink {
+	background-color: var(--lcars-pink);
+}
+
+.sheet-theme-swatch-text {
+	background-color: var(--lcars-label-color);
+}
+
 /* ============================================================
    PARTY SHEET
    ============================================================ */
@@ -3550,6 +3799,38 @@ Author: Don Davis, aka omonubi
 	--lcars-pink: #8c6d7c;
 	--lcars-purple: #808c6d;
 	--lcars-blue: #37a6d1;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result.sheet-theme-prodigy {
+	--lcars-orange: #0033ff;
+	--lcars-peach: #98c4e1;
+	--lcars-pink: #cb0000;
+	--lcars-purple: #4158ff;
+	--lcars-blue: #0265ff;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result.sheet-theme-tos {
+	--lcars-orange: #d2ad2c;
+	--lcars-peach: #b7c4e6;
+	--lcars-pink: #b22a2e;
+	--lcars-purple: #6f86d8;
+	--lcars-blue: #4f78cc;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result.sheet-theme-kahn {
+	--lcars-orange: #7b1e2b;
+	--lcars-peach: #c8bba0;
+	--lcars-pink: #c63a3f;
+	--lcars-purple: #b58a3a;
+	--lcars-blue: #6f7482;
+}
+
+.sheet-rolltemplate-task .sheet-lcars-result.sheet-theme-padd {
+	--lcars-orange: #6786df;
+	--lcars-peach: #9debe8;
+	--lcars-pink: #2f3d6a;
+	--lcars-purple: #4f5f93;
+	--lcars-blue: #73c8f4;
 }
 
 .sheet-rolltemplate-hidden {
