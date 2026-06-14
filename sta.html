@@ -1148,7 +1148,7 @@ Author: Don Davis, aka omonubi
 				</div>
 				<div class="sheet-field sheet-field-mission-momentum">
 					<label>Momentum</label>
-					<input type="number" name="attr_party_momentum" min="0" max="99" value="0" />
+					<input type="number" name="attr_party_momentum" min="0" max="6" value="0" />
 				</div>
 				<div class="sheet-field sheet-field-mission-threat">
 					<label>Threat</label>
@@ -2989,6 +2989,14 @@ function clampCounter(value) {
 	return Math.max(0, Math.min(parsed, 99));
 }
 
+function clampMomentum(value) {
+	var parsed = parseInt(value, 10);
+	if (isNaN(parsed)) {
+		return 0;
+	}
+	return Math.max(0, Math.min(parsed, 6));
+}
+
 function escapeTemplateValue(value) {
 	return String(value)
 		.replace(/\{/g, '&#123;')
@@ -4198,6 +4206,12 @@ function syncCharacterTraitStunnedFlags(callback) {
 
 on('sheet:opened', function() {
 	isInitializingStarshipShields = true;
+	getAttrs(['party_momentum'], function(v) {
+		var clampedMomentum = clampMomentum(v.party_momentum);
+		if (parseInt(v.party_momentum, 10) !== clampedMomentum) {
+			setAttrs({ party_momentum: clampedMomentum }, { silent: true });
+		}
+	});
 	getAttrs(['determination_points', 'determination_1', 'determination_2', 'determination_3'], function(v) {
 		var total = parseInt(v.determination_points, 10);
 		if (isNaN(total)) {
@@ -5392,8 +5406,8 @@ on('change:party_momentum change:party_threat', function(eventInfo) {
 
 	var attributeName = eventInfo.sourceAttribute || '';
 	var counterLabel = attributeName === 'party_threat' ? 'Threat' : 'Momentum';
-	var oldValue = clampCounter(eventInfo.previousValue);
-	var newValue = clampCounter(eventInfo.newValue);
+	var oldValue = attributeName === 'party_threat' ? clampCounter(eventInfo.previousValue) : clampMomentum(eventInfo.previousValue);
+	var newValue = attributeName === 'party_threat' ? clampCounter(eventInfo.newValue) : clampMomentum(eventInfo.newValue);
 
 	getAttrs(['character_name'], function(v) {
 		var title = v.character_name || 'Character';
